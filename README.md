@@ -29,8 +29,8 @@
 - `index.Rmd`：yaml 僅需設定下列幾項
 
 ```markdown
-title: '臺灣大學論文 Bookdown 模板'  # 顯示在 GitBook output 的標題
-author: 'Yongfu Liao'                 # 顯示在 GitBook output 的作者
+title: '臺灣大學論文 Bookdown 模板'   # 顯示在 GitBook 的標題
+author: 'Yongfu Liao'                 # 顯示在 GitBook 的作者
 linestretch: 1.5 # If English: 1.5    # PDF 行距
 watermark: false                      # PDF 是否印出浮水印
 bibliography: packages.bib            # 論文的參考書目
