@@ -1,6 +1,7 @@
 --- 
 title: '臺灣大學論文 Bookdown 模板'
-author: 'Yongfu Liao'
+author: '廖永賦'
+github-repo: "liao961120/NTUbookdown"
 link-citations: yes
 site: bookdown::bookdown_site
 geometry: a4paper, left=1.18in, right=1.18in, top=1.18in, bottom=0.787in
