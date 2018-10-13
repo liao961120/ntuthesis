@@ -2,6 +2,7 @@
 title: '臺灣大學論文 Bookdown 模板'
 author: '廖永賦'
 github-repo: "liao961120/NTUbookdown"
+date: "`r format(Sys.Date(), '%B %e, %Y')`" # Only in Gitbook
 link-citations: yes
 site: bookdown::bookdown_site
 geometry: a4paper, left=1.18in, right=1.18in, top=1.18in, bottom=0.787in
@@ -10,6 +11,7 @@ subparagraph: yes
 linestretch: 1.5 # If English: 1.5
 watermark: false
 bibliography: packages.bib
+biblio-title: '參考資料'
 ---
 
 # Prerequisites

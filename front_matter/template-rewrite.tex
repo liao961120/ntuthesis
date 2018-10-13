@@ -1,4 +1,4 @@
-\documentclass{ntuthesis}
+\documentclass[oneside]{ntuthesis}
 
 \usepackage{times}
 \usepackage{verbatim}
@@ -264,8 +264,9 @@ $endfor$
 \makecover
 
 \clearpage
-\pagenumbering{gobble}
-%\pagenumbering{roman}
+%\pagenumbering{gobble}
+\pagenumbering{roman}
+
 
 \ifdefined\withcertification
   \includepdf[angle=0]{certification.pdf}
@@ -273,15 +274,12 @@ $endfor$
   \makecertification
 \fi
 
-\clearpage
-\pagenumbering{gobble}
 
 \begin{acknowledgementszh}
 $acknowledgements$
 \end{acknowledgementszh}
 
-\clearpage
-\pagenumbering{gobble}
+%\pagenumbering{gobble}
 %\begin{acknowledgementsen}
 %$acknowledgements-en$
 %\end{acknowledgementsen}
@@ -293,8 +291,6 @@ $abstract-zh$
 \noindent \textbf{關鍵字：}{\, \makeatletter \@keywordszh \makeatother}
 \end{abstractzh}
 
-\clearpage
-\pagenumbering{gobble}
 
 \begin{abstracten}
 $abstract-en$
@@ -302,7 +298,5 @@ $abstract-en$
 \noindent \textbf{Keywords:}{\, \makeatletter \@keywordsen \makeatother}
 \end{abstracten}
 
-\clearpage
-\pagenumbering{gobble}
 
 \end{document}
