@@ -1,0 +1,20 @@
+\usepackage{pdfpages}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\titleformat{\chapter}{\centering\Huge\bfseries}{第\,\xCJKnumber{\thechapter}\,章}{1em} {}
+\titlespacing{\chapter}{0cm}{-1.3cm}{1em} 
+
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+\renewcommand{\contentsname}{目錄}
+\renewcommand{\bibname}{參考資料}
+\renewcommand{\listfigurename}{圖目錄}
+\renewcommand{\listtablename}{表目錄}
+
+
+
+\titlecontents{chapter}[0em]
+{}{\makebox[4.1em][l]
+{第\xCJKnumber{\thecontentslabel}章}}{}
+{\titlerule*[0.7pc]{.}\contentspage}

@@ -1,0 +1,139 @@
+\documentclass{ntuthesis}
+
+\usepackage{times}
+\usepackage{verbatim}
+\usepackage{color}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{wallpaper}
+\usepackage{hyperref}
+\usepackage[printwatermark]{xwatermark}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+
+% Using the tex-text mapping for ligatures etc.
+\defaultfontfeatures{Mapping=tex-text}
+
+% Set the default fonts
+\setmainfont{Liberation Serif} % Times New Roman
+\setCJKmainfont{AR PL KaitiM Big5} %標楷體
+
+\ifdefined\withwatermark
+  \newwatermark*[allpages,xpos=6.1725cm,ypos=10.5225cm,scale=0.5]{\includegraphics{watermark.pdf}}
+\fi
+
+% digital object identifier
+\ifdefined\withdoi
+  \insertdoi
+\fi
+
+\makeatletter
+\AtBeginDocument{
+  \hypersetup{
+    pdftitle={\@titleen},
+    pdfauthor={\@authoren},
+    pdfsubject={\@typeen{} \@classen},
+    pdfkeywords={\@keywordsen}
+  }
+}
+\makeatother
+
+% Your information goes here
+%\input{ntuvars} MODIFIED
+\university{National Taiwan University}{國立臺灣大學}
+\college{$college-en$}{$college-zh$}
+\institute{$institute-en$}{$institute-zh$}
+\title{$title-en$}{$title-zh$}
+\author{$author-en$}{$author-zh$}
+\studentid{$studentid$}
+\advisor{$advisor-en$}{$advisor-zh$}
+\defenseyear{$year-ce$}{$year-mg$}
+\defensemonth{$month-en$}{$month-num$}
+\defenseday{$day$}
+\doi{$doi$}
+\keywords{$keyword-en$}{$keyword-zh$}
+
+
+\begin{document}
+
+\frontmatter
+
+\makecover
+
+\ifdefined\withcertification
+  \includepdf[angle=0]{certification.pdf}
+\else
+  \makecertification
+\fi
+
+%%% START of MODIFICATION
+
+%\input{acknowledgements}
+\begin{acknowledgementszh}
+$acknowledgements$
+\end{acknowledgementszh}
+
+\begin{acknowledgementsen}
+$acknowledgementsen$
+\end{acknowledgementsen}
+
+%%% END of MODIFICATION
+
+%%%% START of MODIFIED
+
+%\input{abstract} MODIFIED
+\begin{abstractzh}
+$abstractzh$
+\bigbreak
+\noindent \textbf{關鍵字：}{\, \makeatletter \@keywordszh \makeatother}
+\end{abstractzh}
+
+\begin{abstracten}
+$zabstracten$
+\bigbreak
+\noindent \textbf{Keywords:}{\, \makeatletter \@keywordsen \makeatother}
+\end{abstracten}
+
+\begin{comment}
+\category{I2.10}{Computing Methodologies}{Artificial Intelligence --
+Vision and Scene Understanding} \category{H5.3}{Information
+Systems}{Information Interfaces and Presentation (HCI) -- Web-based
+Interaction.}
+
+\terms{Design, Human factors, Performance.}
+
+\keywords{Region of interest, Visual attention model, Web-based
+games, Benchmarks.}
+\end{comment}
+
+%%% End
+
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+
+% Your thesis goes here
+%\input{introduction}
+%\input{related}
+%\input{photoshoot}
+%\input{modeling}
+%\input{application}
+%\input{conclusion}
+$body$
+
+
+\appendix
+
+\backmatter
+
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliographystyle{abbrv}
+
+% Your bibliography goes here
+\bibliography{thesis}
+
+\end{document}

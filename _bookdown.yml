@@ -1,0 +1,22 @@
+book_filename: "ntu-bookdown"
+delete_merged_file: true
+output_dir: "docs"
+language:
+  label:
+    fig: '圖 ' #'Figure '
+    tab: '表 ' # 'Table '
+    eq:  '式 '#'Equation '
+    thm:  'Theorem '
+    lem:  'Lemma '
+    cor:  'Corollary '
+    prp:  'Proposition '
+    cnj:  'Conjecture '
+    def: '定義 ' #'Definition '
+    exm: '例 ' #'Example '
+    exr: 'Exercise '
+    proof: 'Proof. '
+    remark: 'Remark. '
+    solution: 'Solution. '
+  ui:
+    chapter_name: ['第 ', ' 章'] # "Chapter "
+    
