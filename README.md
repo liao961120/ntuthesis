@@ -1,7 +1,7 @@
 # NTUbookdown
 
 這是國立臺灣大學的碩士論文模板，
-基於 [bookdown](https://github.com/rstudio/bookdown) 這個 R 套件的架構。
+基於 [bookdown](https://github.com/rstudio/bookdown) 的架構。
 
 輸出範例，請見：
 
