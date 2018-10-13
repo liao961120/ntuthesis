@@ -34,8 +34,6 @@
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{plainnat}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -106,10 +104,9 @@
 \renewcommand{\figurename}{圖}
 \renewcommand{\tablename}{表}
 \renewcommand{\contentsname}{目錄}
-\renewcommand{\bibname}{參考資料}
 \renewcommand{\listfigurename}{圖目錄}
 \renewcommand{\listtablename}{表目錄}
-
+%\renewcommand{\bibname}{參考資料}
 
 
 
@@ -120,7 +117,7 @@
 
 \title{臺灣大學論文 Bookdown 模板}
 \author{廖永賦}
-\date{October 13, 2018}
+\date{October 14, 2018}
 
 
 \usepackage{fontspec}
@@ -199,9 +196,10 @@
 
 \chapter{Prerequisites}\label{prerequisites}
 
-This is a \emph{sample} book written in \textbf{Markdown}
-\citep{R-rmarkdown}. You can use anything that Pandoc's Markdown
-supports, e.g., a math equation \(a^2 + b^2 = c^2\).
+This is a \emph{sample} book written in \textbf{Markdown} (Allaire et
+al., \protect\hyperlink{ref-R-rmarkdown}{2018}). You can use anything
+that Pandoc's Markdown supports, e.g., a math equation
+\(a^2 + b^2 = c^2\).
 
 The \textbf{bookdown} package can be installed from CRAN or Github:
 
@@ -296,8 +294,9 @@ Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 \end{table}
 
 You can write citations, too. For example, we are using the
-\textbf{bookdown} package \citep{R-bookdown} in this sample book, which
-was built on top of R Markdown and \textbf{knitr}.
+\textbf{bookdown} package (Xie,
+\protect\hyperlink{ref-R-bookdown}{2018}) in this sample book, which was
+built on top of R Markdown and \textbf{knitr}.
 
 \chapter{Literature}\label{literature}
 
@@ -323,11 +322,24 @@ Some \emph{significant} applications are demonstrated in this chapter.
 
 We have finished a nice book.
 
+\chapter*{參考資料}\label{references}
+\addcontentsline{toc}{chapter}{參考資料}
+
+\hypertarget{refs}{}
+\hypertarget{ref-R-rmarkdown}{}
+Allaire, J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins,
+A., \ldots{} Chang, W. (2018). \emph{Rmarkdown: Dynamic documents for
+r}. Retrieved from \url{https://CRAN.R-project.org/package=rmarkdown}
+
+\hypertarget{ref-R-bookdown}{}
+Xie, Y. (2018). \emph{Bookdown: Authoring books and technical documents
+with r markdown}. Retrieved from
+\url{https://CRAN.R-project.org/package=bookdown}
 
 
 
-\renewcommand\bibname{參考資料}
-\bibliography{packages.bib}
-\addcontentsline{toc}{chapter}{\bibname}
+
+
+
 
 \end{document}

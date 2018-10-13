@@ -1,5 +1,6 @@
 bookdown::gitbook:
   css: style.css
+  pandoc_args: "--csl=cite-style.csl"
   config:
     toc:
       before: |
@@ -17,9 +18,9 @@ bookdown::pdf_book:
   #  before_body: latex/before_body.tex
     in_header: latex/preamble-zh.tex
   template: latex/template.tex
-  citation_package: natbib
+  citation_package: none
   #pandoc_args: [  "--csl", "cite-style.csl", "--top-level-division=chapter" ]
-  pandoc_args: [  "--biblatex", "--csl=cite-style.csl", "--top-level-division=chapter" ]
+  pandoc_args: [  "--csl=cite-style.csl", "--top-level-division=chapter" ]
   toc_appendix: true
   toc_bib: true
   latex_engine: xelatex

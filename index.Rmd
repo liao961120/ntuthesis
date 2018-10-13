@@ -11,7 +11,6 @@ subparagraph: yes
 linestretch: 1.5 # If English: 1.5
 watermark: false
 bibliography: packages.bib
-biblio-title: '參考資料'
 ---
 
 # Prerequisites
