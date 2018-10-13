@@ -5,11 +5,10 @@ link-citations: yes
 site: bookdown::bookdown_site
 geometry: a4paper, left=1.18in, right=1.18in, top=1.18in, bottom=0.787in
 fontsize: 12pt
-linestretch: 1.5 # If English: 1.5
 subparagraph: yes
+linestretch: 1.5 # If English: 1.5
 watermark: false
 bibliography: packages.bib
-csl: apa.csl
 ---
 
 # Prerequisites
