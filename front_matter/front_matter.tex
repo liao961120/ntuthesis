@@ -1,0 +1,163 @@
+\documentclass[oneside]{ntuthesis}
+
+\usepackage{times}
+\usepackage{verbatim}
+\usepackage{color}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{wallpaper}
+\usepackage[printwatermark]{xwatermark}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+
+% Using the tex-text mapping for ligatures etc.
+\defaultfontfeatures{Mapping=tex-text}
+
+% Set the default fonts
+\setmainfont{Liberation Serif} % Times New Roman
+\setCJKmainfont{AR PL KaitiM Big5} %標楷體
+
+\ifdefined\withwatermark
+  \newwatermark*[allpages,xpos=6.1725cm,ypos=10.5225cm,scale=0.5]{\includegraphics{watermark.pdf}}
+\fi
+
+% digital object identifier
+\ifdefined\withdoi
+  \insertdoi
+\fi
+
+\makeatletter
+\AtBeginDocument{
+  \hypersetup{
+    pdftitle={\@titleen},
+    pdfauthor={\@authoren},
+    pdfsubject={\@typeen{} \@classen},
+    pdfkeywords={\@keywordsen}
+  }
+}
+\makeatother
+
+% Your information goes here
+%\input{ntuvars} MODIFIED
+\university{National Taiwan University}{國立臺灣大學}
+\college{College of Science}{理學院}
+\institute{Department of Psychology}{心理學系}
+\title{A Minimal NTU Thesis Bookdown Template}{臺灣大學論文 Bookdown 模板}
+\author{Yongfu Liao}{廖永賦}
+\studentid{b04207003}
+\advisor{Jonh Doe, PhD.\\
+\hspace{60pt} Ming Lin, PhD.}{道約翰 ~~博士\\
+\hspace{85pt} 林小明 ~~博士}
+\defenseyear{2011}{100}
+\defensemonth{June}{6}
+\defenseday{28}
+\doi{10.1016/S0010-0277(00)00108-6}
+\keywords{R Markdown, Bookdown, Reproducible Research}{R Markdown, Bookdown, 可重製研究}
+
+%%%%%%%%%%%%%%%%%%%%%%% ABOVE: NTU THESIS
+
+
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdftitle={臺灣大學論文 Bookdown 模板},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\begin{document}
+
+\frontmatter
+
+\makecover
+
+\clearpage
+%\pagenumbering{gobble}
+\pagenumbering{roman}
+
+
+\ifdefined\withcertification
+  \includepdf[angle=0]{certification.pdf}
+\else
+  \makecertification
+\fi
+
+
+\begin{acknowledgementszh}
+非常感謝\ldots{}感謝。不支援新段落。\\
+但可換行
+\end{acknowledgementszh}
+
+%\pagenumbering{gobble}
+%\begin{acknowledgementsen}
+%
+%\end{acknowledgementsen}
+
+
+\begin{abstractzh}
+中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。
+\bigbreak
+\noindent \textbf{關鍵字：}{\, \makeatletter \@keywordszh \makeatother}
+\end{abstractzh}
+
+
+\begin{abstracten}
+Abstract in English. Abstract in English. Abstract in English. Abstract
+in English.
+\bigbreak
+\noindent \textbf{Keywords:}{\, \makeatletter \@keywordsen \makeatother}
+\end{abstracten}
+
+
+\end{document}

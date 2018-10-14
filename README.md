@@ -41,7 +41,11 @@ bibliography: packages.bib            # 論文的參考書目
 1. Pandoc CJKmainfont Args
 1. 英文版
 1. 整理成 R Package
-1. 完整使用說明
+    - 中英文 acknowledgement
+        - 修改 `template`, `template-rewrite` branching
+        - one-side / two-side
+    - 兩指導教授
+1. 使用說明
 
 
 ## 附註

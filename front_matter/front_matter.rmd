@@ -2,8 +2,14 @@
 title: '臺灣大學論文 Bookdown 模板'
 title-en: 'A Minimal NTU Thesis Bookdown Template'
 title-zh: '臺灣大學論文 Bookdown 模板'
-advisor-en: 'Jonh Doe, PhD'
-advisor-zh: '道約翰 \ \ 博士'
+advisor-zh: |
+  | 道約翰 \ \ 博士
+  | \hspace{85pt} 林小明 \ \ 博士
+# Second advisor needs to tweek hspace
+advisor-en: |
+  | Jonh Doe, PhD.
+  | \hspace{60pt} Ming Lin, PhD.
+# Second advisor needs to tweek hspace
 author-en: 'Yongfu Liao'
 author-zh: '廖永賦'
 studentid: 'b04207003'
@@ -34,4 +40,5 @@ output:
     number_sections: FALSE
     toc: False
     template: template-rewrite.tex
+    keep_tex: true
 ---
