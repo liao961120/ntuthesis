@@ -1,5 +1,4 @@
 --- 
-title: '臺灣大學論文 Bookdown 模板'
 title-en: 'A Minimal NTU Thesis Bookdown Template'
 title-zh: '臺灣大學論文 Bookdown 模板'
 advisor-zh: |
