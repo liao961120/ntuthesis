@@ -1,5 +1,6 @@
-\documentclass[oneside]{book}
+  \documentclass[oneside]{book}
 %\documentclass[12pt,]{book}
+
 \usepackage{lmodern}
 \usepackage{setspace}
 \setstretch{1.5}
@@ -96,24 +97,17 @@
 \usepackage{pdfpages}
 \usepackage{titlesec}
 \usepackage{titletoc}
-\usepackage{xCJKnumb}
+\usepackage{booktabs}
 
-\titleformat{\chapter}{\centering\Huge\bfseries}{第\,\xCJKnumber{\thechapter}\,章}{1em} {}
-\titlespacing{\chapter}{0cm}{-1.3cm}{1em} 
+%\titleformat{\chapter}{\centering\Huge\bfseries}{Chapter \thechapter}{30pt}{\Huge}
+%\titlespacing{\chapter}{0cm}{-1.3cm}{1em} 
 
-\renewcommand{\figurename}{圖}
-\renewcommand{\tablename}{表}
-\renewcommand{\contentsname}{目錄}
-\renewcommand{\listfigurename}{圖目錄}
-\renewcommand{\listtablename}{表目錄}
-%\renewcommand{\bibname}{參考資料}
-
-
-
-\titlecontents{chapter}[0em]
-{}{\makebox[4.1em][l]
-{第\xCJKnumber{\thecontentslabel}章}}{}
-{\titlerule*[0.7pc]{.}\contentspage}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+\renewcommand{\contentsname}{Table of Contents}
+%\renewcommand{\listfigurename}{}
+%\renewcommand{\listtablename}{}
+%\renewcommand{\bibname}{}
 
 \title{臺灣大學論文 Bookdown 模板}
 \author{廖永賦}
@@ -124,17 +118,22 @@
 %使用xeCJK，其他的還有CJK或是xCJK
 \usepackage{xeCJK}
 \usepackage{bm}
-% Set the default fonts
-\setmainfont{Liberation Serif} % Times New Roman
 
-\setCJKmainfont[
-	BoldFont={AR PL KaitiM Big5}  % 粗體字 HanWangHeiHeavy
-    ]{AR PL KaitiM Big5}    % 一般字型
+% Set the default fonts
+  \setmainfont{Liberation Serif} % Times New Roman  %Liberation Serif
+
+            \setCJKmainfont{AR PL KaitiM Big5} %標楷體 %AR PL KaitiM Big5
+    
+% IPA support (Works with linguisticsdown)
+  \newfontfamily\ipa{Doulos SIL} % Font for IPA symbols
+  \DeclareTextFontCommand{\ipatext}{\ipa}
+
 
 \usepackage{xcolor}
 \usepackage{transparent}
 \usepackage[printwatermark]{xwatermark}
 
+  \newwatermark*[allpages,xpos=6.1725cm,ypos=10.5225cm,scale=0.5]{\includegraphics{watermark2.pdf}}
 
 
 \usepackage{amsthm}
@@ -152,9 +151,6 @@
 \newtheorem*{remark}{Remark}
 \newtheorem*{solution}{Solution}
 \begin{document}
-%%\maketitle
-%
-
 
 
 \includepdf[pages={1}, scale=1]{front_matter/front_matter.pdf}
@@ -164,7 +160,7 @@
 
 \phantomsection
 \addcontentsline{toc}{chapter}{口試委員會審定書}
-\includepdf[pages={1}, scale=1]{certification.pdf}
+\includepdf[pages={1}, scale=1]{front_matter/certification.pdf}
 
 \phantomsection
 \addcontentsline{toc}{chapter}{誌謝}
@@ -196,7 +192,9 @@
 
 \chapter{Prerequisites}\label{prerequisites}
 
-This is a \emph{sample} book written in \textbf{Markdown} (Allaire et
+\ipatext{ä} is the IPA symbol for ㄚ in ㄅㄆㄇ。
+
+This is a \emph{sample} book written in \textbf{R Markdown} (Allaire et
 al., \protect\hyperlink{ref-R-rmarkdown}{2018}). You can use anything
 that Pandoc's Markdown supports, e.g., a math equation
 \(a^2 + b^2 = c^2\).
@@ -220,10 +218,102 @@ install TinyTeX (which includes XeLaTeX):
 
 \chapter{Introduction}\label{intro}
 
-You can label chapter and section titles using \texttt{\{\#label\}}
-after them, e.g., we can reference Chapter \ref{intro}. If you do not
-manually label them, there will be automatic labels anyway, e.g.,
-Chapter \ref{methods}.
+By default, bookdown merges all Rmd files by the order of filenames,
+e.g., \texttt{01-intro.Rmd} will appear before
+\texttt{02-literature.Rmd}. Filenames that start with an underscore
+\texttt{\_} are skipped. \texttt{index.Rmd} will always be treated as
+the first file.
+
+Alternatively, set the order in \texttt{\_bookdown.yml}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rmd_files:}
+  \FunctionTok{html:}\AttributeTok{ }\KeywordTok{[}\StringTok{"index.Rmd"}\KeywordTok{,} \StringTok{"abstract.Rmd"}\KeywordTok{,} \StringTok{"intro.Rmd"}\KeywordTok{]}
+  \FunctionTok{latex:}\AttributeTok{ }\KeywordTok{[}\StringTok{"abstract.Rmd"}\KeywordTok{,} \StringTok{"intro.Rmd"}\KeywordTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Benefits
+\item
+  Quick Start
+
+  \begin{itemize}
+  \tightlist
+  \item
+    General Usage
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Front matter
+    \item
+      Content
+    \end{itemize}
+  \item
+    Write Thesis in English (Write in Eng)
+  \end{itemize}
+\item
+  Bookdown Demo
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Citation
+  \item
+    Cross References
+  \item
+    數學公式
+  \item
+    indexing
+  \end{itemize}
+\item
+  Harnessing the Power of R Community
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Facilitating Packages
+
+    \begin{itemize}
+    \tightlist
+    \item
+      citr
+    \end{itemize}
+  \item
+    特定領域
+
+    \begin{itemize}
+    \tightlist
+    \item
+      linguisticsdown
+    \end{itemize}
+  \end{itemize}
+\item
+  Resources
+
+  \begin{itemize}
+  \tightlist
+  \item
+    R Markdown Features
+  \end{itemize}
+\item
+  Thanks and Help
+
+  \begin{itemize}
+  \tightlist
+  \item
+    GitHub issues
+  \end{itemize}
+\end{itemize}
+
+\textbf{You} can label chapter and section titles using
+\texttt{\{\#label\}} after them, e.g., we can reference Chapter
+\ref{intro}. If you do not manually label them, there will be automatic
+labels anyway, e.g., Chapter \ref{methods}.
 
 Figures and tables with captions will be placed in \texttt{figure} and
 \texttt{table} environments, respectively.

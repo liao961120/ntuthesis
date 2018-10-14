@@ -1,6 +1,48 @@
 # Introduction {#intro}
 
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+
+By default, bookdown merges all Rmd files by the order of filenames, e.g., `01-intro.Rmd` will appear before `02-literature.Rmd`. Filenames that start with an underscore `_` are skipped. `index.Rmd` will always be treated as the first file.
+
+Alternatively, set the order in `_bookdown.yml`:
+
+```yaml
+rmd_files:
+  html: ["index.Rmd", "abstract.Rmd", "intro.Rmd"]
+  latex: ["abstract.Rmd", "intro.Rmd"]
+```
+
+
+
+- Benefits
+- Quick Start
+    - General Usage
+        - Front matter
+        - Content
+    - Write Thesis in English (Write in Eng)
+- Bookdown Demo
+    - Citation
+    - Cross References
+    - 數學公式
+    - indexing
+- Harnessing the Power of R Community
+    - Facilitating Packages
+        - citr
+    - 特定領域
+        - linguisticsdown
+- Resources
+    - R Markdown Features
+- Thanks and Help
+    - GitHub issues
+
+
+
+
+
+
+
+**You** can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+
+
 
 Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
 
@@ -19,3 +61,4 @@ knitr::kable(
 ```
 
 You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr**.
+

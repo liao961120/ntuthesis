@@ -1,12 +1,14 @@
 bookdown::gitbook:
+  includes:
+    before_body: latex/mathjax_bm.tex
   css: style.css
   pandoc_args: "--csl=cite-style.csl"
   config:
     toc:
       before: |
-        <li><a href="./">A Minimal Book Example</a></li>
+        <li><a href="./">臺大論文模板</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <li><a href="https://github.com/liao961120/NTUbookdown" target="blank">Published with bookdown</a></li>
     download: "pdf"
     edit: https://github.com/liao961120/NTUbookdown/edit/master/%s
     sharing:
@@ -15,11 +17,9 @@ bookdown::gitbook:
       twitter: no
 bookdown::pdf_book:
   includes:
-  #  before_body: latex/before_body.tex
-    in_header: latex/preamble-zh.tex
+    in_header: latex/preamble-en.tex
   template: latex/template.tex
   citation_package: none
-  #pandoc_args: [  "--csl", "cite-style.csl", "--top-level-division=chapter" ]
   pandoc_args: [  "--csl=cite-style.csl", "--top-level-division=chapter" ]
   toc_appendix: true
   toc_bib: true

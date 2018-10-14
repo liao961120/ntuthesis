@@ -29,7 +29,7 @@
 - `index.Rmd`：yaml 僅需設定下列幾項
 
 ```markdown
-title: '臺灣大學論文 Bookdown 模板'   # 顯示在 GitBook 的標題
+title: '臺灣大學論文 Bookdown 模板'     # 顯示在 GitBook 的標題
 author: 'Yongfu Liao'                 # 顯示在 GitBook 的作者
 linestretch: 1.5 # If English: 1.5    # PDF 行距
 watermark: false                      # PDF 是否印出浮水印
@@ -38,19 +38,8 @@ bibliography: packages.bib            # 論文的參考書目
 
 ## To Do
 
-1. Pandoc CJKmainfont Args
-1. 英文版
-1. IPA font support
 1. 整理成 R Package
-    - 中英文 acknowledgement
-        - 修改 `template`, `template-rewrite` branching
-        - one-side / two-side
 1. 使用說明
-    - Bookdown
-        - Cross Reference
-        - 數學公式
-    - 特定領域
-        - linguisticsdown
 
 
 ## 附註

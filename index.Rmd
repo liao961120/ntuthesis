@@ -2,20 +2,29 @@
 title: '臺灣大學論文 Bookdown 模板'
 author: '廖永賦'
 github-repo: "liao961120/NTUbookdown"
-date: "`r format(Sys.Date(), '%B %e, %Y')`" # Only in Gitbook
-link-citations: yes
-site: bookdown::bookdown_site
+date: "`r format(Sys.Date(), '%B %e, %Y')`" # Gitbook Date
+two-side: false  # Whether to start new chap. on odd pages
+cjk-mainfont: 'AR PL KaitiM Big5'  # Default: 標楷體
+#cjk-boldfont: 'Noto Serif CJK TC' # Default: inherits cjk-mainfont
+en-mainfont: 'Liberation Serif'  # Default: Times New Roman
+ipa-font: 'Doulos SIL'      # works with pkg 'linguisticsdown'
+linestretch: 1.5  # If Chinese: 2
+watermark: watermark2.pdf   # ntu watermark file (must be in root dir)
+link-citations: yes         # internal links to references
+bibliography: ref.bib       # path to .bib file
+## Shouldn't touch things below unless familiar with R Markdown
 geometry: a4paper, left=1.18in, right=1.18in, top=1.18in, bottom=0.787in
 fontsize: 12pt
 subparagraph: yes
-linestretch: 1.5 # If English: 1.5
-watermark: false
-bibliography: packages.bib
+site: bookdown::bookdown_site
 ---
 
 # Prerequisites
 
-This is a _sample_ book written in **Markdown** [@R-rmarkdown]. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
+`r linguisticsdown::cond_cmpl("ä")`
+is the IPA symbol for ㄚ in ㄅㄆㄇ。
+
+This is a _sample_ book written in **R Markdown** [@R-rmarkdown]. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
 
 The **bookdown** package can be installed from CRAN or Github:
 
@@ -29,9 +38,3 @@ Remember each Rmd file contains one and only one chapter, and a chapter is defin
 
 To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```

@@ -1,4 +1,8 @@
-\documentclass[oneside]{ntuthesis}
+$if(ntu-template)$
+    \documentclass[oneside, $ntu-template$]{ntuthesis}
+$else$
+    \documentclass[oneside]{ntuthesis}    
+$endif$
 
 \usepackage{times}
 \usepackage{verbatim}
@@ -15,12 +19,25 @@
 \defaultfontfeatures{Mapping=tex-text}
 
 % Set the default fonts
-\setmainfont{Liberation Serif} % Times New Roman
-\setCJKmainfont{AR PL KaitiM Big5} %標楷體
+$if(en-mainfont)$
+\setmainfont{$en-mainfont$} % Times New Roman  %Liberation Serif
+$else$
+\setmainfont{Times New Roman} 
+$endif$
 
-\ifdefined\withwatermark
-  \newwatermark*[allpages,xpos=6.1725cm,ypos=10.5225cm,scale=0.5]{\includegraphics{watermark.pdf}}
-\fi
+$if(cjk-mainfont)$
+    $if(cjk-boldfont)$
+        \setCJKmainfont[
+	    BoldFont={$cjk-boldfont$}  % 粗體字 
+        ]{$cjk-mainfont$}
+    $else$
+        \setCJKmainfont{$cjk-mainfont$} %標楷體 %AR PL KaitiM Big5
+    $endif$
+$else$
+    \setCJKmainfont{標楷體}
+$endif$
+
+
 
 % digital object identifier
 \ifdefined\withdoi
@@ -275,14 +292,15 @@ $endfor$
 \fi
 
 
-\begin{acknowledgementszh}
-$acknowledgements$
-\end{acknowledgementszh}
-
-%\pagenumbering{gobble}
-%\begin{acknowledgementsen}
-%$acknowledgements-en$
-%\end{acknowledgementsen}
+$if(acknowledge-in-en)$
+  \begin{acknowledgementsen}
+  $acknowledgements$
+  \end{acknowledgementsen}
+$else$
+  \begin{acknowledgementszh}
+  $acknowledgements$
+  \end{acknowledgementszh}
+$endif$
 
 
 \begin{abstractzh}
