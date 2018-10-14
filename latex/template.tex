@@ -1,5 +1,10 @@
-\documentclass[oneside]{book}
+$if(two-side)$
+  \documentclass[]{book}
+$else$
+  \documentclass[oneside]{book}
+$endif$
 %\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
 $endif$
@@ -223,32 +228,49 @@ $endif$
 %使用xeCJK，其他的還有CJK或是xCJK
 \usepackage{xeCJK}
 \usepackage{bm}
-% Set the default fonts
-\setmainfont{Liberation Serif} % Times New Roman
 
-\setCJKmainfont[
-	BoldFont={AR PL KaitiM Big5}  % 粗體字 HanWangHeiHeavy
-    ]{AR PL KaitiM Big5}    % 一般字型
+% Set the default fonts
+$if(en-mainfont)$
+  \setmainfont{$en-mainfont$} % Times New Roman  %Liberation Serif
+$else$
+  \setmainfont{Times New Roman} 
+$endif$
+
+$if(cjk-mainfont)$
+    $if(cjk-boldfont)$
+        \setCJKmainfont[
+	    BoldFont={$cjk-boldfont$}  % 粗體字 
+        ]{$cjk-mainfont$}
+    $else$
+        \setCJKmainfont{$cjk-mainfont$} %標楷體 %AR PL KaitiM Big5
+    $endif$
+$else$
+    \setCJKmainfont{標楷體}
+$endif$
+
+% IPA support (Works with linguisticsdown)
+$if(ipa-font)$
+  \newfontfamily\ipa{$ipa-font$} % Font for IPA symbols
+  \DeclareTextFontCommand{\ipatext}{\ipa}
+$endif$
+
 
 \usepackage{xcolor}
 \usepackage{transparent}
 \usepackage[printwatermark]{xwatermark}
 
 $if(watermark)$
-\newwatermark*[allpages,xpos=6.1725cm,ypos=10.5225cm,scale=0.5]{\includegraphics{watermark2.pdf}}
+  \newwatermark*[allpages,xpos=6.1725cm,ypos=10.5225cm,scale=0.5]{\includegraphics{$watermark$}}
 $endif$
 
 
 \begin{document}
-%$if(title)$
-%\maketitle
-%$endif$
-
 
 $for(include-before)$
 $include-before$
 $endfor$
 
+%% front matter from front_matter/front_matter.pdf
 
 \includepdf[pages={1}, scale=1]{front_matter/front_matter.pdf}
 
@@ -257,7 +279,7 @@ $endfor$
 
 \phantomsection
 \addcontentsline{toc}{chapter}{口試委員會審定書}
-\includepdf[pages={1}, scale=1]{certification.pdf}
+\includepdf[pages={1}, scale=1]{front_matter/certification.pdf}
 
 \phantomsection
 \addcontentsline{toc}{chapter}{誌謝}
