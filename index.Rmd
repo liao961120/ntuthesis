@@ -3,13 +3,13 @@ title: '臺灣大學論文 Bookdown 模板'
 author: '廖永賦'
 github-repo: "liao961120/NTUbookdown"
 date: "`r format(Sys.Date(), '%B %e, %Y')`" # Gitbook Date
-two-side: false  # Whether to start new chap. on odd pages
+two-side: false  # Whether to start new chapter on odd pages
 cjk-mainfont: 'AR PL KaitiM Big5'  # Default: 標楷體
 #cjk-boldfont: 'Noto Serif CJK TC' # Default: inherits cjk-mainfont
 en-mainfont: 'Liberation Serif'  # Default: Times New Roman
-ipa-font: 'Doulos SIL'      # works with pkg 'linguisticsdown'
+ipa-font: 'Doulos SIL'  # works with 'linguisticsdown', delete if not needed
 linestretch: 1.5  # If Chinese: 2
-watermark: watermark2.pdf   # ntu watermark file (must be in root dir)
+watermark: watermark.pdf    # ntu watermark file (must be in root dir)
 link-citations: yes         # internal links to references
 bibliography: ref.bib       # path to .bib file
 ## Shouldn't touch things below unless familiar with R Markdown
@@ -18,23 +18,3 @@ fontsize: 12pt
 subparagraph: yes
 site: bookdown::bookdown_site
 ---
-
-# Prerequisites
-
-`r linguisticsdown::cond_cmpl("ä")`
-is the IPA symbol for ㄚ in ㄅㄆㄇ。
-
-This is a _sample_ book written in **R Markdown** [@R-rmarkdown]. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
-
-The **bookdown** package can be installed from CRAN or Github:
-
-```{r eval=FALSE}
-install.packages("bookdown")
-# or the development version
-# devtools::install_github("rstudio/bookdown")
-```
-
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
-
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.
-

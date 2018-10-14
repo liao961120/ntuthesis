@@ -111,7 +111,7 @@
 
 \title{臺灣大學論文 Bookdown 模板}
 \author{廖永賦}
-\date{October 14, 2018}
+\date{October 15, 2018}
 
 
 \usepackage{fontspec}
@@ -133,7 +133,7 @@
 \usepackage{transparent}
 \usepackage[printwatermark]{xwatermark}
 
-  \newwatermark*[allpages,xpos=6.1725cm,ypos=10.5225cm,scale=0.5]{\includegraphics{watermark2.pdf}}
+  \newwatermark*[allpages,xpos=6.1725cm,ypos=10.5225cm,scale=0.5]{\includegraphics{watermark.pdf}}
 
 
 \usepackage{amsthm}
@@ -190,33 +190,9 @@
 \listoffigures
 \newpage
 
-\chapter{Prerequisites}\label{prerequisites}
+\chapter{Introduction}\label{intro}
 
 \ipatext{ä} is the IPA symbol for ㄚ in ㄅㄆㄇ。
-
-This is a \emph{sample} book written in \textbf{R Markdown} (Allaire et
-al., \protect\hyperlink{ref-R-rmarkdown}{2018}). You can use anything
-that Pandoc's Markdown supports, e.g., a math equation
-\(a^2 + b^2 = c^2\).
-
-The \textbf{bookdown} package can be installed from CRAN or Github:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
-\CommentTok{# or the development version}
-\CommentTok{# devtools::install_github("rstudio/bookdown")}
-\end{Highlighting}
-\end{Shaded}
-
-Remember each Rmd file contains one and only one chapter, and a chapter
-is defined by the first-level heading \texttt{\#}.
-
-To compile this example to PDF, you need XeLaTeX. You are recommended to
-install TinyTeX (which includes XeLaTeX):
-\url{https://yihui.name/tinytex/}.
-
-\chapter{Introduction}\label{intro}
 
 By default, bookdown merges all Rmd files by the order of filenames,
 e.g., \texttt{01-intro.Rmd} will appear before
@@ -310,6 +286,27 @@ Alternatively, set the order in \texttt{\_bookdown.yml}:
   \end{itemize}
 \end{itemize}
 
+\begin{verbatim}
+.
+├── index.Rmd              # Book Layout (font, watermark, biblio, ...)
+├── 01-intro.Rmd           # Chapter 1 content
+├── 02-literature.Rmd      # Chapter 2 content
+├── 03-method.Rmd          # Chapter 3 content
+├── 99-references.Rmd      # Don't need to edit
+├── ref.bib                # References
+├── cite-style.csl         # Citation style
+├── watermark.pdf          # 臺大浮水印 (PDF 右上角)   
+├── _bookdown.yml          # label names in html; Rmd files order
+├── _output.yml            # preamble, pandoc args, cite-pkg
+├── front_matter
+│   ├── front_matter.rmd   # Edit
+│   ├── certification.pdf  # Prepare scan file
+│   └── front_matter.pdf   # Auto generated
+└── latex
+    ├── preamble-en.tex    # _output.yml
+    └── preamble-zh.tex    # _output.yml, for Eng thesis
+\end{verbatim}
+
 \textbf{You} can label chapter and section titles using
 \texttt{\{\#label\}} after them, e.g., we can reference Chapter
 \ref{intro}. If you do not manually label them, there will be automatic
@@ -383,11 +380,6 @@ Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 \end{tabular}
 \end{table}
 
-You can write citations, too. For example, we are using the
-\textbf{bookdown} package (Xie,
-\protect\hyperlink{ref-R-bookdown}{2018}) in this sample book, which was
-built on top of R Markdown and \textbf{knitr}.
-
 \chapter{Literature}\label{literature}
 
 Here is a review of existing methods.
@@ -414,17 +406,6 @@ We have finished a nice book.
 
 \chapter*{參考資料}\label{references}
 \addcontentsline{toc}{chapter}{參考資料}
-
-\hypertarget{refs}{}
-\hypertarget{ref-R-rmarkdown}{}
-Allaire, J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins,
-A., \ldots{} Chang, W. (2018). \emph{Rmarkdown: Dynamic documents for
-r}. Retrieved from \url{https://CRAN.R-project.org/package=rmarkdown}
-
-\hypertarget{ref-R-bookdown}{}
-Xie, Y. (2018). \emph{Bookdown: Authoring books and technical documents
-with r markdown}. Retrieved from
-\url{https://CRAN.R-project.org/package=bookdown}
 
 
 
