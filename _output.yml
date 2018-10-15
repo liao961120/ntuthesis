@@ -17,7 +17,7 @@ bookdown::gitbook:
       twitter: no
 bookdown::pdf_book:
   includes:
-    in_header: latex/preamble-en.tex
+    in_header: latex/preamble-zh.tex
   template: latex/template.tex
   citation_package: none
   pandoc_args: [  "--csl=cite-style.csl", "--top-level-division=chapter" ]

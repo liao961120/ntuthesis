@@ -18,3 +18,10 @@ fontsize: 12pt
 subparagraph: yes
 site: bookdown::bookdown_site
 ---
+
+
+`r if (knitr::is_html_output())
+'# GitBook {-}'
+`
+
+

@@ -1,11 +1,12 @@
 # NTUbookdown
 
-這是國立臺灣大學的碩士論文模板，
+這是國立臺灣大學的論文模板，
 基於 [bookdown](https://github.com/rstudio/bookdown) 的架構。
 
 輸出範例，請見：
 
-- [PDF](https://liao961120.github.io/NTUbookdown/ntu-bookdown.pdf)
+- [中文 PDF](https://liao961120.github.io/NTUbookdown/ntu-bookdown.pdf)
+- [英文 PDF](https://liao961120.github.io/NTUbookdown/ntu-bookdown-en.pdf)
 - [GitBook](https://liao961120.github.io/NTUbookdown/)
 
 
