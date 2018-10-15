@@ -100,6 +100,13 @@
 \usepackage{xCJKnumb}
 \usepackage{booktabs}
 
+
+%中文自動換行
+\XeTeXlinebreaklocale "zh"
+%文字的彈性間距
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+
 \titleformat{\chapter}{\centering\Huge\bfseries}{第\,\xCJKnumber{\thechapter}\,章}{1em} {}
 \titlespacing{\chapter}{0cm}{-1.3cm}{1em} 
 
@@ -205,11 +212,16 @@
 
 \ipatext{ä} is the IPA symbol for ㄚ in ㄅㄆㄇ。
 
-\textbf{中文} 中文 \emph{中文} By default, bookdown merges all Rmd files
-by the order of filenames, e.g., \texttt{01-intro.Rmd} will appear
-before \texttt{02-literature.Rmd}. Filenames that start with an
-underscore \texttt{\_} are skipped. \texttt{index.Rmd} will always be
-treated as the first file.
+\textbf{中文}中文\emph{中文}\\
+可以換行
+
+新段落
+
+By default, bookdown merges all Rmd files by the order of filenames,
+e.g., \texttt{01-intro.Rmd} will appear before
+\texttt{02-literature.Rmd}. Filenames that start with an underscore
+\texttt{\_} are skipped. \texttt{index.Rmd} will always be treated as
+the first file.
 
 Allaire et al. (\protect\hyperlink{ref-R-rmarkdown}{2018})
 
@@ -299,26 +311,27 @@ Alternatively, set the order in \texttt{\_bookdown.yml}:
   \end{itemize}
 \end{itemize}
 
-\begin{verbatim}
-.
-├── index.Rmd              # Book Layout (font, watermark, biblio, ...)
-├── 01-intro.Rmd           # Chapter 1 content
-├── 02-literature.Rmd      # Chapter 2 content
-├── 03-method.Rmd          # Chapter 3 content
-├── 99-references.Rmd      # Don't need to edit
-├── ref.bib                # References
-├── cite-style.csl         # Citation style
-├── watermark.pdf          # 臺大浮水印 (PDF 右上角)   
-├── _bookdown.yml          # label names in html; Rmd files order
-├── _output.yml            # preamble, pandoc args, cite-pkg
-├── front_matter
-│   ├── front_matter.rmd   # Edit
-│   ├── certification.pdf  # Prepare scan file
-│   └── front_matter.pdf   # Auto generated
-└── latex
-    ├── preamble-en.tex    # _output.yml
-    └── preamble-zh.tex    # _output.yml, for Eng thesis
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{├── index.Rmd              }\CommentTok{# Book Layout (font, watermark, biblio, ...)}
+\NormalTok{├── 01-intro.Rmd           }\CommentTok{# Chapter 1 content}
+\NormalTok{├── 02-literature.Rmd      }\CommentTok{# Chapter 2 content}
+\NormalTok{├── 03-method.Rmd          }\CommentTok{# Chapter 3 content}
+\NormalTok{├── 99-references.Rmd      }\CommentTok{# Don't need to edit}
+\NormalTok{├── ref.bib                }\CommentTok{# References}
+\NormalTok{├── cite-style.csl         }\CommentTok{# Citation style}
+\NormalTok{├── watermark.pdf          }\CommentTok{# 臺大浮水印 (PDF 右上角)   }
+\NormalTok{├── _bookdown.yml          }\CommentTok{# label names in html; Rmd files order}
+\NormalTok{├── _output.yml            }\CommentTok{# preamble, pandoc args, cite-pkg}
+\NormalTok{├── front_matter}
+\NormalTok{│   ├── front_matter.rmd   }\CommentTok{# Edit}
+\NormalTok{│   ├── certification.pdf  }\CommentTok{# Prepare scan file}
+\NormalTok{│   └── front_matter.pdf   }\CommentTok{# Auto generated}
+\NormalTok{└── latex}
+\NormalTok{    ├── preamble-en.tex    }\CommentTok{# _output.yml}
+\NormalTok{    └── preamble-zh.tex    }\CommentTok{# _output.yml, for Eng thesis}
+\end{Highlighting}
+\end{Shaded}
 
 \textbf{You} can label chapter and section titles using
 \texttt{\{\#label\}} after them, e.g., we can reference Chapter

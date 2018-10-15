@@ -39,6 +39,9 @@ bibliography: packages.bib            # 論文的參考書目
 
 ## To Do
 
+1. Global line height in specific parts
+    - [itemize](https://tex.stackexchange.com/questions/16793/global-setting-of-spacing-between-items-in-itemize-environment-for-beamer/249958)
+    - Code shade area
 1. 整理成 R Package
 1. 使用說明
 

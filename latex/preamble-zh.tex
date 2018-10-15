@@ -4,6 +4,13 @@
 \usepackage{xCJKnumb}
 \usepackage{booktabs}
 
+
+%中文自動換行
+\XeTeXlinebreaklocale "zh"
+%文字的彈性間距
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+
 \titleformat{\chapter}{\centering\Huge\bfseries}{第\,\xCJKnumber{\thechapter}\,章}{1em} {}
 \titlespacing{\chapter}{0cm}{-1.3cm}{1em} 
 
