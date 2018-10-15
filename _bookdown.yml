@@ -1,5 +1,5 @@
 book_filename: "ntu-bookdown"
-delete_merged_file: true
+delete_merged_file: yes
 output_dir: "docs"
 language:
   label:

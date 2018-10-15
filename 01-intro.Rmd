@@ -3,7 +3,7 @@
 `r linguisticsdown::cond_cmpl("ä")`
 is the IPA symbol for ㄚ in ㄅㄆㄇ。
 
-
+**中文** 中文 *中文*
 By default, bookdown merges all Rmd files by the order of filenames, e.g., `01-intro.Rmd` will appear before `02-literature.Rmd`. Filenames that start with an underscore `_` are skipped. `index.Rmd` will always be treated as the first file.
 
 Alternatively, set the order in `_bookdown.yml`:

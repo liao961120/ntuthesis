@@ -242,11 +242,18 @@ $if(cjk-mainfont)$
 	    BoldFont={$cjk-boldfont$}  % 粗體字 
         ]{$cjk-mainfont$}
     $else$
-        \setCJKmainfont{$cjk-mainfont$} %標楷體 %AR PL KaitiM Big5
+        $if(cjk-style)$
+            \setCJKmainfont[$cjk-style$]{$cjk-mainfont$} %標楷體 %AR PL KaitiM Big5
+        $else$
+            \setCJKmainfont{$cjk-mainfont$}
+        $endif$
     $endif$
 $else$
     \setCJKmainfont{標楷體}
 $endif$
+
+%\setCJKmainfont[AutoFakeBold=1,AutoFakeSlant=.4]{BiauKai}
+
 
 % IPA support (Works with linguisticsdown)
 $if(ipa-font)$

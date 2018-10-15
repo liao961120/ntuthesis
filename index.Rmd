@@ -5,10 +5,11 @@ github-repo: "liao961120/NTUbookdown"
 date: "`r format(Sys.Date(), '%B %e, %Y')`" # Gitbook Date
 two-side: false  # Whether to start new chapter on odd pages
 cjk-mainfont: 'AR PL KaitiM Big5'  # Default: 標楷體
+cjk-style: 'AutoFakeBold=2.5, AutoFakeSlant=.3' #
 #cjk-boldfont: 'Noto Serif CJK TC' # Default: inherits cjk-mainfont
 en-mainfont: 'Liberation Serif'  # Default: Times New Roman
 ipa-font: 'Doulos SIL'  # works with 'linguisticsdown', delete if not needed
-linestretch: 1.5  # If Chinese: 2
+linestretch: 2   # If Chinese: 1.5
 watermark: watermark.pdf    # ntu watermark file (must be in root dir)
 link-citations: yes         # internal links to references
 bibliography: ref.bib       # path to .bib file

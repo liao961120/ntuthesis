@@ -3,7 +3,7 @@
 
 \usepackage{lmodern}
 \usepackage{setspace}
-\setstretch{1.5}
+\setstretch{2}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -97,17 +97,25 @@
 \usepackage{pdfpages}
 \usepackage{titlesec}
 \usepackage{titletoc}
+\usepackage{xCJKnumb}
 \usepackage{booktabs}
 
-%\titleformat{\chapter}{\centering\Huge\bfseries}{Chapter \thechapter}{30pt}{\Huge}
-%\titlespacing{\chapter}{0cm}{-1.3cm}{1em} 
+\titleformat{\chapter}{\centering\Huge\bfseries}{第\,\xCJKnumber{\thechapter}\,章}{1em} {}
+\titlespacing{\chapter}{0cm}{-1.3cm}{1em} 
 
-\renewcommand{\figurename}{Figure}
-\renewcommand{\tablename}{Table}
-\renewcommand{\contentsname}{Table of Contents}
-%\renewcommand{\listfigurename}{}
-%\renewcommand{\listtablename}{}
-%\renewcommand{\bibname}{}
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+\renewcommand{\contentsname}{目錄}
+\renewcommand{\listfigurename}{圖目錄}
+\renewcommand{\listtablename}{表目錄}
+%\renewcommand{\bibname}{參考資料}
+
+
+
+\titlecontents{chapter}[0em]
+{}{\makebox[4.1em][l]
+{第\xCJKnumber{\thecontentslabel}章}}{}
+{\titlerule*[0.7pc]{.}\contentspage}
 
 \title{臺灣大學論文 Bookdown 模板}
 \author{廖永賦}
@@ -122,8 +130,11 @@
 % Set the default fonts
   \setmainfont{Liberation Serif} % Times New Roman  %Liberation Serif
 
-            \setCJKmainfont{AR PL KaitiM Big5} %標楷體 %AR PL KaitiM Big5
-    
+                        \setCJKmainfont[AutoFakeBold=2.5, AutoFakeSlant=.3]{AR PL KaitiM Big5} %標楷體 %AR PL KaitiM Big5
+            
+%\setCJKmainfont[AutoFakeBold=1,AutoFakeSlant=.4]{BiauKai}
+
+
 % IPA support (Works with linguisticsdown)
   \newfontfamily\ipa{Doulos SIL} % Font for IPA symbols
   \DeclareTextFontCommand{\ipatext}{\ipa}
@@ -194,11 +205,11 @@
 
 \ipatext{ä} is the IPA symbol for ㄚ in ㄅㄆㄇ。
 
-By default, bookdown merges all Rmd files by the order of filenames,
-e.g., \texttt{01-intro.Rmd} will appear before
-\texttt{02-literature.Rmd}. Filenames that start with an underscore
-\texttt{\_} are skipped. \texttt{index.Rmd} will always be treated as
-the first file.
+\textbf{中文} 中文 \emph{中文} By default, bookdown merges all Rmd files
+by the order of filenames, e.g., \texttt{01-intro.Rmd} will appear
+before \texttt{02-literature.Rmd}. Filenames that start with an
+underscore \texttt{\_} are skipped. \texttt{index.Rmd} will always be
+treated as the first file.
 
 Alternatively, set the order in \texttt{\_bookdown.yml}:
 
