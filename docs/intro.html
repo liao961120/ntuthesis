@@ -148,24 +148,61 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span>
   <span class="fu">html:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span>
   <span class="fu">latex:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></code></pre></div>
-<p>{ - Benefits - Quick Start - General Usage - Front matter - Content - Write Thesis in English (Write in Eng) - Bookdown Demo - Citation - Cross References - 數學公式 - indexing - Harnessing the Power of R Community - Facilitating Packages - citr - 特定領域 - linguisticsdown - Resources - R Markdown Features - Thanks and Help - GitHub issues }</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">├── <span class="ex">index.Rmd</span>              # Book Layout (font, watermark, biblio, ...)
-├── <span class="ex">01-intro.Rmd</span>           # Chapter 1 content
-├── <span class="ex">02-literature.Rmd</span>      # Chapter 2 content
-├── <span class="ex">03-method.Rmd</span>          # Chapter 3 content
-├── <span class="ex">99-references.Rmd</span>      # Don<span class="st">&#39;t need to edit</span>
-<span class="st">├── ref.bib                # References</span>
-<span class="st">├── cite-style.csl         # Citation style</span>
-<span class="st">├── watermark.pdf          # 臺大浮水印 (PDF 右上角)   </span>
-<span class="st">├── _bookdown.yml          # label names in html; Rmd files order</span>
-<span class="st">├── _output.yml            # preamble, pandoc args, cite-pkg</span>
-<span class="st">├── front_matter</span>
-<span class="st">│   ├── front_matter.rmd   # Edit</span>
-<span class="st">│   ├── certification.pdf  # Prepare scan file</span>
-<span class="st">│   └── front_matter.pdf   # Auto generated</span>
-<span class="st">└── latex</span>
-<span class="st">    ├── preamble-en.tex    # _output.yml</span>
-<span class="st">    └── preamble-zh.tex    # _output.yml, for Eng thesis</span></code></pre></div>
+<ul>
+<li>Benefits</li>
+<li>Quick Start
+<ul>
+<li>General Usage
+<ul>
+<li>Front matter</li>
+<li>Content</li>
+</ul></li>
+<li>Write Thesis in English (Write in Eng)</li>
+</ul></li>
+<li>Bookdown Demo
+<ul>
+<li>Citation</li>
+<li>Cross References</li>
+<li>數學公式</li>
+<li>indexing</li>
+</ul></li>
+<li>Harnessing the Power of R Community
+<ul>
+<li>Facilitating Packages
+<ul>
+<li>citr</li>
+</ul></li>
+<li>特定領域
+<ul>
+<li>linguisticsdown</li>
+</ul></li>
+</ul></li>
+<li>Resources
+<ul>
+<li>R Markdown Features</li>
+</ul></li>
+<li>Thanks and Help
+<ul>
+<li>GitHub issues</li>
+</ul></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml">├── index.Rmd              <span class="co"># Book Layout (font, watermark, biblio, ...)</span>
+├── 01-intro.Rmd           <span class="co"># Chapter 1 content</span>
+├── 02-literature.Rmd      <span class="co"># Chapter 2 content</span>
+├── 03-method.Rmd          <span class="co"># Chapter 3 content</span>
+├── 99-references.Rmd      <span class="co"># Don&#39;t need to edit</span>
+├── ref.bib                <span class="co"># References</span>
+├── cite-style.csl         <span class="co"># Citation style</span>
+├── watermark.pdf          <span class="co"># 臺大浮水印 (PDF 右上角)   </span>
+├── _bookdown.yml          <span class="co"># label names in html; Rmd files order</span>
+├── _output.yml            <span class="co"># preamble, pandoc args, cite-pkg</span>
+├── front_matter
+│   ├── front_matter.rmd   <span class="co"># Edit</span>
+│   ├── certification.pdf  <span class="co"># Prepare scan file</span>
+│   └── front_matter.pdf   <span class="co"># Auto generated</span>
+└── latex
+    ├── preamble-en.tex    <span class="co"># _output.yml</span>
+    └── preamble-zh.tex    <span class="co"># _output.yml, for Eng thesis</span></code></pre></div>
 <p><strong>You</strong> can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">1</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="methods.html#methods">3</a>.</p>
 <p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))
