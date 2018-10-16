@@ -244,6 +244,7 @@ $if(cjk-mainfont)$
     $else$
         $if(cjk-style)$
             \setCJKmainfont[$cjk-style$]{$cjk-mainfont$} %標楷體 %AR PL KaitiM Big5
+            %\setCJKmainfont[AutoFakeBold=1,AutoFakeSlant=.4]{BiauKai}
         $else$
             \setCJKmainfont{$cjk-mainfont$}
         $endif$
@@ -252,7 +253,6 @@ $else$
     \setCJKmainfont{標楷體}
 $endif$
 
-%\setCJKmainfont[AutoFakeBold=1,AutoFakeSlant=.4]{BiauKai}
 
 
 % IPA support (Works with linguisticsdown)

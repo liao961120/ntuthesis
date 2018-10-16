@@ -27,6 +27,8 @@ rmd_files:
         - Content
     - Write Thesis in English (Write in Eng)
 - Bookdown Demo
+    - Markdown quick guide
+        - no closing or opening quotation marks
     - Citation
     - Cross References
     - 數學公式
