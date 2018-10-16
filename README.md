@@ -41,11 +41,12 @@ bibliography: packages.bib            # 論文的參考書目
 
 1. [bookdown example](https://bookdown.org/yihui/bookdown/publishers.html)
 1. link as footnote
+1. self-defined chunks?
 1. blockquote last child align-right
     - first child: inherit
     - [example](https://github.com/rstudio/bookdown/blob/master/inst/examples/css/style.css)
-1. Global line height in specific parts
-    - [itemize](https://tex.stackexchange.com/questions/16793/global-setting-of-spacing-between-items-in-itemize-environment-for-beamer/249958)
+1. Global line height in [specific parts](https://tex.stackexchange.com/questions/16793/global-setting-of-spacing-between-items-in-itemize-environment-for-beamer/249958)
+    - itemize
     - Code shade area
     - Redefine?  
     `\renewenvironment{quote}{\begin{VF}}{\end{VF}}`
