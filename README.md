@@ -9,9 +9,9 @@
 
 輸出範例，請見：
 
-- [中文 PDF](https://liao961120.github.io/NTUbookdown/ntu-bookdown.pdf)
-- [英文 PDF](https://liao961120.github.io/NTUbookdown/ntu-bookdown-en.pdf)
-- [GitBook](https://liao961120.github.io/NTUbookdown/)
+- [中文 PDF](https://liao961120.github.io/ntuthesis/ntu-bookdown.pdf)
+- [英文 PDF](https://liao961120.github.io/ntuthesis/ntu-bookdown-en.pdf)
+- [GitBook](https://liao961120.github.io/ntuthesis/)
 
 
 ## 使用
