@@ -1,7 +1,9 @@
-# NTUbookdown
+# ntuthesis
 
 這是國立臺灣大學的論文模板，
 基於 [bookdown](https://github.com/rstudio/bookdown) 的架構。
+為了方便使用，這個模板將被製作成 R Package，方便使用者下載及使用內建函數。
+
 
 輸出範例，請見：
 
@@ -11,6 +13,9 @@
 
 
 ## 使用
+
+目前正在開發中，但基本上已可使用。
+使用者可以直接下載[`inst/example-thesis`](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/liao961120/ntuthesis/tree/master/inst/example-thesis)這個資料夾，裡面即是一個完整的 bookdown project。
 
 ### 封面製作
 
