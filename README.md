@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/liao961120/ntuthesis.svg?branch=master)](https://travis-ci.org/liao961120/ntuthesis)
+
 # ntuthesis
 
 這是國立臺灣大學的論文模板，
