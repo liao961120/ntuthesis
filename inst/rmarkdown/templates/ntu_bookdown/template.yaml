@@ -1,0 +1,4 @@
+name: ntu_thesis_template
+description: >
+   A bookdown template for NTU thesis
+create_dir: TRUE

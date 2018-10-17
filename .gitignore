@@ -1,2 +1,4 @@
-_bookdown_files
 .Rproj.user
+.Rhistory
+.RData
+inst/doc
