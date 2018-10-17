@@ -39,7 +39,7 @@ bibliography: packages.bib            # 論文的參考書目
 
 ## To Do
 
-1. [bookdown example](https://bookdown.org/yihui/bookdown/publishers.html)
+1. [bookdown define LaTeX](https://bookdown.org/yihui/bookdown/publishers.html)
 1. link as footnote
 1. self-defined chunks?
 1. blockquote last child align-right
@@ -54,7 +54,7 @@ bibliography: packages.bib            # 論文的參考書目
 1. 使用說明
     - [R Markdown ordered list](https://stackoverflow.com/a/52539925)
     - [Bookdown cheatsheet](www.pzhao.org/en/post/bookdown-cheatsheet/)
-
+    - [Bookdown Contest](https://blog.rstudio.com/2018/07/27/first-bookdown-contest/)
 
 ## 附註
 
