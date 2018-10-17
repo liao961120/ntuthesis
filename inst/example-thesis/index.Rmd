@@ -38,10 +38,10 @@ Remove or wrap them around HTML comments if don't want to display them in GitBoo
 <!-- Abstract -->
 `r if(knitr::is_html_output()) '# 摘要 {- #abstract}\n'`
 
-`r if (knitr::is_html_output()) x=readLines("_abstract-zh.Rmd"); paste(x[-length(x)], collapse = '\n')`
+`r if (knitr::is_html_output()) x=readLines("_abstract-zh.Rmd"); paste(x[5:length(x)], collapse = '\n')`
 
 <!-- keywords -->
 `r if (knitr::is_html_output()) '<br><br>'`
 
-`r if (knitr::is_html_output()) paste('**keywords:**', x[length(x)])`
+`r if (knitr::is_html_output()) paste('**keywords:**', x[2])`
 

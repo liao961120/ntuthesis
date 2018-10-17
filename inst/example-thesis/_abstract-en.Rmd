@@ -1,5 +1,8 @@
-This is an abstract **written** in English.
-This is an abstract written in English.
+<!-- Keywords Right Below, in one line -->
+Line 2, R Markdown, Bookdown, Reproducible Research
 
+<!-- Abstract Right Below -->
+The first line of the abstract starts on **line 5** and must not be blank. The first line of the abstract starts on **line 5** and must not be blank. The first line of the abstract starts on **line 5** and must not be blank.
 
-R Markdown, Bookdown, Reproducible Research
+A new paragraph of the abstract. A new paragraph of the abstract. A new paragraph of the abstract. A new paragraph of the abstract. A new paragraph of the abstract. A new paragraph of the abstract.
+
