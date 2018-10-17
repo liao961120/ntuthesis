@@ -2,7 +2,7 @@ bookdown::gitbook:
 #  includes:
 #    before_body: latex/mathjax_bm.tex
   css: style.css
-  pandoc_args: "--csl=cite-style.csl"
+  pandoc_args: "--csl=apa_zh_en.csl"
   config:
     toc:
       before: |
@@ -19,7 +19,7 @@ bookdown::pdf_book:
   includes:
     in_header: latex/preamble-zh.tex
   template: latex/template.tex
-  citation_package: none
+  citation_package: none  # biblatex
   pandoc_args: [  "--csl=cite-style.csl", "--top-level-division=chapter" ]
   toc_appendix: true
   toc_bib: true

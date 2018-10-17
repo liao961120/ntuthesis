@@ -10,7 +10,7 @@ is the IPA symbol for ㄚ in ㄅㄆㄇ。
 
 By default, bookdown merges all Rmd files by the order of filenames, e.g., `01-intro.Rmd` will appear before `02-literature.Rmd`. Filenames that start with an underscore `_` are skipped. `index.Rmd` will always be treated as the first file.
 
-@R-rmarkdown
+@stanford2008 英文參考文獻。中文參考文獻 [@huangxuanfan1993]
 
 Alternatively, set the order in `_bookdown.yml`:
 
@@ -27,16 +27,16 @@ rmd_files:
         - Content
     - Write Thesis in English (Write in Eng)
 - Bookdown Demo
-    - Markdown quick guide
+    a) Markdown quick guide
         - no closing or opening quotation marks
-    - Citation
-    - Cross References
+    a) Citation
+    a) Cross References
     - 數學公式
     - indexing
 - Harnessing the Power of R Community
-    - Facilitating Packages
+    A) Facilitating Packages
         - citr
-    - 特定領域
+    A) 特定領域
         - linguisticsdown
 - Resources
     - R Markdown Features
@@ -64,6 +64,7 @@ rmd_files:
 ```
 
 
+Test [link as note](http://pandoc.org/MANUAL.html#variables-for-latex).
 
 **You** can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
 
