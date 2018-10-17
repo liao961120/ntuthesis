@@ -35,8 +35,6 @@
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{plainnat}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -237,7 +235,9 @@ e.g., \texttt{01-intro.Rmd} will appear before
 \texttt{\_} are skipped. \texttt{index.Rmd} will always be treated as
 the first file.
 
-\citet{stanford2008} 英文參考文獻。中文參考文獻 \citep{huangxuanfan1993}
+Stanford (\protect\hyperlink{ref-stanford2008}{2008})
+英文參考文獻。中文參考文獻 (黃宣範,
+\protect\hyperlink{ref-huangxuanfan1993}{1993})
 
 Alternatively, set the order in \texttt{\_bookdown.yml}:
 
@@ -466,13 +466,22 @@ We have finished a nice book.
 \chapter*{參考資料}\label{references}
 \addcontentsline{toc}{chapter}{參考資料}
 
+\hypertarget{refs}{}
+\hypertarget{ref-stanford2008}{}
+Stanford, J. N. (2008). Child dialect acquisition: New perspectives on
+parent/peer influence1. \emph{Journal of Sociolinguistics},
+\emph{12}(5), 567--596.
+\url{https://doi.org/10.1111/j.1467-9841.2008.00383.x}
+
+\hypertarget{ref-huangxuanfan1993}{}
+黃宣範. (1993). \emph{語言、社會與族群意識: 臺灣語言社會學的研究}.
+臺北市: 文鶴. Retrieved from
+\url{http://tulips.ntu.edu.tw:1081/record=b1285025*cht}
 
 
 
-      
-              \renewcommand\bibname{biblatex 參考文獻}
-                \bibliography{ref.bib}
-  
+
+
 
 
 \end{document}
