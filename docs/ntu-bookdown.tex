@@ -35,6 +35,8 @@
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{plainnat}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -78,6 +80,9 @@
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\let\oldhref=\href
+% Make links footnotes instead of hotlinks:
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -100,7 +105,6 @@
 \usepackage{xCJKnumb}
 \usepackage{booktabs}
 
-
 %中文自動換行
 \XeTeXlinebreaklocale "zh"
 %文字的彈性間距
@@ -117,8 +121,6 @@
 \renewcommand{\listtablename}{表目錄}
 %\renewcommand{\bibname}{參考資料}
 
-
-
 \titlecontents{chapter}[0em]
 {}{\makebox[4.1em][l]
 {第\xCJKnumber{\thecontentslabel}章}}{}
@@ -126,7 +128,7 @@
 
 \title{臺灣大學論文 Bookdown 模板}
 \author{廖永賦}
-\date{October 15, 2018}
+\date{October 17, 2018}
 
 
 \usepackage{fontspec}
@@ -138,8 +140,8 @@
   \setmainfont{Liberation Serif} % Times New Roman  %Liberation Serif
 
                         \setCJKmainfont[AutoFakeBold=2.5, AutoFakeSlant=.3]{AR PL KaitiM Big5} %標楷體 %AR PL KaitiM Big5
+            %\setCJKmainfont[AutoFakeBold=1,AutoFakeSlant=.4]{BiauKai}
             
-%\setCJKmainfont[AutoFakeBold=1,AutoFakeSlant=.4]{BiauKai}
 
 
 % IPA support (Works with linguisticsdown)
@@ -208,6 +210,18 @@
 \listoffigures
 \newpage
 
+% Set independent linestretch for code chunks
+\let\oldShaded=\Shaded
+\let\endoldShaded=\endShaded
+\renewenvironment{Shaded}{
+      \begin{spacing}{1.5}\begin{oldShaded}
+    }
+  {
+  \end{oldShaded}
+  \end{spacing}
+  }
+
+
 \chapter{Introduction}\label{intro}
 
 \ipatext{ä} is the IPA symbol for ㄚ in ㄅㄆㄇ。
@@ -223,7 +237,7 @@ e.g., \texttt{01-intro.Rmd} will appear before
 \texttt{\_} are skipped. \texttt{index.Rmd} will always be treated as
 the first file.
 
-Allaire et al. (\protect\hyperlink{ref-R-rmarkdown}{2018})
+\citet{stanford2008} 英文參考文獻。中文參考文獻 \citep{huangxuanfan1993}
 
 Alternatively, set the order in \texttt{\_bookdown.yml}:
 
@@ -260,12 +274,25 @@ Alternatively, set the order in \texttt{\_bookdown.yml}:
 \item
   Bookdown Demo
 
-  \begin{itemize}
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
   \tightlist
+  \item
+    Markdown quick guide
+
+    \begin{itemize}
+    \tightlist
+    \item
+      no closing or opening quotation marks
+    \end{itemize}
   \item
     Citation
   \item
     Cross References
+  \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
   \item
     數學公式
   \item
@@ -274,7 +301,8 @@ Alternatively, set the order in \texttt{\_bookdown.yml}:
 \item
   Harnessing the Power of R Community
 
-  \begin{itemize}
+  \begin{enumerate}
+  \def\labelenumi{\Alph{enumi})}
   \tightlist
   \item
     Facilitating Packages
@@ -292,7 +320,7 @@ Alternatively, set the order in \texttt{\_bookdown.yml}:
     \item
       linguisticsdown
     \end{itemize}
-  \end{itemize}
+  \end{enumerate}
 \item
   Resources
 
@@ -332,6 +360,9 @@ Alternatively, set the order in \texttt{\_bookdown.yml}:
 \NormalTok{    └── preamble-zh.tex    }\CommentTok{# _output.yml, for Eng thesis}
 \end{Highlighting}
 \end{Shaded}
+
+Test \href{http://pandoc.org/MANUAL.html\#variables-for-latex}{link as
+note}.
 
 \textbf{You} can label chapter and section titles using
 \texttt{\{\#label\}} after them, e.g., we can reference Chapter
@@ -430,19 +461,18 @@ Some \emph{significant} applications are demonstrated in this chapter.
 
 We have finished a nice book.
 
+\renewcommand{\href}{\oldhref}
+
 \chapter*{參考資料}\label{references}
 \addcontentsline{toc}{chapter}{參考資料}
 
-\hypertarget{refs}{}
-\hypertarget{ref-R-rmarkdown}{}
-Allaire, J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins,
-A., \ldots{} Chang, W. (2018). \emph{Rmarkdown: Dynamic documents for
-r}. Retrieved from \url{https://CRAN.R-project.org/package=rmarkdown}
 
 
 
-
-
+      
+              \renewcommand\bibname{biblatex 參考文獻}
+                \bibliography{ref.bib}
+  
 
 
 \end{document}

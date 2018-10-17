@@ -142,6 +142,7 @@ $if(graphics)$
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 $endif$
+\let\oldhref=\href
 $if(links-as-notes)$
 % Make links footnotes instead of hotlinks:
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
@@ -316,33 +317,46 @@ $endif$
 \listoffigures
 \newpage
 
+% Set independent linestretch for code chunks
+\let\oldShaded=\Shaded
+\let\endoldShaded=\endShaded
+\renewenvironment{Shaded}{
+  $if(linestretch-code)$
+    \begin{spacing}{$linestretch-code$}\begin{oldShaded}
+  $else$
+    \begin{spacing}{1.2}\begin{oldShaded}
+  $endif$
+  }
+  {
+  \end{oldShaded}
+  \end{spacing}
+  }
+
+
 $body$
 
 
 
 
 $if(natbib)$
-$if(bibliography)$
-$if(biblio-title)$
+  $if(bibliography)$
+    $if(biblio-title)$
 
-$if(book-class)$
-\renewcommand\bibname{$biblio-title$}
-$else$
-\renewcommand\refname{$biblio-title$}
-
+      $if(book-class)$
+        \renewcommand\bibname{$biblio-title$}
+      $else$
+        \renewcommand\refname{$biblio-title$}
+      $endif$
+    $endif$
+      \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+  $endif$
 $endif$
-$endif$
-\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
-
-$endif$
-$endif$
-
 
 
 $if(biblatex)$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-
+  \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
 $endif$
+
 $for(include-after)$
 $include-after$
 
