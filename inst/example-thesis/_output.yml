@@ -2,7 +2,7 @@ bookdown::gitbook:
 #  includes:
 #    before_body: latex/mathjax_bm.tex
   css: style.css
-  pandoc_args: "--csl=apa_zh_en.csl"
+  pandoc_args: "--csl=cite-style.csl"
   config:
     toc:
       before: |

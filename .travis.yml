@@ -1,0 +1,19 @@
+language: r
+pandoc_version: 1.19.2.1
+    
+script:
+  - bash render-book.sh
+
+cache:
+  packages: yes
+  directories:
+    - $TRAVIS_BUILD_DIR/inst/example-thesis/_bookdown_files
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
+  local-dir: _book # Book output directory
+  on:
+    branch: master
