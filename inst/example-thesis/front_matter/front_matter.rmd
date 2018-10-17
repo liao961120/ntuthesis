@@ -1,7 +1,6 @@
 --- 
 #ntu-template: 'phd' # phd, proposal
 cjk-mainfont: 'AR PL KaitiM Big5'  # Default: 標楷體
-#cjk-boldfont: 'Noto Serif CJK TC' # Default: inherits cjk-mainfont
 en-mainfont: 'Liberation Serif'  # Default: Times New Roman 
 title-en: 'A Minimal NTU Thesis Bookdown Template'
 title-zh: '臺灣大學論文 Bookdown 模板'
@@ -26,16 +25,18 @@ day: '28'
 doi: '10.1016/S0010-0277(00)00108-6'
 institute-en: 'Department of Psychology'
 institute-zh: '心理學系'
-acknowledge-in-en: false
+acknowledge-in-en: false     # if written in English, change to 'true'
+## Don't touch things below if not familiar with R Markdown
 acknowledgements: |
-  | 非常感謝...感謝。不支援新段落。
-  | 但可換行
+  `r paste(readLines("../_acknowledge.Rmd"), collapse = '\n  ')`
 abstract-en: |
-  | Abstract in English. Abstract in English. Abstract in English. Abstract in English. 
+  `r x=readLines("../_abstract-en.Rmd"); paste(x[-length(x)], collapse = '\n  ')`
 abstract-zh: |
-  | 中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。
-keyword-en: 'R Markdown, Bookdown, Reproducible Research'
-keyword-zh: 'R Markdown, Bookdown, 可重製研究'
+  `r x=readLines("../_abstract-zh.Rmd"); paste(x[-length(x)], collapse = '\n  ')`
+keyword-en: |
+  `r x=readLines('../_abstract-en.Rmd'); paste(x[length(x)])`
+keyword-zh: |
+  `r x=readLines('../_abstract-zh.Rmd'); paste(x[length(x)])`
 link-citations: yes
 site: bookdown::bookdown_site
 output:

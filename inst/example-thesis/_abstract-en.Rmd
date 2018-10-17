@@ -1,0 +1,5 @@
+This is an abstract **written** in English.
+This is an abstract written in English.
+
+
+R Markdown, Bookdown, Reproducible Research

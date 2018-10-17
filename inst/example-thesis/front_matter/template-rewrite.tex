@@ -26,15 +26,9 @@ $else$
 $endif$
 
 $if(cjk-mainfont)$
-    $if(cjk-boldfont)$
-        \setCJKmainfont[
-	    BoldFont={$cjk-boldfont$}  % 粗體字 
-        ]{$cjk-mainfont$}
-    $else$
-        \setCJKmainfont{$cjk-mainfont$} %標楷體 %AR PL KaitiM Big5
-    $endif$
+    \setCJKmainfont[AutoFakeBold=2.5, AutoFakeSlant=.3]{$cjk-mainfont$}
 $else$
-    \setCJKmainfont{標楷體}
+    \setCJKmainfont[AutoFakeBold=2.5, AutoFakeSlant=.3]{標楷體}
 $endif$
 
 

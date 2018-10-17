@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="abstract.html">
-<link rel="next" href="literature.html">
+
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -103,14 +103,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">臺大論文模板</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>誌謝</a></li>
-<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>摘要</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Literature</a><ul>
-<li class="chapter" data-level="2.1" data-path="literature.html"><a href="literature.html#level"><i class="fa fa-check"></i><b>2.1</b> Level</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#e8aa8ce8ac9d"><i class="fa fa-check"></i>誌謝</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#abstract"><i class="fa fa-check"></i>摘要</a></li>
+<li class="chapter" data-level="1" data-path=""><a href="#intro"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path=""><a href="#literature"><i class="fa fa-check"></i><b>2</b> Literature</a><ul>
+<li class="chapter" data-level="2.1" data-path=""><a href="#level"><i class="fa fa-check"></i><b>2.1</b> Level</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>參考資料</a></li>
+<li class="chapter" data-level="3" data-path=""><a href="#methods"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#references"><i class="fa fa-check"></i>參考資料</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/liao961120/ntuthesis" target="blank">Published with bookdown</a></li>
 
@@ -131,6 +131,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">臺灣大學論文 Bookdown 模板</h1>
+<h4 class="author"><em>廖永賦</em></h4>
+<h4 class="date"><em>October 17, 2018</em></h4>
+</div>
+<div id="e8aa8ce8ac9d" class="section level1 unnumbered">
+<h1>誌謝</h1>
+<p>非常感謝網路上各個默默耕耘開發 open source 專案的大大們。 非常感謝網路上各個默默耕耘開發 open source 專案的大大們。 非常感謝網路上各個默默耕耘開發 open source 專案的大大們。</p>
+<p>沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。</p>
+</div>
+<div id="abstract" class="section level1 unnumbered">
+<h1>摘要</h1>
+<p>中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。</p>
+<p>中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。 中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。</p>
+
+</div>
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">第 1 章</span> Introduction</h1>
 <p>ä is the IPA symbol for ㄚ in ㄅㄆㄇ。</p>
@@ -187,19 +203,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>GitHub issues</li>
 </ul></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml">├── index.Rmd            <span class="co"># Book Layout (font, watermark, biblio, ...)</span>
-├── _acknowledge.Rmd     <span class="co"># acknowledgement</span>
-├── _abstract-en.Rmd     <span class="co"># abstract</span>
-├── _abstract-zh.Rmd     <span class="co"># Same as above, but in Chinese</span>
-├── 01-intro.Rmd         <span class="co"># Chapter 1 content</span>
-├── 02-literature.Rmd    <span class="co"># Chapter 2 content</span>
-├── 03-method.Rmd        <span class="co"># Chapter 3 content</span>
-├── 99-references.Rmd    <span class="co"># Don&#39;t need to edit</span>
-├── ref.bib              <span class="co"># References</span>
-├── cite-style.csl       <span class="co"># Citation style</span>
-├── watermark.pdf        <span class="co"># 臺大浮水印 (PDF 右上角)   </span>
-├── _bookdown.yml        <span class="co"># label names in html; Rmd files order</span>
-├── _output.yml          <span class="co"># preamble, pandoc args, cite-pkg</span>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml">├── index.Rmd              <span class="co"># Book Layout (font, watermark, biblio, ...)</span>
+├── 01-intro.Rmd           <span class="co"># Chapter 1 content</span>
+├── 02-literature.Rmd      <span class="co"># Chapter 2 content</span>
+├── 03-method.Rmd          <span class="co"># Chapter 3 content</span>
+├── 99-references.Rmd      <span class="co"># Don&#39;t need to edit</span>
+├── ref.bib                <span class="co"># References</span>
+├── cite-style.csl         <span class="co"># Citation style</span>
+├── watermark.pdf          <span class="co"># 臺大浮水印 (PDF 右上角)   </span>
+├── _bookdown.yml          <span class="co"># label names in html; Rmd files order</span>
+├── _output.yml            <span class="co"># preamble, pandoc args, cite-pkg</span>
 ├── front_matter
 │   ├── front_matter.rmd   <span class="co"># Edit</span>
 │   ├── certification.pdf  <span class="co"># Prepare scan file</span>
@@ -208,7 +221,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     ├── preamble-en.tex    <span class="co"># _output.yml</span>
     └── preamble-zh.tex    <span class="co"># _output.yml, for Eng thesis</span></code></pre></div>
 <p>Test <a href="http://pandoc.org/MANUAL.html#variables-for-latex">link as note</a>.</p>
-<p><strong>You</strong> can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">1</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="methods.html#methods">3</a>.</p>
+<p><strong>You</strong> can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="#intro">1</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="#methods">3</a>.</p>
 <p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))
 <span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
@@ -218,7 +231,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 圖 1.1: Here is a nice figure!
 </p>
 </div>
-<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="intro.html#fig:nice-fig">1.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="intro.html#tab:nice-tab">1.1</a>.</p>
+<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="#fig:nice-fig">1.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="#tab:nice-tab">1.1</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
   <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,
   <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
@@ -379,7 +392,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </table>
 
 </div>
-<h3>參考資料</h3>
+<div id="literature" class="section level1">
+<h1><span class="header-section-number">第 2 章</span> Literature</h1>
+<p>Here is a review of existing methods.</p>
+<div id="level" class="section level2">
+<h2><span class="header-section-number">2.1</span> Level</h2>
+<p>sdfdf</p>
+
+</div>
+</div>
+<div id="methods" class="section level1">
+<h1><span class="header-section-number">第 3 章</span> Methods</h1>
+<p>We describe our methods in this chapter.</p>
+
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>參考資料</h1>
+
 <div id="refs" class="references">
 <div id="ref-stanford2008">
 <p>Stanford, J. N. (2008). Child dialect acquisition: New perspectives on parent/peer influence1. <em>Journal of Sociolinguistics</em>, <em>12</em>(5), 567–596. <a href="https://doi.org/10.1111/j.1467-9841.2008.00383.x" class="uri">https://doi.org/10.1111/j.1467-9841.2008.00383.x</a></p>
@@ -388,13 +417,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>黃宣範. (1993). <em>語言、社會與族群意識: 臺灣語言社會學的研究</em>. 臺北市: 文鶴. Retrieved from <a href="http://tulips.ntu.edu.tw:1081/record=b1285025*cht" class="uri">http://tulips.ntu.edu.tw:1081/record=b1285025*cht</a></p>
 </div>
 </div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="abstract.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="literature.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -424,7 +454,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/01-intro.Rmd",
+"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/%s",
 "text": "Edit"
 },
 "download": ["ntu-bookdown.pdf"],
