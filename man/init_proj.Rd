@@ -4,7 +4,10 @@
 \alias{init_proj}
 \title{Initialize current directory as a bookdown project}
 \usage{
-init_proj()
+init_proj(dir = ".")
+}
+\arguments{
+\item{dir}{The path to the dircetory to initialize as a project}
 }
 \description{
 Initialize current directory as a bookdown project
