@@ -68,7 +68,7 @@ bookdown::render_book("index.Rmd", "bookdown::bookdown::pdf_book")
 
 這個模板是使用 [bookdown](https://bookdown.org/yihui/bookdown/) 製作，因此所有 bookdown 的功能都可直接使用。
 
-```yaml
+```yaml 
 ├── index.Rmd            # Thesis Layout (font, watermark, biblio, ...)
 ├── _acknowledge.Rmd     # acknowledgement
 ├── _abstract-en.Rmd     # abstract
