@@ -3,3 +3,4 @@
 .RData
 inst/doc
 /_book
+*.log
