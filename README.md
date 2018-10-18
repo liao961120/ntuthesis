@@ -97,4 +97,4 @@ bibliography: ref.bib            # 論文的參考書目
 
 ## 附註
 
-[1]: 這個 LaTeX 的模板是根據 [tzhuan/ntu-thesis](https://github.com/tzhuan/ntu-thesis) 修改而成，非常感謝大大。
+[1]: LaTeX 的封面模板是根據 [tzhuan/ntu-thesis](https://github.com/tzhuan/ntu-thesis) 修改而成。
