@@ -9,6 +9,3 @@ init_proj()
 \description{
 Initialize current directory as a bookdown project
 }
-\examples{
-init_proj()
-}

@@ -7,5 +7,6 @@
 comp_front()
 }
 \description{
-Compile front matter to PDF
+To use this function, one needs to be in the
+\emph{root directory} of the bookdown project.
 }
