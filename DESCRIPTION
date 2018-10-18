@@ -11,3 +11,4 @@ Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
 Imports: bookdown
+RoxygenNote: 6.1.0
