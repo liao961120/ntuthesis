@@ -126,7 +126,7 @@
 
 \title{臺灣大學論文 Bookdown 模板}
 \author{廖永賦}
-\date{October 17, 2018}
+\date{October 18, 2018}
 
 
 \usepackage{fontspec}
@@ -164,7 +164,7 @@
 
 \phantomsection
 \addcontentsline{toc}{chapter}{口試委員會審定書}
-\includepdf[pages={1}, scale=1]{front_matter/certification.pdf}
+\includepdf[pages={1}, scale=1]{certification-scan.pdf}
 
 \phantomsection
 \addcontentsline{toc}{chapter}{誌謝}
@@ -328,8 +328,8 @@ Alternatively, set the order in \texttt{\_bookdown.yml}:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{├── index.Rmd            }\CommentTok{# Book Layout (font, watermark, biblio, ...)}
-\NormalTok{├── _acknowledge.Rmd     }\CommentTok{# acknowledgement in PDF & GitBook}
-\NormalTok{├── _abstract-en.Rmd     }\CommentTok{# abstract in PDF & GitBook}
+\NormalTok{├── _acknowledge.Rmd     }\CommentTok{# acknowledgement}
+\NormalTok{├── _abstract-en.Rmd     }\CommentTok{# abstract}
 \NormalTok{├── _abstract-zh.Rmd     }\CommentTok{# Same as above, but in Chinese}
 \NormalTok{├── 01-intro.Rmd         }\CommentTok{# Chapter 1 content}
 \NormalTok{├── 02-literature.Rmd    }\CommentTok{# Chapter 2 content}
@@ -361,13 +361,6 @@ labels anyway, e.g., Chapter \ref{methods}.
 Figures and tables with captions will be placed in \texttt{figure} and
 \texttt{table} environments, respectively.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, .}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(pressure, }\DataTypeTok{type =} \StringTok{'b'}\NormalTok{, }\DataTypeTok{pch =} \DecValTok{19}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=0.8\linewidth]{ntu-bookdown_files/figure-latex/nice-fig-1} 
@@ -381,15 +374,6 @@ Reference a figure by its code chunk label with the \texttt{fig:}
 prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can
 reference tables generated from \texttt{knitr::kable()}, e.g., see Table
 \ref{tab:nice-tab}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{head}\NormalTok{(iris, }\DecValTok{20}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Here is a nice table!'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{table}
 

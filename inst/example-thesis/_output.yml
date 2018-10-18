@@ -2,6 +2,7 @@ bookdown::gitbook:
 #  includes:
 #    before_body: latex/mathjax_bm.tex
   css: style.css
+  dev: "png"
   pandoc_args: "--csl=cite-style.csl"
   config:
     toc:
@@ -18,6 +19,7 @@ bookdown::gitbook:
 bookdown::pdf_book:
   includes:
     in_header: latex/preamble-zh.tex
+  dev: "cairo_pdf"
   template: latex/template.tex
   citation_package: none  # biblatex
   pandoc_args: [  "--csl=cite-style.csl", "--top-level-division=chapter" ]
