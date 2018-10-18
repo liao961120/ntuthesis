@@ -1,4 +1,4 @@
-name: ntu_thesis_template
+name: Thesis Template for NTU
 description: >
-   A bookdown template for NTU thesis
+   A bookdown template for NTU master & PhD thesis
 create_dir: TRUE
