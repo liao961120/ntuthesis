@@ -48,22 +48,22 @@ rmd_files:
 ├── _acknowledge.Rmd     # acknowledgement
 ├── _abstract-en.Rmd     # abstract
 ├── _abstract-zh.Rmd     # Same as above, but in Chinese
+|
 ├── 01-intro.Rmd         # Chapter 1 content
 ├── 02-literature.Rmd    # Chapter 2 content
 ├── 03-method.Rmd        # Chapter 3 content
 ├── 99-references.Rmd    # Don't need to edit
 ├── ref.bib              # References
 ├── cite-style.csl       # Citation style
-├── watermark.pdf        # 臺大浮水印 (PDF 右上角)   
+|
 ├── _bookdown.yml        # label names in html; Rmd files order
 ├── _output.yml          # preamble, pandoc args, cite-pkg
-├── front_matter
-│   ├── front_matter.rmd   # Edit
-│   ├── certification.pdf  # Prepare scan file
-│   └── front_matter.pdf   # Auto generated
-└── latex
-    ├── preamble-en.tex    # _output.yml
-    └── preamble-zh.tex    # _output.yml, for Eng thesis
+|
+├── watermark.pdf        # 臺大浮水印 (PDF 右上角)
+├── person-info.yml      # Info to generate front matter
+├── certification-scan.pdf  # 已簽名'口試委員審查書'
+└── front_matter
+    └── certification.pdf   # 空白'口試委員審查書'
 ```
 
 

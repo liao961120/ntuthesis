@@ -64,15 +64,35 @@ bookdown::render_book("index.Rmd", "bookdown::bookdown::pdf_book")
 
 ![](https://raw.githubusercontent.com/liao961120/ntuthesis/master/img/build-button.png)
 
-### 內文編輯
+### 檔案結構
 
 這個模板是使用 [bookdown](https://bookdown.org/yihui/bookdown/) 製作，因此所有 bookdown 的功能都可直接使用。
 
-目前論文預設的語言是中文，論文的內容：
+```yaml
+├── index.Rmd            # Book Layout (font, watermark, biblio, ...)
+├── _acknowledge.Rmd     # acknowledgement
+├── _abstract-en.Rmd     # abstract
+├── _abstract-zh.Rmd     # Same as above, but in Chinese
+|
+├── 01-intro.Rmd         # Chapter 1 content
+├── 02-literature.Rmd    # Chapter 2 content
+├── 03-method.Rmd        # Chapter 3 content
+├── 99-references.Rmd    # Don't need to edit
+├── ref.bib              # References
+├── cite-style.csl       # Citation style
+|
+├── _bookdown.yml        # Label names in Gitbook; Rmd files order
+├── _output.yml          # PDF thesis Language, Citation pkg
+|
+├── watermark.pdf        # 臺大浮水印 (PDF 右上角)
+├── person-info.yml      # Info to generate front matter
+├── certification-scan.pdf  # 已簽名'口試委員審查書'
+└── front_matter
+    └── certification.pdf   # 空白'口試委員審查書'
+```
 
-- 第一章寫在 `01-xxx.Rmd`
-- 第二章寫在 `02-xxx.Rmd`，依此類推
-- `99-references.Rmd` 原則上不須動它
+
+
 
 - `index.Rmd`：yaml 僅需設定下列幾項
 
