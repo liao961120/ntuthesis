@@ -14,6 +14,17 @@
 - [GitBook](https://liao961120.github.io/ntuthesis/)
 
 
+## 需求軟體
+
+若曾經用 R Markdown 輸出 PDF 中文文件，則可忽略下方。
+
+電腦尚未安裝 LaTeX 軟體，可以
+
+- 直接安裝 [tinytex](https://yihui.name/tinytex/) R 套件
+- 或安裝 LaTeX 軟體
+    - Windows: MiKTeX
+    - Linux: TeX Live
+
 ## 使用
 
 目前正在開發中，但基本上已可使用。
@@ -21,6 +32,7 @@
 ```r
 devtools::install_github("liao961120/ntuthesis")
 ```
+
 
 
 ### 封面製作
