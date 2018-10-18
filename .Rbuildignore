@@ -3,3 +3,5 @@
 ^data-raw$
 /img
 ^img$
+^\.travis\.yml$
+^render-book\.sh$
