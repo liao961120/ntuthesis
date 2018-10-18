@@ -25,30 +25,54 @@
     - Windows: MiKTeX
     - Linux: TeX Live
 
-## 使用
-
-目前正在開發中，但基本上已可使用。
-
+## 安裝
 ```r
 devtools::install_github("liao961120/ntuthesis")
 ```
 
+## 使用
 
+開啟 RStudio，選取左上方 `File` > `New File` > `R Markdown`，
+即會出現以下畫面：
 
-### 封面製作
+![](https://raw.githubusercontent.com/liao961120/ntuthesis/master/img/rmd-template.png)
 
-開啟 `front_matter/front_matter.rmd`，修改其內的 `yaml` 後 knit 成 PDF<sup>1</sup>。
-論文 (PDF檔) 的詳細資訊，如中英文標題、姓名、指導老師等，皆在此設定。
+1. 選取左方`From Template`
+2. 找到`Thesis Template for NTU`
+3. 在下方`Name:`寫下創建的資料夾名稱
+
+接著需要將該資料夾變更為 bookdown 專案。這可以用 RStudio 左上方 `File` > `New Project` > `Existing Directory` 達成，或直接使用下方指令：
+
+```r
+library(ntuthesis)
+init_proj(dir = ".")))  # init working dir as proj.
+```
+
+### 輸出論文
+
+在`person-info.yml`輸入個人資料後，執行以下指令：
+```r
+comp_front()
+```
+即會生成封面。
+
+接著用以下指令或 RStudio 左下方的按鈕輸出論文：
+```r
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::render_book("index.Rmd", "bookdown::bookdown::pdf_book")
+```
+
+![](https://raw.githubusercontent.com/liao961120/ntuthesis/master/img/build-button.png)
 
 ### 內文編輯
 
-這個模板是直接使用 bookdown 預設載入的模板。關於 bookdown 的使用，詳見[此](https://bookdown.org/yihui/bookdown/)。
+這個模板是使用 [bookdown](https://bookdown.org/yihui/bookdown/) 製作，因此所有 bookdown 的功能都可直接使用。
 
 目前論文預設的語言是中文，論文的內容：
 
 - 第一章寫在 `01-xxx.Rmd`
 - 第二章寫在 `02-xxx.Rmd`，依此類推
-- `06-references.Rmd` 原則上不須動它
+- `99-references.Rmd` 原則上不須動它
 
 - `index.Rmd`：yaml 僅需設定下列幾項
 
@@ -57,7 +81,7 @@ title: '臺灣大學論文 Bookdown 模板'     # 顯示在 GitBook 的標題
 author: 'Yongfu Liao'                 # 顯示在 GitBook 的作者
 linestretch: 1.5 # If English: 1.5    # PDF 行距
 watermark: false                      # PDF 是否印出浮水印
-bibliography: packages.bib            # 論文的參考書目
+bibliography: ref.bib            # 論文的參考書目
 ```
 
 ## To Do

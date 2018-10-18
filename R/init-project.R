@@ -1,9 +1,9 @@
 #' Initialize current directory as a bookdown project
 #'
 #' @export
-init_proj <- function() {
+init_proj <- function(dir = ".") {
   rproj <- system.file("init-project/ntu-bookdown.Rproj.txt", package = "ntuthesis")
-  file.copy(from = rproj, to = ".")
+  file.copy(from = rproj, to = dir)
   file.rename(from = "ntu-bookdown.Rproj.txt",
               to = paste0(basename(getwd()), ".Rproj"))
 }
