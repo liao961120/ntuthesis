@@ -2,15 +2,16 @@ bookdown::gitbook:
 #  includes:
 #    before_body: latex/mathjax_bm.tex
   css: style.css
-  pandoc_args: "--csl=apa_zh_en.csl"
+  dev: "png"
+  pandoc_args: "--csl=cite-style.csl"
   config:
     toc:
       before: |
         <li><a href="./">臺大論文模板</a></li>
       after: |
-        <li><a href="https://github.com/liao961120/NTUbookdown" target="blank">Published with bookdown</a></li>
+        <li><a href="https://github.com/liao961120/ntuthesis" target="blank">Published with bookdown</a></li>
     download: "pdf"
-    edit: https://github.com/liao961120/NTUbookdown/edit/master/%s
+    edit: https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/%s
     sharing:
       github: yes
       facebook: no
@@ -18,6 +19,7 @@ bookdown::gitbook:
 bookdown::pdf_book:
   includes:
     in_header: latex/preamble-zh.tex
+  dev: "cairo_pdf"
   template: latex/template.tex
   citation_package: none  # biblatex
   pandoc_args: [  "--csl=cite-style.csl", "--top-level-division=chapter" ]

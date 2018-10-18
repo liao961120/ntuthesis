@@ -1,6 +1,5 @@
 book_filename: "ntu-bookdown"
 delete_merged_file: yes
-output_dir: "docs"
 language:
   label:
     fig: '圖 ' #'Figure '

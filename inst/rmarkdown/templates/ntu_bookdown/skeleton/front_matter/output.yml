@@ -1,0 +1,19 @@
+acknowledgements: |
+  `r paste(readLines("../_acknowledge.Rmd"), collapse = "\n  ")`
+abstract-en: |
+  `r x=readLines("../_abstract-en.Rmd"); paste(x[5:length(x)], collapse = "\n  ")`
+abstract-zh: |
+  `r x=readLines("../_abstract-zh.Rmd"); paste(x[5:length(x)], collapse = "\n  ")`
+keyword-en: |
+  `r paste(readLines("../_abstract-en.Rmd")[2])`
+keyword-zh: |
+  `r paste(readLines("../_abstract-zh.Rmd")[2])`
+link-citations: yes
+site: bookdown::bookdown_site
+output:
+  bookdown::pdf_document2:
+    latex_engine: xelatex
+    number_sections: FALSE
+    toc: False
+    template: template-rewrite.tex
+    keep_tex: true
