@@ -69,40 +69,30 @@ bookdown::render_book("index.Rmd", "bookdown::bookdown::pdf_book")
 這個模板是使用 [bookdown](https://bookdown.org/yihui/bookdown/) 製作，因此所有 bookdown 的功能都可直接使用。
 
 ```yaml
-├── index.Rmd            # Book Layout (font, watermark, biblio, ...)
+├── index.Rmd            # Thesis Layout (font, watermark, biblio, ...)
 ├── _acknowledge.Rmd     # acknowledgement
 ├── _abstract-en.Rmd     # abstract
 ├── _abstract-zh.Rmd     # Same as above, but in Chinese
-|
+│
 ├── 01-intro.Rmd         # Chapter 1 content
 ├── 02-literature.Rmd    # Chapter 2 content
 ├── 03-method.Rmd        # Chapter 3 content
 ├── 99-references.Rmd    # Don't need to edit
 ├── ref.bib              # References
 ├── cite-style.csl       # Citation style
-|
+│
 ├── _bookdown.yml        # Label names in Gitbook; Rmd files order
 ├── _output.yml          # PDF thesis Language, Citation pkg
-|
-├── watermark.pdf        # 臺大浮水印 (PDF 右上角)
-├── person-info.yml      # Info to generate front matter
+│
+├── person-info.yml         # Info to generate front matter
 ├── certification-scan.pdf  # 已簽名'口試委員審查書'
-└── front_matter
-    └── certification.pdf   # 空白'口試委員審查書'
+├── front_matter
+│   └── certification.pdf   # 空白'口試委員審查書'
+└── watermark.pdf           # 臺大浮水印 (PDF 右上角)
 ```
 
 
 
-
-- `index.Rmd`：yaml 僅需設定下列幾項
-
-```markdown
-title: '臺灣大學論文 Bookdown 模板'     # 顯示在 GitBook 的標題
-author: 'Yongfu Liao'                 # 顯示在 GitBook 的作者
-linestretch: 1.5 # If English: 1.5    # PDF 行距
-watermark: false                      # PDF 是否印出浮水印
-bibliography: ref.bib            # 論文的參考書目
-```
 
 ## To Do
 
