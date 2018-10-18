@@ -17,7 +17,11 @@
 ## 使用
 
 目前正在開發中，但基本上已可使用。
-使用者可以直接下載[`inst/example-thesis`](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/liao961120/ntuthesis/tree/master/inst/example-thesis)這個資料夾，裡面即是一個完整的 bookdown project。
+
+```r
+devtools::install_github("liao961120/ntuthesis")
+```
+
 
 ### 封面製作
 
