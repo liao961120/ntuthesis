@@ -50,13 +50,13 @@ init_proj(dir = ".")))  # init working dir as proj.
 
 ### 輸出論文
 
-在`person-info.yml`輸入個人資料後，執行以下指令：
+在`person-info.yml`輸入個人資料後，執行以下指令即會生成封面：
 ```r
 comp_front()
 ```
-即會生成封面。
 
-接著用以下指令或 RStudio 左下方的按鈕輸出論文：
+
+接著用下方指令或 RStudio Environment Pane 裡的 `Build Book` 輸出論文：
 ```r
 bookdown::render_book("index.Rmd", "bookdown::gitbook")
 bookdown::render_book("index.Rmd", "bookdown::bookdown::pdf_book")
