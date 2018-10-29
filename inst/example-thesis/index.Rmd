@@ -54,7 +54,9 @@ knitr::opts_chunk$set(
     echo = FALSE, # No display code chunks
     message = FALSE,
     warning = FALSE,
-    comment=""
+    comment="",
+    fig.pos = 'h',
+    fig.align = 'center'
     #fig.dim = c(3.5, 3.5)  # (width, height)
 )
 ```

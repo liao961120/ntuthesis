@@ -30,11 +30,11 @@ comp_front <- function() {
 #' @param person_info File path to \code{person-info.yml}.
 #'
 #' @keywords internal
-construct_front_rmd <- function(person_info = '../person-info.yml'){
+construct_front_rmd <- function(person_info = '../_person-info.yml'){
   stopifnot(dir.exists("front_matter"))
   setwd("front_matter")
 
-  if (!file.exists('../person-info.yml')) stop("'person-info.yml' not in root")
+  if (!file.exists(person_info)) stop("'_person-info.yml' not in root")
 
   person_info <- paste(readLines(person_info),
                        collapse = "\n")

@@ -25,7 +25,7 @@
 <meta name="author" content="廖永賦">
 
 
-<meta name="date" content="2018-10-18">
+<meta name="date" content="2018-10-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -106,10 +106,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>誌謝</a></li>
 <li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>摘要</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Literature</a><ul>
-<li class="chapter" data-level="2.1" data-path="literature.html"><a href="literature.html#level"><i class="fa fa-check"></i><b>2.1</b> Level</a></li>
+<li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Literature</a></li>
+<li class="chapter" data-level="3" data-path="add-on.html"><a href="add-on.html"><i class="fa fa-check"></i><b>3</b> 進階功能擴充</a><ul>
+<li class="chapter" data-level="3.1" data-path="add-on.html"><a href="add-on.html#section-3.1"><i class="fa fa-check"></i><b>3.1</b> 語言學</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>參考資料</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/liao961120/ntuthesis" target="blank">Published with bookdown</a></li>
@@ -133,7 +133,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">第 1 章</span> Introduction</h1>
-<p>ä is the IPA symbol for ㄚ in ㄅㄆㄇ。</p>
 <p><strong>中文</strong>中文<em>中文</em><br />
 可以換行</p>
 <p>新段落</p>
@@ -191,24 +190,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ├── _acknowledge.Rmd     <span class="co"># acknowledgement</span>
 ├── _abstract-en.Rmd     <span class="co"># abstract</span>
 ├── _abstract-zh.Rmd     <span class="co"># Same as above, but in Chinese</span>
+|
 ├── 01-intro.Rmd         <span class="co"># Chapter 1 content</span>
 ├── 02-literature.Rmd    <span class="co"># Chapter 2 content</span>
 ├── 03-method.Rmd        <span class="co"># Chapter 3 content</span>
 ├── 99-references.Rmd    <span class="co"># Don&#39;t need to edit</span>
 ├── ref.bib              <span class="co"># References</span>
 ├── cite-style.csl       <span class="co"># Citation style</span>
-├── watermark.pdf        <span class="co"># 臺大浮水印 (PDF 右上角)   </span>
+|
 ├── _bookdown.yml        <span class="co"># label names in html; Rmd files order</span>
 ├── _output.yml          <span class="co"># preamble, pandoc args, cite-pkg</span>
-├── front_matter
-│   ├── front_matter.rmd   <span class="co"># Edit</span>
-│   ├── certification.pdf  <span class="co"># Prepare scan file</span>
-│   └── front_matter.pdf   <span class="co"># Auto generated</span>
-└── latex
-    ├── preamble-en.tex    <span class="co"># _output.yml</span>
-    └── preamble-zh.tex    <span class="co"># _output.yml, for Eng thesis</span></code></pre></div>
+|
+├── watermark.pdf        <span class="co"># 臺大浮水印 (PDF 右上角)</span>
+├── person-info.yml      <span class="co"># Info to generate front matter</span>
+├── certification-scan.pdf  <span class="co"># 已簽名&#39;口試委員審查書&#39;</span>
+└── front_matter
+    └── certification.pdf   <span class="co"># 空白&#39;口試委員審查書&#39;</span></code></pre></div>
 <p>Test <a href="http://pandoc.org/MANUAL.html#variables-for-latex">link as note</a>.</p>
-<p><strong>You</strong> can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">1</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="methods.html#methods">3</a>.</p>
+<p><strong>You</strong> can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">1</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="#methods"><strong>??</strong></a>.</p>
 <p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
 <div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
 <img src="ntu-bookdown_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />

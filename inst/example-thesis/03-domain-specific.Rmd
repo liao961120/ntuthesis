@@ -1,0 +1,29 @@
+# 進階功能擴充 {#add-on}
+
+透過其它 R 套件，R Markdown 的撰寫過程能夠更順暢。以下介紹幾個例子，歡迎補充說明。
+
+
+## 語言學
+
+語言學相關文件寫作時，常需要插入 IPA 語音符號，但鍵盤通常難以直接打出這些符號。為此，我寫了一個 R 套件，讓使用者能直接在 RStudio 中透過輸入語音 features 的方式打出 IPA：
+
+```{r echo=FALSE}
+if (knitr::is_html_output()) {
+  knitr::include_graphics("https://liao961120.github.io/linguisticsdown/man/figs/features.gif")
+} else {
+  knitr::include_graphics("figs/ipa.png")
+  }
+```
+<br>
+
+要使用這功能，需安裝 `linguisticsdown`：
+```r
+install.packages("linguisticsdown")
+```
+
+並且在 `index.Rmd` 的 yaml 設定 IPA 符號專用的字型（需確認電腦上有安裝此字型）：
+```yaml
+ipa-font: 'Doulos SIL'
+```
+
+關於更詳細的功能，見[套件網頁](https://liao961120.github.io/linguisticsdown/)

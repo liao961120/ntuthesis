@@ -1,7 +1,6 @@
 # Introduction {#intro}
 
-`r linguisticsdown::cond_cmpl("ä")`
-is the IPA symbol for ㄚ in ㄅㄆㄇ。
+
 
 **中文**中文*中文*  
 可以換行
