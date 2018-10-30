@@ -3,6 +3,8 @@ pandoc_version: 1.19.2.1
     
 script:
   - bash render-book.sh
+  - Rscript -e 'pkgdown::build_site()'
+  - cp -r _book/ docs/doc
 
 cache:
   packages: yes
@@ -14,6 +16,6 @@ deploy:
   skip-cleanup: true
   github-token: $GH_TOKEN  # Set in travis-ci.org dashboard, marked secure
   keep-history: true
-  local-dir: _book # Book output directory
+  local-dir: docs # Book output directory
   on:
     branch: master

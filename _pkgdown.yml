@@ -1,0 +1,11 @@
+navbar:
+  title: "sparklyr"
+  type: inverse
+  left:
+    - text: "首頁"
+      href: index.html
+    - text: "說明文件"
+      href: doc/index.html
+  right:
+    - icon: fa-github
+      href: https://github.com/liao961120/ntuthesis
