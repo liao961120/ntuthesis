@@ -4,13 +4,13 @@
 \alias{construct_front_rmd}
 \title{Construct 'front_matter.rmd'}
 \usage{
-construct_front_rmd(person_info = "../person-info.yml")
+construct_front_rmd(person_info = "../_person-info.yml")
 }
 \arguments{
-\item{person_info}{File path to \code{person-info.yml}.}
+\item{person_info}{File path to \code{_person-info.yml}.}
 }
 \description{
 Construct \code{front_matter.rmd} from \code{front_matter/output.yml}
-and \code{person-info} in root.
+and \code{_person-info} in root.
 }
 \keyword{internal}
