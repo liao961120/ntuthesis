@@ -1,5 +1,29 @@
-# 論文撰寫
+# Bookdown Cheatsheet
 
 
 By default, bookdown merges all Rmd files by the order of filenames, e.g., `01-intro.Rmd` will appear before `02-literature.Rmd`. Filenames that start with an underscore `_` are skipped. `index.Rmd` will always be treated as the first file.
 
+
+
+- Benefits
+- Quick Start
+    - General Usage
+        - Front matter
+        - Content
+    - Write Thesis in English (Write in Eng)
+- Bookdown Demo
+    a) Markdown quick guide
+        - no closing or opening quotation marks
+    a) Citation
+    a) Cross References
+    - 數學公式
+    - indexing
+- Harnessing the Power of R Community
+    A) Facilitating Packages
+        - citr
+    A) 特定領域
+        - linguisticsdown
+- Resources
+    - R Markdown Features
+- Thanks and Help
+    - GitHub issues

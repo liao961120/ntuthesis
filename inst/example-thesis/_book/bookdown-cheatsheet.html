@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="bookdown-cheatsheet.html">
-<link rel="next" href="references.html">
+<link rel="prev" href="write-thesis.html">
+<link rel="next" href="add-on.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -148,28 +148,62 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="add-on" class="section level1">
-<h1><span class="header-section-number">第 6 章</span> 進階功能擴充</h1>
-<p>透過其它 R 套件，R Markdown 的撰寫過程能夠更順暢。以下介紹幾個例子，歡迎補充說明。</p>
-<div id="ling" class="section level2">
-<h2><span class="header-section-number">6.1</span> 語言學</h2>
-<p>語言學相關文件寫作時，常需要插入 IPA 語音符號，但鍵盤通常難以直接打出這些符號。為此，我寫了一個 R 套件，讓使用者能直接在 RStudio 中透過輸入語音 features 的方式打出 IPA：</p>
-<p><img src="https://liao961120.github.io/linguisticsdown/man/figs/features.gif" width="90%" style="display: block; margin: auto;" /> <br></p>
-<p>要使用這功能，需安裝 <code>linguisticsdown</code>：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;linguisticsdown&quot;</span>)</code></pre></div>
-<p>並且在 <code>index.Rmd</code> 的 yaml 設定 IPA 符號專用的字型（需確認電腦上有安裝此字型）：</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">ipa-font:</span><span class="at"> </span><span class="st">&#39;Doulos SIL&#39;</span></code></pre></div>
-<p>關於更詳細的功能，見<a href="https://liao961120.github.io/linguisticsdown/">套件網頁</a></p>
+<div id="bookdown-cheatsheet" class="section level1">
+<h1><span class="header-section-number">第 5 章</span> Bookdown Cheatsheet</h1>
+<p>By default, bookdown merges all Rmd files by the order of filenames, e.g., <code>01-intro.Rmd</code> will appear before <code>02-literature.Rmd</code>. Filenames that start with an underscore <code>_</code> are skipped. <code>index.Rmd</code> will always be treated as the first file.</p>
+<ul>
+<li>Benefits</li>
+<li>Quick Start
+<ul>
+<li>General Usage
+<ul>
+<li>Front matter</li>
+<li>Content</li>
+</ul></li>
+<li>Write Thesis in English (Write in Eng)</li>
+</ul></li>
+<li>Bookdown Demo
+<ol style="list-style-type: lower-alpha">
+<li>Markdown quick guide
+<ul>
+<li>no closing or opening quotation marks</li>
+</ul></li>
+<li>Citation</li>
+<li>Cross References</li>
+</ol>
+<ul>
+<li>數學公式</li>
+<li>indexing</li>
+</ul></li>
+<li>Harnessing the Power of R Community
+<ol style="list-style-type: upper-alpha">
+<li>Facilitating Packages
+<ul>
+<li>citr</li>
+</ul></li>
+<li>特定領域
+<ul>
+<li>linguisticsdown</li>
+</ul></li>
+</ol></li>
+<li>Resources
+<ul>
+<li>R Markdown Features</li>
+</ul></li>
+<li>Thanks and Help
+<ul>
+<li>GitHub issues</li>
+</ul></li>
+</ul>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="bookdown-cheatsheet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="write-thesis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="add-on.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -199,7 +233,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/04-specific-extension.Rmd",
+"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/03-bookdown-demo.Rmd",
 "text": "Edit"
 },
 "download": ["ntu-bookdown.pdf"],

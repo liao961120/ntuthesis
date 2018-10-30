@@ -1,5 +1,79 @@
-# 論文撰寫
+# 論文撰寫 {#write-thesis}
+
+## 檔案結構 {#dir-structure}
+
+執行以下指令後（詳見第 \@ref(import-template) 節）
+```r
+rmarkdown::draft("project_name",
+                 template = "ntu_bookdown",
+                 package = "ntuthesis")
+```
+
+即會匯入論文模板，以下是論文模板的檔案結構（已簡化）。
+
+```yaml
+├── project_name.Rmd     # Useless, please delete it
+|
+├── index.Rmd            # Book Layout (font, watermark, biblio, ...)
+├── _acknowledge.Rmd     # acknowledgement
+├── _abstract-en.Rmd     # abstract
+├── _abstract-zh.Rmd     # Same as above, but in Chinese
+|
+├── 01-intro.Rmd         # Chapter 1 content
+├── 02-literature.Rmd    # Chapter 2 content
+├── 03-method.Rmd        # Chapter 3 content
+├── 99-references.Rmd    # Don't need to edit
+├── ref.bib              # References
+├── cite-style.csl       # Citation style
+|
+├── _bookdown.yml        # label names in gitbook; Rmd files order
+├── _output.yml          # preamble, pandoc args, cite-pkg
+|
+├── watermark.pdf        # 臺大浮水印 (PDF 右上角)
+├── _person-info.yml      # Info to generate front matter
+├── certification-scan.pdf  # 已簽名'口試委員審查書'
+└── front_matter
+    └── certification.pdf   # 空白'口試委員審查書'
+```
+
+## `index.Rmd`
+
+`index.Rmd`
 
 
-By default, bookdown merges all Rmd files by the order of filenames, e.g., `01-intro.Rmd` will appear before `02-literature.Rmd`. Filenames that start with an underscore `_` are skipped. `index.Rmd` will always be treated as the first file.
+## 撰寫語言 {#write-lang}
 
+若使用**英文**撰寫論文，需修改 `_output.yml`、`_bookdown.yml` 這兩個檔案的內容。
+
+### `_output.yml`
+
+將 `in_header: latex/preamble-zh.tex` 改為 `in_header: latex/preamble-en.tex`：
+
+```yaml
+bookdown::pdf_book:
+  includes:
+    in_header: latex/preamble-en.tex
+```
+
+### `_bookdown.yml`
+
+`_bookdown.yml` 中，可以對標籤的名稱進行定義。這裡的設定與 PDF 輸出無關，只與 gitbook 輸出格式有關。因此，若無需使用 gitbook 輸出，可忽略此段。
+
+此外，`_bookdown.yml` 亦可設定 Rmd 檔在輸出文件中的順序。若無設定，就會依序檔名排序[^order]。
+
+在以下設定中，可使 gitbook 輸出的章節（順序）與 PDF 不同。
+```yaml
+rmd_files:
+  html: ["index.Rmd", "abstract.Rmd", "intro.Rmd"]
+  latex: ["abstract.Rmd", "intro.Rmd"]
+```
+
+[^order]: 此模板即未進行設定，因此第一章的內容寫在 `01-xxx.Rmd` 就會自動排在第一。而若檔名以底線開頭（`_`）則會被忽略。更多內容詳見 [bookdown](https://bookdown.org/yihui/bookdown/usage.html)。
+
+
+## 文獻引用 {#bib-cite}
+
+- csl
+- .bib
+- citr
+- limitation: bilingual

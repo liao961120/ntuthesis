@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="bookdown-cheatsheet.html">
-<link rel="next" href="references.html">
+<link rel="prev" href="export-thesis.html">
+<link rel="next" href="bookdown-cheatsheet.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -148,28 +148,86 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="add-on" class="section level1">
-<h1><span class="header-section-number">第 6 章</span> 進階功能擴充</h1>
-<p>透過其它 R 套件，R Markdown 的撰寫過程能夠更順暢。以下介紹幾個例子，歡迎補充說明。</p>
-<div id="ling" class="section level2">
-<h2><span class="header-section-number">6.1</span> 語言學</h2>
-<p>語言學相關文件寫作時，常需要插入 IPA 語音符號，但鍵盤通常難以直接打出這些符號。為此，我寫了一個 R 套件，讓使用者能直接在 RStudio 中透過輸入語音 features 的方式打出 IPA：</p>
-<p><img src="https://liao961120.github.io/linguisticsdown/man/figs/features.gif" width="90%" style="display: block; margin: auto;" /> <br></p>
-<p>要使用這功能，需安裝 <code>linguisticsdown</code>：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;linguisticsdown&quot;</span>)</code></pre></div>
-<p>並且在 <code>index.Rmd</code> 的 yaml 設定 IPA 符號專用的字型（需確認電腦上有安裝此字型）：</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">ipa-font:</span><span class="at"> </span><span class="st">&#39;Doulos SIL&#39;</span></code></pre></div>
-<p>關於更詳細的功能，見<a href="https://liao961120.github.io/linguisticsdown/">套件網頁</a></p>
+<div id="write-thesis" class="section level1">
+<h1><span class="header-section-number">第 4 章</span> 論文撰寫</h1>
+<div id="dir-structure" class="section level2">
+<h2><span class="header-section-number">4.1</span> 檔案結構</h2>
+<p>執行以下指令後（詳見第 <a href="export-thesis.html#import-template">3.1</a> 節）</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rmarkdown<span class="op">::</span><span class="kw">draft</span>(<span class="st">&quot;project_name&quot;</span>,
+                 <span class="dt">template =</span> <span class="st">&quot;ntu_bookdown&quot;</span>,
+                 <span class="dt">package =</span> <span class="st">&quot;ntuthesis&quot;</span>)</code></pre></div>
+<p>即會匯入論文模板，以下是論文模板的檔案結構（已簡化）。</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml">├── project_name.Rmd     <span class="co"># Useless, please delete it</span>
+|
+├── index.Rmd            <span class="co"># Book Layout (font, watermark, biblio, ...)</span>
+├── _acknowledge.Rmd     <span class="co"># acknowledgement</span>
+├── _abstract-en.Rmd     <span class="co"># abstract</span>
+├── _abstract-zh.Rmd     <span class="co"># Same as above, but in Chinese</span>
+|
+├── 01-intro.Rmd         <span class="co"># Chapter 1 content</span>
+├── 02-literature.Rmd    <span class="co"># Chapter 2 content</span>
+├── 03-method.Rmd        <span class="co"># Chapter 3 content</span>
+├── 99-references.Rmd    <span class="co"># Don&#39;t need to edit</span>
+├── ref.bib              <span class="co"># References</span>
+├── cite-style.csl       <span class="co"># Citation style</span>
+|
+├── _bookdown.yml        <span class="co"># label names in gitbook; Rmd files order</span>
+├── _output.yml          <span class="co"># preamble, pandoc args, cite-pkg</span>
+|
+├── watermark.pdf        <span class="co"># 臺大浮水印 (PDF 右上角)</span>
+├── _person-info.yml      <span class="co"># Info to generate front matter</span>
+├── certification-scan.pdf  <span class="co"># 已簽名&#39;口試委員審查書&#39;</span>
+└── front_matter
+    └── certification.pdf   <span class="co"># 空白&#39;口試委員審查書&#39;</span></code></pre></div>
+</div>
+<div id="index.rmd" class="section level2">
+<h2><span class="header-section-number">4.2</span> <code>index.Rmd</code></h2>
+<p><code>index.Rmd</code></p>
+</div>
+<div id="write-lang" class="section level2">
+<h2><span class="header-section-number">4.3</span> 撰寫語言</h2>
+<p>若使用<strong>英文</strong>撰寫論文，需修改 <code>_output.yml</code>、<code>_bookdown.yml</code> 這兩個檔案的內容。</p>
+<div id="output.yml" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> <code>_output.yml</code></h3>
+<p>將 <code>in_header: latex/preamble-zh.tex</code> 改為 <code>in_header: latex/preamble-en.tex</code>：</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">bookdown:</span><span class="at">:pdf_book:</span>
+  <span class="fu">includes:</span>
+    <span class="fu">in_header:</span><span class="at"> latex/preamble-en.tex</span></code></pre></div>
+</div>
+<div id="bookdown.yml" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> <code>_bookdown.yml</code></h3>
+<p><code>_bookdown.yml</code> 中，可以對標籤的名稱進行定義。這裡的設定與 PDF 輸出無關，只與 gitbook 輸出格式有關。因此，若無需使用 gitbook 輸出，可忽略此段。</p>
+<p>此外，<code>_bookdown.yml</code> 亦可設定 Rmd 檔在輸出文件中的順序。若無設定，就會依序檔名排序<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>。</p>
+<p>在以下設定中，可使 gitbook 輸出的章節（順序）與 PDF 不同。</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span>
+  <span class="fu">html:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span>
+  <span class="fu">latex:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></code></pre></div>
+</div>
+</div>
+<div id="bib-cite" class="section level2">
+<h2><span class="header-section-number">4.4</span> 文獻引用</h2>
+<ul>
+<li>csl</li>
+<li>.bib</li>
+<li>citr</li>
+<li>limitation: bilingual</li>
+</ul>
 
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>此模板即未進行設定，因此第一章的內容寫在 <code>01-xxx.Rmd</code> 就會自動排在第一。而若檔名以底線開頭（<code>_</code>）則會被忽略。更多內容詳見 <a href="https://bookdown.org/yihui/bookdown/usage.html">bookdown</a>。<a href="write-thesis.html#fnref1">↩</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="bookdown-cheatsheet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="export-thesis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bookdown-cheatsheet.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -199,7 +257,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/04-specific-extension.Rmd",
+"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/02-write-thesis.Rmd",
 "text": "Edit"
 },
 "download": ["ntu-bookdown.pdf"],

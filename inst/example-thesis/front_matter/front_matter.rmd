@@ -25,7 +25,7 @@ day: '28'
 doi: '10.1016/S0010-0277(00)00108-6'
 institute-en: 'Department of Psychology'
 institute-zh: '心理學系'
-acknowledge-in-en: false     # if written in English, change to 'true'
+acknowledge-in-en: false   # if written in English, change to 'true'
 acknowledgements: |
   `r paste(readLines("../_acknowledge.Rmd"), collapse = "\n  ")`
 abstract-en: |

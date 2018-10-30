@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="bookdown-cheatsheet.html">
-<link rel="next" href="references.html">
+<link rel="prev" href="install.html">
+<link rel="next" href="write-thesis.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -148,18 +148,41 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="add-on" class="section level1">
-<h1><span class="header-section-number">第 6 章</span> 進階功能擴充</h1>
-<p>透過其它 R 套件，R Markdown 的撰寫過程能夠更順暢。以下介紹幾個例子，歡迎補充說明。</p>
-<div id="ling" class="section level2">
-<h2><span class="header-section-number">6.1</span> 語言學</h2>
-<p>語言學相關文件寫作時，常需要插入 IPA 語音符號，但鍵盤通常難以直接打出這些符號。為此，我寫了一個 R 套件，讓使用者能直接在 RStudio 中透過輸入語音 features 的方式打出 IPA：</p>
-<p><img src="https://liao961120.github.io/linguisticsdown/man/figs/features.gif" width="90%" style="display: block; margin: auto;" /> <br></p>
-<p>要使用這功能，需安裝 <code>linguisticsdown</code>：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;linguisticsdown&quot;</span>)</code></pre></div>
-<p>並且在 <code>index.Rmd</code> 的 yaml 設定 IPA 符號專用的字型（需確認電腦上有安裝此字型）：</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">ipa-font:</span><span class="at"> </span><span class="st">&#39;Doulos SIL&#39;</span></code></pre></div>
-<p>關於更詳細的功能，見<a href="https://liao961120.github.io/linguisticsdown/">套件網頁</a></p>
+<div id="export-thesis" class="section level1">
+<h1><span class="header-section-number">第 3 章</span> 輸出論文</h1>
+<div id="import-template" class="section level2">
+<h2><span class="header-section-number">3.1</span> 匯入論文模板</h2>
+<p>開啟 RStudio，選取左上方 <code>File</code> &gt; <code>New File</code> &gt; <code>R Markdown</code>， 即會出現以下畫面：</p>
+<p><img src="figs/rmd-template.png" width="90%" style="display: block; margin: auto;" /></p>
+<ol style="list-style-type: decimal">
+<li>選取左方<code>From Template</code></li>
+<li>找到<code>Thesis Template for NTU</code></li>
+<li>在下方<code>Name:</code>寫下欲創建之資料夾名稱</li>
+</ol>
+<p>或是直接在 console 執行：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rmarkdown<span class="op">::</span><span class="kw">draft</span>(<span class="st">&quot;project_name&quot;</span>,
+                 <span class="dt">template =</span> <span class="st">&quot;ntu_bookdown&quot;</span>,
+                 <span class="dt">package =</span> <span class="st">&quot;ntuthesis&quot;</span>)</code></pre></div>
+<p>接著需要將該資料夾變更為 bookdown 專案。這可以用 RStudio 左上方 <code>File</code> &gt; <code>New Project</code> &gt; <code>Existing Directory</code> 達成，</p>
+<p>或直接使用下方指令（working dir 需是專案資料夾）：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">init_proj</span>()  <span class="co"># init working dir as proj.</span></code></pre></div>
+<p>詳細的檔案結構，見第 <a href="write-thesis.html#dir-structure">4.1</a> 節。</p>
+</div>
+<div id="edit-front-matter" class="section level2">
+<h2><span class="header-section-number">3.2</span> 編輯封面</h2>
+<p>在<code>_person-info.yml</code>輸入個人資料後，執行：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ntuthesis<span class="op">::</span><span class="kw">comp_front</span>()</code></pre></div>
+<p>即會在 <code>front-matter/</code> 生成封面所需的檔案。以使用者的角度而言，除了 <code>front-matter/certification.pdf</code> 以外，<code>front-matter/</code> 中的其它檔案不須理會。<code>certification.pdf</code> 是空白（未簽名）的「口試委員審定書」。</p>
+<p>已簽名的「口試委員審定書」，將檔案命名為 <code>certification-scan.pdf</code> 並放在專案資料夾的最頂層。</p>
+</div>
+<div id="compile-thesis" class="section level2">
+<h2><span class="header-section-number">3.3</span> Compile 論文</h2>
+<p>接著用 RStudio Environment Pane 裡的 button 輸出論文：</p>
+<p><img src="figs/build-button.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>或是在 console 執行下方指令：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)
+bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::bookdown::pdf_book&quot;</span>)</code></pre></div>
+<p>如此便會在 <code>_book/</code> 中生成完整的論文（gitbook 和 PDF 格式）。</p>
 
 </div>
 </div>
@@ -168,8 +191,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="bookdown-cheatsheet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="install.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="write-thesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -199,7 +222,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/04-specific-extension.Rmd",
+"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/01-install-compile.Rmd",
 "text": "Edit"
 },
 "download": ["ntu-bookdown.pdf"],
