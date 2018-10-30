@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="bookdown-cheatsheet.html">
-<link rel="next" href="references.html">
+<link rel="prev" href="intro.html">
+<link rel="next" href="export-thesis.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -148,19 +148,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="add-on" class="section level1">
-<h1><span class="header-section-number">第 6 章</span> 進階功能擴充</h1>
-<p>透過其它 R 套件，R Markdown 的撰寫過程能夠更順暢。以下介紹幾個例子，歡迎補充說明。</p>
-<div id="ling" class="section level2">
-<h2><span class="header-section-number">6.1</span> 語言學</h2>
-<p>語言學相關文件寫作時，常需要插入 IPA 語音符號，但鍵盤通常難以直接打出這些符號。為此，我寫了一個 R 套件，讓使用者能直接在 RStudio 中透過輸入語音 features 的方式打出 IPA：</p>
-<p><img src="https://liao961120.github.io/linguisticsdown/man/figs/features.gif" width="90%" style="display: block; margin: auto;" /> <br></p>
-<p>要使用這功能，需安裝 <code>linguisticsdown</code>：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;linguisticsdown&quot;</span>)</code></pre></div>
-<p>並且在 <code>index.Rmd</code> 的 yaml 設定 IPA 符號專用的字型（需確認電腦上有安裝此字型）：</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">ipa-font:</span><span class="at"> </span><span class="st">&#39;Doulos SIL&#39;</span></code></pre></div>
-<p>關於更詳細的功能，見<a href="https://liao961120.github.io/linguisticsdown/">套件網頁</a></p>
-
+<div id="install" class="section level1">
+<h1><span class="header-section-number">第 2 章</span> 安裝</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;liao961120/ntuthesis&quot;</span>)</code></pre></div>
+<div id="latex" class="section level2">
+<h2><span class="header-section-number">2.1</span> LaTeX</h2>
+<p>若已有管理、安裝 LaTeX 套件經驗者，可忽略。</p>
+<p>若電腦尚未安裝 LaTeX，可安裝 R 的 tinytex 套件：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;tinytex&#39;</span>)
+tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</code></pre></div>
+<p>在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件。因此，第一次輸出 PDF 可能會需要一些時間。</p>
 </div>
 </div>
             </section>
@@ -168,8 +165,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="bookdown-cheatsheet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="export-thesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -199,7 +196,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/04-specific-extension.Rmd",
+"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/01-install-compile.Rmd",
 "text": "Edit"
 },
 "download": ["ntu-bookdown.pdf"],

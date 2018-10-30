@@ -90,7 +90,7 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
+\setcounter{secnumdepth}{2}
 
 % set default figure placement to htbp
 \makeatletter
@@ -102,6 +102,7 @@
 \usepackage{titletoc}
 \usepackage{xCJKnumb}
 \usepackage{booktabs}
+
 
 %中文自動換行
 \XeTeXlinebreaklocale "zh"
@@ -126,7 +127,7 @@
 
 \title{臺灣大學論文 Bookdown 模板}
 \author{廖永賦}
-\date{October 29, 2018}
+\date{October 30, 2018}
 
 
 \usepackage{fontspec}
@@ -137,9 +138,10 @@
 % Set the default fonts
   \setmainfont{Liberation Serif} % Times New Roman  %Liberation Serif
 
-                        \setCJKmainfont[AutoFakeBold=2.5, AutoFakeSlant=.3]{AR PL KaitiM Big5} %標楷體 %AR PL KaitiM Big5
-            %\setCJKmainfont[AutoFakeBold=1,AutoFakeSlant=.4]{BiauKai}
-            
+            \setCJKmainfont[
+	    BoldFont={AR PL KaitiM Big5}  % 粗體字
+        ]{AR PL KaitiM Big5}
+    
 
 
 % IPA support (Works with linguisticsdown)
@@ -208,22 +210,193 @@
 
 \chapter{Introduction}\label{intro}
 
-\textbf{中文}中文\emph{中文}\\
-可以換行
+中文文獻 (黃宣範, \protect\hyperlink{ref-huangxuanfan1993}{1993})
 
-新段落
+english citation (Leung, Maddux, Galinsky, \& Chiu,
+\protect\hyperlink{ref-leung2008}{2008}).
 
-By default, bookdown merges all Rmd files by the order of filenames,
-e.g., \texttt{01-intro.Rmd} will appear before
-\texttt{02-literature.Rmd}. Filenames that start with an underscore
-\texttt{\_} are skipped. \texttt{index.Rmd} will always be treated as
-the first file.
+\chapter{安裝}\label{install}
 
-Stanford (\protect\hyperlink{ref-stanford2008}{2008})
-英文參考文獻。中文參考文獻 (黃宣範,
-\protect\hyperlink{ref-huangxuanfan1993}{1993})
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{"liao961120/ntuthesis"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-Alternatively, set the order in \texttt{\_bookdown.yml}:
+\section{LaTeX}\label{latex}
+
+若已有管理、安裝 LaTeX 套件經驗者，可忽略。
+
+若電腦尚未安裝 LaTeX，可安裝 R 的 tinytex 套件：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{'tinytex'}\NormalTok{)}
+\NormalTok{tinytex}\OperatorTok{::}\KeywordTok{install_tinytex}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX
+套件。因此，第一次輸出 PDF 可能會需要一些時間。
+
+\chapter{輸出論文}\label{export-thesis}
+
+\section{匯入論文模板}\label{import-template}
+
+開啟 RStudio，選取左上方 \texttt{File} \textgreater{} \texttt{New\ File}
+\textgreater{} \texttt{R\ Markdown}， 即會出現以下畫面：
+
+\begin{center}\includegraphics[width=0.9\linewidth]{figs/rmd-template} \end{center}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  選取左方\texttt{From\ Template}
+\item
+  找到\texttt{Thesis\ Template\ for\ NTU}
+\item
+  在下方\texttt{Name:}寫下欲創建之資料夾名稱
+\end{enumerate}
+
+或是直接在 console 執行：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rmarkdown}\OperatorTok{::}\KeywordTok{draft}\NormalTok{(}\StringTok{"project_name"}\NormalTok{,}
+                 \DataTypeTok{template =} \StringTok{"ntu_bookdown"}\NormalTok{,}
+                 \DataTypeTok{package =} \StringTok{"ntuthesis"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+接著需要將該資料夾變更為 bookdown 專案。這可以用 RStudio 左上方
+\texttt{File} \textgreater{} \texttt{New\ Project} \textgreater{}
+\texttt{Existing\ Directory} 達成，
+
+或直接使用下方指令（working dir 需是專案資料夾）：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ntuthesis}\OperatorTok{::}\KeywordTok{init_proj}\NormalTok{()  }\CommentTok{# init working dir as proj.}
+\end{Highlighting}
+\end{Shaded}
+
+詳細的檔案結構，見第 \ref{dir-structure} 節。
+
+\section{編輯封面}\label{edit-front-matter}
+
+在\texttt{\_person-info.yml}輸入個人資料後，執行：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ntuthesis}\OperatorTok{::}\KeywordTok{comp_front}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+即會在 \texttt{front-matter/}
+生成封面所需的檔案。以使用者的角度而言，除了
+\texttt{front-matter/certification.pdf} 以外，\texttt{front-matter/}
+中的其它檔案不須理會。\texttt{certification.pdf}
+是空白（未簽名）的「口試委員審定書」。
+
+已簽名的「口試委員審定書」，將檔案命名為 \texttt{certification-scan.pdf}
+並放在專案資料夾的最頂層。
+
+\section{Compile 論文}\label{compile-thesis}
+
+接著用 RStudio Environment Pane 裡的 button 輸出論文：
+
+\begin{center}\includegraphics[width=0.9\linewidth]{figs/build-button} \end{center}
+
+或是在 console 執行下方指令：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bookdown}\OperatorTok{::}\KeywordTok{render_book}\NormalTok{(}\StringTok{"index.Rmd"}\NormalTok{, }\StringTok{"bookdown::gitbook"}\NormalTok{)}
+\NormalTok{bookdown}\OperatorTok{::}\KeywordTok{render_book}\NormalTok{(}\StringTok{"index.Rmd"}\NormalTok{, }\StringTok{"bookdown::bookdown::pdf_book"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+如此便會在 \texttt{\_book/} 中生成完整的論文（gitbook 和 PDF 格式）。
+
+\chapter{論文撰寫}\label{write-thesis}
+
+\section{檔案結構}\label{dir-structure}
+
+執行以下指令後（詳見第 \ref{import-template} 節）
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rmarkdown}\OperatorTok{::}\KeywordTok{draft}\NormalTok{(}\StringTok{"project_name"}\NormalTok{,}
+                 \DataTypeTok{template =} \StringTok{"ntu_bookdown"}\NormalTok{,}
+                 \DataTypeTok{package =} \StringTok{"ntuthesis"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+即會匯入論文模板，以下是論文模板的檔案結構（已簡化）。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{├── project_name.Rmd     }\CommentTok{# Useless, please delete it}
+\NormalTok{|}
+\NormalTok{├── index.Rmd            }\CommentTok{# Book Layout (font, watermark, biblio, ...)}
+\NormalTok{├── _acknowledge.Rmd     }\CommentTok{# acknowledgement}
+\NormalTok{├── _abstract-en.Rmd     }\CommentTok{# abstract}
+\NormalTok{├── _abstract-zh.Rmd     }\CommentTok{# Same as above, but in Chinese}
+\NormalTok{|}
+\NormalTok{├── 01-intro.Rmd         }\CommentTok{# Chapter 1 content}
+\NormalTok{├── 02-literature.Rmd    }\CommentTok{# Chapter 2 content}
+\NormalTok{├── 03-method.Rmd        }\CommentTok{# Chapter 3 content}
+\NormalTok{├── 99-references.Rmd    }\CommentTok{# Don't need to edit}
+\NormalTok{├── ref.bib              }\CommentTok{# References}
+\NormalTok{├── cite-style.csl       }\CommentTok{# Citation style}
+\NormalTok{|}
+\NormalTok{├── _bookdown.yml        }\CommentTok{# label names in gitbook; Rmd files order}
+\NormalTok{├── _output.yml          }\CommentTok{# preamble, pandoc args, cite-pkg}
+\NormalTok{|}
+\NormalTok{├── watermark.pdf        }\CommentTok{# 臺大浮水印 (PDF 右上角)}
+\NormalTok{├── _person-info.yml      }\CommentTok{# Info to generate front matter}
+\NormalTok{├── certification-scan.pdf  }\CommentTok{# 已簽名'口試委員審查書'}
+\NormalTok{└── front_matter}
+\NormalTok{    └── certification.pdf   }\CommentTok{# 空白'口試委員審查書'}
+\end{Highlighting}
+\end{Shaded}
+
+\section{\texorpdfstring{\texttt{index.Rmd}}{index.Rmd}}\label{index.rmd}
+
+\texttt{index.Rmd}
+
+\section{撰寫語言}\label{write-lang}
+
+若使用\textbf{英文}撰寫論文，需修改
+\texttt{\_output.yml}、\texttt{\_bookdown.yml} 這兩個檔案的內容。
+
+\subsection{\texorpdfstring{\texttt{\_output.yml}}{\_output.yml}}\label{output.yml}
+
+將 \texttt{in\_header:\ latex/preamble-zh.tex} 改為
+\texttt{in\_header:\ latex/preamble-en.tex}：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{bookdown:}\AttributeTok{:pdf_book:}
+  \FunctionTok{includes:}
+    \FunctionTok{in_header:}\AttributeTok{ latex/preamble-en.tex}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{\texorpdfstring{\texttt{\_bookdown.yml}}{\_bookdown.yml}}\label{bookdown.yml}
+
+\texttt{\_bookdown.yml} 中，可以對標籤的名稱進行定義。這裡的設定與 PDF
+輸出無關，只與 gitbook 輸出格式有關。因此，若無需使用 gitbook
+輸出，可忽略此段。
+
+此外，\texttt{\_bookdown.yml} 亦可設定 Rmd
+檔在輸出文件中的順序。若無設定，就會依序檔名排序\footnote{此模板即未進行設定，因此第一章的內容寫在
+  \texttt{01-xxx.Rmd}
+  就會自動排在第一。而若檔名以底線開頭（\texttt{\_}）則會被忽略。更多內容詳見
+  \href{https://bookdown.org/yihui/bookdown/usage.html}{bookdown}。}。
+
+在以下設定中，可使 gitbook 輸出的章節（順序）與 PDF 不同。
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -232,6 +405,28 @@ Alternatively, set the order in \texttt{\_bookdown.yml}:
   \FunctionTok{latex:}\AttributeTok{ }\KeywordTok{[}\StringTok{"abstract.Rmd"}\KeywordTok{,} \StringTok{"intro.Rmd"}\KeywordTok{]}
 \end{Highlighting}
 \end{Shaded}
+
+\section{文獻引用}\label{bib-cite}
+
+\begin{itemize}
+\tightlist
+\item
+  csl
+\item
+  .bib
+\item
+  citr
+\item
+  limitation: bilingual
+\end{itemize}
+
+\chapter{Bookdown Cheatsheet}\label{bookdown-cheatsheet}
+
+By default, bookdown merges all Rmd files by the order of filenames,
+e.g., \texttt{01-intro.Rmd} will appear before
+\texttt{02-literature.Rmd}. Filenames that start with an underscore
+\texttt{\_} are skipped. \texttt{index.Rmd} will always be treated as
+the first file.
 
 \begin{itemize}
 \tightlist
@@ -323,105 +518,18 @@ Alternatively, set the order in \texttt{\_bookdown.yml}:
   \end{itemize}
 \end{itemize}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{├── index.Rmd            }\CommentTok{# Book Layout (font, watermark, biblio, ...)}
-\NormalTok{├── _acknowledge.Rmd     }\CommentTok{# acknowledgement}
-\NormalTok{├── _abstract-en.Rmd     }\CommentTok{# abstract}
-\NormalTok{├── _abstract-zh.Rmd     }\CommentTok{# Same as above, but in Chinese}
-\NormalTok{|}
-\NormalTok{├── 01-intro.Rmd         }\CommentTok{# Chapter 1 content}
-\NormalTok{├── 02-literature.Rmd    }\CommentTok{# Chapter 2 content}
-\NormalTok{├── 03-method.Rmd        }\CommentTok{# Chapter 3 content}
-\NormalTok{├── 99-references.Rmd    }\CommentTok{# Don't need to edit}
-\NormalTok{├── ref.bib              }\CommentTok{# References}
-\NormalTok{├── cite-style.csl       }\CommentTok{# Citation style}
-\NormalTok{|}
-\NormalTok{├── _bookdown.yml        }\CommentTok{# label names in html; Rmd files order}
-\NormalTok{├── _output.yml          }\CommentTok{# preamble, pandoc args, cite-pkg}
-\NormalTok{|}
-\NormalTok{├── watermark.pdf        }\CommentTok{# 臺大浮水印 (PDF 右上角)}
-\NormalTok{├── person-info.yml      }\CommentTok{# Info to generate front matter}
-\NormalTok{├── certification-scan.pdf  }\CommentTok{# 已簽名'口試委員審查書'}
-\NormalTok{└── front_matter}
-\NormalTok{    └── certification.pdf   }\CommentTok{# 空白'口試委員審查書'}
-\end{Highlighting}
-\end{Shaded}
-
-Test \href{http://pandoc.org/MANUAL.html\#variables-for-latex}{link as
-note}.
-
-\textbf{You} can label chapter and section titles using
-\texttt{\{\#label\}} after them, e.g., we can reference Chapter
-\ref{intro}. If you do not manually label them, there will be automatic
-labels anyway, e.g., Chapter \ref{methods}.
-
-Figures and tables with captions will be placed in \texttt{figure} and
-\texttt{table} environments, respectively.
-
-\begin{figure}[h]
-
-{\centering \includegraphics[width=0.8\linewidth]{ntu-bookdown_files/figure-latex/nice-fig-1} 
-
-}
-
-\caption{Here is a nice figure!}\label{fig:nice-fig}
-\end{figure}
-
-Reference a figure by its code chunk label with the \texttt{fig:}
-prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can
-reference tables generated from \texttt{knitr::kable()}, e.g., see Table
-\ref{tab:nice-tab}.
-
-\begin{table}
-
-\caption{\label{tab:nice-tab}Here is a nice table!}
-\centering
-\begin{tabular}[t]{rrrrl}
-\toprule
-Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
-\midrule
-5.1 & 3.5 & 1.4 & 0.2 & setosa\\
-4.9 & 3.0 & 1.4 & 0.2 & setosa\\
-4.7 & 3.2 & 1.3 & 0.2 & setosa\\
-4.6 & 3.1 & 1.5 & 0.2 & setosa\\
-5.0 & 3.6 & 1.4 & 0.2 & setosa\\
-\addlinespace
-5.4 & 3.9 & 1.7 & 0.4 & setosa\\
-4.6 & 3.4 & 1.4 & 0.3 & setosa\\
-5.0 & 3.4 & 1.5 & 0.2 & setosa\\
-4.4 & 2.9 & 1.4 & 0.2 & setosa\\
-4.9 & 3.1 & 1.5 & 0.1 & setosa\\
-\addlinespace
-5.4 & 3.7 & 1.5 & 0.2 & setosa\\
-4.8 & 3.4 & 1.6 & 0.2 & setosa\\
-4.8 & 3.0 & 1.4 & 0.1 & setosa\\
-4.3 & 3.0 & 1.1 & 0.1 & setosa\\
-5.8 & 4.0 & 1.2 & 0.2 & setosa\\
-\addlinespace
-5.7 & 4.4 & 1.5 & 0.4 & setosa\\
-5.4 & 3.9 & 1.3 & 0.4 & setosa\\
-5.1 & 3.5 & 1.4 & 0.3 & setosa\\
-5.7 & 3.8 & 1.7 & 0.3 & setosa\\
-5.1 & 3.8 & 1.5 & 0.3 & setosa\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\chapter{Literature}\label{literature}
-
 \chapter{進階功能擴充}\label{add-on}
 
 透過其它 R 套件，R Markdown
 的撰寫過程能夠更順暢。以下介紹幾個例子，歡迎補充說明。
 
-\section{語言學}
+\section{語言學}\label{ling}
 
 語言學相關文件寫作時，常需要插入 IPA
 語音符號，但鍵盤通常難以直接打出這些符號。為此，我寫了一個 R
 套件，讓使用者能直接在 RStudio 中透過輸入語音 features 的方式打出 IPA：
 
-\begin{center}\includegraphics[width=25.19in]{figs/ipa} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{figs/ipa} \end{center}
 
 要使用這功能，需安裝 \texttt{linguisticsdown}：
 
@@ -448,11 +556,11 @@ Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 \addcontentsline{toc}{chapter}{參考資料}
 
 \hypertarget{refs}{}
-\hypertarget{ref-stanford2008}{}
-Stanford, J. N. (2008). Child dialect acquisition: New perspectives on
-parent/peer influence1. \emph{Journal of Sociolinguistics},
-\emph{12}(5), 567--596.
-\url{https://doi.org/10.1111/j.1467-9841.2008.00383.x}
+\hypertarget{ref-leung2008}{}
+Leung, A. K.-y., Maddux, W. W., Galinsky, A. D., \& Chiu, C.-y. (2008).
+Multicultural experience enhances creativity: The when and how.
+\emph{American Psychologist}, \emph{63}(3), 169--181.
+\url{https://doi.org/10.1037/0003-066X.63.3.169}
 
 \hypertarget{ref-huangxuanfan1993}{}
 黃宣範. (1993). \emph{語言、社會與族群意識: 臺灣語言社會學的研究}.

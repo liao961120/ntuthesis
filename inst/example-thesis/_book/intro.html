@@ -25,7 +25,7 @@
 <meta name="author" content="廖永賦">
 
 
-<meta name="date" content="2018-10-29">
+<meta name="date" content="2018-10-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="abstract.html">
-<link rel="next" href="literature.html">
+<link rel="next" href="install.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -106,9 +106,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>誌謝</a></li>
 <li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>摘要</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Literature</a></li>
-<li class="chapter" data-level="3" data-path="add-on.html"><a href="add-on.html"><i class="fa fa-check"></i><b>3</b> 進階功能擴充</a><ul>
-<li class="chapter" data-level="3.1" data-path="add-on.html"><a href="add-on.html#section-3.1"><i class="fa fa-check"></i><b>3.1</b> 語言學</a></li>
+<li class="chapter" data-level="2" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>2</b> 安裝</a><ul>
+<li class="chapter" data-level="2.1" data-path="install.html"><a href="install.html#latex"><i class="fa fa-check"></i><b>2.1</b> LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="export-thesis.html"><a href="export-thesis.html"><i class="fa fa-check"></i><b>3</b> 輸出論文</a><ul>
+<li class="chapter" data-level="3.1" data-path="export-thesis.html"><a href="export-thesis.html#import-template"><i class="fa fa-check"></i><b>3.1</b> 匯入論文模板</a></li>
+<li class="chapter" data-level="3.2" data-path="export-thesis.html"><a href="export-thesis.html#edit-front-matter"><i class="fa fa-check"></i><b>3.2</b> 編輯封面</a></li>
+<li class="chapter" data-level="3.3" data-path="export-thesis.html"><a href="export-thesis.html#compile-thesis"><i class="fa fa-check"></i><b>3.3</b> Compile 論文</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="write-thesis.html"><a href="write-thesis.html"><i class="fa fa-check"></i><b>4</b> 論文撰寫</a><ul>
+<li class="chapter" data-level="4.1" data-path="write-thesis.html"><a href="write-thesis.html#dir-structure"><i class="fa fa-check"></i><b>4.1</b> 檔案結構</a></li>
+<li class="chapter" data-level="4.2" data-path="write-thesis.html"><a href="write-thesis.html#index.rmd"><i class="fa fa-check"></i><b>4.2</b> <code>index.Rmd</code></a></li>
+<li class="chapter" data-level="4.3" data-path="write-thesis.html"><a href="write-thesis.html#write-lang"><i class="fa fa-check"></i><b>4.3</b> 撰寫語言</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="write-thesis.html"><a href="write-thesis.html#output.yml"><i class="fa fa-check"></i><b>4.3.1</b> <code>_output.yml</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="write-thesis.html"><a href="write-thesis.html#bookdown.yml"><i class="fa fa-check"></i><b>4.3.2</b> <code>_bookdown.yml</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="write-thesis.html"><a href="write-thesis.html#bib-cite"><i class="fa fa-check"></i><b>4.4</b> 文獻引用</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="bookdown-cheatsheet.html"><a href="bookdown-cheatsheet.html"><i class="fa fa-check"></i><b>5</b> Bookdown Cheatsheet</a></li>
+<li class="chapter" data-level="6" data-path="add-on.html"><a href="add-on.html"><i class="fa fa-check"></i><b>6</b> 進階功能擴充</a><ul>
+<li class="chapter" data-level="6.1" data-path="add-on.html"><a href="add-on.html#ling"><i class="fa fa-check"></i><b>6.1</b> 語言學</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>參考資料</a></li>
 <li class="divider"></li>
@@ -133,252 +150,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">第 1 章</span> Introduction</h1>
-<p><strong>中文</strong>中文<em>中文</em><br />
-可以換行</p>
-<p>新段落</p>
-<p>By default, bookdown merges all Rmd files by the order of filenames, e.g., <code>01-intro.Rmd</code> will appear before <code>02-literature.Rmd</code>. Filenames that start with an underscore <code>_</code> are skipped. <code>index.Rmd</code> will always be treated as the first file.</p>
-<p><span class="citation">Stanford (<a href="#ref-stanford2008">2008</a>)</span> 英文參考文獻。中文參考文獻 <span class="citation">(黃宣範, <a href="#ref-huangxuanfan1993">1993</a>)</span></p>
-<p>Alternatively, set the order in <code>_bookdown.yml</code>:</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">rmd_files:</span>
-  <span class="fu">html:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span>
-  <span class="fu">latex:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;abstract.Rmd&quot;</span><span class="kw">,</span> <span class="st">&quot;intro.Rmd&quot;</span><span class="kw">]</span></code></pre></div>
-<ul>
-<li>Benefits</li>
-<li>Quick Start
-<ul>
-<li>General Usage
-<ul>
-<li>Front matter</li>
-<li>Content</li>
-</ul></li>
-<li>Write Thesis in English (Write in Eng)</li>
-</ul></li>
-<li>Bookdown Demo
-<ol style="list-style-type: lower-alpha">
-<li>Markdown quick guide
-<ul>
-<li>no closing or opening quotation marks</li>
-</ul></li>
-<li>Citation</li>
-<li>Cross References</li>
-</ol>
-<ul>
-<li>數學公式</li>
-<li>indexing</li>
-</ul></li>
-<li>Harnessing the Power of R Community
-<ol style="list-style-type: upper-alpha">
-<li>Facilitating Packages
-<ul>
-<li>citr</li>
-</ul></li>
-<li>特定領域
-<ul>
-<li>linguisticsdown</li>
-</ul></li>
-</ol></li>
-<li>Resources
-<ul>
-<li>R Markdown Features</li>
-</ul></li>
-<li>Thanks and Help
-<ul>
-<li>GitHub issues</li>
-</ul></li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml">├── index.Rmd            <span class="co"># Book Layout (font, watermark, biblio, ...)</span>
-├── _acknowledge.Rmd     <span class="co"># acknowledgement</span>
-├── _abstract-en.Rmd     <span class="co"># abstract</span>
-├── _abstract-zh.Rmd     <span class="co"># Same as above, but in Chinese</span>
-|
-├── 01-intro.Rmd         <span class="co"># Chapter 1 content</span>
-├── 02-literature.Rmd    <span class="co"># Chapter 2 content</span>
-├── 03-method.Rmd        <span class="co"># Chapter 3 content</span>
-├── 99-references.Rmd    <span class="co"># Don&#39;t need to edit</span>
-├── ref.bib              <span class="co"># References</span>
-├── cite-style.csl       <span class="co"># Citation style</span>
-|
-├── _bookdown.yml        <span class="co"># label names in html; Rmd files order</span>
-├── _output.yml          <span class="co"># preamble, pandoc args, cite-pkg</span>
-|
-├── watermark.pdf        <span class="co"># 臺大浮水印 (PDF 右上角)</span>
-├── person-info.yml      <span class="co"># Info to generate front matter</span>
-├── certification-scan.pdf  <span class="co"># 已簽名&#39;口試委員審查書&#39;</span>
-└── front_matter
-    └── certification.pdf   <span class="co"># 空白&#39;口試委員審查書&#39;</span></code></pre></div>
-<p>Test <a href="http://pandoc.org/MANUAL.html#variables-for-latex">link as note</a>.</p>
-<p><strong>You</strong> can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">1</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="#methods"><strong>??</strong></a>.</p>
-<p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
-<div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
-<img src="ntu-bookdown_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
-<p class="caption">
-圖 1.1: Here is a nice figure!
-</p>
-</div>
-<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="intro.html#fig:nice-fig">1.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="intro.html#tab:nice-tab">1.1</a>.</p>
-<table>
-<caption><span id="tab:nice-tab">表 1.1: </span>Here is a nice table!</caption>
-<thead>
-<tr class="header">
-<th align="right">Sepal.Length</th>
-<th align="right">Sepal.Width</th>
-<th align="right">Petal.Length</th>
-<th align="right">Petal.Width</th>
-<th align="left">Species</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.7</td>
-<td align="right">3.2</td>
-<td align="right">1.3</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.6</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.0</td>
-<td align="right">3.6</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.7</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.6</td>
-<td align="right">3.4</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.0</td>
-<td align="right">3.4</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.4</td>
-<td align="right">2.9</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.7</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.8</td>
-<td align="right">3.4</td>
-<td align="right">1.6</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.8</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.3</td>
-<td align="right">3.0</td>
-<td align="right">1.1</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.8</td>
-<td align="right">4.0</td>
-<td align="right">1.2</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.7</td>
-<td align="right">4.4</td>
-<td align="right">1.5</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.3</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.7</td>
-<td align="right">3.8</td>
-<td align="right">1.7</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.8</td>
-<td align="right">1.5</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-</tbody>
-</table>
-
+<p>中文文獻 <span class="citation">(黃宣範, <a href="#ref-huangxuanfan1993">1993</a>)</span></p>
+<p>english citation <span class="citation">(Leung, Maddux, Galinsky, &amp; Chiu, <a href="#ref-leung2008">2008</a>)</span>.</p>
 </div>
 <h3>參考資料</h3>
 <div id="refs" class="references">
-<div id="ref-stanford2008">
-<p>Stanford, J. N. (2008). Child dialect acquisition: New perspectives on parent/peer influence1. <em>Journal of Sociolinguistics</em>, <em>12</em>(5), 567–596. <a href="https://doi.org/10.1111/j.1467-9841.2008.00383.x" class="uri">https://doi.org/10.1111/j.1467-9841.2008.00383.x</a></p>
-</div>
 <div id="ref-huangxuanfan1993">
 <p>黃宣範. (1993). <em>語言、社會與族群意識: 臺灣語言社會學的研究</em>. 臺北市: 文鶴. Retrieved from <a href="http://tulips.ntu.edu.tw:1081/record=b1285025*cht" class="uri">http://tulips.ntu.edu.tw:1081/record=b1285025*cht</a></p>
+</div>
+<div id="ref-leung2008">
+<p>Leung, A. K.-y., Maddux, W. W., Galinsky, A. D., &amp; Chiu, C.-y. (2008). Multicultural experience enhances creativity: The when and how. <em>American Psychologist</em>, <em>63</em>(3), 169–181. <a href="https://doi.org/10.1037/0003-066X.63.3.169" class="uri">https://doi.org/10.1037/0003-066X.63.3.169</a></p>
 </div>
 </div>
             </section>
@@ -387,7 +168,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 <a href="abstract.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="literature.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="install.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -417,7 +198,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/01-intro.Rmd",
+"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/01-install-compile.Rmd",
 "text": "Edit"
 },
 "download": ["ntu-bookdown.pdf"],
