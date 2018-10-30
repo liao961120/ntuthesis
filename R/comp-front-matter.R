@@ -25,9 +25,9 @@ comp_front <- function() {
 #' Construct 'front_matter.rmd'
 #'
 #' Construct \code{front_matter.rmd} from \code{front_matter/output.yml}
-#' and \code{person-info} in root.
+#' and \code{_person-info} in root.
 #'
-#' @param person_info File path to \code{person-info.yml}.
+#' @param person_info File path to \code{_person-info.yml}.
 #'
 #' @keywords internal
 construct_front_rmd <- function(person_info = '../_person-info.yml'){
