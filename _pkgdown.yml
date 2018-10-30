@@ -1,11 +1,26 @@
+template:
+  params:
+    bootswatch: spacelab
+development:
+  mode: unreleased
 navbar:
-  title: "sparklyr"
-  type: inverse
+  title: "ntuthesis"
+  #type: inverse
   left:
-    - text: "首頁"
+    - icon: fa-home
       href: index.html
-    - text: "說明文件"
+    - text: "內建函數"
+      href: reference/index.html
+    - text: "使用說明 \u29c9"
       href: doc/index.html
   right:
     - icon: fa-github
       href: https://github.com/liao961120/ntuthesis
+    - icon: fa-facebook-square
+      href: https://www.facebook.com/sharer/sharer.php?u=https%3A//liao961120.github.io/ntuthesis/
+reference:
+- title: All functions
+  desc: ~
+  contents:
+  - '`comp_front`'
+  - '`init_proj`'
