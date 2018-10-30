@@ -31,8 +31,7 @@ tinytex::install_tinytex()
 
 ## 匯入論文模板 {#import-template}
 
-開啟 RStudio，選取左上方 `File` > `New File` > `R Markdown`，
-即會出現以下畫面：
+開啟 RStudio，選取左上方 `File` > `New File` > `R Markdown`：
 
 ```{r}
 if (knitr::is_html_output()) {
@@ -42,10 +41,6 @@ if (knitr::is_html_output()) {
 }
 ```
 
-1. 選取左方`From Template`
-2. 找到`Thesis Template for NTU`
-3. 在下方`Name:`寫下欲創建之資料夾名稱
-
 或是直接在 console 執行：
 ```r
 rmarkdown::draft("project_name",
@@ -53,14 +48,12 @@ rmarkdown::draft("project_name",
                  package = "ntuthesis")
 ```
 
-接著需要將該資料夾變更為 bookdown 專案。這可以用 RStudio 左上方 `File` > `New Project` > `Existing Directory` 達成，
-
-或直接使用下方指令（working dir 需是專案資料夾）：
+接著需要將該資料夾變更為 bookdown 專案。這可以用 RStudio 左上方 `File` > `New Project` > `Existing Directory` 達成，或直接使用下方指令（working dir 需是專案資料夾）：
 ```r
 ntuthesis::init_proj()  # init working dir as proj.
 ```
 
-詳細的檔案結構，見第 \@ref(dir-structure) 節。
+詳細的檔案結構，見 \@ref(dir-structure)。
 
 ## 編輯封面 {#edit-front-matter}
 

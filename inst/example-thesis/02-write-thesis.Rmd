@@ -2,7 +2,7 @@
 
 ## 檔案結構 {#dir-structure}
 
-執行以下指令後（詳見第 \@ref(import-template) 節）
+執行以下指令後（詳見 \@ref(import-template)）
 ```r
 rmarkdown::draft("project_name",
                  template = "ntu_bookdown",
