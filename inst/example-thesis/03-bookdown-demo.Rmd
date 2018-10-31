@@ -65,27 +65,27 @@
 (\#eq:var-beta)
 \end{equation} 
 
-`詳見公式 (\#eq:var-beta)`產生：詳見公式 (\#eq:var-beta)
+`詳見公式 \@ref(eq:var-beta)`產生：詳見公式 \@ref(eq:var-beta)
 
 ### 定理與證明 {#theorem-proof}
 
-    ```{theorem, thm-label, name="Pythagorean theorem"}
+
+    `r ''````{theorem, thm-label, name="Pythagorean theorem"}
     For a right triangle, if $c$ denotes the length of the hypotenuse
     and $a$ and $b$ denote the lengths of the other two sides, we have
-
+    
     $$a^2 + b^2 = c^2$$
     ```
 
 產生：
 
-```{theorem, thm-label, name="Pythagorean theorem"}
+```{theorem, pyth, name="Pythagorean theorem"}
 For a right triangle, if $c$ denotes the length of the hypotenuse
 and $a$ and $b$ denote the lengths of the other two sides, we have
-
 $$a^2 + b^2 = c^2$$
 ```
 
-`詳見定理 \@ref(thm:thm-label)` 產生：詳見定理 \@ref(thm:thm-label)
+`詳見定理 \@ref(thm:pyth)` 產生：詳見定理 \@ref(thm:pyth)
 
 見其它[引用環境](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#tab:theorem-envs)。
 

@@ -14,6 +14,7 @@ Suggests: knitr,
     tinytex,
     knitr,
     pkgdown
+Remotes: RLesur/klippy@v0.0.0.9400
 VignetteBuilder: knitr
 Imports: bookdown
 RoxygenNote: 6.1.0

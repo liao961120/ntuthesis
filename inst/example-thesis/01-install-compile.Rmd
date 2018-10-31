@@ -1,5 +1,6 @@
 # 安裝 {#install}
 
+
 ```r
 devtools::install_github("liao961120/ntuthesis")
 ```

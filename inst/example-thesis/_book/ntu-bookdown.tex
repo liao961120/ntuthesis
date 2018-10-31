@@ -127,7 +127,7 @@
 
 \title{臺灣大學論文 Bookdown 模板}
 \author{廖永賦}
-\date{October 30, 2018}
+\date{October 31, 2018}
 
 
 \usepackage{fontspec}
@@ -156,6 +156,20 @@
   \newwatermark*[allpages,xpos=6.1725cm,ypos=10.5225cm,scale=0.5]{\includegraphics{watermark.pdf}}
 
 
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{定義}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{例}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
 \begin{document}
 
 
@@ -208,13 +222,6 @@
   }
 
 
-\chapter{Introduction}\label{intro}
-
-中文文獻 (黃宣範, \protect\hyperlink{ref-huangxuanfan1993}{1993})
-
-english citation (Leung, Maddux, Galinsky, \& Chiu,
-\protect\hyperlink{ref-leung2008}{2008}).
-
 \chapter{安裝}\label{install}
 
 \begin{Shaded}
@@ -246,7 +253,7 @@ english citation (Leung, Maddux, Galinsky, \& Chiu,
 開啟 RStudio，選取左上方 \texttt{File} \textgreater{} \texttt{New\ File}
 \textgreater{} \texttt{R\ Markdown}：
 
-\begin{center}\includegraphics[width=0.9\linewidth]{figs/rmd-template} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{figs/rmd-template} \end{center}
 
 或是直接在 console 執行：
 
@@ -294,7 +301,7 @@ english citation (Leung, Maddux, Galinsky, \& Chiu,
 
 接著用 RStudio Environment Pane 裡的 button 輸出論文：
 
-\begin{center}\includegraphics[width=0.9\linewidth]{figs/build-button} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{figs/build-button} \end{center}
 
 或是在 console 執行下方指令：
 
@@ -327,6 +334,9 @@ english citation (Leung, Maddux, Galinsky, \& Chiu,
 \begin{Highlighting}[]
 \NormalTok{├── project_name.Rmd     }\CommentTok{# Useless, please delete it}
 \NormalTok{|}
+\NormalTok{├── R/                   }\CommentTok{# code chunk root dir, put R scripts and data here}
+\NormalTok{├── figs/                }\CommentTok{# Put figures to include in the thesis here}
+\NormalTok{|}
 \NormalTok{├── index.Rmd            }\CommentTok{# Book Layout (font, watermark, biblio, ...)}
 \NormalTok{├── _acknowledge.Rmd     }\CommentTok{# acknowledgement}
 \NormalTok{├── _abstract-en.Rmd     }\CommentTok{# abstract}
@@ -350,9 +360,14 @@ english citation (Leung, Maddux, Galinsky, \& Chiu,
 \end{Highlighting}
 \end{Shaded}
 
-\section{\texorpdfstring{\texttt{index.Rmd}}{index.Rmd}}\label{index.rmd}
+\section{\texorpdfstring{\texttt{index.Rmd}}{index.Rmd}}\label{index-rmd}
 
-\texttt{index.Rmd}
+\texttt{index.Rmd} 是設定論文內文格式的地方，包含 yaml 以及 R setup code
+chunk。此模板將 code chunk 預設的 working directory 改成
+\texttt{R/}\footnote{預設是 Rmd 檔所在的位置。}，如此較符合一般寫
+Rscript 的邏輯\footnote{例如，使用相對路徑匯入資料時，一般會以 Rscript
+  所在的位置作為基準。}。若要更改此設定，至 setup code chunk 更改
+\texttt{knitr::opts\_knit\$set(root.dir=\textquotesingle{}R\textquotesingle{})}。
 
 \section{撰寫語言}\label{write-lang}
 
@@ -396,25 +411,241 @@ english citation (Leung, Maddux, Galinsky, \& Chiu,
 
 \section{文獻引用}\label{bib-cite}
 
+R Markdown 在文章中插入引用文獻的功能承繼 Pandoc。完整的使用見
+\href{https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html}{R
+Markdown 官方說明} 。
+
+此模板目前產生文獻格式的方法是依靠
+\href{https://github.com/jgm/pandoc-citeproc}{Pandoc
+citeproc}，因此，文獻格式是依據 \texttt{cite-style.csl}\footnote{此模板提供的
+  \texttt{cite-style.csl} 是 APA
+  英文第六版。此外，\href{http://blog.pulipuli.info/2011/05/zoteroapa.html}{這裡}亦有提供
+  APA 中文版的引用格式。需注意的是 Pandoc
+  \textbf{不支援\href{http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html}{雙語
+  csl}}。} 產生的。使用者可至
+\href{https://www.zotero.org/styles}{Zotero Style Repository} 下載所需的
+csl 檔並覆蓋專案資料夾中的 \texttt{cite-style.csl}。
+
+\subsection{\texorpdfstring{\texttt{ref.bib}}{ref.bib}}\label{ref-bib}
+
+\texttt{.bib} 檔的產生方式可以由 Endnote, Zotero, JabRef
+等書目管理軟體匯出。匯出後，將檔名命名為 \texttt{ref.bib}
+放在專案資料夾\footnote{或是可以自訂檔名，並到 \texttt{index.Rmd} yaml
+  中的 \texttt{bibliography:\ ref.bib} 更改 \texttt{ref.bib}
+  檔名。此外，亦可使用多個 \texttt{.bib}
+  檔：\texttt{bibliography:\ {[}ref1.bib,\ ref2.bib,\ ref3.bib{]}}。}。
+
+\texttt{.bib} 內的一篇引用資料會類似：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{@article}\NormalTok{\{}\OtherTok{leung2008}\NormalTok{,}
+  \DataTypeTok{title}\NormalTok{ = \{Multicultural Experience Enhances Creativity: \{\{The\}\} When and How.\},}
+  \DataTypeTok{volume}\NormalTok{ = \{63\},}
+  \DataTypeTok{issn}\NormalTok{ = \{1935-990X(Electronic),0003-066X(Print)\},}
+  \DataTypeTok{doi}\NormalTok{ = \{10.1037/0003-066X.63.3.169\},}
+  \DataTypeTok{number}\NormalTok{ = \{3\},}
+  \DataTypeTok{journaltitle}\NormalTok{ = \{American Psychologist\},}
+  \DataTypeTok{date}\NormalTok{ = \{2008\},}
+  \DataTypeTok{pages}\NormalTok{ = \{169-181\},}
+  \DataTypeTok{keywords}\NormalTok{ = \{*Cognition,*Creativity,*Culture (Anthropological),*Experiences (Events),Multiculturalism\},}
+  \DataTypeTok{author}\NormalTok{ = \{Leung, Angela Ka-yee and Maddux, William W. and Galinsky, Adam D. and Chiu, Chi-yue\}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+其中第一行的 \texttt{leung2008} 即為 citation key。透過
+\texttt{@citekey}(\texttt{@leung2008})即可在文獻中插入
+citation。匯出論文時，文末會自動產生引用的文獻。
+
+\subsection{引用語法}\label{cite-syntax}
+
+\href{https://github.com/crsh/citr}{\texttt{citr}}
+是一個方便使用者插入引用文獻的 R 套件，讓使用者能透過 GUI 插入文獻：
+
+\begin{center}\includegraphics[width=1\linewidth]{figs/citr} \end{center}
+
+當需要更複雜的引用格式，如標示第幾頁，可以修改透過 \texttt{citr}
+插入的語法：
+
 \begin{itemize}
 \tightlist
 \item
-  csl
+  \texttt{Some\ text\ {[}@citekey{]}.}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Some text (Leung, Maddux, Galinsky, \& Chiu,
+    \protect\hyperlink{ref-leung2008}{2008}).
+  \end{itemize}
 \item
-  .bib
+  \texttt{@citekey\ Some\ text}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Leung et al. (\protect\hyperlink{ref-leung2008}{2008}) Some text
+  \end{itemize}
 \item
-  citr
+  \texttt{@citekey\ {[}p.\ 20{]}\ Some\ text.}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Leung et al. (\protect\hyperlink{ref-leung2008}{2008}, p. 20) Some
+    text.
+  \end{itemize}
 \item
-  limitation: bilingual
+  \texttt{Some\ text\ {[}-@citekey{]}.}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Some text (\protect\hyperlink{ref-leung2008}{2008})
+  \end{itemize}
+\item
+  \texttt{Some\ text\ {[}@citekey1;\ @citekey2{]}.}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Some text (Leung et al., \protect\hyperlink{ref-leung2008}{2008};
+    黃宣範, \protect\hyperlink{ref-huangxuanfan1993}{1993}).
+  \end{itemize}
+\item
+  Prefix \& Suffix
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{Text\ {[}see\ @citekey1\ pp.45;\ also,\ @citekey2\ ch.\ 2{]}.}
+  \item
+    Text (see Leung et al., \protect\hyperlink{ref-leung2008}{2008}, p.
+    45; also, 黃宣範, \protect\hyperlink{ref-huangxuanfan1993}{1993}
+    ch.~2).
+  \end{itemize}
 \end{itemize}
+
+\subsection{書目管理軟體}\label{ref-manager}
+
+這裡建議使用 Zotero 加上
+\href{https://retorque.re/zotero-better-bibtex/}{Better BibTeX}
+擴充功能。\texttt{citr} 對 Zotero 有額外的支持，且 \textbf{Zotero
+能夠控制 citation key 的格式}（例如，last name +
+year），但其它書目管理軟體如 Endnote 產生的 citation key
+對難以讀懂且無法更改其格式。
+
+\subsection{多語言文獻引用}\label{multi-lang-cite}
+
+透過 csl
+排版引用格式，只能支援單一語言。例如，若將英文格式套用到中文文獻，中文文獻就會出現英文的半形逗點和句點。
+
+多語言的引用可能可透過 LaTeX 的引用套件達成，但由於作者本人對 LaTeX
+不夠熟悉，目前尚未解決此問題。若您是 LaTeX 的高手，歡迎至
+\ref{latex-cite-pkg} 給我一些指教。
 
 \chapter{Bookdown Cheatsheet}\label{bookdown-cheatsheet}
 
-By default, bookdown merges all Rmd files by the order of filenames,
-e.g., \texttt{01-intro.Rmd} will appear before
-\texttt{02-literature.Rmd}. Filenames that start with an underscore
-\texttt{\_} are skipped. \texttt{index.Rmd} will always be treated as
-the first file.
+\section{數學}\label{math}
+
+完整內容，詳見
+\href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.htm}{Bookdown
+Ch. 2}
+
+\subsection{Unnumbered Equations}\label{unnumbered-equations}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{equation*}\NormalTok{\}}\SpecialStringTok{ }
+\SpecialCharTok{\textbackslash{}frac}\SpecialStringTok{\{d\}\{dx\}}\SpecialCharTok{\textbackslash{}left}\SpecialStringTok{( }\SpecialCharTok{\textbackslash{}int}\SpecialStringTok{_\{a\}^\{x\} f(u)}\SpecialCharTok{\textbackslash{},}\SpecialStringTok{du}\SpecialCharTok{\textbackslash{}right}\SpecialStringTok{)=f(x)}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{equation*}\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+產生：
+
+\begin{equation*} 
+\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
+\end{equation*}
+
+\subsection{Numbered Equations}\label{numbered-equations}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\}}\SpecialStringTok{ }
+\SpecialStringTok{  f}\SpecialCharTok{\textbackslash{}left}\SpecialStringTok{(k}\SpecialCharTok{\textbackslash{}right}\SpecialStringTok{) = }\SpecialCharTok{\textbackslash{}binom}\SpecialStringTok{\{n\}\{k\} p^k}\SpecialCharTok{\textbackslash{}left}\SpecialStringTok{(1-p}\SpecialCharTok{\textbackslash{}right}\SpecialStringTok{)^\{n-k\}}
+\SpecialStringTok{  (}\SpecialCharTok{\textbackslash{}#}\SpecialStringTok{eq:binom)}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+產生：
+
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  \label{eq:binom}
+\end{equation}
+
+\texttt{式\ \textbackslash{}@ref(eq:binom)}產生：式 \eqref{eq:binom}
+
+\subsection{Multi-line Aligned
+Equations}\label{multi-line-aligned-equations}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\}}\SpecialStringTok{ }
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{split}\NormalTok{\}}
+\SpecialCharTok{\textbackslash{}mathrm}\SpecialStringTok{\{Var\}(}\SpecialCharTok{\textbackslash{}hat}\SpecialStringTok{\{}\SpecialCharTok{\textbackslash{}beta}\SpecialStringTok{\}) & =}\SpecialCharTok{\textbackslash{}mathrm}\SpecialStringTok{\{Var\}((X'X)^\{-1\}X'y)}\SpecialCharTok{\textbackslash{}\textbackslash{}}
+\SpecialStringTok{ & =(X'X)^\{-1\}X'}\SpecialCharTok{\textbackslash{}mathrm}\SpecialStringTok{\{Var\}(y)((X'X)^\{-1\}X')'}\SpecialCharTok{\textbackslash{}\textbackslash{}}
+\SpecialStringTok{ & =(X'X)^\{-1\}X'}\SpecialCharTok{\textbackslash{}mathrm}\SpecialStringTok{\{Var\}(y)X(X'X)^\{-1\}}\SpecialCharTok{\textbackslash{}\textbackslash{}}
+\SpecialStringTok{ & =(X'X)^\{-1\}X'}\SpecialCharTok{\textbackslash{}sigma}\SpecialStringTok{^\{2\}IX(X'X)^\{-1\}}\SpecialCharTok{\textbackslash{}\textbackslash{}}
+\SpecialStringTok{ & =(X'X)^\{-1\}}\SpecialCharTok{\textbackslash{}sigma}\SpecialStringTok{^\{2\}}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\SpecialStringTok{split\}}
+\SpecialStringTok{(}\SpecialCharTok{\textbackslash{}#}\SpecialStringTok{eq:var-beta)}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+產生：
+
+\begin{equation} 
+\begin{split}
+\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y)\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')'\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1}\\
+ & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}\\
+ & =(X'X)^{-1}\sigma^{2}
+\end{split}
+\label{eq:var-beta}
+\end{equation}
+
+\texttt{詳見公式\ \textbackslash{}@ref(eq:var-beta)}產生：詳見公式
+\eqref{eq:var-beta}
+
+\subsection{定理與證明}\label{theorem-proof}
+
+\begin{verbatim}
+```{theorem, thm-label, name="Pythagorean theorem"}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+
+$$a^2 + b^2 = c^2$$
+```
+\end{verbatim}
+
+產生：
+
+\texttt{詳見定理\ \textbackslash{}@ref(thm:pyth)} 產生：詳見定理
+\ref{thm:pyth}
+
+見其它\href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html\#tab:theorem-envs}{引用環境}。
+
+\subsubsection{proof, remark, and
+solution}\label{proof-remark-and-solution}
+
+將 code chunk 中 \texttt{theorem} 換成 \texttt{proof}, \texttt{remark},
+\texttt{solution}。這三者無法被 cross-reference。
 
 \begin{itemize}
 \tightlist
@@ -517,7 +748,7 @@ the first file.
 語音符號，但鍵盤通常難以直接打出這些符號。為此，我寫了一個 R
 套件，讓使用者能直接在 RStudio 中透過輸入語音 features 的方式打出 IPA：
 
-\begin{center}\includegraphics[width=0.9\linewidth]{figs/ipa} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{figs/ipa} \end{center}
 
 要使用這功能，需安裝 \texttt{linguisticsdown}：
 
@@ -537,6 +768,24 @@ the first file.
 \end{Shaded}
 
 關於更詳細的功能，見\href{https://liao961120.github.io/linguisticsdown/}{套件網頁}
+
+\chapter{(APPENDIX) Appendix}\label{appendix-appendix}
+
+\chapter{LaTeX 文獻引用}\label{latex-cite-pkg}
+
+R Markdown 的 PDF 輸出是透過 Pandoc 的 LaTeX 模板，因此理論上 LaTeX
+可以做到的事，也可以透過 R Markdown 達成。目前的問題是
+
+\begin{quote}
+LaTeX 本身並未有支援繁體中文格式的文獻引用套件
+\end{quote}
+
+經過一段時間的搜尋，發現 biblatex
+套件似乎可以定義不同的引用格式\footnote{\url{https://tex.stackexchange.com/questions/417762/different-styles-between-citations-and-bibliography}\\
+  \url{https://tex.stackexchange.com/questions/377308/different-citation-styles-for-the-same-bibliography}}，因此，或許可以透過定義新的標點符號，例如將原本引用格式中的\texttt{,}定義成\texttt{，}、\texttt{.}定義成\texttt{。}，再透過
+\texttt{.bib} 檔中的 \texttt{langid} field
+辨識要使用何種引用格式。然而，由於作者本人對 LaTeX
+並不熟悉，因此需要這方面高手的協助。
 
 \renewcommand{\href}{\oldhref}
 
