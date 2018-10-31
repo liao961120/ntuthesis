@@ -14,6 +14,9 @@ rmarkdown::draft("project_name",
 ```yaml
 ├── project_name.Rmd     # Useless, please delete it
 |
+├── R/                   # code chunk root dir, put R scripts and data here
+├── figs/                # Put figures to include in the thesis here
+|
 ├── index.Rmd            # Book Layout (font, watermark, biblio, ...)
 ├── _acknowledge.Rmd     # acknowledgement
 ├── _abstract-en.Rmd     # abstract
@@ -36,10 +39,13 @@ rmarkdown::draft("project_name",
     └── certification.pdf   # 空白'口試委員審查書'
 ```
 
-## `index.Rmd`
+## `index.Rmd` {#index-rmd}
 
-`index.Rmd`
+`index.Rmd` 是設定論文內文格式的地方，包含 yaml 以及 R setup code chunk。此模板將 code chunk 預設的 working directory 改成 `R/`[^code-root-dir]，如此較符合一般寫 Rscript 的邏輯[^relative-path]。若要更改此設定，至 setup code chunk 更改 `knitr::opts_knit$set(root.dir='R')`。
 
+[^code-root-dir]: 預設是 Rmd 檔所在的位置。
+
+[^relative-path]: 例如，使用相對路徑匯入資料時，一般會以 Rscript 所在的位置作為基準。
 
 ## 撰寫語言 {#write-lang}
 
@@ -82,7 +88,12 @@ R Markdown 在文章中插入引用文獻的功能承繼 Pandoc。完整的使�
 
 ### `ref.bib` {#ref-bib}
 
-`.bib` 檔的產生方式可以由 Endnote, Zotero, JabRef 等書目管理軟體匯出。`.bib` 的一篇引用資料會類似：
+`.bib` 檔的產生方式可以由 Endnote, Zotero, JabRef 等書目管理軟體匯出。匯出後，將檔名命名為 `ref.bib` 放在專案資料夾[^refbib]。
+
+
+[^refbib]: 或是可以自訂檔名，並到 `index.Rmd` yaml 中的 `bibliography: ref.bib` 更改 `ref.bib` 檔名。此外，亦可使用多個 `.bib` 檔：`bibliography: [ref1.bib, ref2.bib, ref3.bib]`。
+
+`.bib` 內的一篇引用資料會類似：
 
 ```bib
 @article{leung2008,

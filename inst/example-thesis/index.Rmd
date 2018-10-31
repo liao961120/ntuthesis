@@ -3,6 +3,7 @@ title: '臺灣大學論文 Bookdown 模板'
 author: '廖永賦'
 github-repo: "liao961120/ntuthesis"
 date: "`r format(Sys.Date(), '%B %e, %Y')`" # Gitbook Date
+## Opts above are for gitbook output; below are for PDF output
 two-side: false  # Whether to start new chapter on odd pages
 cjk-mainfont: 'AR PL KaitiM Big5'  # Default: 標楷體
 cjk-boldfont: 'AR PL KaitiM Big5'
@@ -16,10 +17,10 @@ linestretch-code: 1.5  # linestretch for code chunks
 watermark: watermark.pdf    # ntu watermark file (must be in root dir)
 link-citations: yes         # internal links to references
 bibliography: ref.bib
+## Shouldn't touch things below unless familiar with R Markdown
 #biblio-style: apa #authoryear
 #biblatexoptions: [backend = biber, style = caspervector, utf8, sorting = cenyt]
 #biblio-title: "biblatex 參考文獻"
-## Shouldn't touch things below unless familiar with R Markdown
 links-as-notes: true
 geometry: a4paper, left=1.18in, right=1.18in, top=1.18in, bottom=0.787in
 fontsize: 12pt
@@ -59,7 +60,7 @@ knitr::opts_chunk$set(
     comment="",
     fig.pos = 'h',
     fig.align = 'center',
-    out.width = "90%"
+    out.width = "100%"
     #fig.dim = c(3.5, 3.5)  # (width, height)
 )
 ```
