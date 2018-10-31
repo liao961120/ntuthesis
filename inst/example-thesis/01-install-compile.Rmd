@@ -1,12 +1,3 @@
-# Introduction {#intro}
-
-
-
-中文文獻 [@huangxuanfan1993]
-
-english citation [@leung2008].
-
-
 # 安裝 {#install}
 
 ```r

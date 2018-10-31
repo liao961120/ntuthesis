@@ -73,7 +73,70 @@ rmd_files:
 
 ## 文獻引用 {#bib-cite}
 
-- csl
-- .bib
-- citr
-- limitation: bilingual
+R Markdown 在文章中插入引用文獻的功能承繼 Pandoc。完整的使用見 [R Markdown 官方說明](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html) 。
+
+
+此模板目前產生文獻格式的方法是依靠 [Pandoc citeproc](https://github.com/jgm/pandoc-citeproc)，因此，文獻格式是依據 `cite-style.csl`[^csl-ori] 產生的。使用者可至 [Zotero Style Repository](https://www.zotero.org/styles) 下載所需的 csl 檔並覆蓋專案資料夾中的 `cite-style.csl`。
+
+[^csl-ori]: 此模板提供的 `cite-style.csl` 是 APA 英文第六版。此外，[這裡](http://blog.pulipuli.info/2011/05/zoteroapa.html)亦有提供 APA 中文版的引用格式。需注意的是 Pandoc **不支援[雙語 csl](http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html)**。
+
+### `ref.bib` {#ref-bib}
+
+`.bib` 檔的產生方式可以由 Endnote, Zotero, JabRef 等書目管理軟體匯出。`.bib` 的一篇引用資料會類似：
+
+```bib
+@article{leung2008,
+  title = {Multicultural Experience Enhances Creativity: {{The}} When and How.},
+  volume = {63},
+  issn = {1935-990X(Electronic),0003-066X(Print)},
+  doi = {10.1037/0003-066X.63.3.169},
+  number = {3},
+  journaltitle = {American Psychologist},
+  date = {2008},
+  pages = {169-181},
+  keywords = {*Cognition,*Creativity,*Culture (Anthropological),*Experiences (Events),Multiculturalism},
+  author = {Leung, Angela Ka-yee and Maddux, William W. and Galinsky, Adam D. and Chiu, Chi-yue}
+}
+```
+
+其中第一行的 `leung2008` 即為 citation key。透過 `@citekey`(`@leung2008`)即可在文獻中插入 citation。匯出論文時，文末會自動產生引用的文獻。
+
+### 引用語法 {#cite-syntax}
+
+[`citr`](https://github.com/crsh/citr) 是一個方便使用者插入引用文獻的 R 套件，讓使用者能透過 GUI 插入文獻：
+```{r}
+if (knitr::is_html_output()){
+  knitr::include_graphics("figs/citr.gif")
+} else {
+  knitr::include_graphics("figs/citr.png")
+}
+```
+
+當需要更複雜的引用格式，如標示第幾頁，可以修改透過 `citr` 插入的語法：
+
+- `Some text [@citekey].`
+    - Some text [@leung2008].
+
+- `@citekey Some text`
+    - @leung2008 Some text 
+
+- `@citekey [p. 20] Some text.`
+    - @leung2008 [p. 20] Some text.
+
+- `Some text [-@citekey].`
+    - Some text [-@leung2008]
+
+- `Some text [@citekey1; @citekey2].`
+    -  Some text [@leung2008; @huangxuanfan1993].
+
+- Prefix & Suffix
+    - `Text [see @citekey1 pp.45; also, @citekey2 ch. 2].`
+    -  Text [see @leung2008 pp. 45; also, @huangxuanfan1993 ch. 2].
+
+### 書目管理軟體 {#ref-manager}
+
+這裡建議使用 Zotero 加上 [Better BibTeX](https://retorque.re/zotero-better-bibtex/) 擴充功能。`citr` 對 Zotero 有額外的支持，且 **Zotero 能夠控制 citation key 的格式**（例如，last name + year），但其它書目管理軟體如 Endnote 產生的 citation key 對難以讀懂且無法更改其格式。
+
+### 多語言文獻引用 {#multi-lang-cite}
+
+多語言的文獻引用在此是最大的障礙，csl 只能支持單一語言的文獻格式。例如，若將英文格式套用到中文文獻，引用文獻就會出現英文的半形逗點和句點。
