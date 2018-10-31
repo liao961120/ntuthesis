@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="bookdown-cheatsheet.html">
-<link rel="next" href="latex-cite-pkg.html">
+<link rel="prev" href="add-on.html">
+<link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -154,24 +154,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="add-on" class="section level1">
-<h1><span class="header-section-number">第 5 章</span> 進階功能擴充</h1>
-<p>透過其它 R 套件，R Markdown 的撰寫過程能夠更順暢。以下介紹幾個例子，歡迎補充說明。</p>
-<div id="ling" class="section level2">
-<h2><span class="header-section-number">5.1</span> 語言學</h2>
-<p>語言學相關文件寫作時，常需要插入 IPA 語音符號，但鍵盤通常難以直接打出這些符號。為此，我寫了一個 R 套件，讓使用者能直接在 RStudio 中透過輸入語音 features 的方式打出 IPA：</p>
-<p><img src="https://liao961120.github.io/linguisticsdown/man/figs/features.gif" width="90%" style="display: block; margin: auto;" /> <br></p>
-<p>要使用這功能，需安裝 <code>linguisticsdown</code>：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;linguisticsdown&quot;</span>)</code></pre></div>
-<p>並且在 <code>index.Rmd</code> 的 yaml 設定 IPA 符號專用的字型（需確認電腦上有安裝此字型）：</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">ipa-font:</span><span class="at"> </span><span class="st">&#39;Doulos SIL&#39;</span></code></pre></div>
-<p>關於更詳細的功能，見<a href="https://liao961120.github.io/linguisticsdown/">套件網頁</a></p>
+<div id="latex-cite-pkg" class="section level1">
+<h1><span class="header-section-number">A</span> LaTeX 文獻引用</h1>
+<p>R Markdown 的 PDF 輸出是透過 Pandoc 的 LaTeX 模板，因此理論上 LaTeX 可以做到的事，也可以透過 R Markdown 達成。目前的問題是</p>
+<blockquote>
+<p>LaTeX 本身並未有支援繁體中文格式的文獻引用套件</p>
+</blockquote>
+<p>經過一段時間的搜尋，發現 biblatex 套件似乎可以定義不同的引用格式<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>，因此，或許可以透過定義新的標點符號，例如將原本引用格式中的<code>,</code>定義成<code>，</code>、<code>.</code>定義成<code>。</code>，再透過 <code>.bib</code> 檔中的 <code>langid</code> field 辨識要使用何種引用格式。然而，由於作者本人對 LaTeX 並不熟悉，因此需要這方面高手的協助。</p>
 
 </div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p><a href="https://tex.stackexchange.com/questions/417762/different-styles-between-citations-and-bibliography" class="uri">https://tex.stackexchange.com/questions/417762/different-styles-between-citations-and-bibliography</a><br />
+<a href="https://tex.stackexchange.com/questions/377308/different-citation-styles-for-the-same-bibliography" class="uri">https://tex.stackexchange.com/questions/377308/different-citation-styles-for-the-same-bibliography</a><a href="latex-cite-pkg.html#fnref3">↩</a></p></li>
+</ol>
 </div>
-
-
-
 <div id="disqus_thread"></div>
 <script>
 
@@ -200,8 +198,8 @@ s.setAttribute('data-timestamp', +new Date());
           </div>
         </div>
       </div>
-<a href="bookdown-cheatsheet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="latex-cite-pkg.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="add-on.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -231,7 +229,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/04-specific-extension.Rmd",
+"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/80-help.Rmd",
 "text": "Edit"
 },
 "download": ["ntu-bookdown.pdf"],
