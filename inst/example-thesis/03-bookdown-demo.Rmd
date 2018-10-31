@@ -1,8 +1,97 @@
 # Bookdown Cheatsheet
 
+## 數學 {#math}
 
-By default, bookdown merges all Rmd files by the order of filenames, e.g., `01-intro.Rmd` will appear before `02-literature.Rmd`. Filenames that start with an underscore `_` are skipped. `index.Rmd` will always be treated as the first file.
+完整內容，詳見 [Bookdown Ch. 2](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.htm)
 
+### Unnumbered Equations
+
+```latex
+\begin{equation*} 
+\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
+\end{equation*} 
+```
+
+產生：
+
+\begin{equation*} 
+\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
+\end{equation*} 
+
+
+### Numbered Equations
+```latex
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  (\#eq:binom)
+\end{equation} 
+```
+
+產生：
+
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  (\#eq:binom)
+\end{equation} 
+
+`式 \@ref(eq:binom)`產生：式 \@ref(eq:binom)
+
+
+### Multi-line Aligned Equations
+
+```latex
+\begin{equation} 
+\begin{split}
+\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y)\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')'\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1}\\
+ & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}\\
+ & =(X'X)^{-1}\sigma^{2}
+\end{split}
+(\#eq:var-beta)
+\end{equation} 
+```
+
+產生：
+
+\begin{equation} 
+\begin{split}
+\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y)\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')'\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1}\\
+ & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}\\
+ & =(X'X)^{-1}\sigma^{2}
+\end{split}
+(\#eq:var-beta)
+\end{equation} 
+
+`詳見公式 (\#eq:var-beta)`產生：詳見公式 (\#eq:var-beta)
+
+### 定理與證明 {#theorem-proof}
+
+    ```{theorem, thm-label, name="Pythagorean theorem"}
+    For a right triangle, if $c$ denotes the length of the hypotenuse
+    and $a$ and $b$ denote the lengths of the other two sides, we have
+
+    $$a^2 + b^2 = c^2$$
+    ```
+
+產生：
+
+```{theorem, thm-label, name="Pythagorean theorem"}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+
+$$a^2 + b^2 = c^2$$
+```
+
+`詳見定理 \@ref(thm:thm-label)` 產生：詳見定理 \@ref(thm:thm-label)
+
+見其它[引用環境](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#tab:theorem-envs)。
+
+#### proof, remark, and solution
+
+將 code chunk 中 `theorem` 換成 `proof`, `remark`, `solution`。這三者無法被 cross-reference。
 
 
 - Benefits

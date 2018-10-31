@@ -115,7 +115,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="3" data-path="write-thesis.html"><a href="write-thesis.html"><i class="fa fa-check"></i><b>3</b> 論文撰寫</a><ul>
 <li class="chapter" data-level="3.1" data-path="write-thesis.html"><a href="write-thesis.html#dir-structure"><i class="fa fa-check"></i><b>3.1</b> 檔案結構</a></li>
-<li class="chapter" data-level="3.2" data-path="write-thesis.html"><a href="write-thesis.html#index.rmd"><i class="fa fa-check"></i><b>3.2</b> <code>index.Rmd</code></a></li>
+<li class="chapter" data-level="3.2" data-path="write-thesis.html"><a href="write-thesis.html#index-rmd"><i class="fa fa-check"></i><b>3.2</b> <code>index.Rmd</code></a></li>
 <li class="chapter" data-level="3.3" data-path="write-thesis.html"><a href="write-thesis.html#write-lang"><i class="fa fa-check"></i><b>3.3</b> 撰寫語言</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="write-thesis.html"><a href="write-thesis.html#output.yml"><i class="fa fa-check"></i><b>3.3.1</b> <code>_output.yml</code></a></li>
 <li class="chapter" data-level="3.3.2" data-path="write-thesis.html"><a href="write-thesis.html#bookdown.yml"><i class="fa fa-check"></i><b>3.3.2</b> <code>_bookdown.yml</code></a></li>
@@ -127,7 +127,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.4.4" data-path="write-thesis.html"><a href="write-thesis.html#multi-lang-cite"><i class="fa fa-check"></i><b>3.4.4</b> 多語言文獻引用</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="bookdown-cheatsheet.html"><a href="bookdown-cheatsheet.html"><i class="fa fa-check"></i><b>4</b> Bookdown Cheatsheet</a></li>
+<li class="chapter" data-level="4" data-path="bookdown-cheatsheet.html"><a href="bookdown-cheatsheet.html"><i class="fa fa-check"></i><b>4</b> Bookdown Cheatsheet</a><ul>
+<li class="chapter" data-level="4.1" data-path="bookdown-cheatsheet.html"><a href="bookdown-cheatsheet.html#math"><i class="fa fa-check"></i><b>4.1</b> Math</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="bookdown-cheatsheet.html"><a href="bookdown-cheatsheet.html#unnumbered-equations"><i class="fa fa-check"></i><b>4.1.1</b> Unnumbered Equations</a></li>
+<li class="chapter" data-level="4.1.2" data-path="bookdown-cheatsheet.html"><a href="bookdown-cheatsheet.html#numbered-equations"><i class="fa fa-check"></i><b>4.1.2</b> Numbered Equations</a></li>
+<li class="chapter" data-level="4.1.3" data-path="bookdown-cheatsheet.html"><a href="bookdown-cheatsheet.html#multi-line-aligned-equations"><i class="fa fa-check"></i><b>4.1.3</b> Multi-line Aligned Equations</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="add-on.html"><a href="add-on.html"><i class="fa fa-check"></i><b>5</b> 進階功能擴充</a><ul>
 <li class="chapter" data-level="5.1" data-path="add-on.html"><a href="add-on.html#ling"><i class="fa fa-check"></i><b>5.1</b> 語言學</a></li>
 </ul></li>
@@ -135,7 +141,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="A" data-path="latex-cite-pkg.html"><a href="latex-cite-pkg.html"><i class="fa fa-check"></i><b>A</b> LaTeX 文獻引用</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>參考資料</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/liao961120/ntuthesis" target="blank">Published with bookdown</a></li>
+<li><a href="https://liao961120.github.io/ntuthesis" target="blank"><i class="fas fa-home"></i> &nbsp;套件網站</a></li>
+<li><a href="https://github.com/liao961120/ntuthesis" target="blank"><i class="fab fa-github"></i> &nbsp; GitHub</a></li>
 
 </ul>
 
@@ -156,7 +163,55 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="bookdown-cheatsheet" class="section level1">
 <h1><span class="header-section-number">第 4 章</span> Bookdown Cheatsheet</h1>
-<p>By default, bookdown merges all Rmd files by the order of filenames, e.g., <code>01-intro.Rmd</code> will appear before <code>02-literature.Rmd</code>. Filenames that start with an underscore <code>_</code> are skipped. <code>index.Rmd</code> will always be treated as the first file.</p>
+<div id="math" class="section level2">
+<h2><span class="header-section-number">4.1</span> Math</h2>
+<div id="unnumbered-equations" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Unnumbered Equations</h3>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation*</span>}<span class="ss"> </span>
+<span class="sc">\frac</span><span class="ss">{d}{dx}</span><span class="sc">\left</span><span class="ss">( </span><span class="sc">\int</span><span class="ss">_{a}^{x} f(u)</span><span class="sc">\,</span><span class="ss">du</span><span class="sc">\right</span><span class="ss">)=f(x)</span>
+<span class="kw">\end</span>{<span class="ex">equation*</span>} </code></pre></div>
+<p>產生：</p>
+<span class="math display">\[\begin{equation*} 
+\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
+\end{equation*}\]</span>
+</div>
+<div id="numbered-equations" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Numbered Equations</h3>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span>
+<span class="ss">  f</span><span class="sc">\left</span><span class="ss">(k</span><span class="sc">\right</span><span class="ss">) = </span><span class="sc">\binom</span><span class="ss">{n}{k} p^k</span><span class="sc">\left</span><span class="ss">(1-p</span><span class="sc">\right</span><span class="ss">)^{n-k}</span>
+<span class="ss">  (</span><span class="sc">\#</span><span class="ss">eq:binom)</span>
+<span class="kw">\end</span>{<span class="ex">equation</span>} </code></pre></div>
+<p>產生：</p>
+<span class="math display" id="eq:binom">\[\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  \tag{4.1}
+\end{equation}\]</span>
+<p><code>式 \@ref(eq:binom)</code>：式 <a href="bookdown-cheatsheet.html#eq:binom">(4.1)</a></p>
+</div>
+<div id="multi-line-aligned-equations" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Multi-line Aligned Equations</h3>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span>
+<span class="kw">\begin</span>{<span class="ex">split</span>}
+<span class="sc">\mathrm</span><span class="ss">{Var}(</span><span class="sc">\hat</span><span class="ss">{</span><span class="sc">\beta</span><span class="ss">}) &amp; =</span><span class="sc">\mathrm</span><span class="ss">{Var}((X&#39;X)^{-1}X&#39;y)</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)X(X&#39;X)^{-1}</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\sigma</span><span class="ss">^{2}IX(X&#39;X)^{-1}</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}</span><span class="sc">\sigma</span><span class="ss">^{2}</span>
+<span class="kw">\end</span>{<span class="ss">split}</span>
+<span class="ss">(</span><span class="sc">\#</span><span class="ss">eq:var-beta)</span>
+<span class="kw">\end</span>{<span class="ex">equation</span>} </code></pre></div>
+<p>產生：</p>
+<span class="math display" id="eq:var-beta" id="eq:var-beta">\[\begin{equation} 
+\begin{split}
+\mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y)\\
+ &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;\\
+ &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)X(X&#39;X)^{-1}\\
+ &amp; =(X&#39;X)^{-1}X&#39;\sigma^{2}IX(X&#39;X)^{-1}\\
+ &amp; =(X&#39;X)^{-1}\sigma^{2}
+\end{split}
+\tag{4.2}
+\end{equation}\]</span>
+<p><code>詳見公式 (\#eq:var-beta)</code>：詳見公式 \tag{4.2}</p>
 <ul>
 <li>Benefits</li>
 <li>Quick Start
@@ -203,12 +258,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 
 </div>
+</div>
+</div>
 <div id="disqus_thread"></div>
 <script>
 
-var disqus_config = function () { 
-  this.language = "zh-Hant";
-};
+//var disqus_config = function () { 
+//  this.language = "zh-Hant";
+//};
 /**
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
@@ -246,7 +303,7 @@ s.setAttribute('data-timestamp', +new Date());
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
+"github": false,
 "facebook": false,
 "twitter": false,
 "google": false,
@@ -267,12 +324,25 @@ gitbook.start({
 },
 "download": ["ntu-bookdown.pdf"],
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -115,7 +115,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="3" data-path="write-thesis.html"><a href="write-thesis.html"><i class="fa fa-check"></i><b>3</b> 論文撰寫</a><ul>
 <li class="chapter" data-level="3.1" data-path="write-thesis.html"><a href="write-thesis.html#dir-structure"><i class="fa fa-check"></i><b>3.1</b> 檔案結構</a></li>
-<li class="chapter" data-level="3.2" data-path="write-thesis.html"><a href="write-thesis.html#index.rmd"><i class="fa fa-check"></i><b>3.2</b> <code>index.Rmd</code></a></li>
+<li class="chapter" data-level="3.2" data-path="write-thesis.html"><a href="write-thesis.html#index-rmd"><i class="fa fa-check"></i><b>3.2</b> <code>index.Rmd</code></a></li>
 <li class="chapter" data-level="3.3" data-path="write-thesis.html"><a href="write-thesis.html#write-lang"><i class="fa fa-check"></i><b>3.3</b> 撰寫語言</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="write-thesis.html"><a href="write-thesis.html#output.yml"><i class="fa fa-check"></i><b>3.3.1</b> <code>_output.yml</code></a></li>
 <li class="chapter" data-level="3.3.2" data-path="write-thesis.html"><a href="write-thesis.html#bookdown.yml"><i class="fa fa-check"></i><b>3.3.2</b> <code>_bookdown.yml</code></a></li>
@@ -127,7 +127,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.4.4" data-path="write-thesis.html"><a href="write-thesis.html#multi-lang-cite"><i class="fa fa-check"></i><b>3.4.4</b> 多語言文獻引用</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="bookdown-cheatsheet.html"><a href="bookdown-cheatsheet.html"><i class="fa fa-check"></i><b>4</b> Bookdown Cheatsheet</a></li>
+<li class="chapter" data-level="4" data-path="bookdown-cheatsheet.html"><a href="bookdown-cheatsheet.html"><i class="fa fa-check"></i><b>4</b> Bookdown Cheatsheet</a><ul>
+<li class="chapter" data-level="4.1" data-path="bookdown-cheatsheet.html"><a href="bookdown-cheatsheet.html#math"><i class="fa fa-check"></i><b>4.1</b> Math</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="bookdown-cheatsheet.html"><a href="bookdown-cheatsheet.html#unnumbered-equations"><i class="fa fa-check"></i><b>4.1.1</b> Unnumbered Equations</a></li>
+<li class="chapter" data-level="4.1.2" data-path="bookdown-cheatsheet.html"><a href="bookdown-cheatsheet.html#numbered-equations"><i class="fa fa-check"></i><b>4.1.2</b> Numbered Equations</a></li>
+<li class="chapter" data-level="4.1.3" data-path="bookdown-cheatsheet.html"><a href="bookdown-cheatsheet.html#multi-line-aligned-equations"><i class="fa fa-check"></i><b>4.1.3</b> Multi-line Aligned Equations</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="add-on.html"><a href="add-on.html"><i class="fa fa-check"></i><b>5</b> 進階功能擴充</a><ul>
 <li class="chapter" data-level="5.1" data-path="add-on.html"><a href="add-on.html#ling"><i class="fa fa-check"></i><b>5.1</b> 語言學</a></li>
 </ul></li>
@@ -135,7 +141,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="A" data-path="latex-cite-pkg.html"><a href="latex-cite-pkg.html"><i class="fa fa-check"></i><b>A</b> LaTeX 文獻引用</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>參考資料</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/liao961120/ntuthesis" target="blank">Published with bookdown</a></li>
+<li><a href="https://liao961120.github.io/ntuthesis" target="blank"><i class="fas fa-home"></i> &nbsp;套件網站</a></li>
+<li><a href="https://github.com/liao961120/ntuthesis" target="blank"><i class="fab fa-github"></i> &nbsp; GitHub</a></li>
 
 </ul>
 
@@ -160,22 +167,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <blockquote>
 <p>LaTeX 本身並未有支援繁體中文格式的文獻引用套件</p>
 </blockquote>
-<p>經過一段時間的搜尋，發現 biblatex 套件似乎可以定義不同的引用格式<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>，因此，或許可以透過定義新的標點符號，例如將原本引用格式中的<code>,</code>定義成<code>，</code>、<code>.</code>定義成<code>。</code>，再透過 <code>.bib</code> 檔中的 <code>langid</code> field 辨識要使用何種引用格式。然而，由於作者本人對 LaTeX 並不熟悉，因此需要這方面高手的協助。</p>
+<p>經過一段時間的搜尋，發現 biblatex 套件似乎可以定義不同的引用格式<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>，因此，或許可以透過定義新的標點符號，例如將原本引用格式中的<code>,</code>定義成<code>，</code>、<code>.</code>定義成<code>。</code>，再透過 <code>.bib</code> 檔中的 <code>langid</code> field 辨識要使用何種引用格式。然而，由於作者本人對 LaTeX 並不熟悉，因此需要這方面高手的協助。</p>
 
 </div>
 <div class="footnotes">
 <hr />
-<ol start="3">
-<li id="fn3"><p><a href="https://tex.stackexchange.com/questions/417762/different-styles-between-citations-and-bibliography" class="uri">https://tex.stackexchange.com/questions/417762/different-styles-between-citations-and-bibliography</a><br />
-<a href="https://tex.stackexchange.com/questions/377308/different-citation-styles-for-the-same-bibliography" class="uri">https://tex.stackexchange.com/questions/377308/different-citation-styles-for-the-same-bibliography</a><a href="latex-cite-pkg.html#fnref3">↩</a></p></li>
+<ol start="6">
+<li id="fn6"><p><a href="https://tex.stackexchange.com/questions/417762/different-styles-between-citations-and-bibliography" class="uri">https://tex.stackexchange.com/questions/417762/different-styles-between-citations-and-bibliography</a><br />
+<a href="https://tex.stackexchange.com/questions/377308/different-citation-styles-for-the-same-bibliography" class="uri">https://tex.stackexchange.com/questions/377308/different-citation-styles-for-the-same-bibliography</a><a href="latex-cite-pkg.html#fnref6">↩</a></p></li>
 </ol>
 </div>
 <div id="disqus_thread"></div>
 <script>
 
-var disqus_config = function () { 
-  this.language = "zh-Hant";
-};
+//var disqus_config = function () { 
+//  this.language = "zh-Hant";
+//};
 /**
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
@@ -213,7 +220,7 @@ s.setAttribute('data-timestamp', +new Date());
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
+"github": false,
 "facebook": false,
 "twitter": false,
 "google": false,
@@ -234,12 +241,25 @@ gitbook.start({
 },
 "download": ["ntu-bookdown.pdf"],
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
