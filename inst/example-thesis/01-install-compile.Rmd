@@ -1,3 +1,8 @@
+```{r echo=FALSE, include=TRUE}
+klippy::klippy(lang = c("r", "markdown", "yaml", "latex"),
+               position = c('top', 'right'))
+```
+
 # 安裝 {#install}
 
 

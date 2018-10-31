@@ -25,7 +25,6 @@
 <meta name="author" content="廖永賦">
 
 
-<meta name="date" content="2018-10-31">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +46,10 @@
 
 
 
+<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 
 
 <style type="text/css">
@@ -245,7 +248,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="cite-syntax" class="section level3">
 <h3><span class="header-section-number">3.4.2</span> 引用語法</h3>
-<p><a href="https://github.com/crsh/citr"><code>citr</code></a> 是一個方便使用者插入引用文獻的 R 套件，讓使用者能透過 GUI 插入文獻： <img src="figs/citr.gif" width="100%" style="display: block; margin: auto;" /></p>
+<p><a href="https://github.com/crsh/citr"><code>citr</code></a> 是一個方便使用者插入引用文獻的 R 套件，讓使用者能透過 GUI 插入文獻：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (knitr<span class="op">::</span><span class="kw">is_html_output</span>()){
+  knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figs/citr.gif&quot;</span>)
+} <span class="cf">else</span> {
+  knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figs/citr.png&quot;</span>)
+}</code></pre></div>
+<p><img src="figs/citr.gif" width="100%" style="display: block; margin: auto;" /></p>
 <p>當需要更複雜的引用格式，如標示第幾頁，可以修改透過 <code>citr</code> 插入的語法：</p>
 <ul>
 <li><code>Some text [@citekey].</code>
@@ -284,6 +293,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>透過 csl 排版引用格式，只能支援單一語言。例如，若將英文格式套用到中文文獻，中文文獻就會出現英文的半形逗點和句點。</p>
 <p>多語言的引用可能可透過 LaTeX 的引用套件達成，但由於作者本人對 LaTeX 不夠熟悉，目前尚未解決此問題。若您是 LaTeX 的高手，歡迎至 <a href="latex-cite-pkg.html#latex-cite-pkg">A</a> 給我一些指教。</p>
 
+<script>
+  addClassKlippyTo("pre.r, pre.markdown, pre.yaml, pre.latex");
+  addKlippy('right', 'top', 'auto', '1', 'Copy code', 'Copied!');
+</script>
 </div>
 </div>
 </div>

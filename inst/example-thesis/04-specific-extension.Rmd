@@ -1,5 +1,9 @@
-# 進階功能擴充 {#add-on}
+```{r echo=FALSE, include=TRUE}
+klippy::klippy(lang = c("r", "markdown", "yaml", "latex"),
+               position = c('top', 'right'))
+```
 
+# 進階功能擴充 {#add-on}
 
 透過其它 R 套件，R Markdown 的撰寫過程能夠更順暢。以下介紹幾個例子，歡迎補充說明。
 

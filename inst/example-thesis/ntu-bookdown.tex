@@ -102,7 +102,7 @@
 \usepackage{titletoc}
 \usepackage{xCJKnumb}
 \usepackage{booktabs}
-
+\usepackage{apptools}
 
 %中文自動換行
 \XeTeXlinebreaklocale "zh"
@@ -110,8 +110,11 @@
 \XeTeXlinebreakskip = 0pt plus 1pt
 
 
-% \titleformat{\chapter}{\centering\Huge\bfseries}{第\,\xCJKnumber{\thechapter}\,章}{1em} {}
-% \titlespacing{\chapter}{0cm}{-1.3cm}{1em}
+\titleformat{\chapter}
+{\centering\Huge\bfseries}{\IfAppendix{\appendixname}{} 第\,\xCJKnumber{\thechapter}\,章}{1em}{}
+\titlespacing{\chapter}{0cm}{-1.3cm}{1em}
+
+
 
 \renewcommand{\figurename}{圖}
 \renewcommand{\tablename}{表}
