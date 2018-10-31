@@ -3,6 +3,12 @@
 #' To use this function, one needs to be in the
 #' \emph{root directory} of the bookdown project.
 #'
+#' @examples
+#' \dontrun{
+#' setwd("~/my-thesis")
+#' comp_front()
+#' }
+#'
 #' @export
 comp_front <- function() {
 
@@ -16,7 +22,8 @@ comp_front <- function() {
   rmarkdown::render("front_matter.rmd")
   stopifnot(file.exists("certification.tex"))
   fp <- "certification.tex"
-  system(paste("xelatex", fp))
+  system2("xelatex", args = fp, stdout = FALSE)
+  #system(paste("xelatex", fp))
 
   setwd("..")
 }
