@@ -10,3 +10,10 @@ comp_front()
 To use this function, one needs to be in the
 \emph{root directory} of the bookdown project.
 }
+\examples{
+\dontrun{
+setwd("~/my-thesis")
+comp_front()
+}
+
+}

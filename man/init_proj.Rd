@@ -7,8 +7,16 @@
 init_proj(dir = ".")
 }
 \arguments{
-\item{dir}{The path to the dircetory to initialize as a project}
+\item{dir}{The path to the dircetory to initialize as
+a project.}
 }
 \description{
 Initialize current directory as a bookdown project
+}
+\examples{
+\dontrun{
+setwd("~/my-thesis")
+init_proj()
+}
+
 }
