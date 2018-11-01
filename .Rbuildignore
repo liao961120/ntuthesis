@@ -7,3 +7,7 @@
 ^img$
 ^\.travis\.yml$
 ^render-book\.sh$
+^inst/example-thesis/$
+^example-thesis/$
+^DESCRIPTION-pkgdown$
+^example-thesis$
