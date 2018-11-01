@@ -631,8 +631,6 @@ year），但其它書目管理軟體如 Endnote 產生的 citation key
 \end{Highlighting}
 \end{Shaded}
 
-產生：
-
 \begin{equation*} 
 \frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
 \end{equation*}
@@ -649,8 +647,6 @@ year），但其它書目管理軟體如 Endnote 產生的 citation key
 \NormalTok{式 }\FunctionTok{\textbackslash{}@ref}\NormalTok{(eq:bino)}
 \end{Highlighting}
 \end{Shaded}
-
-產生：
 
 \begin{equation} 
   f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
@@ -678,8 +674,6 @@ Equations}\label{multi-line-aligned-equations}
 \NormalTok{詳見公式 }\FunctionTok{\textbackslash{}@ref}\NormalTok{(eq:var-beta)}
 \end{Highlighting}
 \end{Shaded}
-
-產生：
 
 \begin{equation} 
 \begin{split}
@@ -709,8 +703,6 @@ Equations}\label{multi-line-aligned-equations}
 \end{Highlighting}
 \end{Shaded}
 
-產生：
-
 \BeginKnitrBlock{theorem}[Pythagorean theorem]
 \protect\hypertarget{thm:pyth}{}{\label{thm:pyth} \iffalse (Pythagorean
 theorem) \fi{} }For a right triangle, if \(c\) denotes the length of the
@@ -720,13 +712,13 @@ sides, we have \[a^2 + b^2 = c^2\]
 
 詳見定理 \ref{thm:pyth}
 
-見其它\href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html\#tab:theorem-envs}{引用環境}。
-
-\subsubsection{proof, remark, and
+\subsubsection*{proof, remark, and
 solution}\label{proof-remark-and-solution}
+\addcontentsline{toc}{subsubsection}{proof, remark, and solution}
 
 將 code chunk 中 \texttt{theorem} 換成 \texttt{proof}, \texttt{remark},
-\texttt{solution}。這三者無法被 cross-reference。
+\texttt{solution}。這三者無法被
+cross-reference。見更多\href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html\#tab:theorem-envs}{引用環境}。
 
 \section{Figure Referencing}\label{figure-referencing}
 
@@ -734,16 +726,15 @@ solution}\label{proof-remark-and-solution}
 \begin{Highlighting}[]
 \NormalTok{```\{r iris, fig.cap= "The iris data."\}}
 \NormalTok{library(ggplot2)}
-\NormalTok{ggplot(data = iris) +}
-\NormalTok{  geom_point(aes(x = Sepal.Length, }
-\BaseNTok{                 y = Sepal.Width,}
-\BaseNTok{                 color = Species)}
-\BaseNTok{             )}
+\NormalTok{pl_iris <- ggplot(data = iris) +}
+\BaseNTok{             geom_point(aes(x = Sepal.Length,}
+\BaseNTok{                            y = Sepal.Width,}
+\BaseNTok{                            color = Species)}
+\BaseNTok{                        )}
+\NormalTok{pl_iris}
 \NormalTok{```}
 \end{Highlighting}
 \end{Shaded}
-
-產生：
 
 \begin{figure}[H]
 
@@ -766,7 +757,7 @@ solution}\label{proof-remark-and-solution}
 
 \NormalTok{(ref:dia) 插入**引用資料** [@kassin2017] 的 Figure Caption.}
 
-\NormalTok{```\{r dia, fig.cap='(ref:dia)'\}}
+\NormalTok{```\{r dia, fig.cap='(ref:dia)', fig.show='hold', out.width=c('48%','48%')\}}
 \NormalTok{ggplot(data = diamonds) +}
 \NormalTok{  geom_point(aes(x = carat, }
 \BaseNTok{                 y = price,}
@@ -775,6 +766,8 @@ solution}\label{proof-remark-and-solution}
 \NormalTok{  guides(color = guide_legend(}
 \BaseNTok{    override.aes = list(size = 2)}
 \BaseNTok{    ))}
+
+\NormalTok{pl_iris # Second figure}
 \NormalTok{```}
 \end{Highlighting}
 \end{Shaded}
@@ -784,7 +777,7 @@ solution}\label{proof-remark-and-solution}
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=1\linewidth]{ntu-bookdown_files/figure-latex/foo-1} 
+{\centering \includegraphics[width=0.48\linewidth]{ntu-bookdown_files/figure-latex/foo-1} \includegraphics[width=0.48\linewidth]{ntu-bookdown_files/figure-latex/foo-2} 
 
 }
 
@@ -805,7 +798,7 @@ solution}\label{proof-remark-and-solution}
 \NormalTok{  )}
 \NormalTok{```}
 
-\FunctionTok{### Link Table in Later Sections}
+\FunctionTok{### Link Table in Later Sections \{-\}}
 \NormalTok{見表 \textbackslash{}@ref(tab:mtcars)}
 \end{Highlighting}
 \end{Shaded}
@@ -814,7 +807,7 @@ solution}\label{proof-remark-and-solution}
 
 \begin{table}[t]
 
-\caption{\label{tab:mtcar}Dynamic variable in caption: 2018-11-01 18:00:38.}
+\caption{\label{tab:mtcar}Dynamic variable in caption: 2018-11-01 19:24:14.}
 \centering
 \begin{tabular}{lrrrrrrrr}
 \toprule
@@ -829,8 +822,9 @@ Hornet Sportabout & 19 & 8 & 360 & 175 & 3.1 & 3.4 & 17 & 0\\
 \end{tabular}
 \end{table}
 
-\subsection{Link Table in Later
+\subsection*{Link Table in Later
 Sections}\label{link-table-in-later-sections}
+\addcontentsline{toc}{subsection}{Link Table in Later Sections}
 
 見表 \ref{tab:mtcar}
 
@@ -894,25 +888,6 @@ Sections}\label{link-table-in-later-sections}
   \item
     Write Thesis in English (Write in Eng)
   \end{itemize}
-\item
-  Bookdown Demo
-
-  \begin{enumerate}
-  \def\labelenumi{\alph{enumi})}
-  \tightlist
-  \item
-    Markdown quick guide
-
-    \begin{itemize}
-    \tightlist
-    \item
-      no closing or opening quotation marks
-    \end{itemize}
-  \item
-    Citation
-  \item
-    Cross References
-  \end{enumerate}
 \item
   Resources
 

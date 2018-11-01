@@ -3,7 +3,7 @@ klippy::klippy(position = c('top', 'right'),
                all_precode = TRUE)
 ```
 
-# 語法 Cheatsheet
+# 語法 Cheatsheet {#cheatsheet}
 
 ## 數學 {#math}
 
@@ -16,8 +16,6 @@ klippy::klippy(position = c('top', 'right'),
 \frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
 \end{equation*} 
 ```
-
-產生：
 
 \begin{equation*} 
 \frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
@@ -33,8 +31,6 @@ klippy::klippy(position = c('top', 'right'),
 
 式 \@ref(eq:bino)
 ```
-
-產生：
 
 \begin{equation} 
   f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
@@ -60,8 +56,6 @@ klippy::klippy(position = c('top', 'right'),
 
 詳見公式 \@ref(eq:var-beta)
 ```
-
-產生：
 
 \begin{equation} 
 \begin{split}
@@ -89,8 +83,6 @@ $$a^2 + b^2 = c^2$$
 詳見定理 \@ref(thm:thm-label)
 ````
 
-產生：
-
 ```{theorem, pyth, name="Pythagorean theorem"}
 For a right triangle, if $c$ denotes the length of the hypotenuse
 and $a$ and $b$ denote the lengths of the other two sides, we have
@@ -99,12 +91,9 @@ $$a^2 + b^2 = c^2$$
 
 詳見定理 \@ref(thm:pyth)
 
+#### proof, remark, and solution {-}
 
-見其它[引用環境](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#tab:theorem-envs)。
-
-#### proof, remark, and solution
-
-將 code chunk 中 `theorem` 換成 `proof`, `remark`, `solution`。這三者無法被 cross-reference。
+將 code chunk 中 `theorem` 換成 `proof`, `remark`, `solution`。這三者無法被 cross-reference。見更多[引用環境](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#tab:theorem-envs)。
 
 
 ## Figure Referencing
@@ -112,22 +101,23 @@ $$a^2 + b^2 = c^2$$
 ````markdown
 `r ''````{r iris, fig.cap= "The iris data."}
 library(ggplot2)
-ggplot(data = iris) +
-  geom_point(aes(x = Sepal.Length, 
-                 y = Sepal.Width,
-                 color = Species)
-             )
+pl_iris <- ggplot(data = iris) +
+             geom_point(aes(x = Sepal.Length,
+                            y = Sepal.Width,
+                            color = Species)
+                        )
+pl_iris
 ```
 ````
 
-產生：
-```{r iris, fig.cap= "The iris data.", echo=FALSE}
+```{r iris, fig.cap= "The iris data.", out.width="70%", echo=FALSE}
 library(ggplot2)
-ggplot(data = iris) +
-  geom_point(aes(x = Sepal.Length, 
-                 y = Sepal.Width,
-                 color = Species)
-             )
+pl_iris <- ggplot(data = iris) +
+             geom_point(aes(x = Sepal.Length,
+                            y = Sepal.Width,
+                            color = Species)
+                        )
+pl_iris
 ```
 
 
@@ -142,7 +132,7 @@ ggplot(data = iris) +
 
 (ref:dia) 插入**引用資料** [@kassin2017] 的 Figure Caption.
 
-`r ''````{r dia, fig.cap='(ref:dia)'}
+`r ''````{r dia, fig.cap='(ref:dia)', fig.show='hold', out.width=c('48%','48%')}
 ggplot(data = diamonds) +
   geom_point(aes(x = carat, 
                  y = price,
@@ -151,12 +141,14 @@ ggplot(data = diamonds) +
   guides(color = guide_legend(
     override.aes = list(size = 2)
     ))
+
+pl_iris # Second figure
 ```
 ````
 
 (ref:foo) 插入**引用資料** [@kassin2017] 的 Figure Caption.
 
-```{r foo, echo=FALSE, fig.cap='(ref:foo)'}
+```{r foo, echo=FALSE, fig.cap='(ref:foo)', fig.show='hold', out.width=c('48%','48%')}
 ggplot(data = diamonds) +
   geom_point(aes(x = carat, 
                  y = price,
@@ -165,6 +157,8 @@ ggplot(data = diamonds) +
   guides(color = guide_legend(
     override.aes = list(size = 2)
     ))
+
+pl_iris   # Second figure
 ```
 
 
@@ -184,7 +178,7 @@ knitr::kable(
   )
 ```
 
-### Link Table in Later Sections
+### Link Table in Later Sections {-}
 見表 \@ref(tab:mtcars)
 ````
 
@@ -198,7 +192,7 @@ knitr::kable(
   )
 ```
 
-### Link Table in Later Sections
+### Link Table in Later Sections {-}
 見表 \@ref(tab:mtcar)
 
 
