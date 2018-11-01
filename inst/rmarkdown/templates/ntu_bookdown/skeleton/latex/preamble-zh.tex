@@ -1,8 +1,31 @@
 \usepackage{pdfpages}
 \usepackage{titlesec}
 \usepackage{titletoc}
-\usepackage{xCJKnumb}
 \usepackage{booktabs}
+\usepackage{apptools}
+\usepackage{float}
+\usepackage[section]{placeins}
+
+\usepackage[heading, fontset = none]{ctex}
+\ctexset{appendix/name={\appendixname\space}}
+%\usepackage[UTF8, heading = true, fontset = none]{ctex}%
+%\ctexset {
+
+%    fontset = none,
+%    appendixname = "附錄",
+
+    %chapter/name = {第,章},
+    %chapter/titleformat = \chaptertitleformat,
+    %section/name = {\S},
+
+
+%    appendix = {
+%        numbering = true,
+%        name = {附錄}
+%        }
+%}
+
+
 
 %中文自動換行
 \XeTeXlinebreaklocale "zh"
@@ -10,18 +33,11 @@
 \XeTeXlinebreakskip = 0pt plus 1pt
 
 
-\titleformat{\chapter}{\centering\Huge\bfseries}{第\,\xCJKnumber{\thechapter}\,章}{1em} {}
-\titlespacing{\chapter}{0cm}{-1.3cm}{1em} 
 
 \renewcommand{\figurename}{圖}
 \renewcommand{\tablename}{表}
 \renewcommand{\contentsname}{目錄}
 \renewcommand{\listfigurename}{圖目錄}
 \renewcommand{\listtablename}{表目錄}
+\renewcommand{\appendixname}{附錄}
 %\renewcommand{\bibname}{參考資料}
-
-\titlecontents{chapter}[0em]
-{}{\makebox[4.1em][l]
-{第\xCJKnumber{\thecontentslabel}章}}{}
-{\titlerule*[0.7pc]{.}\contentspage}
-

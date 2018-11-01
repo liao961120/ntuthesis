@@ -6,3 +6,5 @@ inst/doc
 *.log
 *.xwm
 /docs
+/skel-files.txt
+/renew-skel.sh

@@ -1,0 +1,81 @@
+# 安裝 {#install}
+
+
+```r
+devtools::install_github("liao961120/ntuthesis")
+```
+
+## LaTeX
+
+若已有管理、安裝 LaTeX 套件經驗者，可忽略。
+
+若電腦尚未安裝 LaTeX，可安裝 R 的 tinytex 套件：
+
+```r
+install.packages('tinytex')
+tinytex::install_tinytex()
+```
+
+在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件。因此，第一次輸出 PDF 可能會需要一些時間。
+
+
+# 輸出論文 {#export-thesis}
+
+## 匯入論文模板 {#import-template}
+
+開啟 RStudio，選取左上方 `File` > `New File` > `R Markdown`：
+
+```{r fig.cap="透過 RStudio 匯入論文模板"}
+if (knitr::is_html_output()) {
+  knitr::include_graphics("figs/rmd-template.gif")
+} else {
+  knitr::include_graphics("figs/rmd-template.png")
+}
+```
+
+或是直接在 console 執行：
+```r
+rmarkdown::draft("project_name",
+                 template = "ntu_bookdown",
+                 package = "ntuthesis")
+```
+
+接著需要將該資料夾變更為 bookdown 專案。這可以用 RStudio 左上方 `File` > `New Project` > `Existing Directory` 達成，或直接使用下方指令（working dir 需是專案資料夾）：
+```r
+ntuthesis::init_proj()  # init working dir as proj.
+```
+
+詳細的檔案結構，見 \@ref(dir-structure)。
+
+## 編輯封面 {#edit-front-matter}
+
+在`_person-info.yml`輸入個人資料後，執行：
+```r
+ntuthesis::comp_front()
+```
+
+即會在 `front-matter/` 生成封面所需的檔案。以使用者的角度而言，除了 `front-matter/certification.pdf` 以外，`front-matter/` 中的其它檔案不須理會。`certification.pdf` 是空白（未簽名）的「口試委員審定書」。
+
+已簽名的「口試委員審定書」，將檔案命名為 `certification-scan.pdf` 並放在專案資料夾的最頂層。
+
+## Compile 論文 {#compile-thesis}
+
+接著用 RStudio Build Pane 裡的 button 輸出論文：
+
+```{r fig.cap="透過 RStudio 輸出論文"}
+if (knitr::is_html_output()) {
+  knitr::include_graphics("figs/build-button.gif")
+} else {
+  knitr::include_graphics("figs/build-button.png")
+}
+```
+
+或是在 console 執行下方指令：
+```r
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::render_book("index.Rmd", "bookdown::bookdown::pdf_book")
+```
+
+如此便會在 `_book/` 中生成完整的論文（gitbook 和 PDF 格式）。
+
+

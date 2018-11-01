@@ -59,7 +59,6 @@ knitr::opts_chunk$set(
     message = FALSE,
     warning = FALSE,
     comment="",
-    #fig.pos = 'h',
     fig.align = 'center',
     out.width = "100%"
     #fig.dim = c(3.5, 3.5)  # (width, height)

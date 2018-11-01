@@ -1,0 +1,155 @@
+# 論文撰寫 {#write-thesis}
+
+## 檔案結構 {#dir-structure}
+
+執行以下指令後（詳見 \@ref(import-template)）
+```r
+rmarkdown::draft("project_name",
+                 template = "ntu_bookdown",
+                 package = "ntuthesis")
+```
+
+即會匯入論文模板，以下是論文模板的檔案結構（已簡化）。
+
+```yaml
+├── project_name.Rmd     # Useless, please delete it
+|
+├── R/                   # code chunk root dir, put R scripts and data here
+├── figs/                # Put figures to include in the thesis here
+|
+├── index.Rmd            # Book Layout (font, watermark, biblio, ...)
+├── _acknowledge.Rmd     # acknowledgement
+├── _abstract-en.Rmd     # abstract
+├── _abstract-zh.Rmd     # Same as above, but in Chinese
+|
+├── 01-intro.Rmd         # Chapter 1 content
+├── 02-literature.Rmd    # Chapter 2 content
+├── 03-method.Rmd        # Chapter 3 content
+├── 99-references.Rmd    # Don't need to edit
+├── ref.bib              # References
+├── cite-style.csl       # Citation style
+|
+├── _bookdown.yml        # label names in gitbook; Rmd files order
+├── _output.yml          # preamble, pandoc args, cite-pkg
+|
+├── watermark.pdf        # 臺大浮水印 (PDF 右上角)
+├── _person-info.yml      # Info to generate front matter
+├── certification-scan.pdf  # 已簽名'口試委員審查書'
+└── front_matter
+    └── certification.pdf   # 空白'口試委員審查書'
+```
+
+## `index.Rmd` {#index-rmd}
+
+`index.Rmd` 是設定論文內文格式的地方，包含 yaml 以及 R setup code chunk。此模板將 code chunk 預設的 working directory 改成 `R/`[^code-root-dir]，如此較符合一般寫 Rscript 的邏輯[^relative-path]。若要更改此設定，至 setup code chunk 更改 `knitr::opts_knit$set(root.dir='R')`。
+
+[^code-root-dir]: 預設是 Rmd 檔所在的位置。
+
+[^relative-path]: 例如，使用相對路徑匯入資料時，一般會以 Rscript 所在的位置作為基準。
+
+## 撰寫語言 {#write-lang}
+
+若使用**英文**撰寫論文，需修改 `_output.yml`、`_bookdown.yml` 這兩個檔案的內容。
+
+### `_output.yml`
+
+將 `in_header: latex/preamble-zh.tex` 改為 `in_header: latex/preamble-en.tex`：
+
+```yaml
+bookdown::pdf_book:
+  includes:
+    in_header: latex/preamble-en.tex
+```
+
+### `_bookdown.yml`
+
+`_bookdown.yml` 中，可以對標籤的名稱進行定義。這裡的設定與 PDF 輸出無關，只與 gitbook 輸出格式有關。因此，若無需使用 gitbook 輸出，可忽略此段。
+
+此外，`_bookdown.yml` 亦可設定 Rmd 檔在輸出文件中的順序。若無設定，就會依序檔名排序[^order]。
+
+在以下設定中，可使 gitbook 輸出的章節（順序）與 PDF 不同。
+```yaml
+rmd_files:
+  html: ["index.Rmd", "abstract.Rmd", "intro.Rmd"]
+  latex: ["abstract.Rmd", "intro.Rmd"]
+```
+
+[^order]: 此模板即未進行設定，因此第一章的內容寫在 `01-xxx.Rmd` 就會自動排在第一。而若檔名以底線開頭（`_`）則會被忽略。更多內容詳見 [bookdown](https://bookdown.org/yihui/bookdown/usage.html)。
+
+
+## 文獻引用 {#bib-cite}
+
+R Markdown 在文章中插入引用文獻的功能承繼 Pandoc。完整的使用見 [R Markdown 官方說明](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html) 。
+
+
+此模板目前產生文獻格式的方法是依靠 [Pandoc citeproc](https://github.com/jgm/pandoc-citeproc)，因此，文獻格式是依據 `cite-style.csl`[^csl-ori] 產生的。使用者可至 [Zotero Style Repository](https://www.zotero.org/styles) 下載所需的 csl 檔並覆蓋專案資料夾中的 `cite-style.csl`。
+
+[^csl-ori]: 此模板提供的 `cite-style.csl` 是 APA 英文第六版。此外，<http://blog.pulipuli.info/2011/05/zoteroapa.html> 亦有提供 APA 中文版的引用格式。需注意的是 Pandoc **不支援雙語 csl** (<http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html>)。
+
+### `ref.bib` {#ref-bib}
+
+`.bib` 檔的產生方式可以由 Endnote, Zotero, JabRef 等書目管理軟體匯出。匯出後，將檔名命名為 `ref.bib` 放在專案資料夾[^refbib]。
+
+
+[^refbib]: 或是可以自訂檔名，並到 `index.Rmd` yaml 中的 `bibliography: ref.bib` 更改 `ref.bib` 檔名。此外，亦可使用多個 `.bib` 檔：`bibliography: [ref1.bib, ref2.bib, ref3.bib]`。
+
+`.bib` 內的一篇引用資料會類似：
+
+```bib
+@article{leung2008,
+  title = {Multicultural Experience Enhances Creativity: {{The}} When and How.},
+  volume = {63},
+  issn = {1935-990X(Electronic),0003-066X(Print)},
+  doi = {10.1037/0003-066X.63.3.169},
+  number = {3},
+  journaltitle = {American Psychologist},
+  date = {2008},
+  pages = {169-181},
+  keywords = {*Cognition,*Creativity,*Culture (Anthropological),*Experiences (Events),Multiculturalism},
+  author = {Leung, Angela Ka-yee and Maddux, William W. and Galinsky, Adam D. and Chiu, Chi-yue}
+}
+```
+
+其中第一行的 `leung2008` 即為 citation key。透過 `@citekey`(`@leung2008`)即可在文獻中插入 citation。匯出論文時，文末會自動產生引用的文獻。
+
+### 引用語法 {#cite-syntax}
+
+[`citr`](https://github.com/crsh/citr) 是一個方便使用者插入引用文獻的 R 套件，讓使用者能透過 GUI 插入文獻：
+```{r fig.cap="使用 citr 套件插入引用文獻"}
+if (knitr::is_html_output()){
+  knitr::include_graphics("figs/citr.gif")
+} else {
+  knitr::include_graphics("figs/citr.png")
+}
+```
+
+當需要更複雜的引用格式，如標示第幾頁，可以修改透過 `citr` 插入的語法：
+
+- `Some text [@citekey].`
+    - Some text [@leung2008].
+
+- `@citekey Some text`
+    - @leung2008 Some text 
+
+- `@citekey [p. 20] Some text.`
+    - @leung2008 [p. 20] Some text.
+
+- `Some text [-@citekey].`
+    - Some text [-@leung2008]
+
+- `Some text [@citekey1; @citekey2].`
+    -  Some text [@leung2008; @huangxuanfan1993].
+
+- Prefix & Suffix
+    - `Text [see @citekey1 pp.45; also, @citekey2 ch. 2].`
+    -  Text [see @leung2008 pp. 45; also, @huangxuanfan1993 ch. 2].
+
+### 書目管理軟體 {#ref-manager}
+
+這裡建議使用 Zotero 加上 [Better BibTeX](https://retorque.re/zotero-better-bibtex/) 擴充功能。`citr` 對 Zotero 有額外的支持，且 **Zotero 能夠控制 citation key 的格式**（例如，last name + year），但其它書目管理軟體如 Endnote 產生的 citation key 對難以讀懂且無法更改其格式。
+
+### 多語言文獻引用 {#multi-lang-cite}
+
+透過 csl 排版引用格式，只能支援單一語言。例如，若將英文格式套用到中文文獻，中文文獻就會出現英文的半形逗點和句點。
+
+多語言的引用可能可透過 LaTeX 的引用套件達成，但由於作者本人對 LaTeX 不夠熟悉，目前尚未解決此問題。若您是 LaTeX 的高手，歡迎至 \@ref(latex-cite-pkg) 給我一些指教。
