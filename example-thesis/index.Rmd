@@ -1,5 +1,5 @@
 --- 
-title: '臺灣大學論文 Bookdown 模板'
+title: '臺大論文模板'
 author: '廖永賦'
 github-repo: "liao961120/ntuthesis"
 date: "`r format(Sys.Date(), '%B %e, %Y')`" # Gitbook Date
