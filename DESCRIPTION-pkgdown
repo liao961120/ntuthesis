@@ -1,0 +1,19 @@
+Package: ntuthesis
+Title: NTU | R Markdown | 論文模板
+Version: 0.0.0.9000
+Authors@R: person("Yongfu", "Liao", email = "liao961120@gmail.com", role = c("aut", "cre", "cph"))
+URL: https://liao961120.github.io/ntuthesis, https://github.com/liao961120/ntuthesis
+BugReports: https://github.com/liao961120/ntuthesis/issues
+Description: 用 R Markdown 寫碩博士論文
+Depends: R (>= 3.4.4)
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Suggests: knitr,
+    rmarkdown,
+    tinytex,
+    pkgdown
+Remotes: RLesur/klippy@v0.0.0.9400
+VignetteBuilder: knitr
+Imports: bookdown
+RoxygenNote: 6.1.0
