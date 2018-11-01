@@ -175,7 +175,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 } <span class="cf">else</span> {
   knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figs/rmd-template.png&quot;</span>)
 }</code></pre></div>
-<p><img src="figs/rmd-template.gif" width="100%" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="figs/rmd-template.gif" alt="透過 RStudio 匯入論文模板" width="100%" />
+<p class="caption">
+圖 2.1: 透過 RStudio 匯入論文模板
+</p>
+</div>
 <p>或是直接在 console 執行：</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rmarkdown<span class="op">::</span><span class="kw">draft</span>(<span class="st">&quot;project_name&quot;</span>,
                  <span class="dt">template =</span> <span class="st">&quot;ntu_bookdown&quot;</span>,
@@ -193,13 +198,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="compile-thesis" class="section level2">
 <h2><span class="header-section-number">2.3</span> Compile 論文</h2>
-<p>接著用 RStudio Environment Pane 裡的 button 輸出論文：</p>
+<p>接著用 RStudio Build Pane 裡的 button 輸出論文：</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (knitr<span class="op">::</span><span class="kw">is_html_output</span>()) {
   knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figs/build-button.gif&quot;</span>)
 } <span class="cf">else</span> {
   knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figs/build-button.png&quot;</span>)
 }</code></pre></div>
-<p><img src="figs/build-button.gif" width="100%" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="figs/build-button.gif" alt="透過 RStudio 輸出論文" width="100%" />
+<p class="caption">
+圖 2.2: 透過 RStudio 輸出論文
+</p>
+</div>
 <p>或是在 console 執行下方指令：</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::gitbook&quot;</span>)
 bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>, <span class="st">&quot;bookdown::bookdown::pdf_book&quot;</span>)</code></pre></div>

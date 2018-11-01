@@ -120,7 +120,7 @@ R Markdown 在文章中插入引用文獻的功能承繼 Pandoc。完整的使�
 ### 引用語法 {#cite-syntax}
 
 [`citr`](https://github.com/crsh/citr) 是一個方便使用者插入引用文獻的 R 套件，讓使用者能透過 GUI 插入文獻：
-```{r}
+```{r fig.cap="使用 citr 套件插入引用文獻"}
 if (knitr::is_html_output()){
   knitr::include_graphics("figs/citr.gif")
 } else {

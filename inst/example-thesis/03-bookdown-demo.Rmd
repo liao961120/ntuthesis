@@ -7,7 +7,7 @@ klippy::klippy(lang = c("r", "markdown", "yaml", "latex"),
 
 ## 數學 {#math}
 
-完整內容，詳見 [Bookdown Ch. 2](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.htm)
+完整內容，詳見 [Bookdown Ch. 2](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html)
 
 ### Unnumbered Equations
 

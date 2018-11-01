@@ -12,7 +12,7 @@ klippy::klippy(lang = c("r", "markdown", "yaml", "latex"),
 
 語言學相關文件寫作時，常需要插入 IPA 語音符號，但鍵盤通常難以直接打出這些符號。為此，我寫了一個 R 套件，讓使用者能直接在 RStudio 中透過輸入語音 features 的方式打出 IPA：
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.cap="使用 linguisticsdown 套件插入 IPA 音標符號"}
 if (knitr::is_html_output()) {
   knitr::include_graphics("https://liao961120.github.io/linguisticsdown/man/figs/features.gif")
 } else {

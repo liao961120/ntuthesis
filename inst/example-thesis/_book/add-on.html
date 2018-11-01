@@ -171,7 +171,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="ling" class="section level2">
 <h2><span class="header-section-number">5.1</span> 語言學</h2>
 <p>語言學相關文件寫作時，常需要插入 IPA 語音符號，但鍵盤通常難以直接打出這些符號。為此，我寫了一個 R 套件，讓使用者能直接在 RStudio 中透過輸入語音 features 的方式打出 IPA：</p>
-<p><img src="https://liao961120.github.io/linguisticsdown/man/figs/features.gif" width="100%" style="display: block; margin: auto;" /> <br></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<img src="https://liao961120.github.io/linguisticsdown/man/figs/features.gif" alt="使用 linguisticsdown 套件插入 IPA 音標符號" width="100%" />
+<p class="caption">
+圖 5.1: 使用 linguisticsdown 套件插入 IPA 音標符號
+</p>
+</div>
+<p><br></p>
 <p>要使用這功能，需安裝 <code>linguisticsdown</code>：</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;linguisticsdown&quot;</span>)</code></pre></div>
 <p>並且在 <code>index.Rmd</code> 的 yaml 設定 IPA 符號專用的字型（需確認電腦上有安裝此字型）：</p>

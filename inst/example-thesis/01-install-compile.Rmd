@@ -30,7 +30,7 @@ tinytex::install_tinytex()
 
 開啟 RStudio，選取左上方 `File` > `New File` > `R Markdown`：
 
-```{r}
+```{r fig.cap="透過 RStudio 匯入論文模板"}
 if (knitr::is_html_output()) {
   knitr::include_graphics("figs/rmd-template.gif")
 } else {
@@ -65,9 +65,9 @@ ntuthesis::comp_front()
 
 ## Compile 論文 {#compile-thesis}
 
-接著用 RStudio Environment Pane 裡的 button 輸出論文：
+接著用 RStudio Build Pane 裡的 button 輸出論文：
 
-```{r}
+```{r fig.cap="透過 RStudio 輸出論文"}
 if (knitr::is_html_output()) {
   knitr::include_graphics("figs/build-button.gif")
 } else {

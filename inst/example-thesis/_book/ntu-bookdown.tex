@@ -100,8 +100,28 @@
 \usepackage{pdfpages}
 \usepackage{titlesec}
 \usepackage{titletoc}
-\usepackage{xCJKnumb}
 \usepackage{booktabs}
+\usepackage{apptools}
+
+\usepackage[heading, fontset = none]{ctex}
+\ctexset{appendix/name={\appendixname\space}}
+%\usepackage[UTF8, heading = true, fontset = none]{ctex}%
+%\ctexset {
+
+%    fontset = none,
+%    appendixname = "附錄",
+
+    %chapter/name = {第,章},
+    %chapter/titleformat = \chaptertitleformat,
+    %section/name = {\S},
+
+
+%    appendix = {
+%        numbering = true,
+%        name = {附錄}
+%        }
+%}
+
 
 
 %中文自動換行
@@ -110,8 +130,9 @@
 \XeTeXlinebreakskip = 0pt plus 1pt
 
 
-% \titleformat{\chapter}{\centering\Huge\bfseries}{第\,\xCJKnumber{\thechapter}\,章}{1em} {}
-% \titlespacing{\chapter}{0cm}{-1.3cm}{1em}
+%https://tex.stackexchange.com/questions/401693/how-do-i-make-titleformat-not-apply-for-appendix
+
+
 
 \renewcommand{\figurename}{圖}
 \renewcommand{\tablename}{表}
@@ -120,6 +141,11 @@
 \renewcommand{\listtablename}{表目錄}
 \renewcommand{\appendixname}{附錄}
 %\renewcommand{\bibname}{參考資料}
+
+%\titleformat{\chapter}
+%{\centering\Huge\bfseries}{\IfAppendix{\appendixname}{} 第\,\xCJKnumber{\thechapter}\,章}{1em}{}
+%\titlespacing{\chapter}{0cm}{-1.3cm}{1em}
+
 
 % \titlecontents{chapter}[0em]
 % {}{\makebox[4.1em][l]
@@ -139,10 +165,9 @@
 % Set the default fonts
   \setmainfont{Liberation Serif} % Times New Roman  %Liberation Serif
 
-            \setCJKmainfont[
-	    BoldFont={AR PL KaitiM Big5}  % 粗體字
-        ]{AR PL KaitiM Big5}
-    
+                        \setCJKmainfont[AutoFakeBold=2.5, AutoFakeSlant=.3]{AR PL KaitiM Big5} %標楷體 %AR PL KaitiM Big5
+            %\setCJKmainfont[AutoFakeBold=1,AutoFakeSlant=.4]{BiauKai}
+            
 
 
 % IPA support (Works with linguisticsdown)
@@ -155,6 +180,7 @@
 \usepackage[printwatermark]{xwatermark}
 
   \newwatermark*[allpages,xpos=6.1725cm,ypos=10.5225cm,scale=0.5]{\includegraphics{watermark.pdf}}
+
 
 
 \usepackage{amsthm}
@@ -265,7 +291,14 @@
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{figs/rmd-template} \end{center}
+\begin{figure}[h]
+
+{\centering \includegraphics[width=1\linewidth]{figs/rmd-template} 
+
+}
+
+\caption{透過 RStudio 匯入論文模板}\label{fig:unnamed-chunk-2}
+\end{figure}
 
 或是直接在 console 執行：
 
@@ -311,7 +344,7 @@
 
 \section{Compile 論文}\label{compile-thesis}
 
-接著用 RStudio Environment Pane 裡的 button 輸出論文：
+接著用 RStudio Build Pane 裡的 button 輸出論文：
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -323,7 +356,14 @@
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{figs/build-button} \end{center}
+\begin{figure}[h]
+
+{\centering \includegraphics[width=1\linewidth]{figs/build-button} 
+
+}
+
+\caption{透過 RStudio 輸出論文}\label{fig:unnamed-chunk-3}
+\end{figure}
 
 或是在 console 執行下方指令：
 
@@ -495,7 +535,14 @@ citation。匯出論文時，文末會自動產生引用的文獻。
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{figs/citr} \end{center}
+\begin{figure}[h]
+
+{\centering \includegraphics[width=1\linewidth]{figs/citr} 
+
+}
+
+\caption{使用 citr 套件插入引用文獻}\label{fig:unnamed-chunk-5}
+\end{figure}
 
 當需要更複雜的引用格式，如標示第幾頁，可以修改透過 \texttt{citr}
 插入的語法：
@@ -582,7 +629,7 @@ year），但其它書目管理軟體如 Endnote 產生的 citation key
 \section{數學}\label{math}
 
 完整內容，詳見
-\href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.htm}{Bookdown
+\href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html}{Bookdown
 Ch. 2}
 
 \subsection{Unnumbered Equations}\label{unnumbered-equations}
@@ -787,7 +834,14 @@ solution}\label{proof-remark-and-solution}
 語音符號，但鍵盤通常難以直接打出這些符號。為此，我寫了一個 R
 套件，讓使用者能直接在 RStudio 中透過輸入語音 features 的方式打出 IPA：
 
-\begin{center}\includegraphics[width=1\linewidth]{figs/ipa} \end{center}
+\begin{figure}[h]
+
+{\centering \includegraphics[width=1\linewidth]{figs/ipa} 
+
+}
+
+\caption{使用 linguisticsdown 套件插入 IPA 音標符號}\label{fig:unnamed-chunk-8}
+\end{figure}
 
 要使用這功能，需安裝 \texttt{linguisticsdown}：
 
