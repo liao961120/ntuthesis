@@ -12,9 +12,6 @@ navbar:
     - icon: fa-search
       text: "內建函數"
       href: reference/index.html
-    - icon: fa-book
-      text: "使用說明"
-      href: doc/index.html
     - icon: fa-file-pdf-o
       text: "論文樣式"
       menu:
@@ -22,6 +19,9 @@ navbar:
           href: doc/ntu-bookdown.pdf
         - text: 英文
           href: doc/ntu-bookdown-en.pdf
+    - icon: fa-book
+      text: "使用說明 \u2197"
+      href: doc/index.html
   right:
     - icon: fa-github
       href: https://github.com/liao961120/ntuthesis
