@@ -30,7 +30,7 @@
 \usepackage[a4paper, left=1.18in, right=1.18in, top=1.18in, bottom=0.787in]{geometry}
 \usepackage[unicode=true]{hyperref}
 \hypersetup{
-            pdftitle={臺灣大學論文 Bookdown 模板},
+            pdftitle={臺大論文模板},
             pdfauthor={廖永賦},
             pdfborder={0 0 0},
             breaklinks=true}
@@ -141,9 +141,9 @@
 \renewcommand{\appendixname}{附錄}
 %\renewcommand{\bibname}{參考資料}
 
-\title{臺灣大學論文 Bookdown 模板}
+\title{臺大論文模板}
 \author{廖永賦}
-\date{November 1, 2018}
+\date{November 2, 2018}
 
 
 \usepackage{fontspec}
@@ -212,19 +212,24 @@
 \addcontentsline{toc}{chapter}{英文摘要}
 \includepdf[pages={5}, scale=1]{front_matter/front_matter.pdf}
 
-\clearpage
-\pagenumbering{arabic}
 
 {
 \setcounter{tocdepth}{1}
 \tableofcontents
+%\phantomsection
+%\addcontentsline{toc}{chapter}{\contentsname}
 }
 
 \newpage
 
 \listoftables
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
 \newpage
+
 \listoffigures
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
 \newpage
 
 % Set independent linestretch for code chunks
@@ -238,6 +243,8 @@
   \end{spacing}
   }
 
+\clearpage
+\pagenumbering{arabic}
 
 \chapter{安裝}\label{install}
 
@@ -472,7 +479,8 @@ citeproc}，因此，文獻格式是依據 \texttt{cite-style.csl}\footnote{此�
   \texttt{cite-style.csl} 是 APA
   英文第六版。此外，\url{http://blog.pulipuli.info/2011/05/zoteroapa.html}
   亦有提供 APA 中文版的引用格式。需注意的是 Pandoc \textbf{不支援雙語
-  csl}(\url{http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html})。}
+  csl}
+  (\url{http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html})。}
 產生的。使用者可至 \href{https://www.zotero.org/styles}{Zotero Style
 Repository} 下載所需的 csl 檔並覆蓋專案資料夾中的
 \texttt{cite-style.csl}。
@@ -807,7 +815,7 @@ cross-reference。見更多\href{https://bookdown.org/yihui/bookdown/markdown-ex
 
 \begin{table}[t]
 
-\caption{\label{tab:mtcar}Dynamic variable in caption: 2018-11-01 19:41:10.}
+\caption{\label{tab:mtcar}Dynamic variable in caption: 2018-11-02 00:13:00.}
 \centering
 \begin{tabular}{lrrrrrrrr}
 \toprule
