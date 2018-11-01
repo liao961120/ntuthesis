@@ -10,7 +10,7 @@ cjk-boldfont:    # Don't set if same as cjk-mainfont
 cjk-style: 'AutoFakeBold=2.5, AutoFakeSlant=.3' #
 en-mainfont: 'Liberation Serif'  # Default: Times New Roman
 ipa-font: 'Doulos SIL'  # works with 'linguisticsdown', delete if not needed
-secnumdepth: 2   # section numbering at most to x.y.z
+#secnumdepth: 2   # section numbering at most to x.y.z
 indent: false    # Indent new paragraph, else adds space between paragraphs 
 linestretch: 2   # If Chinese: 1.5
 linestretch-code: 1.5  # linestretch for code chunks
@@ -53,12 +53,13 @@ Remove or wrap them around HTML comments if don't want to display them in GitBoo
 
 ```{r setup, include=FALSE}
 knitr::opts_knit$set(root.dir='R')
+knitr::opts_chunk$set(fig.pos = 'H')
 options(digits = 2) # round values of vars to 2 digits when printed
 knitr::opts_chunk$set(
     message = FALSE,
     warning = FALSE,
     comment="",
-    fig.pos = 'h',
+    #fig.pos = 'h',
     fig.align = 'center',
     out.width = "100%"
     #fig.dim = c(3.5, 3.5)  # (width, height)

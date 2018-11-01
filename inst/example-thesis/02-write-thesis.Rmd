@@ -1,6 +1,6 @@
 ```{r echo=FALSE, include=TRUE}
-klippy::klippy(lang = c("r", "markdown", "yaml", "latex"),
-               position = c('top', 'right'))
+klippy::klippy(position = c('top', 'right'),
+               all_precode = TRUE)
 ```
 
 # 論文撰寫 {#write-thesis}

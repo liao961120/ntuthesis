@@ -1,13 +1,13 @@
 ```{r echo=FALSE, include=TRUE}
-klippy::klippy(lang = c("r", "markdown", "yaml", "latex"),
-               position = c('top', 'right'))
+klippy::klippy(position = c('top', 'right'),
+               all_precode = TRUE)
 ```
 
-# Bookdown Cheatsheet
+# 語法 Cheatsheet
 
 ## 數學 {#math}
 
-完整內容，詳見 [Bookdown Ch. 2](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html)
+完整內容，詳見 Bookdown [Ch. 2](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html)
 
 ### Unnumbered Equations
 
@@ -28,8 +28,10 @@ klippy::klippy(lang = c("r", "markdown", "yaml", "latex"),
 ```latex
 \begin{equation} 
   f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
-  (\#eq:binom)
+  (\#eq:bino)
 \end{equation} 
+
+式 \@ref(eq:bino)
 ```
 
 產生：
@@ -39,7 +41,7 @@ klippy::klippy(lang = c("r", "markdown", "yaml", "latex"),
   (\#eq:binom)
 \end{equation} 
 
-`式 \@ref(eq:binom)`產生：式 \@ref(eq:binom)
+式 \@ref(eq:binom)
 
 
 ### Multi-line Aligned Equations
@@ -54,7 +56,9 @@ klippy::klippy(lang = c("r", "markdown", "yaml", "latex"),
  & =(X'X)^{-1}\sigma^{2}
 \end{split}
 (\#eq:var-beta)
-\end{equation} 
+\end{equation}
+
+詳見公式 \@ref(eq:var-beta)
 ```
 
 產生：
@@ -67,20 +71,23 @@ klippy::klippy(lang = c("r", "markdown", "yaml", "latex"),
  & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}\\
  & =(X'X)^{-1}\sigma^{2}
 \end{split}
-(\#eq:var-beta)
+(\#eq:var-bet)
 \end{equation} 
 
-`詳見公式 \@ref(eq:var-beta)`產生：詳見公式 \@ref(eq:var-beta)
+詳見公式 \@ref(eq:var-bet)
 
 ### 定理與證明 {#theorem-proof}
 
+````markdown
+`r ''````{theorem, thm-label, name="Pythagorean theorem"}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
 
-    `r ''````{theorem, thm-label, name="Pythagorean theorem"}
-    For a right triangle, if $c$ denotes the length of the hypotenuse
-    and $a$ and $b$ denote the lengths of the other two sides, we have
-    
-    $$a^2 + b^2 = c^2$$
-    ```
+$$a^2 + b^2 = c^2$$
+```
+
+詳見定理 \@ref(thm:thm-label)
+````
 
 產生：
 
@@ -90,7 +97,8 @@ and $a$ and $b$ denote the lengths of the other two sides, we have
 $$a^2 + b^2 = c^2$$
 ```
 
-`詳見定理 \@ref(thm:pyth)` 產生：詳見定理 \@ref(thm:pyth)
+詳見定理 \@ref(thm:pyth)
+
 
 見其它[引用環境](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#tab:theorem-envs)。
 
@@ -99,24 +107,123 @@ $$a^2 + b^2 = c^2$$
 將 code chunk 中 `theorem` 換成 `proof`, `remark`, `solution`。這三者無法被 cross-reference。
 
 
+## Figure Referencing
+
+````markdown
+`r ''````{r iris, fig.cap= "The iris data."}
+library(ggplot2)
+ggplot(data = iris) +
+  geom_point(aes(x = Sepal.Length, 
+                 y = Sepal.Width,
+                 color = Species)
+             )
+```
+````
+
+產生：
+```{r iris, fig.cap= "The iris data.", echo=FALSE}
+library(ggplot2)
+ggplot(data = iris) +
+  geom_point(aes(x = Sepal.Length, 
+                 y = Sepal.Width,
+                 color = Species)
+             )
+```
+
+
+`見圖 \@ref(fig:iris)`產生：見圖 \@ref(fig:iris)
+
+### Figure Caption
+
+對於比較複雜的 caption，可以使用 Text reference 的方式：
+
+````markdown
+對於比較複雜的 caption，可以使用 Text reference 的方式：
+
+(ref:dia) 插入**引用資料** [@kassin2017] 的 Figure Caption.
+
+`r ''````{r dia, fig.cap='(ref:dia)'}
+ggplot(data = diamonds) +
+  geom_point(aes(x = carat, 
+                 y = price,
+                 color = cut),
+             size = 0.1) +
+  guides(color = guide_legend(
+    override.aes = list(size = 2)
+    ))
+```
+````
+
+(ref:foo) 插入**引用資料** [@kassin2017] 的 Figure Caption.
+
+```{r foo, echo=FALSE, fig.cap='(ref:foo)'}
+ggplot(data = diamonds) +
+  geom_point(aes(x = carat, 
+                 y = price,
+                 color = cut),
+             size = 0.1) +
+  guides(color = guide_legend(
+    override.aes = list(size = 2)
+    ))
+```
+
+
+## Table Referencing
+
+```{r include=FALSE}
+str <- '`r Sys.time()`'
+```
+
+````markdown
+(ref:mtcars) Dynamic variable in caption: `r str`.
+
+`r ''````{r mtcars, echo=FALSE}
+knitr::kable(
+  head(mtcars[, 1:8], 5), booktabs = TRUE,
+  caption = '(ref:mtcars)'
+  )
+```
+
+### Link Table in Later Sections
+見表 \@ref(tab:mtcars)
+````
+
+
+(ref:mtcar) Dynamic variable in caption: `r Sys.time()`.
+
+```{r mtcar, echo=FALSE}
+knitr::kable(
+  head(mtcars[, 1:8], 5), booktabs = TRUE,
+  caption = '(ref:mtcar)'
+  )
+```
+
+### Link Table in Later Sections
+見表 \@ref(tab:mtcar)
+
+
+
+## 總整理
+
+- `(ref:mtcar) Text refereces`
+- `\@ref(fig:fig-label)`
+    - `fig-label` is code chunk label
+- `\@ref(thm:thm-label)`
+    - `thm-label` is code chunk label
+- `\@ref(tab:tab-label)`
+    - `tab-label` is code chunk label. Use text reference for complicated captions.
+- `\@ref(eq:eq-label)`
+    - Defined as `(\#eq:eq-label)` in LaTeX equation environment
+
+
+
+
 - Benefits
 - Quick Start
     - General Usage
         - Front matter
         - Content
     - Write Thesis in English (Write in Eng)
-- Bookdown Demo
-    a) Markdown quick guide
-        - no closing or opening quotation marks
-    a) Citation
-    a) Cross References
-    - 數學公式
-    - indexing
-- Harnessing the Power of R Community
-    A) Facilitating Packages
-        - citr
-    A) 特定領域
-        - linguisticsdown
 - Resources
     - R Markdown Features
 - Thanks and Help

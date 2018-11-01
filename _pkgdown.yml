@@ -15,6 +15,13 @@ navbar:
     - icon: fa-book
       text: "使用說明"
       href: doc/index.html
+    - icon: fa-file-pdf
+      text: "論文樣式"
+      menu:
+        - text: 中文論文
+          href: doc/ntu-bookdown.pdf
+        - text: 英文論文
+          href: doc/ntu-bookdown-en.pdf
   right:
     - icon: fa-github
       href: https://github.com/liao961120/ntuthesis

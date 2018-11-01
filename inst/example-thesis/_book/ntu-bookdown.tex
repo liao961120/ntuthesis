@@ -90,7 +90,7 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{2}
+\setcounter{secnumdepth}{5}
 
 % set default figure placement to htbp
 \makeatletter
@@ -102,6 +102,8 @@
 \usepackage{titletoc}
 \usepackage{booktabs}
 \usepackage{apptools}
+\usepackage{float}
+\usepackage[section]{placeins}
 
 \usepackage[heading, fontset = none]{ctex}
 \ctexset{appendix/name={\appendixname\space}}
@@ -130,9 +132,6 @@
 \XeTeXlinebreakskip = 0pt plus 1pt
 
 
-%https://tex.stackexchange.com/questions/401693/how-do-i-make-titleformat-not-apply-for-appendix
-
-
 
 \renewcommand{\figurename}{圖}
 \renewcommand{\tablename}{表}
@@ -141,16 +140,6 @@
 \renewcommand{\listtablename}{表目錄}
 \renewcommand{\appendixname}{附錄}
 %\renewcommand{\bibname}{參考資料}
-
-%\titleformat{\chapter}
-%{\centering\Huge\bfseries}{\IfAppendix{\appendixname}{} 第\,\xCJKnumber{\thechapter}\,章}{1em}{}
-%\titlespacing{\chapter}{0cm}{-1.3cm}{1em}
-
-
-% \titlecontents{chapter}[0em]
-% {}{\makebox[4.1em][l]
-% {第\xCJKnumber{\thecontentslabel}章}}{}
-% {\titlerule*[0.7pc]{.}\contentspage}
 
 \title{臺灣大學論文 Bookdown 模板}
 \author{廖永賦}
@@ -291,7 +280,7 @@
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[h]
+\begin{figure}[H]
 
 {\centering \includegraphics[width=1\linewidth]{figs/rmd-template} 
 
@@ -356,7 +345,7 @@
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[h]
+\begin{figure}[H]
 
 {\centering \includegraphics[width=1\linewidth]{figs/build-button} 
 
@@ -535,7 +524,7 @@ citation。匯出論文時，文末會自動產生引用的文獻。
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[h]
+\begin{figure}[H]
 
 {\centering \includegraphics[width=1\linewidth]{figs/citr} 
 
@@ -624,13 +613,13 @@ year），但其它書目管理軟體如 Endnote 產生的 citation key
 不夠熟悉，目前尚未解決此問題。若您是 LaTeX 的高手，歡迎至
 \ref{latex-cite-pkg} 給我一些指教。
 
-\chapter{Bookdown Cheatsheet}\label{bookdown-cheatsheet}
+\chapter{語法 Cheatsheet}\label{-cheatsheet}
 
 \section{數學}\label{math}
 
-完整內容，詳見
-\href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html}{Bookdown
-Ch. 2}
+完整內容，詳見 Bookdown
+\href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html}{Ch.
+2}
 
 \subsection{Unnumbered Equations}\label{unnumbered-equations}
 
@@ -654,8 +643,10 @@ Ch. 2}
 \begin{Highlighting}[]
 \KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\}}\SpecialStringTok{ }
 \SpecialStringTok{  f}\SpecialCharTok{\textbackslash{}left}\SpecialStringTok{(k}\SpecialCharTok{\textbackslash{}right}\SpecialStringTok{) = }\SpecialCharTok{\textbackslash{}binom}\SpecialStringTok{\{n\}\{k\} p^k}\SpecialCharTok{\textbackslash{}left}\SpecialStringTok{(1-p}\SpecialCharTok{\textbackslash{}right}\SpecialStringTok{)^\{n-k\}}
-\SpecialStringTok{  (}\SpecialCharTok{\textbackslash{}#}\SpecialStringTok{eq:binom)}
+\SpecialStringTok{  (}\SpecialCharTok{\textbackslash{}#}\SpecialStringTok{eq:bino)}
 \KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\} }
+
+\NormalTok{式 }\FunctionTok{\textbackslash{}@ref}\NormalTok{(eq:bino)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -666,7 +657,7 @@ Ch. 2}
   \label{eq:binom}
 \end{equation}
 
-\texttt{式\ \textbackslash{}@ref(eq:binom)}產生：式 \eqref{eq:binom}
+式 \eqref{eq:binom}
 
 \subsection{Multi-line Aligned
 Equations}\label{multi-line-aligned-equations}
@@ -682,7 +673,9 @@ Equations}\label{multi-line-aligned-equations}
 \SpecialStringTok{ & =(X'X)^\{-1\}}\SpecialCharTok{\textbackslash{}sigma}\SpecialStringTok{^\{2\}}
 \KeywordTok{\textbackslash{}end}\NormalTok{\{}\SpecialStringTok{split\}}
 \SpecialStringTok{(}\SpecialCharTok{\textbackslash{}#}\SpecialStringTok{eq:var-beta)}
-\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\} }
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\}}
+
+\NormalTok{詳見公式 }\FunctionTok{\textbackslash{}@ref}\NormalTok{(eq:var-beta)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -696,22 +689,25 @@ Equations}\label{multi-line-aligned-equations}
  & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}\\
  & =(X'X)^{-1}\sigma^{2}
 \end{split}
-\label{eq:var-beta}
+\label{eq:var-bet}
 \end{equation}
 
-\texttt{詳見公式\ \textbackslash{}@ref(eq:var-beta)}產生：詳見公式
-\eqref{eq:var-beta}
+詳見公式 \eqref{eq:var-bet}
 
 \subsection{定理與證明}\label{theorem-proof}
 
-\begin{verbatim}
-```{theorem, thm-label, name="Pythagorean theorem"}
-For a right triangle, if $c$ denotes the length of the hypotenuse
-and $a$ and $b$ denote the lengths of the other two sides, we have
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{```\{theorem, thm-label, name="Pythagorean theorem"\}}
+\NormalTok{For a right triangle, if $c$ denotes the length of the hypotenuse}
+\NormalTok{and $a$ and $b$ denote the lengths of the other two sides, we have}
 
-$$a^2 + b^2 = c^2$$
-```
-\end{verbatim}
+\NormalTok{$$a^2 + b^2 = c^2$$}
+\NormalTok{```}
+
+\NormalTok{詳見定理 \textbackslash{}@ref(thm:thm-label)}
+\end{Highlighting}
+\end{Shaded}
 
 產生：
 
@@ -722,8 +718,7 @@ hypotenuse and \(a\) and \(b\) denote the lengths of the other two
 sides, we have \[a^2 + b^2 = c^2\]
 \EndKnitrBlock{theorem}
 
-\texttt{詳見定理\ \textbackslash{}@ref(thm:pyth)} 產生：詳見定理
-\ref{thm:pyth}
+詳見定理 \ref{thm:pyth}
 
 見其它\href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html\#tab:theorem-envs}{引用環境}。
 
@@ -733,8 +728,152 @@ solution}\label{proof-remark-and-solution}
 將 code chunk 中 \texttt{theorem} 換成 \texttt{proof}, \texttt{remark},
 \texttt{solution}。這三者無法被 cross-reference。
 
+\section{Figure Referencing}\label{figure-referencing}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{```\{r iris, fig.cap= "The iris data."\}}
+\NormalTok{library(ggplot2)}
+\NormalTok{ggplot(data = iris) +}
+\NormalTok{  geom_point(aes(x = Sepal.Length, }
+\BaseNTok{                 y = Sepal.Width,}
+\BaseNTok{                 color = Species)}
+\BaseNTok{             )}
+\NormalTok{```}
+\end{Highlighting}
+\end{Shaded}
+
+產生：
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{ntu-bookdown_files/figure-latex/iris-1} 
+
+}
+
+\caption{The iris data.}\label{fig:iris}
+\end{figure}
+
+\texttt{見圖\ \textbackslash{}@ref(fig:iris)}產生：見圖 \ref{fig:iris}
+
+\subsection{Figure Caption}\label{figure-caption}
+
+對於比較複雜的 caption，可以使用 Text reference 的方式：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{對於比較複雜的 caption，可以使用 Text reference 的方式：}
+
+\NormalTok{(ref:dia) 插入**引用資料** [@kassin2017] 的 Figure Caption.}
+
+\NormalTok{```\{r dia, fig.cap='(ref:dia)'\}}
+\NormalTok{ggplot(data = diamonds) +}
+\NormalTok{  geom_point(aes(x = carat, }
+\BaseNTok{                 y = price,}
+\BaseNTok{                 color = cut),}
+\BaseNTok{             size = 0.1) +}
+\NormalTok{  guides(color = guide_legend(}
+\BaseNTok{    override.aes = list(size = 2)}
+\BaseNTok{    ))}
+\NormalTok{```}
+\end{Highlighting}
+\end{Shaded}
+
+
+
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{ntu-bookdown_files/figure-latex/foo-1} 
+
+}
+
+\caption{插入\textbf{引用資料} (Kassin, Fein, \& Markus,
+\protect\hyperlink{ref-kassin2017}{2017}) 的 Figure Caption.}\label{fig:foo}
+\end{figure}
+
+\section{Table Referencing}\label{table-referencing}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(ref:mtcars) Dynamic variable in caption: }\BaseNTok{`r Sys.time()`}\NormalTok{.}
+
+\NormalTok{```\{r mtcars, echo=FALSE\}}
+\NormalTok{knitr::kable(}
+\NormalTok{  head(mtcars[, 1:8], 5), booktabs = TRUE,}
+\NormalTok{  caption = '(ref:mtcars)'}
+\NormalTok{  )}
+\NormalTok{```}
+
+\FunctionTok{### Link Table in Later Sections}
+\NormalTok{見表 \textbackslash{}@ref(tab:mtcars)}
+\end{Highlighting}
+\end{Shaded}
+
+
+
+\begin{table}[t]
+
+\caption{\label{tab:mtcar}Dynamic variable in caption: 2018-11-01 18:00:38.}
+\centering
+\begin{tabular}{lrrrrrrrr}
+\toprule
+  & mpg & cyl & disp & hp & drat & wt & qsec & vs\\
+\midrule
+Mazda RX4 & 21 & 6 & 160 & 110 & 3.9 & 2.6 & 16 & 0\\
+Mazda RX4 Wag & 21 & 6 & 160 & 110 & 3.9 & 2.9 & 17 & 0\\
+Datsun 710 & 23 & 4 & 108 & 93 & 3.9 & 2.3 & 19 & 1\\
+Hornet 4 Drive & 21 & 6 & 258 & 110 & 3.1 & 3.2 & 19 & 1\\
+Hornet Sportabout & 19 & 8 & 360 & 175 & 3.1 & 3.4 & 17 & 0\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Link Table in Later
+Sections}\label{link-table-in-later-sections}
+
+見表 \ref{tab:mtcar}
+
+\section{總整理}
+
 \begin{itemize}
 \tightlist
+\item
+  \texttt{(ref:mtcar)\ Text\ refereces}
+\item
+  \texttt{\textbackslash{}@ref(fig:fig-label)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{fig-label} is code chunk label
+  \end{itemize}
+\item
+  \texttt{\textbackslash{}@ref(thm:thm-label)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{thm-label} is code chunk label
+  \end{itemize}
+\item
+  \texttt{\textbackslash{}@ref(tab:tab-label)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{tab-label} is code chunk label. Use text reference for
+    complicated captions.
+  \end{itemize}
+\item
+  \texttt{\textbackslash{}@ref(eq:eq-label)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Defined as \texttt{(\textbackslash{}\#eq:eq-label)} in LaTeX
+    equation environment
+  \end{itemize}
 \item
   Benefits
 \item
@@ -774,37 +913,6 @@ solution}\label{proof-remark-and-solution}
   \item
     Cross References
   \end{enumerate}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    數學公式
-  \item
-    indexing
-  \end{itemize}
-\item
-  Harnessing the Power of R Community
-
-  \begin{enumerate}
-  \def\labelenumi{\Alph{enumi})}
-  \tightlist
-  \item
-    Facilitating Packages
-
-    \begin{itemize}
-    \tightlist
-    \item
-      citr
-    \end{itemize}
-  \item
-    特定領域
-
-    \begin{itemize}
-    \tightlist
-    \item
-      linguisticsdown
-    \end{itemize}
-  \end{enumerate}
 \item
   Resources
 
@@ -834,13 +942,13 @@ solution}\label{proof-remark-and-solution}
 語音符號，但鍵盤通常難以直接打出這些符號。為此，我寫了一個 R
 套件，讓使用者能直接在 RStudio 中透過輸入語音 features 的方式打出 IPA：
 
-\begin{figure}[h]
+\begin{figure}[H]
 
 {\centering \includegraphics[width=1\linewidth]{figs/ipa} 
 
 }
 
-\caption{使用 linguisticsdown 套件插入 IPA 音標符號}\label{fig:unnamed-chunk-8}
+\caption{使用 linguisticsdown 套件插入 IPA 音標符號}\label{fig:unnamed-chunk-9}
 \end{figure}
 
 要使用這功能，需安裝 \texttt{linguisticsdown}：
@@ -889,6 +997,10 @@ LaTeX 本身並未有支援繁體中文格式的文獻引用套件
 \addcontentsline{toc}{chapter}{參考資料}
 
 \hypertarget{refs}{}
+\hypertarget{ref-kassin2017}{}
+Kassin, S., Fein, S., \& Markus, H. R. (2017). \emph{Social Psychology}
+(10th ed.). Boston: Cengage Learning.
+
 \hypertarget{ref-leung2008}{}
 Leung, A. K.-y., Maddux, W. W., Galinsky, A. D., \& Chiu, C.-y. (2008).
 Multicultural experience enhances creativity: The when and how.

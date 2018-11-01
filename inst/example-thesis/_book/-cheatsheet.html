@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="add-on.html">
-<link rel="next" href="references.html">
+<link rel="prev" href="write-thesis.html">
+<link rel="next" href="add-on.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -170,21 +170,275 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="latex-cite-pkg" class="section level1">
-<h1><span class="header-section-number">A</span> LaTeX 文獻引用</h1>
-<p>R Markdown 的 PDF 輸出是透過 Pandoc 的 LaTeX 模板，因此理論上 LaTeX 可以做到的事，也可以透過 R Markdown 達成。目前的問題是</p>
-<blockquote>
-<p>LaTeX 本身並未有支援繁體中文格式的文獻引用套件</p>
-</blockquote>
-<p>經過一段時間的搜尋，發現 biblatex 套件似乎可以定義不同的引用格式<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>，因此，或許可以透過定義新的標點符號，例如將原本引用格式中的<code>,</code>定義成<code>，</code>、<code>.</code>定義成<code>。</code>，再透過 <code>.bib</code> 檔中的 <code>langid</code> field 辨識要使用何種引用格式。然而，由於作者本人對 LaTeX 並不熟悉，因此需要這方面高手的協助。</p>
-
+<div id="-cheatsheet" class="section level1">
+<h1><span class="header-section-number">第 4 章</span> 語法 Cheatsheet</h1>
+<div id="math" class="section level2">
+<h2><span class="header-section-number">4.1</span> 數學</h2>
+<p>完整內容，詳見 Bookdown <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">Ch. 2</a></p>
+<div id="unnumbered-equations" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Unnumbered Equations</h3>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation*</span>}<span class="ss"> </span>
+<span class="sc">\frac</span><span class="ss">{d}{dx}</span><span class="sc">\left</span><span class="ss">( </span><span class="sc">\int</span><span class="ss">_{a}^{x} f(u)</span><span class="sc">\,</span><span class="ss">du</span><span class="sc">\right</span><span class="ss">)=f(x)</span>
+<span class="kw">\end</span>{<span class="ex">equation*</span>} </code></pre></div>
+<p>產生：</p>
+<span class="math display">\[\begin{equation*} 
+\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
+\end{equation*}\]</span>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="6">
-<li id="fn6"><p><a href="https://tex.stackexchange.com/questions/417762/different-styles-between-citations-and-bibliography" class="uri">https://tex.stackexchange.com/questions/417762/different-styles-between-citations-and-bibliography</a><br />
-<a href="https://tex.stackexchange.com/questions/377308/different-citation-styles-for-the-same-bibliography" class="uri">https://tex.stackexchange.com/questions/377308/different-citation-styles-for-the-same-bibliography</a><a href="latex-cite-pkg.html#fnref6">↩</a></p></li>
-</ol>
+<div id="numbered-equations" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Numbered Equations</h3>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span>
+<span class="ss">  f</span><span class="sc">\left</span><span class="ss">(k</span><span class="sc">\right</span><span class="ss">) = </span><span class="sc">\binom</span><span class="ss">{n}{k} p^k</span><span class="sc">\left</span><span class="ss">(1-p</span><span class="sc">\right</span><span class="ss">)^{n-k}</span>
+<span class="ss">  (</span><span class="sc">\#</span><span class="ss">eq:bino)</span>
+<span class="kw">\end</span>{<span class="ex">equation</span>} 
+
+式 <span class="fu">\@ref</span>(eq:bino)</code></pre></div>
+<p>產生：</p>
+<span class="math display" id="eq:binom">\[\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  \tag{4.1}
+\end{equation}\]</span>
+<p>式 <a href="-cheatsheet.html#eq:binom">(4.1)</a></p>
+</div>
+<div id="multi-line-aligned-equations" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Multi-line Aligned Equations</h3>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span>
+<span class="kw">\begin</span>{<span class="ex">split</span>}
+<span class="sc">\mathrm</span><span class="ss">{Var}(</span><span class="sc">\hat</span><span class="ss">{</span><span class="sc">\beta</span><span class="ss">}) &amp; =</span><span class="sc">\mathrm</span><span class="ss">{Var}((X&#39;X)^{-1}X&#39;y)</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)X(X&#39;X)^{-1}</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\sigma</span><span class="ss">^{2}IX(X&#39;X)^{-1}</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}</span><span class="sc">\sigma</span><span class="ss">^{2}</span>
+<span class="kw">\end</span>{<span class="ss">split}</span>
+<span class="ss">(</span><span class="sc">\#</span><span class="ss">eq:var-beta)</span>
+<span class="kw">\end</span>{<span class="ex">equation</span>}
+
+詳見公式 <span class="fu">\@ref</span>(eq:var-beta)</code></pre></div>
+<p>產生：</p>
+<span class="math display" id="eq:var-bet">\[\begin{equation} 
+\begin{split}
+\mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y)\\
+ &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;\\
+ &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)X(X&#39;X)^{-1}\\
+ &amp; =(X&#39;X)^{-1}X&#39;\sigma^{2}IX(X&#39;X)^{-1}\\
+ &amp; =(X&#39;X)^{-1}\sigma^{2}
+\end{split}
+\tag{4.2}
+\end{equation}\]</span>
+<p>詳見公式 <a href="-cheatsheet.html#eq:var-bet">(4.2)</a></p>
+</div>
+<div id="theorem-proof" class="section level3">
+<h3><span class="header-section-number">4.1.4</span> 定理與證明</h3>
+<pre><code>```{theorem, thm-label, name=&quot;Pythagorean theorem&quot;}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+
+$$a^2 + b^2 = c^2$$
+```
+
+詳見定理 \@ref(thm:thm-label)</code></pre>
+<p>產生：</p>
+
+<div class="theorem">
+<span id="thm:pyth" class="theorem"><strong>Theorem 4.1  (Pythagorean theorem)  </strong></span>For a right triangle, if <span class="math inline">\(c\)</span> denotes the length of the hypotenuse and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> denote the lengths of the other two sides, we have <span class="math display">\[a^2 + b^2 = c^2\]</span>
+</div>
+
+<p>詳見定理 <a href="-cheatsheet.html#thm:pyth">4.1</a></p>
+<p>見其它<a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#tab:theorem-envs">引用環境</a>。</p>
+<div id="proof-remark-and-solution" class="section level4">
+<h4><span class="header-section-number">4.1.4.1</span> proof, remark, and solution</h4>
+<p>將 code chunk 中 <code>theorem</code> 換成 <code>proof</code>, <code>remark</code>, <code>solution</code>。這三者無法被 cross-reference。</p>
+</div>
+</div>
+</div>
+<div id="figure-referencing" class="section level2">
+<h2><span class="header-section-number">4.2</span> Figure Referencing</h2>
+<pre><code>```{r iris, fig.cap= &quot;The iris data.&quot;}
+library(ggplot2)
+ggplot(data = iris) +
+  geom_point(aes(x = Sepal.Length, 
+                 y = Sepal.Width,
+                 color = Species)
+             )
+```</code></pre>
+產生：
+<div class="figure" style="text-align: center"><span id="fig:iris"></span>
+<img src="ntu-bookdown_files/figure-html/iris-1.png" alt="The iris data." width="100%" />
+<p class="caption">
+圖 4.1: The iris data.
+</p>
+</div>
+<p><code>見圖 \@ref(fig:iris)</code>產生：見圖 <a href="-cheatsheet.html#fig:iris">4.1</a></p>
+<div id="figure-caption" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Figure Caption</h3>
+<p>對於比較複雜的 caption，可以使用 Text reference 的方式：</p>
+<pre><code>對於比較複雜的 caption，可以使用 Text reference 的方式：
+
+(ref:dia) 插入**引用資料** [@kassin2017] 的 Figure Caption.
+
+```{r dia, fig.cap=&#39;(ref:dia)&#39;}
+ggplot(data = diamonds) +
+  geom_point(aes(x = carat, 
+                 y = price,
+                 color = cut),
+             size = 0.1) +
+  guides(color = guide_legend(
+    override.aes = list(size = 2)
+    ))
+```</code></pre>
+
+<div class="figure" style="text-align: center"><span id="fig:foo"></span>
+<img src="ntu-bookdown_files/figure-html/foo-1.png" alt="插入引用資料 (Kassin, Fein, &amp; Markus, 2017) 的 Figure Caption." width="100%" />
+<p class="caption">
+圖 4.2: 插入<strong>引用資料</strong> <span class="citation">(Kassin, Fein, &amp; Markus, <a href="#ref-kassin2017">2017</a>)</span> 的 Figure Caption.
+</p>
+</div>
+</div>
+</div>
+<div id="table-referencing" class="section level2">
+<h2><span class="header-section-number">4.3</span> Table Referencing</h2>
+<pre><code>Table: (\#tab:mtcars) Dynamic variable in caption: `r Sys.time()`.
+
+```{r mtcars, echo=FALSE}
+knitr::kable(
+  head(mtcars[, 1:8], 5)
+  )
+```</code></pre>
+<p>(#tab:mtcar) Dynamic variable in caption: 2018-11-01 17:25:56.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">mpg</th>
+<th align="right">cyl</th>
+<th align="right">disp</th>
+<th align="right">hp</th>
+<th align="right">drat</th>
+<th align="right">wt</th>
+<th align="right">qsec</th>
+<th align="right">vs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mazda RX4</td>
+<td align="right">21</td>
+<td align="right">6</td>
+<td align="right">160</td>
+<td align="right">110</td>
+<td align="right">3.9</td>
+<td align="right">2.6</td>
+<td align="right">16</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td>Mazda RX4 Wag</td>
+<td align="right">21</td>
+<td align="right">6</td>
+<td align="right">160</td>
+<td align="right">110</td>
+<td align="right">3.9</td>
+<td align="right">2.9</td>
+<td align="right">17</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td>Datsun 710</td>
+<td align="right">23</td>
+<td align="right">4</td>
+<td align="right">108</td>
+<td align="right">93</td>
+<td align="right">3.9</td>
+<td align="right">2.3</td>
+<td align="right">19</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>Hornet 4 Drive</td>
+<td align="right">21</td>
+<td align="right">6</td>
+<td align="right">258</td>
+<td align="right">110</td>
+<td align="right">3.1</td>
+<td align="right">3.2</td>
+<td align="right">19</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>Hornet Sportabout</td>
+<td align="right">19</td>
+<td align="right">8</td>
+<td align="right">360</td>
+<td align="right">175</td>
+<td align="right">3.1</td>
+<td align="right">3.4</td>
+<td align="right">17</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><code>見表 \@ref(tab:mtcars)</code>產生：見表 <a href="#tab:mtcar">4.1</a></p>
+</div>
+<div id="section-4.4" class="section level2">
+<h2><span class="header-section-number">4.4</span> 總整理</h2>
+<ul>
+<li><code>\@ref(fig:fig-label)</code>
+<ul>
+<li><code>fig-label</code> is code chunk label</li>
+</ul></li>
+<li><code>\@ref(thm:thm-label)</code>
+<ul>
+<li><code>thm-label</code> is code chunk label</li>
+</ul></li>
+<li><code>\@ref(tab:tab-label)</code>
+<ul>
+<li><code>tab-label</code> defined in <code>Table: (\#tab:tab-label) Table caption.</code></li>
+</ul></li>
+<li><code>\@ref(eq:eq-label)</code>
+<ul>
+<li>Defined as <code>(\#eq:eq-label)</code> in LaTeX equation environment</li>
+</ul></li>
+<li>Benefits</li>
+<li>Quick Start
+<ul>
+<li>General Usage
+<ul>
+<li>Front matter</li>
+<li>Content</li>
+</ul></li>
+<li>Write Thesis in English (Write in Eng)</li>
+</ul></li>
+<li>Bookdown Demo
+<ol style="list-style-type: lower-alpha">
+<li>Markdown quick guide
+<ul>
+<li>no closing or opening quotation marks</li>
+</ul></li>
+<li>Citation</li>
+<li>Cross References</li>
+</ol></li>
+<li>Resources
+<ul>
+<li>R Markdown Features</li>
+</ul></li>
+<li>Thanks and Help
+<ul>
+<li>GitHub issues</li>
+</ul></li>
+</ul>
+
+<script>
+  addClassKlippyToPreCode();
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('right', 'top', 'auto', '1', 'Copy code', 'Copied!');
+</script>
+</div>
+</div>
+<h3>參考資料</h3>
+<div id="refs" class="references">
+<div id="ref-kassin2017">
+<p>Kassin, S., Fein, S., &amp; Markus, H. R. (2017). <em>Social Psychology</em> (10th ed.). Boston: Cengage Learning.</p>
+</div>
 </div>
 <div id="disqus_thread"></div>
 <script>
@@ -214,8 +468,8 @@ s.setAttribute('data-timestamp', +new Date());
           </div>
         </div>
       </div>
-<a href="add-on.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="write-thesis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="add-on.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -245,7 +499,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/80-help.Rmd",
+"link": "https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/03-bookdown-demo.Rmd",
 "text": "Edit"
 },
 "download": ["ntu-bookdown.pdf"],
