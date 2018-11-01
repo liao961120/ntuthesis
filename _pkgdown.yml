@@ -9,15 +9,29 @@ navbar:
   left:
     - icon: fa-home
       href: index.html
-    - text: "內建函數"
+    - icon: fa-search
+      text: "內建函數"
       href: reference/index.html
-    - text: "使用說明 \u29c9"
+    - icon: fa-book
+      text: "使用說明"
       href: doc/index.html
   right:
     - icon: fa-github
       href: https://github.com/liao961120/ntuthesis
-    - icon: fa-facebook-square
-      href: https://www.facebook.com/sharer/sharer.php?u=https%3A//liao961120.github.io/ntuthesis/
+    - icon: fa-share-alt
+      menu:
+        - icon: fa-facebook-square
+          text: 'Facebook'
+          href: https://www.facebook.com/sharer/sharer.php?u=https%3A//liao961120.github.io/ntuthesis/
+        - icon: fa-twitter
+          text: 'Twitter'
+          href: https://twitter.com/home?status=https%3A//liao961120.github.io/ntuthesis
+        - icon: fa-linkedin
+          text: 'LinkedIn'
+          href: https://www.linkedin.com/shareArticle?mini=true&url=https%3A//liao961120.github.io/ntuthesis&title=&summary=&source=
+        - icon: fa-google-plus-square
+          text: 'Google Plus'
+          href: https://plus.google.com/share?url=https%3A//liao961120.github.io/ntuthesis
 reference:
 - title: All functions
   desc: ~
