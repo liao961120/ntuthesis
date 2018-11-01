@@ -89,7 +89,7 @@ R Markdown 在文章中插入引用文獻的功能承繼 Pandoc。完整的使�
 
 此模板目前產生文獻格式的方法是依靠 [Pandoc citeproc](https://github.com/jgm/pandoc-citeproc)，因此，文獻格式是依據 `cite-style.csl`[^csl-ori] 產生的。使用者可至 [Zotero Style Repository](https://www.zotero.org/styles) 下載所需的 csl 檔並覆蓋專案資料夾中的 `cite-style.csl`。
 
-[^csl-ori]: 此模板提供的 `cite-style.csl` 是 APA 英文第六版。此外，[這裡](http://blog.pulipuli.info/2011/05/zoteroapa.html)亦有提供 APA 中文版的引用格式。需注意的是 Pandoc **不支援[雙語 csl](http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html)**。
+[^csl-ori]: 此模板提供的 `cite-style.csl` 是 APA 英文第六版。此外，<http://blog.pulipuli.info/2011/05/zoteroapa.html> 亦有提供 APA 中文版的引用格式。需注意的是 Pandoc **不支援雙語 csl** (<http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html>)。
 
 ### `ref.bib` {#ref-bib}
 
