@@ -15,13 +15,13 @@ navbar:
     - icon: fa-file-pdf-o
       text: "論文樣式"
       menu:
-        - text: 中文
-          href: doc/ntu-bookdown.pdf
-        - text: 英文
-          href: doc/ntu-bookdown-en.pdf
+        - text: "中文 \u2197"
+          href: https://liao961120.github.io/ntuthesis/doc/ntu-bookdown.pdf
+        - text: "英文 \u2197"
+          href: https://liao961120.github.io/ntuthesis/doc/ntu-bookdown-en.pdf
     - icon: fa-book
       text: "使用說明 \u2197"
-      href: doc/index.html
+      href: https://liao961120.github.io/ntuthesis/doc/
   right:
     - icon: fa-github
       href: https://github.com/liao961120/ntuthesis
