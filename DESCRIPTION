@@ -1,7 +1,12 @@
 Package: ntuthesis
 Title: Bookdown Thesis Template for NTU
-Version: 0.0.0.9000
-Authors@R: person("Yongfu", "Liao", email = "liao961120@gmail.com", role = c("aut", "cre", "cph"))
+Version: 1.0.0
+Authors@R: 
+    person(given = "Yongfu", 
+           family = "Liao",
+           email = "liao961120@gmail.com", 
+           role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0002-1814-2993"))
 URL: https://liao961120.github.io/ntuthesis, https://github.com/liao961120/ntuthesis
 BugReports: https://github.com/liao961120/ntuthesis/issues
 Description: Writing thesis with Bookdown.

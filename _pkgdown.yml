@@ -2,7 +2,7 @@ template:
   params:
     bootswatch: spacelab
 development:
-  mode: unreleased
+  mode: auto
 navbar:
   title: "ntuthesis"
   #type: inverse
@@ -40,8 +40,3 @@ navbar:
 #          text: 'Google Plus'
 #          href: https://plus.google.com/share?url=https%3A//liao961120.github.io/ntuthesis
 reference:
-- title: All functions
-  desc: ~
-  contents:
-  - '`comp_front`'
-  - '`init_proj`'
