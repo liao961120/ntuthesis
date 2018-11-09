@@ -2,6 +2,10 @@
 
 # ntuthesis
 
+
+<div class="addthis_inline_share_toolbox"></div>
+
+
 這是國立臺灣大學的論文模板，
 基於 [bookdown](https://github.com/rstudio/bookdown) 的架構。為了方便使用，將此模板打包成 R Package，方便使用者下載及使用內建函數。
 
@@ -36,3 +40,7 @@ devtools::install_github("liao961120/ntuthesis")
 ## 特別感謝
 
 LaTeX 的封面模板是根據 [tzhuan/ntu-thesis](https://github.com/tzhuan/ntu-thesis) 修改而成。
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5be51e444952fe03"></script>
