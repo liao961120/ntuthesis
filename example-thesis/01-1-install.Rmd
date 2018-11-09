@@ -1,0 +1,44 @@
+```{r echo=FALSE, include=TRUE}
+klippy::klippy(position = c('top', 'right'),
+               all_precode = TRUE)
+```
+
+# 安裝 {#install}
+
+
+```r
+devtools::install_github("liao961120/ntuthesis")
+```
+
+## LaTeX
+
+若已有管理、安裝 LaTeX 套件經驗者，可忽略。
+
+### tinytex 套件
+
+若電腦尚未安裝 LaTeX，可安裝 R 的 tinytex 套件：
+
+```r
+install.packages('tinytex')
+tinytex::install_tinytex()
+```
+
+根據 Yihui 的[說明](https://yihui.name/en/2018/08/tinytex-flash-drive)，TinyTex 具有可攜式（portable）的特性。以下提供輸出此論文模板所需的 TinyTex Library 供下載。請選擇**與電腦相同作業系統**的連結下載[^help]。
+
+- [Linux x86_64](http://bit.ly/TinyTex-linux)
+  a) 下載檔案後，用 `tar -zxvf tinytex-linux.tar.gz` 將 `tinytex-linux.tar.gz` 解壓縮
+  b) 將解壓後資料夾中的 `.TinyTeX/` 放至喜歡的路徑（e.g. `~/.TinyTeX`）
+  c) 接著在 R 中執行 `tinytex::use_tinytex()`，即會跳出一個視窗。請選擇 `.TinyTeX/` 所在的路徑。
+  
+  
+若失敗詳見[此篇文章](https://yihui.name/en/2018/08/tinytex-flash-drive)。
+
+
+[^help]: 目前希望 Windows, Mac 使用者的協助 \@ref(tinytex-manage)
+
+#### LaTeX 套件管理 {#tinytex-manage}
+
+在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件[^lack]。因此，使用 TinyTeX 可以減輕管理 LaTeX 套件的麻煩。
+
+
+[^lack]: 因此，若沒有使用上述提供的 TinyTeX，第一次輸出 PDF 可能會需要許多時間下載缺少的 LaTeX。

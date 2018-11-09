@@ -1,29 +1,3 @@
-```{r echo=FALSE, include=TRUE}
-klippy::klippy(position = c('top', 'right'),
-               all_precode = TRUE)
-```
-
-# 安裝 {#install}
-
-
-```r
-devtools::install_github("liao961120/ntuthesis")
-```
-
-## LaTeX
-
-若已有管理、安裝 LaTeX 套件經驗者，可忽略。
-
-若電腦尚未安裝 LaTeX，可安裝 R 的 tinytex 套件：
-
-```r
-install.packages('tinytex')
-tinytex::install_tinytex()
-```
-
-在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件。因此，第一次輸出 PDF 可能會需要一些時間。
-
-
 # 輸出論文 {#export-thesis}
 
 ## 匯入論文模板 {#import-template}

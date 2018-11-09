@@ -1,0 +1,14 @@
+# 後記 {#epilogue}
+
+> I have a dream that one day all students and researchers will forget what "formatting a paper" even means. I have a dream that one day journals and grad schools no longer have style guides. I have a dream that one day no missing \$ is inserted, and \\hbox is never overfull.
+>
+> \hspace*{\fill} --- [Yihui Xie](https://twitter.com/xieyihui/status/1022873179532996609)
+
+
+<br>
+
+R Markdown 的精神之一就是希望能免除使用者排版的困擾。在認識 R Markdown 的第一天後，我就希望未來（如果有機會的話）可以用 R Markdown 寫論文。但從第一次嘗試用 R Markdown 輸出中文 PDF 時，我就意識到這是一件麻煩事[^fck-latex]。換句話說，應該等不到有人幫我做出論文模板的一天。因此，自己就站在前輩們的肩膀上[^base]，做出了這個論文模板。
+
+[^base]: 包含 tzhuan/ntu-thesis (https://github.com/tzhuan/ntu-thesis) 的 XeLaTeX 台大論文模板、thesisdown (https://github.com/ismayc/thesisdown) 的啟發、Pandoc 以及 Bookdown 和 R Markdown 的生態系統。
+
+[^fck-latex]: 這一切都起源於 LaTeX 的複雜度。

@@ -143,7 +143,7 @@
 
 \title{臺大論文模板}
 \author{廖永賦}
-\date{November 9, 2018}
+\date{November 10, 2018}
 
 
 \usepackage{fontspec}
@@ -258,6 +258,8 @@
 
 若已有管理、安裝 LaTeX 套件經驗者，可忽略。
 
+\subsection{tinytex 套件}\label{tinytex-}
+
 若電腦尚未安裝 LaTeX，可安裝 R 的 tinytex 套件：
 
 \begin{Shaded}
@@ -267,8 +269,40 @@
 \end{Highlighting}
 \end{Shaded}
 
-在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX
-套件。因此，第一次輸出 PDF 可能會需要一些時間。
+根據 Yihui
+的\href{https://yihui.name/en/2018/08/tinytex-flash-drive}{說明}，TinyTex
+具有可攜式（portable）的特性。以下提供輸出此論文模板所需的 TinyTex
+Library 供下載。請選擇\textbf{與電腦相同作業系統}的連結下載\footnote{目前希望
+  Windows, Mac 使用者的協助 \ref{tinytex-manage}}。
+
+\begin{itemize}
+\tightlist
+\item
+  \href{http://bit.ly/TinyTex-linux}{Linux x86\_64}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  下載檔案後，用 \texttt{tar\ -zxvf\ tinytex-linux.tar.gz} 將
+  \texttt{tinytex-linux.tar.gz} 解壓縮
+\item
+  將解壓後資料夾中的 \texttt{.TinyTeX/} 放至喜歡的路徑（e.g.
+  \texttt{\textasciitilde{}/.TinyTeX}）
+\item
+  接著在 R 中執行
+  \texttt{tinytex::use\_tinytex()}，即會跳出一個視窗。請選擇
+  \texttt{.TinyTeX/} 所在的路徑。
+\end{enumerate}
+
+若失敗詳見\href{https://yihui.name/en/2018/08/tinytex-flash-drive}{此篇文章}。
+
+\subsubsection{LaTeX 套件管理}\label{tinytex-manage}
+
+在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件\footnote{因此，若沒有使用上述提供的
+  TinyTeX，第一次輸出 PDF 可能會需要許多時間下載缺少的 LaTeX。}。因此，使用
+TinyTeX 可以減輕管理 LaTeX 套件的麻煩。
 
 \chapter{輸出論文}\label{export-thesis}
 
@@ -276,16 +310,6 @@
 
 開啟 RStudio，選取左上方 \texttt{File} \textgreater{} \texttt{New\ File}
 \textgreater{} \texttt{R\ Markdown}：
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ControlFlowTok{if}\NormalTok{ (knitr}\OperatorTok{::}\KeywordTok{is_html_output}\NormalTok{()) \{}
-\NormalTok{  knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}\StringTok{"figs/rmd-template.gif"}\NormalTok{)}
-\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
-\NormalTok{  knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}\StringTok{"figs/rmd-template.png"}\NormalTok{)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{figure}[H]
 
@@ -300,9 +324,7 @@
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{rmarkdown}\OperatorTok{::}\KeywordTok{draft}\NormalTok{(}\StringTok{"project_name"}\NormalTok{,}
-                 \DataTypeTok{template =} \StringTok{"ntu_bookdown"}\NormalTok{,}
-                 \DataTypeTok{package =} \StringTok{"ntuthesis"}\NormalTok{)}
+\NormalTok{ntuthesis}\OperatorTok{::}\KeywordTok{import_template}\NormalTok{(}\StringTok{"project_name"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -341,16 +363,6 @@
 \section{Compile 論文}\label{compile-thesis}
 
 接著用 RStudio Build Pane 裡的 button 輸出論文：
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ControlFlowTok{if}\NormalTok{ (knitr}\OperatorTok{::}\KeywordTok{is_html_output}\NormalTok{()) \{}
-\NormalTok{  knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}\StringTok{"figs/build-button.gif"}\NormalTok{)}
-\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
-\NormalTok{  knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(}\StringTok{"figs/build-button.png"}\NormalTok{)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{figure}[H]
 
@@ -618,16 +630,51 @@ year），但其它書目管理軟體如 Endnote 產生的 citation key
 排版引用格式，只能支援單一語言。例如，若將英文格式套用到中文文獻，中文文獻就會出現英文的半形逗點和句點。
 
 多語言的引用可能可透過 LaTeX 的引用套件達成，但由於作者本人對 LaTeX
-不夠熟悉，目前尚未解決此問題。若您是 LaTeX 的高手，歡迎至
+不夠熟悉，目前尚未解決此問題。若您是 LaTeX 的高手，歡迎至附錄
 \ref{latex-cite-pkg} 給我一些指教。
 
 \chapter{語法 Cheatsheet}\label{cheatsheet}
 
-\section{數學}\label{math}
+下文許多內容直接自
+\href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html}{Bookdown}
+擷取。想完整了解者，請閱讀 Bookdown 中的內容。
 
-完整內容，詳見 Bookdown
-\href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html}{Ch.
-2}
+\section{章節連結}\label{chapter-cross-ref}
+
+\subsection{錨點定義}\label{define-anchor}
+
+在內文中，可以使用特殊語法建立前往其它章節的連結，但首先每個章節需要有\textbf{錨點}。若章節標題由英數組成，例如
+\texttt{\#\#\ Experimental\ Design}， 則錨點會自動被定義成
+\texttt{experimental-design}。若\textbf{標題含有中文}，例如
+\texttt{\#\#\ 實驗設計}
+則需\textbf{自行定義錨點}：\texttt{\#\#\ 實驗設計\ \{\#exp-design\}}。
+
+\subsection{內文連結}
+
+要在內文建立連至其它章節的連結，需使用
+\texttt{\textbackslash{}@ref(anchor)} 的語法，例如，
+
+\begin{itemize}
+\tightlist
+\item
+  連結至 \texttt{\#\#\ Experimental\ Design}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{\textbackslash{}@ref(experimental-design)}
+  \end{itemize}
+\item
+  連結至 \texttt{\#\#\ 實驗設計\ \{\#exp-design\}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{\textbackslash{}@ref(exp-design)}
+  \end{itemize}
+\end{itemize}
+
+\section{數學}\label{math}
 
 \subsection{Unnumbered Equations}\label{unnumbered-equations}
 
@@ -720,13 +767,37 @@ sides, we have \[a^2 + b^2 = c^2\]
 
 詳見定理 \ref{thm:pyth}
 
-\subsubsection*{proof, remark, and
-solution}\label{proof-remark-and-solution}
-\addcontentsline{toc}{subsubsection}{proof, remark, and solution}
+\subsection{環境}\label{environment}
 
-將 code chunk 中 \texttt{theorem} 換成 \texttt{proof}, \texttt{remark},
-\texttt{solution}。這三者無法被
-cross-reference。見更多\href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html\#tab:theorem-envs}{引用環境}。
+除了 \texttt{theorem} 之外，還可以使用其它 bookdown 提供的環境。例如，將
+code chunk 中 \texttt{theorem} 換成 \texttt{proof}, \texttt{remark},
+\texttt{solution}\footnote{\texttt{theorem}、\texttt{proof}、\texttt{remark}
+  這三者無法被 cross-reference。}。
+
+表 \ref{tab:theorem-envs} 呈現 bookdown
+中的\href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html\#tab:theorem-envs}{引用環境}。
+
+
+
+\begin{table}[t]
+
+\caption{\label{tab:theorem-envs}Theorem environments in \textbf{bookdown}.}
+\centering
+\begin{tabular}{lll}
+\toprule
+Environment & Printed Name & Label Prefix\\
+\midrule
+theorem & Theorem & thm\\
+lemma & Lemma & lem\\
+definition & Definition & def\\
+corollary & Corollary & cor\\
+proposition & Proposition & prp\\
+\addlinespace
+example & Example & exm\\
+exercise & Exercise & exr\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{Figure Referencing}\label{figure-referencing}
 
@@ -815,7 +886,7 @@ cross-reference。見更多\href{https://bookdown.org/yihui/bookdown/markdown-ex
 
 \begin{table}[t]
 
-\caption{\label{tab:mtcar}Dynamic variable in caption: 2018-11-09 21:28:40.}
+\caption{\label{tab:mtcar}Dynamic variable in caption: 2018-11-10 00:19:28.}
 \centering
 \begin{tabular}{lrrrrrrrr}
 \toprule
@@ -840,6 +911,8 @@ Sections}\label{link-table-in-later-sections}
 
 \begin{itemize}
 \tightlist
+\item
+  \texttt{\textbackslash{}@ref(section-anchor)}
 \item
   \texttt{(ref:mtcar)\ Text\ refereces}
 \item
@@ -875,42 +948,6 @@ Sections}\label{link-table-in-later-sections}
   \item
     Defined as \texttt{(\textbackslash{}\#eq:eq-label)} in LaTeX
     equation environment
-  \end{itemize}
-\item
-  Benefits
-\item
-  Quick Start
-
-  \begin{itemize}
-  \tightlist
-  \item
-    General Usage
-
-    \begin{itemize}
-    \tightlist
-    \item
-      Front matter
-    \item
-      Content
-    \end{itemize}
-  \item
-    Write Thesis in English (Write in Eng)
-  \end{itemize}
-\item
-  Resources
-
-  \begin{itemize}
-  \tightlist
-  \item
-    R Markdown Features
-  \end{itemize}
-\item
-  Thanks and Help
-
-  \begin{itemize}
-  \tightlist
-  \item
-    GitHub issues
   \end{itemize}
 \end{itemize}
 
@@ -953,8 +990,6 @@ Sections}\label{link-table-in-later-sections}
 
 關於更詳細的功能，見\href{https://liao961120.github.io/linguisticsdown/}{套件網頁}
 
-\cleardoublepage
-
 \appendix \addcontentsline{toc}{chapter}{\appendixname}
 
 
@@ -968,11 +1003,52 @@ LaTeX 本身並未有支援繁體中文格式的文獻引用套件
 \end{quote}
 
 經過一段時間的搜尋，發現 biblatex
-套件似乎可以定義不同的引用格式\footnote{\url{https://tex.stackexchange.com/questions/417762/different-styles-between-citations-and-bibliography}\\
-  \url{https://tex.stackexchange.com/questions/377308/different-citation-styles-for-the-same-bibliography}}，因此，或許可以透過定義新的標點符號，例如將原本引用格式中的\texttt{,}定義成\texttt{，}、\texttt{.}定義成\texttt{。}，再透過
+套件似乎可以定義不同的引用格式\footnote{\url{https://tex.stackexchange.com/questions/417762/different-styles-between-citations-and-bibliography}}\footnote{\url{https://tex.stackexchange.com/questions/377308/different-citation-styles-for-the-same-bibliography}}，因此，或許可以透過定義新的標點符號，例如將原本引用格式中的\texttt{,}定義成\texttt{，}、\texttt{.}定義成\texttt{。}，再透過
 \texttt{.bib} 檔中的 \texttt{langid} field
 辨識要使用何種引用格式。然而，由於作者本人對 LaTeX
 並不熟悉，因此需要這方面高手的協助。
+
+\chapter{R Markdown 相關資源}\label{rmd-resources}
+
+以下都是 R Markdown 相關的參考資源。與此論文模板最直接相關的是
+\emph{Bookdown}；\emph{R Markdown: The Definitive Guide} 幾乎涵蓋了 R
+Markdown 的所有用途（例如，投影片製作）；Pandoc 則是 R Markdown
+能夠支援多種輸出格式的關鍵，因為 R Markdown 的格式輸出是仰賴 Pandoc
+模板（也是這個論文模板的製作方式）且 R Markdown 的 Markdown 語法即是
+Pandoc Markdown 的語法。
+
+\begin{itemize}
+\item
+  \href{https://bookdown.org/yihui/bookdown}{Bookdown}
+\item
+  \href{https://bookdown.org/yihui/rmarkdown}{R Markdown: The Definitive
+  Guide}
+\item
+  \href{http://pandoc.org/MANUAL.html}{Pandoc User's Guide}
+\end{itemize}
+
+\chapter{後記}\label{epilogue}
+
+\begin{quote}
+I have a dream that one day all students and researchers will forget
+what ``formatting a paper'' even means. I have a dream that one day
+journals and grad schools no longer have style guides. I have a dream
+that one day no missing \$ is inserted, and \textbackslash{}hbox is
+never overfull.
+
+\hspace*{\fill} ---
+\href{https://twitter.com/xieyihui/status/1022873179532996609}{Yihui
+Xie}
+\end{quote}
+
+R Markdown 的精神之一就是希望能免除使用者排版的困擾。在認識 R Markdown
+的第一天後，我就希望未來（如果有機會的話）可以用 R Markdown
+寫論文。但從第一次嘗試用 R Markdown 輸出中文 PDF
+時，我就意識到這是一件麻煩事\footnote{這一切都起源於 LaTeX 的複雜度。}。換句話說，應該等不到有人幫我做出論文模板的一天。因此，自己就站在前輩們的肩膀上\footnote{包含
+  tzhuan/ntu-thesis (\url{https://github.com/tzhuan/ntu-thesis}) 的
+  XeLaTeX 台大論文模板、thesisdown
+  (\url{https://github.com/ismayc/thesisdown}) 的啟發、Pandoc 以及
+  Bookdown 和 R Markdown 的生態系統。}，做出了這個論文模板。
 
 \renewcommand{\href}{\oldhref}
 

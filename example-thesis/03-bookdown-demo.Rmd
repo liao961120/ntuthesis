@@ -5,9 +5,25 @@ klippy::klippy(position = c('top', 'right'),
 
 # 語法 Cheatsheet {#cheatsheet}
 
-## 數學 {#math}
+下文許多內容直接自 [Bookdown](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html) 擷取。想完整了解者，請閱讀 Bookdown 中的內容。
 
-完整內容，詳見 Bookdown [Ch. 2](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html)
+## 章節連結 {#chapter-cross-ref}
+
+### 錨點定義 {#define-anchor}
+
+在內文中，可以使用特殊語法建立前往其它章節的連結，但首先每個章節需要有**錨點**。若章節標題由英數組成，例如 `## Experimental Design`， 則錨點會自動被定義成 `experimental-design`。若**標題含有中文**，例如 `## 實驗設計` 則需**自行定義錨點**：`## 實驗設計 {#exp-design}`。
+
+### 內文連結
+
+要在內文建立連至其它章節的連結，需使用 `\@ref(anchor)` 的語法，例如，
+
+- 連結至 `## Experimental Design`
+    - `\@ref(experimental-design)`
+- 連結至 `## 實驗設計 {#exp-design}`
+    - `\@ref(exp-design)`
+
+
+## 數學 {#math}
 
 ### Unnumbered Equations
 
@@ -91,9 +107,25 @@ $$a^2 + b^2 = c^2$$
 
 詳見定理 \@ref(thm:pyth)
 
-#### proof, remark, and solution {-}
 
-將 code chunk 中 `theorem` 換成 `proof`, `remark`, `solution`。這三者無法被 cross-reference。見更多[引用環境](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#tab:theorem-envs)。
+### 環境 {#environment}
+
+除了 `theorem` 之外，還可以使用其它 bookdown 提供的環境。例如，將 code chunk 中 `theorem` 換成 `proof`, `remark`, `solution`[^env-crossref]。
+
+[^env-crossref]: `theorem`、`proof`、`remark` 這三者無法被 cross-reference。
+
+表 \@ref(tab:theorem-envs) 呈現 bookdown 中的[引用環境](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#tab:theorem-envs)。
+
+(ref:theorem-env) Theorem environments in **bookdown**.
+
+```{r theorem-envs, echo=FALSE}
+knitr::kable(data.frame(
+  Environment = names(bookdown:::theorem_abbr),
+  `Printed Name` = unname(unlist(bookdown:::label_names_math)),
+  `Label Prefix` = unname(bookdown:::theorem_abbr),
+  stringsAsFactors = FALSE, check.names = FALSE
+), caption = '(ref:theorem-env)', booktabs = TRUE)
+```
 
 
 ## Figure Referencing
@@ -199,6 +231,7 @@ knitr::kable(
 
 ## 總整理
 
+- `\@ref(section-anchor)`
 - `(ref:mtcar) Text refereces`
 - `\@ref(fig:fig-label)`
     - `fig-label` is code chunk label
@@ -210,15 +243,3 @@ knitr::kable(
     - Defined as `(\#eq:eq-label)` in LaTeX equation environment
 
 
-
-
-- Benefits
-- Quick Start
-    - General Usage
-        - Front matter
-        - Content
-    - Write Thesis in English (Write in Eng)
-- Resources
-    - R Markdown Features
-- Thanks and Help
-    - GitHub issues

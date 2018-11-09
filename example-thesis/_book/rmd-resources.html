@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="cheatsheet.html">
-<link rel="next" href="latex-cite-pkg.html">
+<link rel="prev" href="latex-cite-pkg.html">
+<link rel="next" href="epilogue.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -182,34 +182,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="add-on" class="section level1">
-<h1><span class="header-section-number">第 5 章</span> 進階功能擴充</h1>
-<p>透過其它 R 套件，R Markdown 的撰寫過程能夠更順暢。以下介紹幾個例子，歡迎補充說明。</p>
-<div id="ling" class="section level2">
-<h2><span class="header-section-number">5.1</span> 語言學</h2>
-<p>語言學相關文件寫作時，常需要插入 IPA 語音符號，但鍵盤通常難以直接打出這些符號。為此，我寫了一個 R 套件，讓使用者能直接在 RStudio 中透過輸入語音 features 的方式打出 IPA：</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
-<img src="https://liao961120.github.io/linguisticsdown/man/figs/features.gif" alt="使用 linguisticsdown 套件插入 IPA 音標符號" width="100%" />
-<p class="caption">
-圖 5.1: 使用 linguisticsdown 套件插入 IPA 音標符號
-</p>
+<div id="rmd-resources" class="section level1">
+<h1><span class="header-section-number">B</span> R Markdown 相關資源</h1>
+<p>以下都是 R Markdown 相關的參考資源。與此論文模板最直接相關的是 <em>Bookdown</em>；<em>R Markdown: The Definitive Guide</em> 幾乎涵蓋了 R Markdown 的所有用途（例如，投影片製作）；Pandoc 則是 R Markdown 能夠支援多種輸出格式的關鍵，因為 R Markdown 的格式輸出是仰賴 Pandoc 模板（也是這個論文模板的製作方式）且 R Markdown 的 Markdown 語法即是 Pandoc Markdown 的語法。</p>
+<ul>
+<li><p><a href="https://bookdown.org/yihui/bookdown">Bookdown</a></p></li>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown">R Markdown: The Definitive Guide</a></p></li>
+<li><p><a href="http://pandoc.org/MANUAL.html">Pandoc User’s Guide</a></p></li>
+</ul>
+
 </div>
-<p><br></p>
-<p>要使用這功能，需安裝 <code>linguisticsdown</code>：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;linguisticsdown&quot;</span>)</code></pre></div>
-<p>並且在 <code>index.Rmd</code> 的 yaml 設定 IPA 符號專用的字型（需確認電腦上有安裝此字型）：</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">ipa-font:</span><span class="at"> </span><span class="st">&#39;Doulos SIL&#39;</span></code></pre></div>
-<p>關於更詳細的功能，見<a href="https://liao961120.github.io/linguisticsdown/">套件網頁</a></p>
-
-<script>
-  addClassKlippyTo("pre.r, pre.markdown, pre.yaml, pre.latex");
-  addKlippy('right', 'top', 'auto', '1', 'Copy code', 'Copied!');
-</script>
-</div>
-</div>
-
-
-
 <br><br>
 <div id="disqus_thread"></div>
 <script>
@@ -239,8 +221,8 @@ s.setAttribute('data-timestamp', +new Date());
           </div>
         </div>
       </div>
-<a href="cheatsheet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="latex-cite-pkg.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="latex-cite-pkg.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="epilogue.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -270,7 +252,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/liao961120/ntuthesis/edit/master/example-thesis/04-specific-extension.Rmd",
+"link": "https://github.com/liao961120/ntuthesis/edit/master/example-thesis/81-appx-resources.Rmd",
 "text": "Edit"
 },
 "download": ["ntu-bookdown.pdf"],
