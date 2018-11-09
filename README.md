@@ -3,9 +3,6 @@
 # ntuthesis
 
 
-<div class="addthis_inline_share_toolbox"></div>
-
-
 這是國立臺灣大學的論文模板，
 基於 [bookdown](https://github.com/rstudio/bookdown) 的架構。為了方便使用，將此模板打包成 R Package，方便使用者下載及使用內建函數。
 
