@@ -114,14 +114,7 @@ R Markdown 在文章中插入引用文獻的功能承繼 Pandoc。完整的使�
 
 ### 引用語法 {#cite-syntax}
 
-[`citr`](https://github.com/crsh/citr) 是一個方便使用者插入引用文獻的 R 套件，讓使用者能透過 GUI 插入文獻：
-```{r fig.cap="使用 citr 套件插入引用文獻"}
-if (knitr::is_html_output()){
-  knitr::include_graphics("figs/citr.gif")
-} else {
-  knitr::include_graphics("figs/citr.png")
-}
-```
+[`citr`](https://github.com/crsh/citr) 是一個方便使用者插入引用文獻的 R 套件，讓使用者能透過 GUI 插入文獻。
 
 當需要更複雜的引用格式，如標示第幾頁，可以修改透過 `citr` 插入的語法：
 
@@ -152,4 +145,3 @@ if (knitr::is_html_output()){
 
 透過 csl 排版引用格式，只能支援單一語言。例如，若將英文格式套用到中文文獻，中文文獻就會出現英文的半形逗點和句點。
 
-多語言的引用可能可透過 LaTeX 的引用套件達成，但由於作者本人對 LaTeX 不夠熟悉，目前尚未解決此問題。若您是 LaTeX 的高手，歡迎至 \@ref(latex-cite-pkg) 給我一些指教。

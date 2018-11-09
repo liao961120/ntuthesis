@@ -60,17 +60,7 @@ ntuthesis::comp_front()
 
 ## Compile 論文 {#compile-thesis}
 
-接著用 RStudio Build Pane 裡的 button 輸出論文：
-
-```{r fig.cap="透過 RStudio 輸出論文"}
-if (knitr::is_html_output()) {
-  knitr::include_graphics("figs/build-button.gif")
-} else {
-  knitr::include_graphics("figs/build-button.png")
-}
-```
-
-或是在 console 執行下方指令：
+接著在 console 執行下方指令：
 ```r
 bookdown::render_book("index.Rmd", "bookdown::gitbook")
 bookdown::render_book("index.Rmd", "bookdown::bookdown::pdf_book")

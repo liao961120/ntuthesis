@@ -30,7 +30,7 @@ tinytex::install_tinytex()
 
 開啟 RStudio，選取左上方 `File` > `New File` > `R Markdown`：
 
-```{r fig.cap="透過 RStudio 匯入論文模板"}
+```{r echo=FALSE, fig.cap="透過 RStudio 匯入論文模板"}
 if (knitr::is_html_output()) {
   knitr::include_graphics("figs/rmd-template.gif")
 } else {
@@ -40,9 +40,7 @@ if (knitr::is_html_output()) {
 
 或是直接在 console 執行：
 ```r
-rmarkdown::draft("project_name",
-                 template = "ntu_bookdown",
-                 package = "ntuthesis")
+ntuthesis::import_template("project_name")
 ```
 
 接著需要將該資料夾變更為 bookdown 專案。這可以用 RStudio 左上方 `File` > `New Project` > `Existing Directory` 達成，或直接使用下方指令（working dir 需是專案資料夾）：
@@ -67,7 +65,7 @@ ntuthesis::comp_front()
 
 接著用 RStudio Build Pane 裡的 button 輸出論文：
 
-```{r fig.cap="透過 RStudio 輸出論文"}
+```{r echo=FALSE, fig.cap="透過 RStudio 輸出論文"}
 if (knitr::is_html_output()) {
   knitr::include_graphics("figs/build-button.gif")
 } else {

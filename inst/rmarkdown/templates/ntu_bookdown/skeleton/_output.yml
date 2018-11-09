@@ -10,12 +10,12 @@ bookdown::gitbook:
     toc:
       collapse: section
       before: |
-        <li><a href="./">臺大論文模板</a></li>
+        <li><a href="./">NTU Thesis</a></li>
       after: |
         <li><a href="https://liao961120.github.io/ntuthesis" target="blank"><i class="fas fa-home"></i> &nbsp;套件網站</a></li>
         <li><a href="https://github.com/liao961120/ntuthesis" target="blank"><i class="fab fa-github"></i> &nbsp; GitHub</a></li>
     download: "pdf"
-    edit: https://github.com/liao961120/ntuthesis/edit/master/inst/example-thesis/%s
+    edit: https://github.com/liao961120/ntuthesis/edit/master/example-thesis/%s
     sharing:
       github: no
       facebook: no

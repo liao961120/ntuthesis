@@ -301,21 +301,26 @@ $endfor$
 \addcontentsline{toc}{chapter}{英文摘要}
 \includepdf[pages={5}, scale=1]{front_matter/front_matter.pdf}
 
-\clearpage
-\pagenumbering{arabic}
 
 $if(toc)$
 {
 \setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
+%\phantomsection
+%\addcontentsline{toc}{chapter}{\contentsname}
 }
 $endif$
 
 \newpage
 
 \listoftables
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
 \newpage
+
 \listoffigures
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
 \newpage
 
 % Set independent linestretch for code chunks
@@ -333,6 +338,8 @@ $endif$
   \end{spacing}
   }
 
+\clearpage
+\pagenumbering{arabic}
 
 $body$
 
