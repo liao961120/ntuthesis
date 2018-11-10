@@ -33,7 +33,7 @@
   
   
 
-<link rel="next" href="abstract.html">
+<link rel="next" href="install.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -119,8 +119,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">NTU Thesis</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>誌謝</a></li>
-<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>摘要</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>關於</a></li>
 <li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> 安裝</a><ul>
 <li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#latex"><i class="fa fa-check"></i><b>1.1</b> LaTeX</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="install.html"><a href="install.html#tinytex-"><i class="fa fa-check"></i><b>1.1.1</b> tinytex 套件</a></li>
@@ -168,10 +167,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5" data-path="add-on.html"><a href="add-on.html"><i class="fa fa-check"></i><b>5</b> 進階功能擴充</a><ul>
 <li class="chapter" data-level="5.1" data-path="add-on.html"><a href="add-on.html#ling"><i class="fa fa-check"></i><b>5.1</b> 語言學</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="feed-back.html"><a href="feed-back.html"><i class="fa fa-check"></i>問題協助</a><ul>
+<li class="chapter" data-level="" data-path="feed-back.html"><a href="feed-back.html#issue"><i class="fa fa-check"></i>提出問題</a></li>
+<li class="chapter" data-level="" data-path="feed-back.html"><a href="feed-back.html#rmd-resources"><i class="fa fa-check"></i>R Markdown 相關資源</a></li>
+<li class="chapter" data-level="" data-path="feed-back.html"><a href="feed-back.html#improve-the-project"><i class="fa fa-check"></i>Improve the Project</a></li>
+</ul></li>
 <li class="appendix"><span><b>附錄</b></span></li>
-<li class="chapter" data-level="A" data-path="latex-cite-pkg.html"><a href="latex-cite-pkg.html"><i class="fa fa-check"></i><b>A</b> LaTeX 文獻引用</a></li>
-<li class="chapter" data-level="B" data-path="rmd-resources.html"><a href="rmd-resources.html"><i class="fa fa-check"></i><b>B</b> R Markdown 相關資源</a></li>
-<li class="chapter" data-level="C" data-path="epilogue.html"><a href="epilogue.html"><i class="fa fa-check"></i><b>C</b> 後記</a></li>
+<li class="chapter" data-level="A" data-path="latex-cite-pkg.html"><a href="latex-cite-pkg.html"><i class="fa fa-check"></i><b>A</b> 尋找 LaTeX 高手</a></li>
+<li class="chapter" data-level="B" data-path="epilogue.html"><a href="epilogue.html"><i class="fa fa-check"></i><b>B</b> 後記</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>參考資料</a></li>
 <li class="divider"></li>
 <li><a href="https://liao961120.github.io/ntuthesis" target="blank"><i class="fas fa-home"></i> &nbsp;套件網站</a></li>
@@ -199,11 +202,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4 class="author"><em>廖永賦</em></h4>
 <h4 class="date"><em>November 10, 2018</em></h4>
 </div>
-<div id="acknowledge" class="section level1 unnumbered">
-<h1>誌謝</h1>
-<p>非常感謝網路上各個默默耕耘開發 open source 專案的大大們。 非常感謝網路上各個默默耕耘開發 open source 專案的大大們。 非常感謝網路上各個默默耕耘開發 open source 專案的大大們。</p>
-<p>沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。</p>
+<div id="about" class="section level1 unnumbered">
+<h1>關於</h1>
+<p>這是 <a href="https://liao961120.github.io/ntuthesis">ntuthesis</a> 的說明文件。這份說明文件是以臺大論文格式所寫成，並且可以輸出成 HTML（GitBook），亦即您目前所見的文件，或是 PDF，亦即完整的臺大論文（可透過 navbar 上的 <i class="fa fa-file-pdf-o"></i> 查看）。</p>
+<p>使用此論文模板應至少對 R Markdown 有初步的了解，例如知道 Markdown 的基本語法並且曾用過 R Markdown 輸出 html_document。</p>
+<!-- 
+Below are code that paste acknowledgement and abstract in GitBook output. 
+Remove or wrap them around HTML comments if don't want to display them in GitBook.
+-->
+<!-- Acknowledgement -->
+<!-- # 誌謝 {- #acknowledge}
+ -->
+<!-- 非常感謝網路上各個默默耕耘開發 open source 專案的大大們。
+  非常感謝網路上各個默默耕耘開發 open source 專案的大大們。
+  非常感謝網路上各個默默耕耘開發 open source 專案的大大們。
+  
+  沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。 -->
 <!-- Abstract -->
+<!-- # 摘要 {- #abstract}
+ -->
+<!-- 摘要**第 5 行**開始而且不能是空行。摘要**第 5 行**開始而且不能是空行。摘要**第 5 行**開始而且不能是空行。摘要**第 5 行**開始而且不能是空行。
+
+新段落要在前面空一行。新段落要在前面空一行。新段落要在前面空一行。新段落要在前面空一行。新段落要在前面空一行。 -->
+<!-- keywords -->
+<!-- <br><br> -->
+<!-- **keywords:** 第二行開始、R Markdown、Bookdown、可重製研究 -->
+
+<script>
+  addClassKlippyToPreCode();
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('right', 'top', 'auto', '1', 'Copy code', 'Copied!');
+</script>
 </div>
 <br><br>
 <div id="disqus_thread"></div>
@@ -235,7 +264,7 @@ s.setAttribute('data-timestamp', +new Date());
         </div>
       </div>
 
-<a href="abstract.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="install.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

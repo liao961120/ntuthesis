@@ -1,9 +1,0 @@
-# R Markdown 相關資源 {#rmd-resources}
-
-以下都是 R Markdown 相關的參考資源。與此論文模板最直接相關的是 *Bookdown*；*R Markdown: The Definitive Guide* 幾乎涵蓋了 R Markdown 的所有用途（例如，投影片製作）；Pandoc 則是 R Markdown 能夠支援多種輸出格式的關鍵，因為 R Markdown 的格式輸出是仰賴 Pandoc 模板（也是這個論文模板的製作方式）且 R Markdown 的 Markdown 語法即是 Pandoc Markdown 的語法。
-
-- [Bookdown](https://bookdown.org/yihui/bookdown)
-
-- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown)
-
-- [Pandoc User’s Guide](http://pandoc.org/MANUAL.html)

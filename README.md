@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/liao961120/ntuthesis.svg?branch=master)](https://travis-ci.org/liao961120/ntuthesis)
+[![Build Status](https://travis-ci.org/liao961120/ntuthesis.svg?branch=master)](https://travis-ci.org/liao961120/ntuthesis) [![Support R Version](https://img.shields.io/badge/R-≥%203.4.0-blue.svg)](https://cran.r-project.org/) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 # ntuthesis
 
@@ -21,17 +21,6 @@ devtools::install_github("liao961120/ntuthesis")
 ## 使用
 
 見[套件網頁](https://liao961120.github.io/ntuthesis)或[使用說明](https://liao961120.github.io/ntuthesis/doc)
-
-## To Do
-
-1. [bookdown define LaTeX](https://bookdown.org/yihui/bookdown/publishers.html)
-1. self-defined chunks?
-1. test biblatex
-1. 整理成 R Package
-1. 使用說明
-    - [R Markdown ordered list](https://stackoverflow.com/a/52539925)
-    - [Bookdown cheatsheet](www.pzhao.org/en/post/bookdown-cheatsheet/)
-    - [Bookdown Contest](https://blog.rstudio.com/2018/07/27/first-bookdown-contest/)
 
 
 ## 特別感謝

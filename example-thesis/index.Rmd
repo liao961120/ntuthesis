@@ -30,25 +30,33 @@ site: bookdown::bookdown_site
 ---
 
 
+`r if(knitr::is_html_output()) '
+# 關於 {- #about}\n
+
+這是 [ntuthesis](https://liao961120.github.io/ntuthesis) 的說明文件。這份說明文件是以臺大論文格式所寫成，並且可以輸出成 HTML（GitBook），亦即您目前所見的文件，或是 PDF，亦即完整的臺大論文（可透過 navbar 上的 <i class="fa fa-file-pdf-o"></i> 查看）。\n
+\n
+使用此論文模板應至少對 R Markdown 有初步的了解，例如知道 Markdown 的基本語法並且曾透過 R Markdown 輸出 html_document。
+'`
+
 <!-- 
 Below are code that paste acknowledgement and abstract in GitBook output. 
 Remove or wrap them around HTML comments if don't want to display them in GitBook.
 -->
 
 <!-- Acknowledgement -->
-`r if(knitr::is_html_output()) '# 誌謝 {- #acknowledge}\n'`
+<!-- `r if(knitr::is_html_output()) '# 誌謝 {- #acknowledge}\n'` -->
 
-`r if (knitr::is_html_output()) paste(readLines("_acknowledge.Rmd"), collapse = "\n  ")`
+<!-- `r if (knitr::is_html_output()) paste(readLines("_acknowledge.Rmd"), collapse = "\n  ")` -->
 
 <!-- Abstract -->
-`r if(knitr::is_html_output()) '# 摘要 {- #abstract}\n'`
+<!-- `r if(knitr::is_html_output()) '# 摘要 {- #abstract}\n'` -->
 
-`r if (knitr::is_html_output()) paste(readLines("_abstract-zh.Rmd")[5:length(readLines("_abstract-zh.Rmd"))], collapse = '\n')`
+<!-- `r if (knitr::is_html_output()) paste(readLines("_abstract-zh.Rmd")[5:length(readLines("_abstract-zh.Rmd"))], collapse = '\n')` -->
 
 <!-- keywords -->
-`r if (knitr::is_html_output()) '<br><br>'`
+<!-- `r if (knitr::is_html_output()) '<br><br>'` -->
 
-`r if (knitr::is_html_output()) paste('**keywords:**', readLines("_abstract-zh.Rmd")[2])`
+<!-- `r if (knitr::is_html_output()) paste('**keywords:**', readLines("_abstract-zh.Rmd")[2])` -->
 
 
 ```{r setup, include=FALSE}

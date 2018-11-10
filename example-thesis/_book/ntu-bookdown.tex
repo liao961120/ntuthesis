@@ -884,7 +884,7 @@ exercise & Exercise & exr\\
 
 \begin{table}[t]
 
-\caption{\label{tab:mtcar}Dynamic variable in caption: 2018-11-10 10:09:03.}
+\caption{\label{tab:mtcar}Dynamic variable in caption: 2018-11-10 11:06:22.}
 \centering
 \begin{tabular}{lrrrrrrrr}
 \toprule
@@ -988,25 +988,29 @@ Sections}\label{link-table-in-later-sections}
 
 關於更詳細的功能，見\href{https://liao961120.github.io/linguisticsdown/}{套件網頁}
 
-\appendix \addcontentsline{toc}{chapter}{\appendixname}
+\chapter*{問題協助}\label{feed-back}
+\addcontentsline{toc}{chapter}{問題協助}
 
+\hypertarget{issue}{\section*{提出問題}\label{issue}}
+\addcontentsline{toc}{section}{提出問題}
 
-\chapter{尋找 LaTeX 高手}\label{latex-cite-pkg}
+若使用此模板遇到困難不知如何解決，可以透過下列管道聯絡我（按優先順序排列）：
 
-R Markdown 的 PDF 輸出是透過 Pandoc 的 LaTeX 模板，因此理論上 LaTeX
-可以做到的事，也可以透過 R Markdown 達成。目前的問題是
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  提出 \href{https://github.com/liao961120/ntuthesis/issues}{GitHub
+  issue}（需有 GitHub 帳號）
+\item
+  直接在這份說明文件中\textbf{與問題相關的章節}留言（頁面最下方的 disqus
+  留言）
+\item
+  除非有特殊的原因，\textbf{請勿透過電子郵件提出問題}。公開自己的問題對其他人有很大的幫助，也能減少重複回答相同問題的時間。
+\end{enumerate}
 
-\begin{quote}
-LaTeX 本身並未有支援繁體中文格式的文獻引用套件
-\end{quote}
-
-經過一段時間的搜尋，發現 biblatex
-套件似乎可以定義不同的引用格式\footnote{\url{https://tex.stackexchange.com/questions/417762/different-styles-between-citations-and-bibliography}}\footnote{\url{https://tex.stackexchange.com/questions/377308/different-citation-styles-for-the-same-bibliography}}，因此，或許可以透過定義新的標點符號，例如將原本引用格式中的\texttt{,}定義成\texttt{，}、\texttt{.}定義成\texttt{。}，再透過
-\texttt{.bib} 檔中的 \texttt{langid} field
-辨識要使用何種引用格式。然而，由於作者本人對 LaTeX
-並不熟悉，因此需要這方面高手的協助。
-
-\chapter{R Markdown 相關資源}\label{rmd-resources}
+\section*{R Markdown 相關資源}\label{rmd-resources}
+\addcontentsline{toc}{section}{R Markdown 相關資源}
 
 以下都是 R Markdown 相關的參考資源。與此論文模板最直接相關的是
 \emph{Bookdown}；\emph{R Markdown: The Definitive Guide} 幾乎涵蓋了 R
@@ -1024,6 +1028,32 @@ Pandoc Markdown 的語法。
 \item
   \href{http://pandoc.org/MANUAL.html}{Pandoc User's Guide}
 \end{itemize}
+
+\section*{Improve the Project}\label{improve-the-project}
+\addcontentsline{toc}{section}{Improve the Project}
+
+最後，若您發現這份論文模板有錯誤或是可以改進的地方，同樣可以依上述的\protect\hyperlink{issue}{步驟}提出問題。甚至如果知道如何解決問題，歡迎直接提出
+pull request。pull request
+的範圍不限在模板本身。若您看到這份文件中有任何錯誤，可以直接透過 navbar
+上的 修改文件。
+
+\appendix \addcontentsline{toc}{chapter}{\appendixname}
+
+
+\chapter{尋找 LaTeX 高手}\label{latex-cite-pkg}
+
+R Markdown 的 PDF 輸出是透過 Pandoc 的 LaTeX 模板，因此理論上 LaTeX
+可以做到的事，也可以透過 R Markdown 達成。目前的問題是
+
+\begin{quote}
+LaTeX 本身並未有支援繁體中文格式的文獻引用套件
+\end{quote}
+
+經過一段時間的搜尋，發現 biblatex
+套件似乎可以定義不同的引用格式\footnote{\url{https://tex.stackexchange.com/questions/417762/different-styles-between-citations-and-bibliography}}\footnote{\url{https://tex.stackexchange.com/questions/377308/different-citation-styles-for-the-same-bibliography}}，因此，或許可以透過定義新的標點符號，例如將原本引用格式中的\texttt{,}定義成\texttt{，}、\texttt{.}定義成\texttt{。}，再透過
+\texttt{.bib} 檔中的 \texttt{langid} field
+辨識要使用何種引用格式。然而，由於作者本人對 LaTeX
+並不熟悉，因此需要這方面高手的協助。
 
 \chapter{後記}\label{epilogue}
 
