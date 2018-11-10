@@ -26,9 +26,9 @@ tinytex::install_tinytex()
 根據 Yihui 的[說明](https://yihui.name/en/2018/08/tinytex-flash-drive)，TinyTex 具有可攜式（portable）的特性。以下提供輸出此論文模板所需的 TinyTex Library 供下載。請選擇**與電腦相同作業系統**的連結下載[^help]。
 
 - [Linux x86_64](http://bit.ly/TinyTex-linux)
-  a) 下載檔案後，用 `tar -zxvf tinytex-linux.tar.gz` 將 `tinytex-linux.tar.gz` 解壓縮
-  b) 將解壓後資料夾中的 `.TinyTeX/` 放至喜歡的路徑（e.g. `~/.TinyTeX`）
-  c) 接著在 R 中執行 `tinytex::use_tinytex()`，即會跳出一個視窗。請選擇 `.TinyTeX/` 所在的路徑。
+    a) 下載檔案後，用 `tar -zxvf tinytex-linux.tar.gz` 將 `tinytex-linux.tar.gz` 解壓縮
+    b) 將解壓後資料夾中的 `.TinyTeX/` 放至喜歡的路徑（e.g. `~/.TinyTeX`）
+    c) 接著在 R 中執行 `tinytex::use_tinytex()`，即會跳出一個視窗。請選擇 `.TinyTeX/` 所在的路徑。
   
   
 若失敗詳見[此篇文章](https://yihui.name/en/2018/08/tinytex-flash-drive)。
