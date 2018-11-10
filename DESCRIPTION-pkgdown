@@ -1,6 +1,6 @@
 Package: ntuthesis
 Title: NTU | R Markdown | 論文模板
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R:
     person(given = "Yongfu",
            family = "Liao",
