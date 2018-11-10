@@ -2,6 +2,7 @@ bookdown::gitbook:
 #  includes:
 #    before_body: latex/mathjax_bm.tex
   includes:
+    in_header: latex/custom.js
     after_body: disqus.html
   css: style.css
   dev: "png"

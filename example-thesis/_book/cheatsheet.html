@@ -51,6 +51,18 @@
 <link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
 <link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
 <script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
+<script>
+// Add target_blank to external link
+// See article-header.html for auto adding ID to h1,h2,h3
+$(document).ready(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
 
 
 <style type="text/css">
@@ -389,7 +401,7 @@ knitr::kable(
 見表 \@ref(tab:mtcars)</code></pre></div>
 
 <table>
-<caption><span id="tab:mtcar">表 4.2: </span>Dynamic variable in caption: 2018-11-10 00:19:15.</caption>
+<caption><span id="tab:mtcar">表 4.2: </span>Dynamic variable in caption: 2018-11-10 09:38:50.</caption>
 <thead>
 <tr class="header">
 <th></th>
