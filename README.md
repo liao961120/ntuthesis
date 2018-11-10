@@ -27,6 +27,3 @@ devtools::install_github("liao961120/ntuthesis")
 
 LaTeX 的封面模板是根據 [tzhuan/ntu-thesis](https://github.com/tzhuan/ntu-thesis) 修改而成。
 
-
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5be51e444952fe03"></script>
