@@ -6,7 +6,7 @@ klippy::klippy(lang = c("r", "markdown", "yaml", "latex"),
 
 # (APPENDIX) 附錄 {-}
 
-# LaTeX  文獻引用  {#latex-cite-pkg}
+# 尋找 LaTeX 高手 {#latex-cite-pkg}
 
 R Markdown 的 PDF 輸出是透過 Pandoc 的 LaTeX 模板，因此理論上 LaTeX 可以做到的事，也可以透過 R Markdown 達成。目前的問題是
 

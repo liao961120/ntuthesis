@@ -9,12 +9,10 @@ klippy::klippy(position = c('top', 'right'),
 
 執行以下指令後（詳見 \@ref(import-template)）
 ```r
-rmarkdown::draft("project_name",
-                 template = "ntu_bookdown",
-                 package = "ntuthesis")
+ntuthesis::import_template("project_name")
 ```
 
-即會匯入論文模板，以下是論文模板的檔案結構（已簡化）。
+即會匯入論文模板。以下是論文模板的檔案結構（已簡化）：
 
 ```yaml
 ├── project_name.Rmd     # Useless, please delete it

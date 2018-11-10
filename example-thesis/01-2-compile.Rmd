@@ -33,7 +33,7 @@ ntuthesis::comp_front()
 
 即會在 `front-matter/` 生成封面所需的檔案。以使用者的角度而言，除了 `front-matter/certification.pdf` 以外，`front-matter/` 中的其它檔案不須理會。`certification.pdf` 是空白（未簽名）的「口試委員審定書」。
 
-已簽名的「口試委員審定書」，將檔案命名為 `certification-scan.pdf` 並放在專案資料夾的最頂層。
+簽名過的「口試委員審定書」，請將檔案命名為 `certification-scan.pdf` 並放在專案資料夾的最頂層。
 
 ## Compile 論文 {#compile-thesis}
 
@@ -50,7 +50,7 @@ if (knitr::is_html_output()) {
 或是在 console 執行下方指令：
 ```r
 bookdown::render_book("index.Rmd", "bookdown::gitbook")
-bookdown::render_book("index.Rmd", "bookdown::bookdown::pdf_book")
+bookdown::render_book("index.Rmd", "bookdown::pdf_book")
 ```
 
 如此便會在 `_book/` 中生成完整的論文（gitbook 和 PDF 格式）。

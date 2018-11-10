@@ -279,22 +279,22 @@ Library 供下載。請選擇\textbf{與電腦相同作業系統}的連結下載
 \tightlist
 \item
   \href{http://bit.ly/TinyTex-linux}{Linux x86\_64}
-\end{itemize}
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi})}
-\tightlist
-\item
-  下載檔案後，用 \texttt{tar\ -zxvf\ tinytex-linux.tar.gz} 將
-  \texttt{tinytex-linux.tar.gz} 解壓縮
-\item
-  將解壓後資料夾中的 \texttt{.TinyTeX/} 放至喜歡的路徑（e.g.
-  \texttt{\textasciitilde{}/.TinyTeX}）
-\item
-  接著在 R 中執行
-  \texttt{tinytex::use\_tinytex()}，即會跳出一個視窗。請選擇
-  \texttt{.TinyTeX/} 所在的路徑。
-\end{enumerate}
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \tightlist
+  \item
+    下載檔案後，用 \texttt{tar\ -zxvf\ tinytex-linux.tar.gz} 將
+    \texttt{tinytex-linux.tar.gz} 解壓縮
+  \item
+    將解壓後資料夾中的 \texttt{.TinyTeX/} 放至喜歡的路徑（e.g.
+    \texttt{\textasciitilde{}/.TinyTeX}）
+  \item
+    接著在 R 中執行
+    \texttt{tinytex::use\_tinytex()}，即會跳出一個視窗。請選擇
+    \texttt{.TinyTeX/} 所在的路徑。
+  \end{enumerate}
+\end{itemize}
 
 若失敗詳見\href{https://yihui.name/en/2018/08/tinytex-flash-drive}{此篇文章}。
 
@@ -357,8 +357,8 @@ TinyTeX 可以減輕管理 LaTeX 套件的麻煩。
 中的其它檔案不須理會。\texttt{certification.pdf}
 是空白（未簽名）的「口試委員審定書」。
 
-已簽名的「口試委員審定書」，將檔案命名為 \texttt{certification-scan.pdf}
-並放在專案資料夾的最頂層。
+簽名過的「口試委員審定書」，請將檔案命名為
+\texttt{certification-scan.pdf} 並放在專案資料夾的最頂層。
 
 \section{Compile 論文}\label{compile-thesis}
 
@@ -378,7 +378,7 @@ TinyTeX 可以減輕管理 LaTeX 套件的麻煩。
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{bookdown}\OperatorTok{::}\KeywordTok{render_book}\NormalTok{(}\StringTok{"index.Rmd"}\NormalTok{, }\StringTok{"bookdown::gitbook"}\NormalTok{)}
-\NormalTok{bookdown}\OperatorTok{::}\KeywordTok{render_book}\NormalTok{(}\StringTok{"index.Rmd"}\NormalTok{, }\StringTok{"bookdown::bookdown::pdf_book"}\NormalTok{)}
+\NormalTok{bookdown}\OperatorTok{::}\KeywordTok{render_book}\NormalTok{(}\StringTok{"index.Rmd"}\NormalTok{, }\StringTok{"bookdown::pdf_book"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -392,13 +392,11 @@ TinyTeX 可以減輕管理 LaTeX 套件的麻煩。
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{rmarkdown}\OperatorTok{::}\KeywordTok{draft}\NormalTok{(}\StringTok{"project_name"}\NormalTok{,}
-                 \DataTypeTok{template =} \StringTok{"ntu_bookdown"}\NormalTok{,}
-                 \DataTypeTok{package =} \StringTok{"ntuthesis"}\NormalTok{)}
+\NormalTok{ntuthesis}\OperatorTok{::}\KeywordTok{import_template}\NormalTok{(}\StringTok{"project_name"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-即會匯入論文模板，以下是論文模板的檔案結構（已簡化）。
+即會匯入論文模板。以下是論文模板的檔案結構（已簡化）：
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -886,7 +884,7 @@ exercise & Exercise & exr\\
 
 \begin{table}[t]
 
-\caption{\label{tab:mtcar}Dynamic variable in caption: 2018-11-10 00:19:28.}
+\caption{\label{tab:mtcar}Dynamic variable in caption: 2018-11-10 10:09:03.}
 \centering
 \begin{tabular}{lrrrrrrrr}
 \toprule
@@ -993,7 +991,7 @@ Sections}\label{link-table-in-later-sections}
 \appendix \addcontentsline{toc}{chapter}{\appendixname}
 
 
-\chapter{LaTeX 文獻引用}\label{latex-cite-pkg}
+\chapter{尋找 LaTeX 高手}\label{latex-cite-pkg}
 
 R Markdown 的 PDF 輸出是透過 Pandoc 的 LaTeX 模板，因此理論上 LaTeX
 可以做到的事，也可以透過 R Markdown 達成。目前的問題是
