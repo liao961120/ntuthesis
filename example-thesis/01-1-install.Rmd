@@ -20,25 +20,49 @@ devtools::install_github("liao961120/ntuthesis")
 
 ```r
 install.packages('tinytex')
-tinytex::install_tinytex()
 ```
 
-根據 Yihui 的[說明](https://yihui.name/en/2018/08/tinytex-flash-drive)，TinyTex 具有可攜式（portable）的特性。以下提供輸出此論文模板所需的 TinyTex Library 供下載。請選擇**與電腦相同作業系統**的連結下載[^help]。
+接著，選擇**與電腦相同作業系統**的連結下載 TinyTeX Library[^portable]：
 
 - [Linux x86_64](http://bit.ly/TinyTex-linux)
-    a) 下載檔案後，用 `tar -zxvf tinytex-linux.tar.gz` 將 `tinytex-linux.tar.gz` 解壓縮
-    a) 將解壓後資料夾中的 `.TinyTeX/` 放至喜歡的路徑（e.g. `~/.TinyTeX`）
-    a) 接著在 R 中執行 `tinytex::use_tinytex()`，即會跳出一個視窗。請選擇 `.TinyTeX/` 所在的路徑。
-  
+- [Windows 7 64bit](http://bit.ly/TinyTeX-win7)
+- Windows 10 64bit
+    - 目前不確定是否可直接使用[Windows 7 64bit](http://bit.ly/TinyTeX-win7)，需要使用者們的測試。若可以的話，希望可以通知我（在下方留言或寄信給我）
+- Mac
+    - 目前無法提供，需要 Mac 使用者的協助（見 \@ref(tinytex-manage)）
+
+下載檔案後，
+
+a) 將檔案解壓縮[^decompress]
+
+a) 將解壓後資料夾中的 `.TinyTeX/` 放至喜歡的路徑（e.g. `~/.TinyTeX`）
+
+a) 接著在 R 中執行：
+```r
+tinytex::use_tinytex()
+```
+即會跳出一個視窗。請選擇 `.TinyTeX/` 所在的路徑。
+
   
 若失敗詳見[此篇文章](https://yihui.name/en/2018/08/tinytex-flash-drive)。
 
 
-[^help]: 目前希望 Windows, Mac 使用者的協助 \@ref(tinytex-manage)
 
 #### LaTeX 套件管理 {#tinytex-manage}
 
 在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件[^lack]。因此，使用 TinyTeX 可以減輕管理 LaTeX 套件的麻煩。
 
+此外，可以將安裝下來的 TinyTeX 及其套件複製到其它（同作業系統的）電腦上，如此就不需每此換電腦就要重新下載 LaTeX 套件。
+
+執行
+```r
+tinytex::copy_tinytex()
+```
+即會跳出一個新視窗，選擇資料夾後，即可將安裝在電腦上的套件複製到此資料夾，這就是上述連結的來源。目前，由於我無法使用 Mac 的作業系統，因此需要 Mac 使用者的協助，提供 TinyTeX 及其套件之壓縮檔的連結。
+
+
+[^decompress]: Linux 使用者可用 `tar -zxvf tinytex-linux.tar.gz` 指令解壓縮。Windows 使用者可用 [7-Zip](https://www.developershome.com/7-zip/) 解壓縮。
+
+[^portable]: 根據 Yihui 的說明 (https://yihui.name/en/2018/08/tinytex-flash-drive)，TinyTex 具有可攜式（portable）的特性。
 
 [^lack]: 因此，若沒有使用上述提供的 TinyTeX，第一次輸出 PDF 可能會需要許多時間下載缺少的 LaTeX。

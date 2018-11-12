@@ -9,4 +9,6 @@ inst/doc
 /skel-files.txt
 /renew-skel.sh
 /example-thesis/_book/*.html
+/example-thesis/_book/*.css
+/example-thesis/_book/*.json
 /example-thesis/_book/**/*
