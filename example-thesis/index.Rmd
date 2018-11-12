@@ -46,17 +46,17 @@ Remove or wrap them around HTML comments if don't want to display them in GitBoo
 <!-- Acknowledgement -->
 <!-- `r if(knitr::is_html_output()) '# 誌謝 {- #acknowledge}\n'` -->
 
-<!-- `r if (knitr::is_html_output()) paste(readLines("_acknowledge.Rmd"), collapse = "\n  ")` -->
+<!-- `r if (knitr::is_html_output()) paste(readLines("_acknowledge.Rmd", encoding = "UTF-8"), collapse = "\n  ")` -->
 
 <!-- Abstract -->
 <!-- `r if(knitr::is_html_output()) '# 摘要 {- #abstract}\n'` -->
 
-<!-- `r if (knitr::is_html_output()) paste(readLines("_abstract-zh.Rmd")[5:length(readLines("_abstract-zh.Rmd"))], collapse = '\n')` -->
+<!-- `r if (knitr::is_html_output()) paste(readLines("_abstract-zh.Rmd", encoding = "UTF-8")[5:length(readLines("_abstract-zh.Rmd", encoding = "UTF-8"))], collapse = '\n')` -->
 
 <!-- keywords -->
 <!-- `r if (knitr::is_html_output()) '<br><br>'` -->
 
-<!-- `r if (knitr::is_html_output()) paste('**keywords:**', readLines("_abstract-zh.Rmd")[2])` -->
+<!-- `r if (knitr::is_html_output()) paste('**keywords:**', readLines("_abstract-zh.Rmd", encoding = "UTF-8")[2])` -->
 
 
 ```{r setup, include=FALSE}

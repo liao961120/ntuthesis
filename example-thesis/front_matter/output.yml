@@ -1,13 +1,13 @@
 acknowledgements: |
-  `r paste(readLines("../_acknowledge.Rmd"), collapse = "\n  ")`
+  `r paste(readLines("../_acknowledge.Rmd", encoding = "UTF-8"), collapse = "\n  ")`
 abstract-en: |
-  `r x=readLines("../_abstract-en.Rmd"); paste(x[5:length(x)], collapse = "\n  ")`
+  `r x=readLines("../_abstract-en.Rmd", encoding = "UTF-8"); paste(x[5:length(x)], collapse = "\n  ")`
 abstract-zh: |
-  `r x=readLines("../_abstract-zh.Rmd"); paste(x[5:length(x)], collapse = "\n  ")`
+  `r x=readLines("../_abstract-zh.Rmd", encoding = "UTF-8"); paste(x[5:length(x)], collapse = "\n  ")`
 keyword-en: |
-  `r paste(readLines("../_abstract-en.Rmd")[2])`
+  `r paste(readLines("../_abstract-en.Rmd", encoding = "UTF-8")[2])`
 keyword-zh: |
-  `r paste(readLines("../_abstract-zh.Rmd")[2])`
+  `r paste(readLines("../_abstract-zh.Rmd", encoding = "UTF-8")[2])`
 link-citations: yes
 site: bookdown::bookdown_site
 output:

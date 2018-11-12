@@ -19,7 +19,7 @@ comp_front <- function() {
   setwd("front_matter")
 
   # Compile to PDF
-  rmarkdown::render("front_matter.rmd")
+  rmarkdown::render("front_matter.rmd", encoding = "UTF-8")
   stopifnot(file.exists("certification.tex"))
   fp <- "certification.tex"
   system2("xelatex", args = fp, stdout = FALSE)
