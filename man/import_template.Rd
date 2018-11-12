@@ -7,7 +7,9 @@
 import_template(name = "My_Thesis")
 }
 \arguments{
-\item{name}{The name of the thesis project to create.}
+\item{name}{The name of the thesis project to create.
+Note `name` can't be path, i.e, `name` can't contain
+`/`s.}
 }
 \description{
 \code{import_template} creates a thesis template. It is a
