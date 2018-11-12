@@ -12,7 +12,7 @@
 #'
 #' @export
 import_template <- function(name = "My_Thesis") {
-  rmarkdown::draft(name,
+  rmarkdown::draft(name, edit = F,
                    template = "ntu_bookdown",
                    package = "ntuthesis")
 }
