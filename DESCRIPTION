@@ -17,7 +17,8 @@ LazyData: true
 Suggests: knitr,
     rmarkdown,
     tinytex,
-    pkgdown
+    pkgdown,
+    tidyverse
 Remotes: RLesur/klippy@v0.0.0.9400
 VignetteBuilder: knitr
 Imports: bookdown
