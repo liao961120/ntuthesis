@@ -5,13 +5,17 @@ klippy::klippy(position = c('top', 'right'),
 
 # 安裝 {#install}
 
+使用
+```r
+#install.packages("devtools")
+devtools::install_github("liao961120/ntuthesis")
+```
+安裝 `ntuthesis` 套件
+
 ## IDE
 
 建議使用 Rstudio，因為安裝 Rstudio 時，同時會安裝 Pandoc。若使用者使用 Rstudio 以外的 IDE，需要自行安裝並設定 Pandoc PATH。
 
-```r
-devtools::install_github("liao961120/ntuthesis")
-```
 
 ## LaTeX
 
