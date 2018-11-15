@@ -5,12 +5,10 @@ klippy::klippy(position = c('top', 'right'),
 
 # 安裝 {#install}
 
-使用
 ```r
 #install.packages("devtools")
 devtools::install_github("liao961120/ntuthesis")
 ```
-安裝 `ntuthesis` 套件
 
 ## IDE
 
