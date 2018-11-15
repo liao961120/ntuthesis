@@ -16,15 +16,24 @@ comp_front <- function() {
   setwd("front_matter")
 
   # Construct front_matter.rmd
-  construct_front_rmd()
+  try(
+    expr = construct_front_rmd(), outFile = stderr()
+    )
 
   # Compile to PDF
-  rmarkdown::render("front_matter.rmd", encoding = "UTF-8")
-  stopifnot(file.exists("certification.tex"))
+  try(
+    expr = rmarkdown::render("front_matter.rmd", encoding = "UTF-8"),
+    outFile = stderr()
+    )
+  try(
+    stopifnot(file.exists("certification.tex")),
+    outFile = stderr()
+    )
   fp <- "certification.tex"
-  system2("xelatex", args = fp, stdout = FALSE)
-  #system(paste("xelatex", fp))
-
+  try(
+    system2("xelatex", args = fp, stdout = FALSE),
+    outFile = stderr()
+    )
   setwd("..")
 }
 
