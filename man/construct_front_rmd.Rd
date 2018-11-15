@@ -11,6 +11,7 @@ construct_front_rmd(person_info = "../_person-info.yml")
 }
 \description{
 Construct \code{front_matter.rmd} from \code{front_matter/output.yml}
-and \code{_person-info} in root.
+and \code{_person-info} in root. This function is expected to work
+in the directory \code{front_matter/}.
 }
 \keyword{internal}
