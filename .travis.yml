@@ -2,6 +2,7 @@ language: r
 pandoc_version: 1.19.2.1
     
 script:
+  - Rscript -e 'devtools::install_github("RLesur/klippy")'
   - bash render-book.sh
   - rm DESCRIPTION
   - mv DESCRIPTION-pkgdown DESCRIPTION
