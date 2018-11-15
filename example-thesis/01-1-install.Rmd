@@ -5,6 +5,9 @@ klippy::klippy(position = c('top', 'right'),
 
 # 安裝 {#install}
 
+## IDE
+
+建議使用 Rstudio，因為安裝 Rstudio 時，同時會安裝 Pandoc。若使用者使用 Rstudio 以外的 IDE，需要自行安裝並設定 Pandoc PATH。
 
 ```r
 devtools::install_github("liao961120/ntuthesis")
@@ -25,9 +28,7 @@ install.packages('tinytex')
 接著，選擇**與電腦相同作業系統**的連結下載 TinyTeX Library[^portable]：
 
 - [Linux x86_64](http://bit.ly/TinyTex-linux)
-- [Windows 7 64bit](http://bit.ly/TinyTeX-win7)
-- Windows 10 64bit
-    - 目前不確定是否可直接使用[Windows 7 64bit](http://bit.ly/TinyTeX-win7)，需要使用者們的測試。若可以的話，希望可以通知我（在下方留言或寄信給我）
+- [Windows 7/10 64bit](http://bit.ly/TinyTeX-win)
 - Mac
     - 目前無法提供，需要 Mac 使用者的協助（見 \@ref(tinytex-manage)）
 
@@ -35,7 +36,7 @@ install.packages('tinytex')
 
 a) 將檔案解壓縮[^decompress]
 
-a) 將解壓後資料夾中的 `.TinyTeX/` 放至喜歡的路徑（e.g. `~/.TinyTeX`）
+a) 將解壓後資料夾中的 `.TinyTeX/`[^wintiny] 放至喜歡的路徑（e.g. `~/.TinyTeX`）
 
 a) 接著在 R 中執行：
 ```r
@@ -60,6 +61,7 @@ tinytex::copy_tinytex()
 ```
 即會跳出一個新視窗，選擇資料夾後，即可將安裝在電腦上的套件複製到此資料夾，這就是上述連結的來源。目前，由於我無法使用 Mac 的作業系統，因此需要 Mac 使用者的協助，提供 TinyTeX 及其套件之壓縮檔的連結。
 
+[^wintiny]: 在 Windows 上是 `TinyTeX/`
 
 [^decompress]: Linux 使用者可用 `tar -zxvf tinytex-linux.tar.gz` 指令解壓縮。Windows 使用者可用 [7-Zip](https://www.developershome.com/7-zip/) 解壓縮。
 

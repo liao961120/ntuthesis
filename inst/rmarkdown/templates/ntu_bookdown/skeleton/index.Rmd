@@ -64,6 +64,7 @@ knitr::opts_knit$set(root.dir='R')
 knitr::opts_chunk$set(fig.pos = 'H')
 options(digits = 2) # round values of vars to 2 digits when printed
 knitr::opts_chunk$set(
+    echo = FALSE,
     message = FALSE,
     warning = FALSE,
     comment="",
