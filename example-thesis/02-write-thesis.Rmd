@@ -29,7 +29,7 @@ ntuthesis::import_template("project_name")
 ├── 02-literature.Rmd    # Chapter 2 content
 ├── 03-method.Rmd        # Chapter 3 content
 ├── 80-appx-help.Rmd     # Appendix Content
-├── 99-references.Rmd    # Don't need to edit
+├── 99-references.Rmd    # Edit "References" Title
 ├── ref.bib              # References
 ├── cite-style.csl       # Citation style
 |
@@ -109,8 +109,12 @@ R Markdown 在文章中插入引用文獻的功能承繼 Pandoc。完整的使�
   journaltitle = {American Psychologist},
   date = {2008},
   pages = {169-181},
-  keywords = {*Cognition,*Creativity,*Culture (Anthropological),*Experiences (Events),Multiculturalism},
-  author = {Leung, Angela Ka-yee and Maddux, William W. and Galinsky, Adam D. and Chiu, Chi-yue}
+  keywords = {*Cognition,*Creativity,
+    *Culture (Anthropological),
+    *Experiences (Events),Multiculturalism},
+  author = {Leung, Angela Ka-yee and 
+    Maddux, William W. and 
+    Galinsky, Adam D. and Chiu, Chi-yue}
 }
 ```
 
