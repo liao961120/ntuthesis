@@ -54,7 +54,7 @@ tinytex::use_tinytex()
 
 #### LaTeX 套件管理 {#tinytex-manage}
 
-在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件[^lack]。因此，使用 TinyTeX 可以減輕管理 LaTeX 套件的麻煩。然而，下載 LaTeX 套件需要許多時間，因此這裡提供預先下載好之 TinyTeX（Windows 和 Linux）。
+在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件。因此，使用 TinyTeX 可以減輕管理 LaTeX 套件的麻煩。然而，下載 LaTeX 套件需要許多時間，因此這裡提供預先下載好之 TinyTeX（Windows 和 Linux）。
 
 ##### Mac
 
@@ -79,5 +79,3 @@ tinytex::copy_tinytex()
 [^decompress]: Linux 使用者可用 `tar -zxvf tinytex-linux.tar.gz` 指令解壓縮。Windows 使用者可用 [7-Zip](https://www.developershome.com/7-zip/) 解壓縮。
 
 [^portable]: 根據 Yihui 的說明 (https://yihui.name/en/2018/08/tinytex-flash-drive)，TinyTex 具有可攜式（portable）的特性。
-
-[^lack]: 因此，若沒有使用上述提供的 TinyTeX，第一次輸出 PDF 可能會需要許多時間下載缺少的 LaTeX。
