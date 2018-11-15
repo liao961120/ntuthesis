@@ -28,6 +28,7 @@ ntuthesis::import_template("project_name")
 ├── 01-intro.Rmd         # Chapter 1 content
 ├── 02-literature.Rmd    # Chapter 2 content
 ├── 03-method.Rmd        # Chapter 3 content
+├── 80-appx-help.Rmd     # Appendix Content
 ├── 99-references.Rmd    # Don't need to edit
 ├── ref.bib              # References
 ├── cite-style.csl       # Citation style
