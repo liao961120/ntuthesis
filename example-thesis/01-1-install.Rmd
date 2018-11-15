@@ -33,8 +33,7 @@ install.packages('tinytex')
 
 - [Linux x86_64](http://bit.ly/TinyTex-linux)
 - [Windows 7/10 64bit](http://bit.ly/TinyTeX-win)
-- Mac
-    - 目前無法提供，需要 Mac 使用者的協助（見 \@ref(tinytex-manage)）
+- Mac 使用者請略過此節，閱讀 \@ref(tinytex-manage) 節
 
 下載檔案後，
 
@@ -55,15 +54,25 @@ tinytex::use_tinytex()
 
 #### LaTeX 套件管理 {#tinytex-manage}
 
-在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件[^lack]。因此，使用 TinyTeX 可以減輕管理 LaTeX 套件的麻煩。
+在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件[^lack]。因此，使用 TinyTeX 可以減輕管理 LaTeX 套件的麻煩。然而，下載 LaTeX 套件需要許多時間，因此這裡提供預先下載好之 TinyTeX（Windows 和 Linux）。
 
-此外，可以將安裝下來的 TinyTeX 及其套件複製到其它（同作業系統的）電腦上，如此就不需每此換電腦就要重新下載 LaTeX 套件。
+##### Mac
 
-執行
+由於作者沒有 Mac 電腦，無法提供 Mac 版本的 TinyTeX，Mac 使用者需使用
+```r
+tinytex::install_tinytex()
+```
+安裝 TinyTeX，之後讓電腦在[輸出論文](#export-thesis)時，自動安裝所需的套件。
+
+這會使得第一次輸出論文時會花費較多時間，然而，若願意的話，您可以將下載到您電腦上的 TinyTeX 提供給其他 Mac 使用者：
+
+成功輸出論文 PDF 後，執行
 ```r
 tinytex::copy_tinytex()
 ```
-即會跳出一個新視窗，選擇資料夾後，即可將安裝在電腦上的套件複製到此資料夾，這就是上述連結的來源。目前，由於我無法使用 Mac 的作業系統，因此需要 Mac 使用者的協助，提供 TinyTeX 及其套件之壓縮檔的連結。
+即會跳出一個新視窗。選擇資料夾後，即會將電腦上的 TinyTeX 複製到此資料夾。如此，下一位使用者只須將此資料夾複製到電腦上，並用 `tinytex::use_tinytex()` 設定 TinyTeX 的路徑至該資料夾，即可節省輸出論文時安裝 LaTeX 套件所耗費的時間。
+希望使用 Mac 成功輸出論文的使用者能將 TinyTeX 的壓縮檔或連結提供給我，讓其他的使用者受益。
+
 
 [^wintiny]: 在 Windows 上是 `TinyTeX/`
 
