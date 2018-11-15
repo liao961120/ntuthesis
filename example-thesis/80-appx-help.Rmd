@@ -6,7 +6,12 @@ R Markdown 的 PDF 輸出是透過 Pandoc 的 LaTeX 模板，因此理論上 LaT
 
 > LaTeX 本身並未有支援繁體中文格式的文獻引用套件
 
-經過一段時間的搜尋，發現 biblatex 套件似乎可以定義不同的引用格式[^biblatex] [^biblatex2]，因此，或許可以透過定義新的標點符號，例如將原本引用格式中的`,`定義成`，`、`.`定義成`。`，再透過 `.bib` 檔中的 `langid` field 辨識要使用何種引用格式。然而，由於作者本人對 LaTeX 並不熟悉，因此需要這方面高手的協助。
+經過一段時間的搜尋，發現 biblatex 套件似乎可以定義不同的引用格式[^biblatex] [^biblatex2]，因此，或許可以透過定義新的標點符號，例如將原本引用格式中
+
+- `,` 定義成 `，`
+- `.` 定義成 `。`
+
+再透過 `.bib` 檔中的 `langid` field 辨識要使用何種引用格式。然而，由於作者本人對 LaTeX 並不熟悉，因此需要這方面熟手的協助。
 
 
 [^biblatex]: https://tex.stackexchange.com/questions/417762/different-styles-between-citations-and-bibliography

@@ -154,10 +154,10 @@ if (knitr::is_html_output()){
 
 ### 書目管理軟體 {#ref-manager}
 
-這裡建議使用 Zotero 加上 [Better BibTeX](https://retorque.re/zotero-better-bibtex/) 擴充功能。`citr` 對 Zotero 有額外的支持，且 **Zotero 能夠控制 citation key 的格式**（例如，last name + year），但其它書目管理軟體如 Endnote 產生的 citation key 對難以讀懂且無法更改其格式。
+這裡建議使用 Zotero 加上 [Better BibTeX](https://retorque.re/zotero-better-bibtex/) 擴充功能。`citr` 對 Zotero 有額外的支持，且 **Zotero 能夠控制 citation key 的格式**（例如，last name + year），但其它書目管理軟體如 Endnote 產生的 citation key 難以讀懂且無法更改格式。
 
 ### 多語言文獻引用 {#multi-lang-cite}
 
 透過 csl 排版引用格式，只能支援單一語言。例如，若將英文格式套用到中文文獻，中文文獻就會出現英文的半形逗點和句點。
 
-多語言的引用可能可透過 LaTeX 的引用套件達成，但由於作者本人對 LaTeX 不夠熟悉，目前尚未解決此問題。若您是 LaTeX 的高手，歡迎至附錄 \@ref(latex-cite-pkg) 給我一些指教。
+多語言的引用或許可透過 LaTeX 的引用套件達成，但由於作者本人對 LaTeX 不夠熟悉，目前尚未解決此問題。若您是 LaTeX 的高手，歡迎至附錄 \@ref(latex-cite-pkg) 給我一些指教。
