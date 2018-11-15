@@ -12,13 +12,12 @@
 #' @export
 comp_front <- function() {
 
-  stopifnot(dir.exists("front_matter"))
+  stopifnot(dir.exists("front_matter"),
+            file.exists("_person-info.yml"))
   setwd("front_matter")
 
   # Construct front_matter.rmd
-  try(
-    expr = construct_front_rmd(), outFile = stderr()
-    )
+  construct_front_rmd()
 
   # Compile to PDF
   try(
@@ -48,7 +47,6 @@ comp_front <- function() {
 #'
 #' @keywords internal
 construct_front_rmd <- function(person_info = '../_person-info.yml'){
-  if (!file.exists(person_info)) stop("'_person-info.yml' not in root")
 
   person_info <- paste(readLines(person_info),
                        collapse = "\n")
