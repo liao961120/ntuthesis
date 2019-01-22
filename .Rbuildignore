@@ -12,3 +12,7 @@
 ^DESCRIPTION-pkgdown$
 ^example-thesis$
 ^pkgdown/$
+^_book$
+^pkgdown$
+^renew-skel\.sh$
+^skel-files\.txt$
