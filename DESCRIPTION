@@ -1,7 +1,7 @@
 Package: ntuthesis
 Title: Bookdown Thesis Template for NTU
 Version: 1.0.0
-Authors@R: 
+Authors@R:
     person(given = "Yongfu", 
            family = "Liao",
            email = "liao961120@gmail.com", 
@@ -21,5 +21,6 @@ Suggests: knitr,
     tidyverse
 Remotes: RLesur/klippy@v0.0.0.9400
 VignetteBuilder: knitr
-Imports: bookdown
+Imports: bookdown,
+    rlang
 RoxygenNote: 6.1.0

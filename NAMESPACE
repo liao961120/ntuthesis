@@ -3,3 +3,4 @@
 export(comp_front)
 export(import_template)
 export(init_proj)
+importFrom(rlang,abort)
