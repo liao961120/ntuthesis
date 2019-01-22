@@ -12,8 +12,8 @@ Note `name` can't be path, i.e, `name` can't contain
 `/`s.}
 }
 \description{
-\code{import_template} creates a thesis template. It is a
-  wrapper of \code{\link{rmarkdown::draft}}.
+\code{import_template} creates a thesis template.
+  It is a wrapper of \code{\link[rmarkdown]{draft}}.
 }
 \examples{
 \dontrun{

@@ -1,7 +1,7 @@
 #' Import Thesis Template
 #'
-#' \code{import_template} creates a thesis template. It is a
-#'   wrapper of \code{\link{rmarkdown::draft}}.
+#' \code{import_template} creates a thesis template.
+#'   It is a wrapper of \code{\link[rmarkdown]{draft}}.
 #'
 #' @param name The name of the thesis project to create.
 #'   Note `name` can't be path, i.e, `name` can't contain
