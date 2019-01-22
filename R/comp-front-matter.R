@@ -8,32 +8,28 @@
 #' setwd("~/my-thesis")
 #' comp_front()
 #' }
-#'
+#' @importFrom rlang abort
 #' @export
 comp_front <- function() {
-
+  call_dir <- getwd()
   stopifnot(dir.exists("front_matter"),
             file.exists("_person-info.yml"))
+
   setwd("front_matter")
+  on.exit(setwd(call_dir), add = T)
 
   # Construct front_matter.rmd
   construct_front_rmd()
 
   # Compile to PDF
-  try(
-    expr = rmarkdown::render("front_matter.rmd", encoding = "UTF-8"),
-    outFile = stderr()
-    )
-  try(
-    stopifnot(file.exists("certification.tex")),
-    outFile = stderr()
-    )
+  rmarkdown::render("front_matter.rmd", encoding = "UTF-8")
   fp <- "certification.tex"
-  try(
-    system2("xelatex", args = fp, stdout = FALSE),
-    outFile = stderr()
-    )
-  setwd("..")
+  if (!file.exists(fp)) {
+    abort(paste0('`', fp,'` ',
+                 'not in folder `front_matter`.'))
+  } else {
+    system2("xelatex", args = fp, stdout = FALSE)
+  }
 }
 
 

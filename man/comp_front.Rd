@@ -15,5 +15,4 @@ To use this function, one needs to be in the
 setwd("~/my-thesis")
 comp_front()
 }
-
 }
