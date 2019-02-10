@@ -288,18 +288,28 @@ $endfor$
 \addcontentsline{toc}{chapter}{口試委員會審定書}
 \includepdf[pages={1}, scale=1]{certification-scan.pdf}
 
+
+$if(acknowledgements)$
 \phantomsection
-\addcontentsline{toc}{chapter}{誌謝}
-\includepdf[pages={3}, scale=1]{front_matter/front_matter.pdf}
+\chapter*{$acknowledgements-title$}
+$acknowledgements$
+\addcontentsline{toc}{chapter}{$acknowledgements-title$}
+$endif$
 
 
+$if(abstract-zh)$
 \phantomsection
+\chapter*{摘要}
+$abstract-zh$
 \addcontentsline{toc}{chapter}{中文摘要}
-\includepdf[pages={4}, scale=1]{front_matter/front_matter.pdf}
+$endif$
 
+$if(abstract-en)$
 \phantomsection
+\chapter*{Abstract}
+$abstract-en$
 \addcontentsline{toc}{chapter}{英文摘要}
-\includepdf[pages={5}, scale=1]{front_matter/front_matter.pdf}
+$endif$
 
 
 $if(toc)$

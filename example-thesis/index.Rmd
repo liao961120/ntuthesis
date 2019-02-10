@@ -5,10 +5,10 @@ github-repo: "liao961120/ntuthesis"
 date: "`r format(Sys.Date(), '%B %e, %Y')`" # Gitbook Date
 ## Opts above are for gitbook output; below are for PDF output
 two-side: false  # Whether to start new chapter on odd pages
-#cjk-mainfont: 'AR PL KaitiM Big5'  # Default: 標楷體
+cjk-mainfont: 'AR PL KaitiM Big5'  # Default: 標楷體
 #cjk-boldfont:    # Don't set if same as cjk-mainfont
 cjk-style: 'AutoFakeBold=2.5, AutoFakeSlant=.3' #
-#en-mainfont: 'Liberation Serif'  # Default: Times New Roman
+en-mainfont: 'Liberation Serif'  # Default: Times New Roman
 #ipa-font: 'Doulos SIL'  # works with 'linguisticsdown', delete if not needed
 #secnumdepth: 2   # section numbering at most to x.y.z
 indent: false    # Indent new paragraph, else adds space between paragraphs 
@@ -27,6 +27,13 @@ geometry: a4paper, left=1.18in, right=1.18in, top=1.18in, bottom=0.787in
 fontsize: 12pt
 subparagraph: yes
 site: bookdown::bookdown_site
+acknowledgements-title: '誌謝'
+acknowledgements: |
+  `r paste(readLines("_acknowledge.Rmd", encoding = "UTF-8"), collapse = "\n  ")`
+abstract-zh: |
+  `r x=readLines("_abstract-zh.Rmd", encoding = "UTF-8"); paste(x, collapse = "\n  ")`
+abstract-en: |
+  `r x=readLines("_abstract-en.Rmd", encoding = "UTF-8"); paste(x, collapse = "\n  ")`
 ---
 
 

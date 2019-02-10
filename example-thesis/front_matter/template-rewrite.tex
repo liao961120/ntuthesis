@@ -285,30 +285,4 @@ $endfor$
   \makecertification
 \fi
 
-
-$if(acknowledge-in-en)$
-  \begin{acknowledgementsen}
-  $acknowledgements$
-  \end{acknowledgementsen}
-$else$
-  \begin{acknowledgementszh}
-  $acknowledgements$
-  \end{acknowledgementszh}
-$endif$
-
-
-\begin{abstractzh}
-$abstract-zh$
-\bigbreak
-\noindent \textbf{關鍵字：}{\, \makeatletter \@keywordszh \makeatother}
-\end{abstractzh}
-
-
-\begin{abstracten}
-$abstract-en$
-\bigbreak
-\noindent \textbf{Keywords:}{\, \makeatletter \@keywordsen \makeatother}
-\end{abstracten}
-
-
 \end{document}
