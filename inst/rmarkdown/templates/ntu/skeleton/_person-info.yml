@@ -1,6 +1,6 @@
 #ntu-template: 'phd' # phd, proposal
-#cjk-mainfont: 'AR PL KaitiM Big5'  # Default, 標楷體
-#en-mainfont: 'Liberation Serif'  # Default, Times New Roman
+cjk-mainfont: 'AR PL KaitiM Big5'  # Default, 標楷體
+en-mainfont: 'Liberation Serif'  # Default, Times New Roman
 title-en: 'A Minimal NTU Thesis Bookdown Template'
 title-zh: '臺灣大學論文 Bookdown 模板'
 advisor-zh: |
@@ -23,4 +23,3 @@ month-num: '6'
 day: '28'
 institute-en: 'Department of Psychology'
 institute-zh: '心理學系'
-acknowledge-in-en: false   # if written in English, change to 'true'

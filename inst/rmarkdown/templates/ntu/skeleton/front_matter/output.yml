@@ -1,0 +1,8 @@
+site: bookdown::bookdown_site
+output:
+  bookdown::pdf_document2:
+    latex_engine: xelatex
+    number_sections: FALSE
+    toc: False
+    template: template-rewrite.tex
+    keep_tex: true

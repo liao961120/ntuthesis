@@ -1,71 +1,9 @@
-$if(ntu-template)$
-    \documentclass[oneside, $ntu-template$]{ntuthesis}
+$if(two-side)$
+  \documentclass[]{book}
 $else$
-    \documentclass[oneside]{ntuthesis}    
+  \documentclass[oneside]{book}
 $endif$
-
-\usepackage{times}
-\usepackage{verbatim}
-\usepackage{color}
-\usepackage{url}
-\usepackage{graphicx}
-\usepackage{array}
-\usepackage{wallpaper}
-\usepackage[printwatermark]{xwatermark}
-\usepackage{graphicx}
-\usepackage{pdfpages}
-
-% Using the tex-text mapping for ligatures etc.
-\defaultfontfeatures{Mapping=tex-text}
-
-% Set the default fonts
-$if(en-mainfont)$
-\setmainfont{$en-mainfont$} % Times New Roman  %Liberation Serif
-$else$
-\setmainfont{Times New Roman} 
-$endif$
-
-$if(cjk-mainfont)$
-    \setCJKmainfont[AutoFakeBold=2.5, AutoFakeSlant=.3]{$cjk-mainfont$}
-$else$
-    \setCJKmainfont[AutoFakeBold=2.5, AutoFakeSlant=.3]{標楷體}
-$endif$
-
-
-
-% digital object identifier
-\ifdefined\withdoi
-  \insertdoi
-\fi
-
-\makeatletter
-\AtBeginDocument{
-  \hypersetup{
-    pdftitle={\@titleen},
-    pdfauthor={\@authoren},
-    pdfsubject={\@typeen{} \@classen},
-    pdfkeywords={\@keywordsen}
-  }
-}
-\makeatother
-
-% Your information goes here
-%\input{ntuvars} MODIFIED
-\university{National Taiwan University}{國立臺灣大學}
-\college{$college-en$}{$college-zh$}
-\institute{$institute-en$}{$institute-zh$}
-\title{$title-en$}{$title-zh$}
-\author{$author-en$}{$author-zh$}
-\studentid{$studentid$}
-\advisor{$advisor-en$}{$advisor-zh$}
-\defenseyear{$year-ce$}{$year-mg$}
-\defensemonth{$month-en$}{$month-num$}
-\defenseday{$day$}
-\doi{$doi$}
-\keywords{$keyword-en$}{$keyword-zh$}
-
-%%%%%%%%%%%%%%%%%%%%%%% ABOVE: NTU THESIS
-
+%\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
@@ -114,6 +52,8 @@ $if(CJKmainfont)$
     \usepackage{xeCJK}
     \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
 $endif$
+
+
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -202,6 +142,7 @@ $if(graphics)$
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 $endif$
+\let\oldhref=\href
 $if(links-as-notes)$
 % Make links footnotes instead of hotlinks:
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
@@ -267,48 +208,175 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
-
-\begin{document}
-
-\frontmatter
-
-\makecover
-
-\clearpage
-%\pagenumbering{gobble}
-\pagenumbering{roman}
-
-
-\ifdefined\withcertification
-  \includepdf[angle=0]{certification.pdf}
-\else
-  \makecertification
-\fi
+$if(title)$
+\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+$if(subtitle)$
+\providecommand{\subtitle}[1]{}
+\subtitle{$subtitle$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+$if(institute)$
+\providecommand{\institute}[1]{}
+\institute{$for(institute)$$institute$$sep$ \and $endfor$}
+$endif$
+\date{$date$}
 
 
-$if(acknowledge-in-en)$
-  \begin{acknowledgementsen}
-  $acknowledgements$
-  \end{acknowledgementsen}
+\usepackage{fontspec}
+%使用xeCJK，其他的還有CJK或是xCJK
+\usepackage{xeCJK}
+\usepackage{bm}
+
+% Set the default fonts
+$if(en-mainfont)$
+  \setmainfont{$en-mainfont$} % Times New Roman  %Liberation Serif
 $else$
-  \begin{acknowledgementszh}
-  $acknowledgements$
-  \end{acknowledgementszh}
+  \setmainfont{Times New Roman}
+$endif$
+
+$if(cjk-mainfont)$
+    $if(cjk-boldfont)$
+        \setCJKmainfont[
+	    BoldFont={$cjk-boldfont$}  % 粗體字
+        ]{$cjk-mainfont$}
+    $else$
+        $if(cjk-style)$
+            \setCJKmainfont[$cjk-style$]{$cjk-mainfont$} %標楷體 %AR PL KaitiM Big5
+            %\setCJKmainfont[AutoFakeBold=1,AutoFakeSlant=.4]{BiauKai}
+        $else$
+            \setCJKmainfont{$cjk-mainfont$}
+        $endif$
+    $endif$
+$else$
+    \setCJKmainfont{標楷體}
 $endif$
 
 
-\begin{abstractzh}
+
+% IPA support (Works with linguisticsdown)
+$if(ipa-font)$
+  \newfontfamily\ipa{$ipa-font$} % Font for IPA symbols
+  \DeclareTextFontCommand{\ipatext}{\ipa}
+$endif$
+
+
+\usepackage{xcolor}
+\usepackage{transparent}
+\usepackage[printwatermark]{xwatermark}
+
+$if(watermark)$
+  \newwatermark*[allpages,xpos=6.1725cm,ypos=10.5225cm,scale=0.5]{\includegraphics{$watermark$}}
+$endif$
+
+
+
+\begin{document}
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+\includepdf[pages={1}, scale=1]{front_matter/front_matter.pdf}
+
+\clearpage
+\pagenumbering{roman}
+
+\phantomsection
+\addcontentsline{toc}{chapter}{口試委員會審定書}
+\includepdf[pages={1}, scale=1]{certification-scan.pdf}
+
+
+$if(acknowledgements)$
+\phantomsection
+\chapter*{$acknowledgements-title$}
+$acknowledgements$
+\addcontentsline{toc}{chapter}{$acknowledgements-title$}
+$endif$
+
+
+$if(abstract-zh)$
+\phantomsection
+\chapter*{摘要}
 $abstract-zh$
-\bigbreak
-\noindent \textbf{關鍵字：}{\, \makeatletter \@keywordszh \makeatother}
-\end{abstractzh}
+\addcontentsline{toc}{chapter}{中文摘要}
+$endif$
 
-
-\begin{abstracten}
+$if(abstract-en)$
+\phantomsection
+\chapter*{Abstract}
 $abstract-en$
-\bigbreak
-\noindent \textbf{Keywords:}{\, \makeatletter \@keywordsen \makeatother}
-\end{abstracten}
+\addcontentsline{toc}{chapter}{英文摘要}
+$endif$
 
 
+$if(toc)$
+{
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+%\phantomsection
+%\addcontentsline{toc}{chapter}{\contentsname}
+}
+$endif$
+
+\newpage
+
+\listoftables
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
+\newpage
+
+\listoffigures
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+\newpage
+
+% Set independent linestretch for code chunks
+\let\oldShaded=\Shaded
+\let\endoldShaded=\endShaded
+\renewenvironment{Shaded}{
+  $if(linestretch-code)$
+    \begin{spacing}{$linestretch-code$}\begin{oldShaded}
+  $else$
+    \begin{spacing}{1.2}\begin{oldShaded}
+  $endif$
+  }
+  {
+  \end{oldShaded}
+  \end{spacing}
+  }
+
+\clearpage
+\pagenumbering{arabic}
+
+$body$
+
+
+
+
+$if(natbib)$
+  $if(bibliography)$
+    $if(biblio-title)$
+
+      $if(book-class)$
+        \renewcommand\bibname{$biblio-title$}
+      $else$
+        \renewcommand\refname{$biblio-title$}
+      $endif$
+    $endif$
+      \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+  $endif$
+$endif$
+
+
+$if(biblatex)$
+  \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+$endif$
+
+$for(include-after)$
+$include-after$
+
+$endfor$
 \end{document}

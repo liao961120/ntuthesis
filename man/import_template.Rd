@@ -4,12 +4,15 @@
 \alias{import_template}
 \title{Import Thesis Template}
 \usage{
-import_template(name = "My_Thesis")
+import_template(name = "My_Thesis", template = c("ntu"))
 }
 \arguments{
 \item{name}{The name of the thesis project to create.
-Note `name` can't be path, i.e, `name` can't contain
-`/`s.}
+Note \code{name} can't be path, i.e, \code{name}
+can't contain \code{/}s.}
+
+\item{template}{String. The template used. Defaults to
+\code{ntu}.}
 }
 \description{
 \code{import_template} creates a thesis template.
