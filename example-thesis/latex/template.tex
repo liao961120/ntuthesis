@@ -265,11 +265,23 @@ $endif$
 
 \usepackage{xcolor}
 \usepackage{transparent}
-\usepackage[printwatermark]{xwatermark}
 
 $if(watermark)$
-  \newwatermark*[allpages,xpos=6.1725cm,ypos=10.5225cm,scale=0.5]{\includegraphics{$watermark$}}
+\usepackage{tikz}
+\usepackage[printwatermark]{xwatermark}
+\newsavebox\mybox
+\savebox\mybox{\tikz[]\node[opacity=0.2]{\includegraphics{$watermark$}};}
+\newwatermark*[
+  allpages,
+  %angle=45,
+  scale=0.18,
+  xpos=6.3725cm,
+  ypos=10.8225cm
+]{\usebox\mybox}
 $endif$
+
+
+
 
 
 

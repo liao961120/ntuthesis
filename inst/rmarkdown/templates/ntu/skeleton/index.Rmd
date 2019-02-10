@@ -14,7 +14,7 @@ en-mainfont: 'Liberation Serif'  # Default: Times New Roman
 indent: false    # Indent new paragraph, else adds space between paragraphs 
 linestretch: 2   # If Chinese: 1.5
 linestretch-code: 1.5  # linestretch for code chunks
-watermark: watermark.pdf    # ntu watermark file (must be in root dir)
+watermark: watermark.png    # ntu watermark file (must be in root dir)
 link-citations: yes         # internal links to references
 bibliography: ref.bib
 ## Shouldn't touch things below unless familiar with R Markdown
