@@ -5,7 +5,7 @@ klippy::klippy(position = c('top', 'right'),
 
 # 安裝 {#install}
 
-### `v1.0.0`
+### `v1.0.0` {-}
 
 2019-02-10 之前已使用 `ntuthesis` 撰寫論文者，請下載 `v1.0.0`：
 ```r
@@ -13,7 +13,7 @@ klippy::klippy(position = c('top', 'right'),
 remotes::install_github("liao961120/ntuthesis@v1.0.0")
 ```
 
-### 最新版
+### 最新版 {-}
 ```r
 #install.packages('remotes')
 remotes::install_github("liao961120/ntuthesis")
