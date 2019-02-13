@@ -3,4 +3,6 @@
 export(comp_front)
 export(import_template)
 export(init_proj)
+export(word2pdf)
 importFrom(rlang,abort)
+importFrom(tools,file_ext)

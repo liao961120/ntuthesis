@@ -84,7 +84,7 @@ knitr::opts_chunk$set(
 
 1. 使用 Word 製作**論文封面**，將 Word 檔命名為 `front_matter.docx` 置於 `front_matter` 資料夾中
 
-1. 將由 Word 輸出的論文封面命名為 `front_matter.pdf` 置於 `front_matter` 資料夾中
+1. 將由 Word 輸出^[若 Word 沒有內建 PDF 輸出功能，可使用 `ntuthesis::word2pdf('front_matter.docx', 'front_matter.pdf')` 將 Word 輸出為 PDF。]的論文封面命名為 `front_matter.pdf` 置於 `front_matter` 資料夾中
 
 1. 至 [`latex/template.tex`](https://github.com/liao961120/ntuthesis/blob/a97c1f583b6103792912bf125540b8dde2db30e9/example-thesis/latex/template.tex#L294) 找到下方這行：
     
