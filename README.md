@@ -2,16 +2,15 @@
 
 # ntuthesis
 
-
-這是國立臺灣大學的論文模板，
-基於 [bookdown](https://github.com/rstudio/bookdown) 的架構。為了方便使用，將此模板打包成 R Package，方便使用者下載及使用內建函數。
-
+這是國立臺灣大學的論文模板，基於 [bookdown](https://github.com/rstudio/bookdown) 的架構。為了方便使用，將此模板打包成 R Package，方便使用者下載及使用內建函數。
 
 輸出範例：
 
 - [中文 PDF](https://liao961120.github.io/ntuthesis/doc/ntu-bookdown.pdf)
 - [英文 PDF](https://liao961120.github.io/ntuthesis/doc/ntu-bookdown-en.pdf)
 
+
+此套件亦可用於他校論文的撰寫，詳見 [建立他校模板](https://liao961120.github.io/ntuthesis/docs/articles/extend_template.html)。
 
 ## 安裝
 
@@ -38,5 +37,5 @@ remotes::install_github("liao961120/ntuthesis")
 
 ## 特別感謝
 
-LaTeX 的封面模板是根據 [tzhuan/ntu-thesis](https://github.com/tzhuan/ntu-thesis) 修改而成。
+臺大論文模板的封面是根據 [tzhuan/ntu-thesis](https://github.com/tzhuan/ntu-thesis) 修改而成。
 
