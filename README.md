@@ -10,7 +10,7 @@
 - [英文 PDF](https://liao961120.github.io/ntuthesis/doc/ntu-bookdown-en.pdf)
 
 
-此套件亦可用於他校論文的撰寫，詳見 [建立他校模板](https://liao961120.github.io/ntuthesis/docs/articles/extend_template.html)。
+此套件亦可用於他校論文的撰寫，詳見 [建立他校模板](https://liao961120.github.io/ntuthesis/articles/extend_template.html)。
 
 ## 安裝
 
