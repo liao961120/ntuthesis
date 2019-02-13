@@ -16,3 +16,4 @@ to be generated. Must be in \code{.pdf} format.}
 \description{
 Pandoc Wrapper function
 }
+\keyword{internal}

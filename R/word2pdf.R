@@ -7,7 +7,7 @@
 #' @param outfile String. File path of the output pdf document
 #'   to be generated. Must be in \code{.pdf} format.
 #' @importFrom tools file_ext
-#' @export
+#' @keywords internal
 word2pdf <- function(infile = 'word.docx', outfile = 'word.pdf') {
   stopifnot(file.exists(infile))
   if (file_ext(infile) != 'docx') stop('Input file not `docx` format')
