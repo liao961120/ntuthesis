@@ -15,7 +15,7 @@ word2pdf <- function(infile = 'word.docx', outfile = 'word.pdf') {
 
   pandoc <- rmarkdown:::find_pandoc()
   if (!is.null(pandoc$dir)) {
-    pandoc_files <- list.files(pandoc$dir, full.names = T)[[1]]
+    pandoc_files <- list.files(pandoc$dir, full.names = T)
     idx <- grepl('^pandoc(\\.exe)?$', basename(pandoc_files))
     pandoc_exe <- pandoc_files[idx]
   } else if (!Sys.which("pandoc") == "") {
