@@ -22,6 +22,8 @@ navbar:
     - icon: fa-book
       text: "使用說明 \u2197"
       href: https://liao961120.github.io/ntuthesis/doc/
+    - text: "他校模板"
+      href: articles/extend_template.html
   right:
     - icon: fa-github
       href: https://github.com/liao961120/ntuthesis

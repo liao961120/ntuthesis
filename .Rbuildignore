@@ -1,3 +1,4 @@
+^vignettes/extend_template\.Rmd$
 ^docs$
 ^_pkgdown\.yml$
 ^.*\.Rproj$

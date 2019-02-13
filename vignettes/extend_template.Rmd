@@ -1,0 +1,235 @@
+---
+title: "建立他校模板"
+subtitle: "使用 ntuthesis 撰寫他校論文"
+author: "[Yongfu Liao](https://liao961120.github.io)"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+這篇文章將說明如何修改 `ntuthesis` 內建的模板，使其能用於他校論文的撰寫。
+
+
+<!-- `ntuthesis` 原本僅用作臺灣大學的論文模板，但由於其本身為 R 套件，具有擴充的特性，可用於撰寫其它學校的論文。 -->
+
+對於有興趣以 `ntuthesis` 撰寫他校論文模板者，我們建議將完成的模板貢獻至此套件^[可使用 Email 直接將論文資料夾壓縮寄過來]，讓更多人受益。下文將說明模板的製作方式，幫助讀者擴充此套件。在開始閱讀前，建議先閱讀過 `ntuthesis` 的[使用說明](/ntuthesis/doc)
+若有任何問題，歡迎[來信](mailto:liao961120@gmail.com)詢問。
+
+
+## 模板組成
+
+`ntuthesis` 的模板組成有兩個部份 -- **封面**及**內文**。封面是獨立於內文生成的，亦即，每此輸出論文 (按下 RStudio 的 `build book`) 時，只有內文會重新生成但封面不會。一個學校的論文格式，排版最複雜的地方就是在封面，但內文通常都大同小異。換句話說，要製作一個新的論文模板，只要搞定封面的生成，就完成了大多數的工作。
+
+以臺大論文模板為例，其兩部份的組成如下：
+
+1. 封面
+    - [論文封面](https://liao961120.github.io/ntuthesis/doc/ntu-bookdown.pdf#page=1)
+    - [口試委員審定書](https://liao961120.github.io/ntuthesis/doc/ntu-bookdown.pdf#page=2)
+    
+1. 內文
+    - 致謝、摘要、Abstract、目錄、內容 ...
+
+這兩部份的樣式，大致上可對應到模板[^import]中的兩個資料夾 -- **`front_matter/`** (封面) 與 **`latex/`** (內文)：
+
+```yaml
+├── front_matter/
+│   ├── certification.tex
+│   ├── ntuthesis.cls
+│   ├── ntuvars.tex
+│   ├── output.yml
+│   └── template-rewrite.tex
+├── latex/
+│   ├── mathjax_bm.tex
+│   ├── preamble-en.tex
+│   ├── preamble-zh.tex
+│   └── template.tex
+|
+├── _person-info.yml     # Info to generate front matter
+├── index.Rmd            # Book Layout (font, watermark, biblio, ...)
+├── _output.yml          # preamble, pandoc args, cite-pkg
+├── watermark.png        # 臺大浮水印 (右上角)
+├── certification-scan.pdf  # 已簽名'口試委員審查書'
+|
+|   ####### 僅上方檔案與論文樣式設定有關 #########
+|
+├── _bookdown.yml        # label names in gitbook; Rmd files order
+├── R/                   # code chunk root dir, put R scripts and data here
+├── figs/                # Put figures to include in the thesis here
+├── _acknowledge.Rmd     # acknowledgement
+├── _abstract-en.Rmd     # abstract
+├── _abstract-zh.Rmd     # Same as above, but in Chinese
+├── 01-intro.Rmd         # Chapter 1 content
+├── ...
+├── 99-references.Rmd    # Edit "References" Title
+├── ref.bib              # References
+└── cite-style.csl       # Citation style
+```
+
+## 封面製作 (`front_matter/` 設定)
+
+`front_matter/` 內有許多檔案，看似相當複雜。確實，如果想要從結構化資料生成封面 (如臺大論文模板使用 `_person-info.yml` 生成封面資料)，需要對 $\LaTeX$ 有相當程度的認識，同時也會使 `front_matter/` 會變得有點複雜。一個更簡單直接的方式是直接使用 Word 檔製作封面並**輸出成 PDF 檔**。如果使用這種方式，則可略過說明文件中[編輯封面](/ntuthesis/doc/export-thesis.html#edit-front-matter)的步驟。
+
+### 論文封面 {#cover}
+
+
+1. 使用 Word 製作**論文封面**，將 Word 檔命名為 `front_matter.docx` 置於 `front_matter` 資料夾中
+
+1. 將由 Word 輸出的論文封面命名為 `front_matter.pdf` 置於 `front_matter` 資料夾中
+
+1. 至 [`latex/template.tex`](https://github.com/liao961120/ntuthesis/blob/a97c1f583b6103792912bf125540b8dde2db30e9/example-thesis/latex/template.tex#L294) 找到下方這行：
+    
+    ```tex
+    \includepdf[pages={1}, scale=1]{front_matter/front_matter.pdf}
+    ```
+
+    將其修改為需要的格式。例如，你想將 `front_matter.pdf` 的**所有頁面**加入論文，可將其修改為：
+
+    ```tex
+    \includepdf[pages={1-}, scale=1]{front_matter/front_matter.pdf}
+    ```
+
+    或是，你只需要 `front_matter.pdf` 的**第二頁**：
+
+    ```tex
+    \includepdf[pages={2}, scale=1]{front_matter/front_matter.pdf}
+    ```
+
+### 口試委員審定書 {#certification}
+
+
+1. 使用 Word 製作**口試委員審定書**，將 Word 檔命名為 `certification.docx` 置於 `front_matter` 資料夾中
+
+1. 將由 Word 輸出的口試委員審定書命名為 `certification.pdf` 置於 `front_matter` 資料夾中，此應為空白、尚未簽名的口試委員審定書
+
+1. 將已簽名的口試委員審定書掃描成 PDF 檔，命名為 `certification-scan.pdf`，並放在**論文資料夾 (而非 `front_matter/`)**
+
+1. 至 [`latex/template.tex`](https://github.com/liao961120/ntuthesis/blob/a97c1f583b6103792912bf125540b8dde2db30e9/example-thesis/latex/template.tex#L299-L301) 找到下方這幾行：
+
+    ```tex
+    \phantomsection
+    \addcontentsline{toc}{chapter}{口試委員會審定書}
+    \includepdf[pages={1}, scale=1]{certification-scan.pdf}
+    ```
+
+    若口試委員審定書僅有 1 頁，則不需更動。若超過 1 頁，請依上方 [論文封面](#cover) 的說明修改 `\includepdf[pages={1}, scale=1]{certification-scan.pdf}`。
+
+
+```tex
+\phantomsection
+\addcontentsline{toc}{chapter}{口試委員會審定書}
+```
+
+這兩行是用以將口試委員審定書加入論文目錄。若論文格式尚包含其它內文以外的頁面需加入目錄，請依照此節的方式新增這些頁面。
+
+
+
+
+## 內文
+
+`index.Rmd`
+
+```yaml
+two-side: false  # Whether to start new chapter on odd pages
+cjk-mainfont: 'AR PL KaitiM Big5'  # Default: 標楷體
+#cjk-boldfont:    # Don't set if same as cjk-mainfont
+cjk-style: 'AutoFakeBold=2.5, AutoFakeSlant=.3' #
+en-mainfont: 'Liberation Serif'  # Default: Times New Roman
+#ipa-font: 'Doulos SIL'  # works with 'linguisticsdown', delete if not needed
+#secnumdepth: 2   # section numbering at most to x.y.z
+indent: false    # Indent new paragraph, else adds space between paragraphs 
+linestretch: 1.5   # If Chinese: 1.5
+linestretch-code: 1.5  # linestretch for code chunks
+watermark: watermark.png    # ntu watermark file (must be in root dir)
+link-citations: yes         # internal links to references
+bibliography: ref.bib
+## Shouldn't touch things below unless familiar with R Markdown
+#biblio-style: apa #authoryear
+#biblatexoptions: [backend = biber, style = caspervector, utf8, sorting = cenyt]
+#biblio-title: "biblatex 參考文獻"
+links-as-notes: true
+always_allow_html: yes
+geometry: a4paper, left=1.18in, right=1.18in, top=1.18in, bottom=0.787in
+fontsize: 12pt
+subparagraph: yes
+acknowledgements-title: '誌謝'
+```
+
+
+[^import]: 見使用說明：[匯入論文模板](/ntuthesis/doc/export-thesis.html#import-template)。
+
+<!-- ## 檔案結構與模板位置 -->
+
+<!-- 下方是 `ntuthesis` 在 GitHub 上的檔案結構 (精簡過)。模板存放的位置在 `inst/rmarkdown/templates/<school>/`，例如 `ntuthesis` 的預設模板即存放在 `inst/rmarkdown/templates/ntu/`。 -->
+
+<!-- 想要新增模板，基本上僅需在 `inst/rmarkdown/templates/` 下新增一個模板資料夾。 -->
+
+<!-- ```yaml -->
+<!-- / -->
+<!-- ├── DESCRIPTION -->
+<!-- ├── NAMESPACE -->
+<!-- ├── README.md -->
+<!-- ├── inst/ -->
+<!-- │   ├── init-project/ -->
+<!-- │   └── rmarkdown/ -->
+<!-- │       └── templates/ -->
+<!-- │           └── ntu/ -->
+<!-- ├── man/ -->
+<!-- ├── R/ -->
+<!-- └── vignettes/ -->
+<!-- ``` -->
+
+
+<!-- ## 模板結構 -->
+
+<!-- 下方是臺大論文模板 (套件預設) 的結構。 -->
+
+<!-- ```yaml -->
+<!-- inst/rmarkdown/templates/ntu/ -->
+<!-- ├── template.yaml -->
+<!-- └── skeleton/ -->
+<!--     ├── _bookdown.yml -->
+<!--     ├── _output.yml -->
+<!--     ├── _person-info.yml -->
+<!--     ├── front_matter/ -->
+<!--     │   ├── certification.tex -->
+<!--     │   ├── ntuthesis.cls -->
+<!--     │   ├── ntuvars.tex -->
+<!--     │   ├── output.yml -->
+<!--     │   └── template-rewrite.tex -->
+<!--     ├── latex/ -->
+<!--     │   ├── mathjax_bm.tex -->
+<!--     │   ├── preamble-en.tex -->
+<!--     │   ├── preamble-zh.tex -->
+<!--     │   └── template.tex -->
+<!--     │ -->
+<!--     ├── index.Rmd -->
+<!--     ├── skeleton.Rmd -->
+<!--     ├── 01-install-compile.Rmd -->
+<!--     ├── ... -->
+<!--     ├── ref.bib -->
+<!--     ├── cite-style.csl -->
+<!--     ├── certification-scan.pdf -->
+<!--     ├── figs/ -->
+<!--     ├── R/ -->
+<!--     ├── _abstract-en.Rmd -->
+<!--     ├── _abstract-zh.Rmd -->
+<!--     ├── _acknowledge.Rmd -->
+<!--     ├── style.css -->
+<!--     └── watermark.pdf -->
+<!-- ``` -->
+
+
+<!-- ### R Markdown Word 模板製作 -->
+
+<!-- - [Video](https://vimeo.com/110804387): 4 min 45 sec -->
+<!-- - [Post](https://rmarkdown.rstudio.com/articles_docx.html): Happy collaboration with Rmd to docx -->
