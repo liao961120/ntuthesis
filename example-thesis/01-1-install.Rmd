@@ -3,7 +3,7 @@ klippy::klippy(position = c('top', 'right'),
                all_precode = TRUE)
 ```
 
-# 安裝 {#install}
+# 安裝 {#install} 
 
 ### `v1.0.0` {-}
 

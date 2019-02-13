@@ -1,6 +1,6 @@
 Package: ntuthesis
 Title: Bookdown Thesis Template for NTU
-Version: 1.0.0
+Version: 1.1.0
 Authors@R:
     person(given = "Yongfu", 
            family = "Liao",
@@ -10,7 +10,7 @@ Authors@R:
 URL: https://liao961120.github.io/ntuthesis, https://github.com/liao961120/ntuthesis
 BugReports: https://github.com/liao961120/ntuthesis/issues
 Description: Writing thesis with Bookdown.
-Depends: R (>= 3.4.4)
+Depends: R (>= 3.4.0)
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -23,4 +23,4 @@ Remotes: RLesur/klippy@v0.0.0.9400
 VignetteBuilder: knitr
 Imports: bookdown,
     rlang
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1

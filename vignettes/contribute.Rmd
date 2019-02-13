@@ -1,0 +1,94 @@
+---
+title: "擴充 ntuthesis：新增他校模板"
+author: "[Yongfu Liao](https://liao961120.github.io)"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+這篇文章將說明如何為 `ntuthesis` 建置新模板，期望可以作為新增他校模板的參考。
+
+`ntuthesis` 原本僅用作臺灣大學的論文模板，但由於其本身為 R 套件，具有擴充的特性，可用於撰寫其它學校的論文。對於有興趣以 `ntuthesis` 為基礎製作他校論文模板者，我們建議將完成的模板貢獻至此套件，讓更多人受益 (也免除貢獻者學習 R 套件開發的負擔)。下文將說明模板的製作方式，幫助讀者擴充此套件。若有任何問題，歡迎[來信](mailto:liao961120@gmail.com)詢問。
+
+
+## 檔案結構與模板位置
+
+下方是 `ntuthesis` 在 GitHub 上的檔案結構 (精簡過)。模板存放的位置在 `inst/rmarkdown/templates/<school>/`，例如 `ntuthesis` 的預設模板即存放在 `inst/rmarkdown/templates/ntu/`。
+
+想要新增模板，基本上僅需在 `inst/rmarkdown/templates/` 下新增一個模板資料夾。
+
+```yaml
+/
+├── DESCRIPTION
+├── NAMESPACE
+├── README.md
+├── inst/
+│   ├── init-project/
+│   └── rmarkdown/
+│       └── templates/
+│           └── ntu/
+├── man/
+├── R/
+└── vignettes/
+```
+
+
+## 模板結構
+
+下方是臺大論文模板 (套件預設) 的結構。
+
+```yaml
+inst/rmarkdown/templates/ntu/
+├── template.yaml
+└── skeleton/
+    ├── _bookdown.yml
+    ├── _output.yml
+    ├── _person-info.yml
+    ├── front_matter/
+    │   ├── certification.tex
+    │   ├── ntuthesis.cls
+    │   ├── ntuvars.tex
+    │   ├── output.yml
+    │   └── template-rewrite.tex
+    ├── latex/
+    │   ├── mathjax_bm.tex
+    │   ├── preamble-en.tex
+    │   ├── preamble-zh.tex
+    │   └── template.tex
+    │
+    ├── index.Rmd
+    ├── skeleton.Rmd
+    ├── 01-install-compile.Rmd
+    ├── ...
+    ├── ref.bib
+    ├── cite-style.csl
+    ├── certification-scan.pdf
+    ├── figs/
+    ├── R/
+    ├── _abstract-en.Rmd
+    ├── _abstract-zh.Rmd
+    ├── _acknowledge.Rmd
+    ├── style.css
+    └── watermark.pdf
+```
+
+決定模板樣式的關鍵基本上只有：
+
+1. `front_matter/`
+1. `latex/template.tex`
+
+
+### R Markdown Word 模板製作
+
+- [Video](https://vimeo.com/110804387): 4 min 45 sec
+- [Post](https://rmarkdown.rstudio.com/articles_docx.html): Happy collaboration with Rmd to docx
