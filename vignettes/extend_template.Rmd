@@ -136,31 +136,51 @@ knitr::opts_chunk$set(
 
 ## 內文 {#content}
 
-`index.Rmd`
+關於內文的修改，例如，語言、頁邊距離、字體、行距、[浮水印樣式](https://bit.ly/2BCkHM8)與 `index.Rmd`, `latex/template.tex`, `latex/preamble-en.tex`, `latex/preamble-zh.tex` 內的設定有關。有些設定 (例如，浮水印樣式) 需牽涉到一些 $LaTeX$ 的知識才能自訂，並非本文重點 (有興趣者可研究原始碼)。
+
+### 語言 {#language}
+
+與語言設定最相關的兩個檔案是 `latex/preamble-en.tex`, `latex/preamble-zh.tex`。
+
+在 [`latex/preamble-zh.tex`](https://github.com/liao961120/ntuthesis/blob/master/example-thesis/latex/preamble-zh.tex) 中，語言的設定僅與下列幾行有關：
+
+```tex
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+\renewcommand{\contentsname}{目錄}
+\renewcommand{\listfigurename}{圖目錄}
+\renewcommand{\listtablename}{表目錄}
+\renewcommand{\appendixname}{附錄}
+```
+
+例如，想要更改原本的圖片開頭名稱，可將 `\renewcommand{\figurename}{表}` 修改為：
+
+```tex
+\renewcommand{\figurename}{表格}
+```
+
+至於中文論文的樣式 (例如，$LaTeX$ 預設的章節開頭名稱為 `Chapter `，但這裡中文的論文輸出為 `第 x 章`)，主要是 `ctex` 套件的內建設定，並不建議修改：
+```tex
+\usepackage[heading, fontset = none]{ctex}
+```
+
+### 頁邊距離、字體、行距 {#margin-font-linestretch}
+
+至於頁邊距離、字體與行距可直接在 `index.Rmd` 的 yaml header 中設定：
 
 ```yaml
 two-side: false  # Whether to start new chapter on odd pages
 cjk-mainfont: 'AR PL KaitiM Big5'  # Default: 標楷體
 #cjk-boldfont:    # Don't set if same as cjk-mainfont
-cjk-style: 'AutoFakeBold=2.5, AutoFakeSlant=.3' #
+cjk-style: 'AutoFakeBold=2.5, AutoFakeSlant=.3' # comment out this line if `cjk-boldfont` is set
 en-mainfont: 'Liberation Serif'  # Default: Times New Roman
 #ipa-font: 'Doulos SIL'  # works with 'linguisticsdown', delete if not needed
-#secnumdepth: 2   # section numbering at most to x.y.z
-indent: false    # Indent new paragraph, else adds space between paragraphs 
-linestretch: 1.5   # If Chinese: 1.5
+#secnumdepth: 2        # section numbering at most to x.y.z
+linestretch: 1.5       # If Chinese: 1.5
 linestretch-code: 1.5  # linestretch for code chunks
-watermark: watermark.png    # ntu watermark file (must be in root dir)
-link-citations: yes         # internal links to references
-bibliography: ref.bib
-## Shouldn't touch things below unless familiar with R Markdown
-#biblio-style: apa #authoryear
-#biblatexoptions: [backend = biber, style = caspervector, utf8, sorting = cenyt]
-#biblio-title: "biblatex 參考文獻"
-links-as-notes: true
-always_allow_html: yes
+watermark: watermark.png  # path to watermark file (must be in root dir)
 geometry: a4paper, left=1.18in, right=1.18in, top=1.18in, bottom=0.787in
 fontsize: 12pt
-subparagraph: yes
 acknowledgements-title: '誌謝'
 ```
 
