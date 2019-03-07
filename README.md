@@ -32,8 +32,17 @@ remotes::install_github("liao961120/ntuthesis")
 
 ## 使用
 
-見[使用說明](https://liao961120.github.io/ntuthesis/doc)。
+關於詳細的使用說明，見[套件網頁](https://liao961120.github.io/ntuthesis/doc)。
 
+
+## 問題
+
+若有套件使用上的問題，可在 [GitHub](https://github.com/liao961120/ntuthesis/issues) 回報。若沒有 GitHub 帳號，可透過 [Email](mailto:liao961120@gmail.com) 聯絡 [Yongfu Liao](https://liao961120.github.io)。
+
+
+## 其它
+
+關於此套件的部落格[文章](https://liao961120.github.io/2019/03/07/ntuthesis.html)
 
 ## 特別感謝
 
