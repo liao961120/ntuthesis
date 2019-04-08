@@ -4,11 +4,15 @@
 \alias{init_proj}
 \title{Initialize current directory as a bookdown project}
 \usage{
-init_proj(dir = ".")
+init_proj(dir = ".", download_font = TRUE)
 }
 \arguments{
 \item{dir}{The path to the dircetory to initialize as
 a project.}
+
+\item{download_font}{Logical. Whether to download \code{kaiu.ttf}
+for CJK mainfont & \code{NotoSansMonoCJKtc.otf} for CJK mono font.
+Defaults to \code{TRUE}.}
 }
 \description{
 Initialize current directory as a bookdown project

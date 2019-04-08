@@ -1,6 +1,6 @@
 #ntu-template: 'phd' # phd, proposal
-cjk-mainfont: 'AR PL KaitiM Big5'  # Default, 標楷體
-en-mainfont: 'Liberation Serif'  # Default, Times New Roman
+#cjk-mainfont: '標楷體'  # Default, kaiti.ttf
+#en-mainfont: 'Liberation Serif'  # Default, Times New Roman
 title-en: 'A Minimal NTU Thesis Bookdown Template'
 title-zh: '臺灣大學論文 Bookdown 模板'
 advisor-zh: |

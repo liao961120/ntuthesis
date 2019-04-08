@@ -234,7 +234,12 @@ $endif$
 $if(en-mainfont)$
   \setmainfont{$en-mainfont$} % Times New Roman  %Liberation Serif
 $else$
-  \setmainfont{Times New Roman}
+  \setmainfont[
+  Path=latex/,
+  BoldFont={TimesNewRoman-bold.ttf},
+  ItalicFont={TimesNewRoman-italic.ttf},
+  BoldItalicFont={TimesNewRoman-bold_italic.ttf}
+  ]{TimesNewRoman-regular.ttf}
 $endif$
 
 $if(cjk-mainfont)$
@@ -251,7 +256,7 @@ $if(cjk-mainfont)$
         $endif$
     $endif$
 $else$
-    \setCJKmainfont{標楷體}
+    \setCJKmainfont[Path=latex/, AutoFakeBold=2.5, AutoFakeSlant=.4]{kaiti.ttf}
 $endif$
 
 

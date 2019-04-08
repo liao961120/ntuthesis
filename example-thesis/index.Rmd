@@ -6,10 +6,10 @@ date: "`r format(Sys.Date(), '%B %e, %Y')`" # Gitbook Date
 site: bookdown::bookdown_site
 ## Opts above are for gitbook output; below are for PDF output
 two-side: false  # Whether to start new chapter on odd pages
-cjk-mainfont: 'AR PL KaitiM Big5'  # Default: 標楷體
+#cjk-mainfont: '標楷體'  # Default: kaiti.ttf
 #cjk-boldfont:    # Don't set if same as cjk-mainfont
-cjk-style: 'AutoFakeBold=2.5, AutoFakeSlant=.3' #
-en-mainfont: 'Liberation Serif'  # Default: Times New Roman
+#cjk-style: 'Path=latex/, AutoFakeBold=2.0, AutoFakeSlant=.4' #
+#en-mainfont: 'Liberation Serif'  # Default: Times New Roman
 #ipa-font: 'Doulos SIL'  # works with 'linguisticsdown', delete if not needed
 #secnumdepth: 2   # section numbering at most to x.y.z
 indent: false    # Indent new paragraph, else adds space between paragraphs 
