@@ -19,7 +19,7 @@ remotes::install_github("liao961120/ntuthesis@v1.0.0")
 remotes::install_github("liao961120/ntuthesis")
 ```
 
-新版的 `ntuthesis` 能加入其它學校的模板，目前正在開發中。API 與舊版兼容，但舊的 `ntu_bookdown` 模板已更新為 `ntu`，並且不容於新版。已使用 `ntu_bookdown` 模板者，請下載 `v1.0.0`。
+新版的 `ntuthesis` 較易擴充其它學校的模板，目前正在開發中。API 與舊版兼容，但舊的 `ntu_bookdown` 模板已更新為 `ntu`，並且不容於新版。已使用 `ntu_bookdown` 模板者，請下載 `v1.0.0`。
 
 
 ## IDE
@@ -43,21 +43,21 @@ install.packages('tinytex')
 
 - [Linux x86_64](http://bit.ly/TinyTex-linux)
 - [Windows 7/10 64bit](http://bit.ly/TinyTeX-win)
-- Mac 使用者請略過此節，閱讀 \@ref(tinytex-manage) 節
+- Mac 使用者在安裝 TinyTeX Library 時**很可能會遇到問題**。請跳過下方內容，直接從 \@ref(mac) 節開始閱讀，幸運的話可以直接安裝成功。若失敗的話，可參考此二連結中的對話串：[tinytex installation pain on Mac](https://github.com/yihui/tinytex/issues/92) 與 [/usr/local/bin not writable](https://github.com/yihui/tinytex/issues/24)。
 
 下載檔案後，
 
 a) 將檔案解壓縮[^decompress]
 
-a) 將解壓後資料夾中的 `.TinyTeX/`[^wintiny] 放至喜歡的路徑（e.g. `~/.TinyTeX`）
+a) 將解壓後資料夾中的 `.TinyTeX/`[^wintiny] 放至喜歡的路徑（e.g. `C:\Users\<username>\.TinyTeX`, 路徑儘量簡單且**不能包含中文字**）
 
 a) 接著在 R 中執行：
 ```r
 tinytex::use_tinytex()
 ```
-即會跳出一個視窗。請選擇 `.TinyTeX/` 所在的路徑。
+即會跳出一個視窗。請選擇剛剛存放 `.TinyTeX/` 的路徑。
 
-  
+
 若失敗詳見[此篇文章](https://yihui.name/en/2018/08/tinytex-flash-drive)。
 
 
@@ -66,13 +66,15 @@ tinytex::use_tinytex()
 
 在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件。因此，使用 TinyTeX 可以減輕管理 LaTeX 套件的麻煩。然而，下載 LaTeX 套件需要許多時間，因此這裡提供預先下載好之 TinyTeX（Windows 和 Linux）。
 
-##### Mac
+##### Mac {#mac}
 
 由於作者沒有 Mac 電腦，無法提供 Mac 版本的 TinyTeX，Mac 使用者需使用
 ```r
 tinytex::install_tinytex()
 ```
-安裝 TinyTeX，之後讓電腦在[輸出論文](#export-thesis)時，自動安裝所需的套件。
+安裝 TinyTeX，之後電腦在[輸出論文](#export-thesis)時，會自動安裝所需的套件。
+
+(若安裝失敗，請看看是否錯誤訊息與此二討論串中類似：[tinytex installation pain on Mac](https://github.com/yihui/tinytex/issues/92)、[/usr/local/bin not writable](https://github.com/yihui/tinytex/issues/24))
 
 這會使得第一次輸出論文時會花費較多時間，然而，若願意的話，您可以將下載到您電腦上的 TinyTeX 提供給其他 Mac 使用者：
 
