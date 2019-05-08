@@ -4,6 +4,15 @@
 \usepackage{booktabs}
 \usepackage{float}
 \usepackage[section]{placeins}
+\usepackage{xeCJK}
+
+% Centering all titles
+% https://tex.stackexchange.com/questions/310205/is-there-a-way-to-center-align-chapter-titles
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+    {\bfseries\centering}
+    {\huge Chapter \thechapter}{1em}
+    {\Huge}
 
 % Eng font-family
 \setmainfont[
