@@ -8,12 +8,17 @@ script:
   - mv DESCRIPTION-pkgdown DESCRIPTION
   - Rscript -e 'pkgdown::build_site()'
   - cp -r _book/ docs/doc
-
+  - cp -rf example-thesis/_book/*.pdf docs/doc/
+  
 cache:
   packages: yes
   directories:
     - $TRAVIS_BUILD_DIR/example-thesis/_bookdown_files
+    - doc-v1
 
+after_success:
+  - mv doc-v1/ docs/
+  
 deploy:
   provider: pages
   skip-cleanup: true
