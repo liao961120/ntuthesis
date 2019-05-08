@@ -16,40 +16,20 @@ ntuthesis::init_proj()  # init working dir as proj.
 
 ## 編輯封面 {#edit-front-matter}
 
-在`_person-info.yml`輸入個人資料後，並且確定電腦上有**標楷體**和 **Times New Roman** 這兩種字體（Windows 有內建這兩種字體）。若無，請將`_person-info.yml`中：
-```yaml
-#cjk-mainfont: 'AR PL KaitiM Big5'  # Default, 標楷體
-#en-mainfont: 'Liberation Serif'  # Default, Times New Roman
-```
+在`_person-info.yml`輸入個人資料後執行：
 
-修改為其它電腦上的字體，例如：
-```yaml
-cjk-mainfont: 'Noto Serif CJK TC'  # Default, 標楷體
-en-mainfont: 'Liberation Serif'  # Default, Times New Roman
-```
-
-接著執行：
 ```r
 ntuthesis::comp_front()
 ```
 
 即會在 `front-matter/` 生成封面所需的檔案。以使用者的角度而言，除了 `front-matter/certification.pdf` 以外，不須理會 `front-matter/` 中的其它檔案。`certification.pdf` 是空白（未簽名）的「口試委員審定書」。
 
-使用者可以將 `front-matter/certification.pdf` 列印出來。之後再將簽名過的「口試委員審定書」掃描成 PDF 並命名為 `certification-scan.pdf` ，取代原本專案資料夾的同名檔案。
+使用者可以將 `front-matter/certification.pdf` 列印出來。之後再將簽名過的「口試委員審定書」掃描成 PDF 並命名為 `certification-scan.pdf` ，取代專案資料夾**根目錄**中的同名檔案。
 
 
 ## Compile 論文 {#compile-thesis}
 
-如同前述（\@ref(edit-front-matter)），在輸出論文時，需確保系統上已安裝**標楷體**和 **Times New Roman**，若無，請依 \@ref(edit-front-matter) 修改 `index.Rmd` yaml 中的
-
-```yaml
-#cjk-mainfont: 'AR PL KaitiM Big5'  # Default: 標楷體
-...
-#en-mainfont: 'Liberation Serif'  # Default: Times New Roman
-```
-
-
-接著用 RStudio Build Pane 裡的 button 輸出論文：
+使用 RStudio Build Pane 裡的 button 輸出論文：
 
 ```{r echo=FALSE, fig.cap="透過 RStudio 輸出論文"}
 if (knitr::is_html_output()) {
@@ -66,5 +46,3 @@ bookdown::render_book("index.Rmd", "bookdown::pdf_book")
 ```
 
 如此便會在 `_book/` 中生成完整的論文（gitbook 和 PDF 格式）。
-
-

@@ -1,3 +1,4 @@
+^doc-v1$
 ^vignettes/extend_template\.Rmd$
 ^docs$
 ^_pkgdown\.yml$
