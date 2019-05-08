@@ -18,22 +18,35 @@ $endif$
 % Using the tex-text mapping for ligatures etc.
 \defaultfontfeatures{Mapping=tex-text}
 
-% Set the default fonts
-$if(en-mainfont)$
-\setmainfont{$en-mainfont$} % Times New Roman  %Liberation Serif
-$else$
-  \setmainfont[
-  BoldFont={TimesNewRoman-bold.ttf},
-  ItalicFont={TimesNewRoman-italic.ttf},
-  BoldItalicFont={TimesNewRoman-bold_italic.ttf}
-  ]{TimesNewRoman-regular.ttf}
-$endif$
+% Eng font-family
+\setmainfont[
+  BoldFont={TimesNewRomanBold},
+  ItalicFont={TimesNewRomanItalic},
+  BoldItalicFont={TimesNewRomanBoldItalic}
+]{TimesNewRoman}
 
-$if(cjk-mainfont)$
-    \setCJKmainfont[AutoFakeBold=2.5, AutoFakeSlant=.3]{$cjk-mainfont$}
-$else$
-    \setCJKmainfont[AutoFakeBold=2.5, AutoFakeSlant=.4]{kaiti.ttf}
-$endif$
+% Trad Ch font-family
+\setCJKmainfont[AutoFakeBold=2.5,AutoFakeSlant=.3]{kaiti}
+\setCJKmonofont{NotoSansMonoCJKtc}
+
+
+
+% Set the default fonts
+% $if(en-mainfont)$
+% \setmainfont{$en-mainfont$} % Times New Roman  %Liberation Serif
+% $else$
+%   \setmainfont[
+%   BoldFont={TimesNewRoman-bold.ttf},
+%   ItalicFont={TimesNewRoman-italic.ttf},
+%   BoldItalicFont={TimesNewRoman-bold_italic.ttf}
+%   ]{TimesNewRoman-regular.ttf}
+% $endif$
+
+% $if(cjk-mainfont)$
+%     \setCJKmainfont[AutoFakeBold=2.5, AutoFakeSlant=.3]{$cjk-mainfont$}
+% $else$
+%     \setCJKmainfont[AutoFakeBold=2.5, AutoFakeSlant=.4]{kaiti.ttf}
+% $endif$
 
 
 

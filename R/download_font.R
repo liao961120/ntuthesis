@@ -1,40 +1,41 @@
-## To Do: Times new roman
-# https://github.com/potyt/fonts/tree/master/macfonts/Times%20New%20Roman
-
-#' Download traditional Chinese font dependencies Rmd PDF output
+#' Download font dependencies for traditional Chinese Rmd PDF output
 #'
-#' Make sure this function is called after 1) importing Rmd template
-#' and 2) setting the current working directory to that Rmd
-#' template folder.
+#' This function is expected to run once after the package is
+#' downloaded. It downloads font files into \code{ntuthesis}'s
+#' R Markdown template folders, so when a template is used
+#' later, it will contained the necessary fonts to work.
 #'
+#' @param IPAfont Whether to download a font (Doulos SIL)
+#'   that supports IPA (International Phonetic Alphabet).
 #' @export
-donwload_font_all <- function(lookfor = 'template.tex') {
-  donwload_font(lookfor)
+download_fonts <- function(IPAfont = TRUE) {
+  font_dest_dir <- system.file('rmarkdown', 'templates', 'ntu', 'skeleton', 'latex', package = 'ntuthesis')
+  font_dest_dir2 <- system.file('rmarkdown', 'templates', 'ntu', 'skeleton', 'front_matter', package = 'ntuthesis')
 
-  # Copy fonts to dir `front_matter`
-  fonts <- list.files('latex', pattern = '(otf)|(ttf)$', recursive = T, full.names = T)
-  file.copy(fonts, to = 'front_matter')
+  download_file2(font_dest_dir, IPAfont)
+
+  # Copy the downloaded fonts to front_matter folder
+  source <- tools::list_files_with_exts(font_dest_dir, c('ttf', 'otf'))
+  file.copy(from = source, to = font_dest_dir2)
 }
 
-
-#' Download font dependencies for traditional Chinese Rmd PDF output
+#' Download font dependencies to the directory where header.tex is
 #'
 #' Make sure this function is called after 1) importing Rmd template
 #' and 2) setting the current working directory to that Rmd
 #' template folder.
 #'
 #' @keywords internal
-donwload_font <- function(lookfor = 'template.tex') {
-  header_tex_path <- list.files(getwd(), lookfor, recursive = T, full.names = T)
-  lookfor_str <- paste0('`', lookfor, '`')
+donwload_font2header <- function() {
+  header_tex_path <- list.files(getwd(), 'header.tex', recursive = T, full.names = T)
 
   # Check header.tex path
   if (length(header_tex_path) == 0) {
-    stop(lookfor_str, ' not found!')
+    stop('`header.tex` not found!')
   } else if (length(header_tex_path) > 1) {
-    cat('Multiple', lookfor_str, 'found at\n',
+    cat('Multiple `header.tex` found at\n',
         paste0('`', header_tex_path, '`', collapse = '\n'), sep = '\n')
-    stop('Multiple ', lookfor_str, 'found!')
+    stop('Multiple `header.tex` found!')
   }
 
   # Switch to destination folder
@@ -46,34 +47,52 @@ donwload_font <- function(lookfor = 'template.tex') {
 }
 
 
+
 download_file <- function(ori_dir) {
   on.exit({setwd(ori_dir)}, add = TRUE)
   cwd <- getwd()
 
-  kaiti <- 'http://sf1.loxa.edu.tw/104736/Download/kaiu.ttf'
+  kaiti <- 'https://liao961120.github.io/deps/fonts/bkai00mp.zip'
   mono <- 'https://liao961120.github.io/deps/fonts/NotoSansMonoCJKtc.zip'
 
-  # Times New Roman Fonts
-  tnr <- vector('character', 4)
-  tnr[1] <- 'https://github.com/potyt/fonts/raw/master/macfonts/Times%20New%20Roman/Times%20New%20Roman.ttf'
-  tnr[2] <- 'https://github.com/potyt/fonts/raw/master/macfonts/Times%20New%20Roman/Times%20New%20Roman%20Italic.ttf'
-  tnr[3] <- 'https://github.com/potyt/fonts/raw/master/macfonts/Times%20New%20Roman/Times%20New%20Roman%20Bold.ttf'
-  tnr[4] <- 'https://github.com/potyt/fonts/raw/master/macfonts/Times%20New%20Roman/Times%20New%20Roman%20Bold%20Italic.ttf'
-  names(tnr) <- c("regular", "italic", "bold", "bold_italic")
-
   cat('Downloading fonts to', cwd, '\n')
-
-  # Monofont
+  temp_kai <- tempfile()
   temp_mono <- tempfile()
+  utils::download.file(kaiti, destfile = temp_kai)
   utils::download.file(mono, destfile = temp_mono)
+
+  # Decompress
+  utils::unzip(temp_kai, exdir = cwd)
   utils::unzip(temp_mono, exdir = cwd)
+}
 
-  # kaiti font
-  utils::download.file(kaiti, destfile = 'kaiti.ttf')
 
-  # Times New Roman
-  for (name in names(tnr)) {
-    dest <- paste0('TimesNewRoman-', name, '.ttf')
-    utils::download.file(tnr[name], destfile = dest)
+
+download_file2 <- function(dest_dir, IPA = TRUE) {
+
+  kaiti <- 'https://liao961120.github.io/deps/fonts/kaiti.zip'
+  mono <- 'https://liao961120.github.io/deps/fonts/NotoSansMonoCJKtc.zip'
+  enfont <- 'https://depend.netlify.com/fonts/TimesNewRoman.zip'
+  ipafont <- 'https://liao961120.github.io/deps/fonts/DoulosSIL.zip'
+
+  cat('Downloading fonts to', dest_dir, '\n')
+  temp_kai <- tempfile()
+  temp_mono <- tempfile()
+  temp_enfont <- tempfile()
+
+  utils::download.file(kaiti, destfile = temp_kai)
+  utils::download.file(mono, destfile = temp_mono)
+  utils::download.file(enfont, destfile = temp_enfont)
+
+  # Decompress
+  utils::unzip(temp_kai, exdir = dest_dir)
+  utils::unzip(temp_mono, exdir = dest_dir)
+  utils::unzip(temp_enfont, exdir = dest_dir)
+
+  # Download IPA?
+  if (IPA) {
+    temp_ipa <- tempfile()
+    utils::download.file(ipafont, destfile = temp_ipa)
+    utils::unzip(temp_ipa, exdir = dest_dir)
   }
 }

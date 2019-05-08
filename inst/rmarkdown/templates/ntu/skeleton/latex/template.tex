@@ -232,41 +232,42 @@ $endif$
 
 % Set the default fonts
 % See https://tug.org/pipermail/xetex/2011-March/020226.html for fontspec
-$if(en-mainfont)$
-  \setmainfont{$en-mainfont$} % Times New Roman  %Liberation Serif
-$else$
-  \setmainfont[
-  Path=latex/,
-  BoldFont={TimesNewRoman-bold.ttf},
-  ItalicFont={TimesNewRoman-italic.ttf},
-  BoldItalicFont={TimesNewRoman-bold_italic.ttf}
-  ]{TimesNewRoman-regular.ttf}
-$endif$
+% $if(en-mainfont)$
+%   \setmainfont{$en-mainfont$} % Times New Roman  %Liberation Serif
+% $else$
+% \setmainfont[
+%   Path=latex/,
+%   BoldFont={TimesNewRomanBold.ttf},
+%   ItalicFont={TimesNewRomanItalic.ttf},
+%   BoldItalicFont={TimesNewRomanBoldItalic.ttf}
+% ]{TimesNewRoman.ttf}
+% $endif$
 
-$if(cjk-mainfont)$
-    $if(cjk-boldfont)$
-        \setCJKmainfont[
-	    BoldFont={$cjk-boldfont$}  % 粗體字
-        ]{$cjk-mainfont$}
-    $else$
-        $if(cjk-style)$
-            \setCJKmainfont[$cjk-style$]{$cjk-mainfont$} %標楷體 %AR PL KaitiM Big5
-            %\setCJKmainfont[AutoFakeBold=1,AutoFakeSlant=.4]{BiauKai}
-        $else$
-            \setCJKmainfont{$cjk-mainfont$}
-        $endif$
-    $endif$
-$else$
-    \setCJKmainfont[Path=latex/, AutoFakeBold=2.5, AutoFakeSlant=.4]{kaiti.ttf}
-$endif$
+% $if(cjk-mainfont)$
+%     $if(cjk-boldfont)$
+%         \setCJKmainfont[
+%       BoldFont={$cjk-boldfont$}  % 粗體字
+%          ]{$cjk-mainfont$}
+%     $else$
+%         $if(cjk-style)$
+%             \setCJKmainfont[$cjk-style$]{$cjk-mainfont$} %標楷體 %AR PL KaitiM Big5
+%             %\setCJKmainfont[AutoFakeBold=1,AutoFakeSlant=.4]{BiauKai}
+%         $else$
+%             \setCJKmainfont{$cjk-mainfont$}
+%         $endif$
+%     $endif$
+% $else$
+%     \setCJKmainfont[Path=latex/,AutoFakeBold=2.5,AutoFakeSlant=.3]{kaiti}
+%     \setCJKmonofont[Path=latex/]{NotoSansMonoCJKtc}
+% $endif$
 
 
 
 % IPA support (Works with linguisticsdown)
-$if(ipa-font)$
-  \newfontfamily\ipa{$ipa-font$} % Font for IPA symbols
-  \DeclareTextFontCommand{\ipatext}{\ipa}
-$endif$
+% $if(ipa-font)$
+%   \newfontfamily\ipa{$ipa-font$} % Font for IPA symbols
+%   \DeclareTextFontCommand{\ipatext}{\ipa}
+% $endif$
 
 
 \usepackage{xcolor}

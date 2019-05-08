@@ -11,6 +11,22 @@
 
 \usepackage[fontsize=12pt]{scrextend}
 
+% Eng font-family
+\setmainfont[
+  Path=latex/,
+  BoldFont={TimesNewRomanBold},
+  ItalicFont={TimesNewRomanItalic},
+  BoldItalicFont={TimesNewRomanBoldItalic}
+]{TimesNewRoman}
+
+% Trad Ch font-family
+\setCJKmainfont[Path=latex/,AutoFakeBold=2.5,AutoFakeSlant=.3]{kaiti}
+\setCJKmonofont[Path=latex/]{NotoSansMonoCJKtc}
+
+% Special font: IPA
+\newfontfamily{\ipa}[Path=latex/,AutoFakeBold=2.5,AutoFakeSlant=.3]{IPAfont} % Font for IPA symbols
+\DeclareTextFontCommand{\ipatext}{\ipa}
+
 
 %中文自動換行
 \XeTeXlinebreaklocale "zh"

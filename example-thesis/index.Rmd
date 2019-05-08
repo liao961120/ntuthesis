@@ -6,15 +6,10 @@ date: "`r format(Sys.Date(), '%B %e, %Y')`" # Gitbook Date
 site: bookdown::bookdown_site
 ## Opts above are for gitbook output; below are for PDF output
 two-side: false  # Whether to start new chapter on odd pages
-#cjk-mainfont: '標楷體'  # Default: kaiti.ttf
-#cjk-boldfont:    # Don't set if same as cjk-mainfont
-#cjk-style: 'Path=latex/, AutoFakeBold=2.0, AutoFakeSlant=.4' #
-#en-mainfont: 'Liberation Serif'  # Default: Times New Roman
-#ipa-font: 'Doulos SIL'  # works with 'linguisticsdown', delete if not needed
 #secnumdepth: 2   # section numbering at most to x.y.z
 indent: false    # Indent new paragraph, else adds space between paragraphs 
 linestretch: 1.5   # If Chinese: 1.5
-linestretch-code: 1.5  # linestretch for code chunks
+linestretch-code: 1  # linestretch for code chunks
 watermark: watermark.png    # ntu watermark file (must be in root dir)
 link-citations: yes         # internal links to references
 bibliography: ref.bib
