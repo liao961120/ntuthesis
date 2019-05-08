@@ -5,6 +5,8 @@ inst/doc
 /_book
 *.log
 *.xwm
+*.ttf
+*.otf
 /docs
 /skel-files.txt
 /renew-skel.sh
