@@ -25,7 +25,6 @@ bibliography: ref.bib
 links-as-notes: true
 always_allow_html: yes
 geometry: a4paper, left=1.18in, right=1.18in, top=1.18in, bottom=0.787in
-fontsize: 12pt
 subparagraph: yes
 acknowledgements-title: '誌謝'
 acknowledgements: |
