@@ -15,7 +15,7 @@ License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests: pkgdown,
-    tidyverse
+    ggplot2
 Remotes: RLesur/klippy@v0.0.0.9400
 VignetteBuilder: knitr
 Imports: knitr,
