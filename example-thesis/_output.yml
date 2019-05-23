@@ -32,3 +32,14 @@ bookdown::pdf_book:
   toc_bib: true
   latex_engine: xelatex
   keep_tex: yes
+ntuthesis::tex_book:
+  includes:
+    in_header: latex/preamble-zh.tex
+  dev: "cairo_pdf"
+  template: latex/template.tex
+  citation_package: none  #none  # biblatex
+  pandoc_args:  [ "--top-level-division=chapter", "--csl=cite-style.csl",  ]
+  toc_appendix: true
+  toc_bib: true
+  latex_engine: xelatex
+  keep_tex: yes

@@ -10,7 +10,7 @@
 #' }
 #' @importFrom rlang abort
 #' @keywords internal
-comp_front_ntu <- function() {
+comp_front_ntu <- function(use_docker = FALSE) {
   call_dir <- getwd()
   stopifnot(dir.exists("front_matter"),
             file.exists("_person-info.yml"))
@@ -22,13 +22,28 @@ comp_front_ntu <- function() {
   construct_front_rmd_ntu()
 
   # Compile to PDF
-  rmarkdown::render("front_matter.rmd", encoding = "UTF-8")
+######### To Do: Do not compile directly if using docker ##############
+  if (use_docker) {
+    tryCatch({
+      rmarkdown::render("front_matter.rmd", encoding = "UTF-8",
+                        output_format = "ntuthesis::tex_document")
+      },
+      error = function(e) {}
+    )
+  docker_xelatex('front_matter.tex')
+  } else {
+    rmarkdown::render("front_matter.rmd", encoding = "UTF-8")
+  }
+
   fp <- "certification.tex"
   if (!file.exists(fp)) {
     abort(paste0('`', fp,'` ',
                  'not in folder `front_matter`.'))
   } else {
-    system2("xelatex", args = fp, stdout = FALSE)
+######## To Do: Use tinytex or docker ################
+    if (use_docker) docker_xelatex(fp)
+    else tinytex::xelatex(fp)
+    #system2("xelatex", args = fp, stdout = FALSE)
   }
 
   # Clean up dependencies

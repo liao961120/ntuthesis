@@ -4,7 +4,7 @@
 \alias{comp_front_ntu}
 \title{Compile front matter to PDF}
 \usage{
-comp_front_ntu()
+comp_front_ntu(use_docker = FALSE)
 }
 \description{
 To use this function, one needs to be in the

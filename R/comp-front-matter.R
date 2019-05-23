@@ -3,6 +3,8 @@
 #' To use this function, one needs to be in the
 #' \emph{root directory} of the bookdown project.
 #'
+#' @param use_docker Logical. Whether to use tinytex docker
+#'   to compile PDF.
 #' @param template String. The template used. Defaults to
 #'   \code{ntu}.
 #'
@@ -12,12 +14,12 @@
 #' comp_front(template = 'ntu')
 #' }
 #' @export
-comp_front <- function(template = c("ntu")) {
+comp_front <- function(use_docker = FALSE, template = c("ntu")) {
   stopifnot(is.character(template))
   func <- list(
-    ntu = function() comp_front_ntu()
+    ntu = function(x) comp_front_ntu(x)
   )
-  func[[template[1]]]()
+  func[[template[1]]](use_docker)
 }
 
 

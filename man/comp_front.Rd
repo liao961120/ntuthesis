@@ -4,9 +4,12 @@
 \alias{comp_front}
 \title{Compile front matter to PDF}
 \usage{
-comp_front(template = c("ntu"))
+comp_front(use_docker = FALSE, template = c("ntu"))
 }
 \arguments{
+\item{use_docker}{Logical. Whether to use tinytex docker
+to compile PDF.}
+
 \item{template}{String. The template used. Defaults to
 \code{ntu}.}
 }
