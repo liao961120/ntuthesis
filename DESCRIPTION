@@ -18,9 +18,11 @@ Suggests: pkgdown,
     ggplot2
 Remotes: RLesur/klippy@v0.0.0.9400
 VignetteBuilder: knitr
-Imports: knitr,
+Imports: 
+    knitr,
     rmarkdown,
     tinytex,
     bookdown,
-    rlang
+    rlang,
+    xfun
 RoxygenNote: 6.1.1
