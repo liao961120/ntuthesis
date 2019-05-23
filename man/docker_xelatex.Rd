@@ -2,7 +2,7 @@
 % Please edit documentation in R/docker-tinytex.R
 \name{docker_xelatex}
 \alias{docker_xelatex}
-\title{Wrapper of Docker `liao961120/tinytex` to Compile PDF}
+\title{Wrapper of Docker  to Compile PDF}
 \usage{
 docker_xelatex(fpath)
 }
@@ -10,7 +10,14 @@ docker_xelatex(fpath)
 \item{fpath}{String. The path to \code{.tex} file.}
 }
 \description{
-Wrapper of Docker `liao961120/tinytex` to Compile PDF
+Make sure to have docker installed and docker image
+pulled to local or the function will throw error.
+The docker image can be pulled with the command
+\code{docker pull liao961120/tinytex}.
+}
+\details{
+The default docker image can be changed by setting
+\code{options(ntuthesis.docker = 'liao961120/tinytex')}.
 }
 \references{
 \url{https://hub.docker.com/r/liao961120/tinytex}

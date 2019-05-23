@@ -1,4 +1,13 @@
-#' Wrapper of Docker `liao961120/tinytex` to Compile PDF
+#' Wrapper of Docker  to Compile PDF
+#'
+#' Make sure to have docker installed and docker image
+#' pulled to local or the function will throw error.
+#' The docker image can be pulled with the command
+#' \code{docker pull liao961120/tinytex}.
+#'
+#' The default docker image can be changed by setting
+#' \code{options(ntuthesis.docker = 'liao961120/tinytex')}.
+#'
 #' @param fpath String. The path to \code{.tex} file.
 #' @references \url{https://hub.docker.com/r/liao961120/tinytex}
 #' @export
@@ -6,7 +15,10 @@ docker_xelatex <- function(fpath) {
   stopifnot(file.exists(fpath), xfun::file_ext(fpath) == 'tex')
   if (!has_docker()) stop("docker not found!")
 
-  args <- c("run", "--rm", "-u", "`id -u $USER`", "-v", "`pwd`:/tinytex-docker/", "tinytex", "Rscript", "-e", paste0('\'setwd("/tinytex-docker/");options(tinytex.tlmgr.path = "/.TinyTeX/bin/x86_64-linux/tlmgr");tinytex::xelatex("', fpath, '")\''))
+  docker <- getOption("ntuthesis.docker")
+  if (is.null(docker)) docker <- "liao961120/tinytex"
+
+  args <- c("run", "--rm", "-u", "`id -u $USER`", "-v", "`pwd`:/tinytex-docker/", docker, "Rscript", "-e", paste0('\'setwd("/tinytex-docker/");options(tinytex.tlmgr.path = "/.TinyTeX/bin/x86_64-linux/tlmgr");tinytex::xelatex("', fpath, '")\''))
 
   system2('docker', args, stdout = TRUE)
 }
