@@ -26,9 +26,4 @@ if (knitr::is_html_output()) {
 install.packages("linguisticsdown")
 ```
 
-並且在 `index.Rmd` 的 yaml 設定 IPA 符號專用的字型（需確認電腦上有安裝此字型）：
-```yaml
-ipa-font: 'Doulos SIL'
-```
-
 關於更詳細的功能，見[套件網頁](https://liao961120.github.io/linguisticsdown/)
