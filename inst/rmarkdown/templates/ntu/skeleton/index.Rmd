@@ -16,7 +16,7 @@ bibliography: ref.bib
 ## Shouldn't touch things below unless familiar with R Markdown
 #biblio-style: apa #authoryear
 #biblatexoptions: [backend = biber, style = caspervector, utf8, sorting = cenyt]
-#biblio-title: "biblatex 參考文獻"
+#biblio-title: "參考文獻"
 links-as-notes: true
 always_allow_html: yes
 geometry: a4paper, left=1.18in, right=1.18in, top=1.18in, bottom=0.787in
