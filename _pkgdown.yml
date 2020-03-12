@@ -21,7 +21,7 @@ navbar:
           href: https://liao961120.github.io/ntuthesis/doc/ntu-bookdown-en.pdf
     - icon: fa-book
       text: "使用說明 \u2197"
-      href: https://liao961120.github.io/ntuthesis/doc/
+      href: https://doc-ntuthesis.netlify.com
     - text: "他校模板"
       href: articles/extend_template.html
   right:

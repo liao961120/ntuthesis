@@ -1,0 +1,77 @@
+--- 
+title: '臺大論文模板'
+author: '廖永賦'
+github-repo: "liao961120/ntuthesis"
+date: "`r format(Sys.Date(), '%B %e, %Y')`" # Gitbook Date
+site: bookdown::bookdown_site
+## Opts above are for gitbook output; below are for PDF output
+two-side: false  # Whether to start new chapter on odd pages
+#secnumdepth: 2   # section numbering at most to x.y.z
+indent: false    # Indent new paragraph, else adds space between paragraphs 
+linestretch: 1.5   # If Chinese: 1.5
+linestretch-code: 1  # linestretch for code chunks
+watermark: watermark.png    # ntu watermark file (must be in root dir)
+link-citations: yes         # internal links to references
+bibliography: ref.bib
+## Shouldn't touch things below unless familiar with R Markdown
+#biblio-style: apa #authoryear
+#biblatexoptions: [backend = biber, style = caspervector, utf8, sorting = cenyt]
+#biblio-title: "biblatex 參考文獻"
+links-as-notes: true
+always_allow_html: yes
+geometry: a4paper, left=1.18in, right=1.18in, top=1.18in, bottom=0.787in
+subparagraph: yes
+acknowledgements-title: '誌謝'
+acknowledgements: |
+  `r paste(readLines("_acknowledge.md", encoding = "UTF-8"), collapse = "\n  ")`
+abstract-zh: |
+  `r x=readLines("_abstract-zh.md", encoding = "UTF-8"); paste(x, collapse = "\n  ")`
+abstract-en: |
+  `r x=readLines("_abstract-en.md", encoding = "UTF-8"); paste(x, collapse = "\n  ")`
+---
+
+
+`r if(knitr::is_html_output()) '
+# 關於 {- #about}\n
+
+這是 [ntuthesis](https://liao961120.github.io/ntuthesis) 的說明文件。這份說明文件是以臺大論文格式所寫成，並且可以輸出成 HTML（GitBook），亦即您目前所見的文件，或是 PDF，亦即完整的臺大論文（可透過 navbar 上的 <i class="fa fa-file-pdf-o"></i> 查看）。\n
+\n
+使用此論文模板應至少對 R Markdown 有初步的了解，例如知道 Markdown 的基本語法並且曾透過 R Markdown 輸出 html_document。
+'`
+
+<!-- 
+Below are code that paste acknowledgement and abstract in GitBook output. 
+Remove or wrap them around HTML comments if don't want to display them in GitBook.
+-->
+
+<!-- Acknowledgement -->
+<!-- `r if(knitr::is_html_output()) '# 誌謝 {- #acknowledge}\n'` -->
+
+<!-- `r if (knitr::is_html_output()) paste(readLines("_acknowledge.Rmd", encoding = "UTF-8"), collapse = "\n  ")` -->
+
+<!-- Abstract -->
+<!-- `r if(knitr::is_html_output()) '# 摘要 {- #abstract}\n'` -->
+
+<!-- `r if (knitr::is_html_output()) paste(readLines("_abstract-zh.Rmd", encoding = "UTF-8")[5:length(readLines("_abstract-zh.Rmd", encoding = "UTF-8"))], collapse = '\n')` -->
+
+<!-- keywords -->
+<!-- `r if (knitr::is_html_output()) '<br><br>'` -->
+
+<!-- `r if (knitr::is_html_output()) paste('**keywords:**', readLines("_abstract-zh.Rmd", encoding = "UTF-8")[2])` -->
+
+
+```{r setup, include=FALSE}
+knitr::opts_knit$set(root.dir='R')
+#knitr::opts_chunk$set(fig.pos = 'H')
+options(digits = 2) # round values of vars to 2 digits when printed
+knitr::opts_chunk$set(
+    echo = FALSE,  # echo = FALSE hides themorem environment
+    message = FALSE,
+    warning = FALSE,
+    comment="",
+    fig.align = 'center',
+    out.width = "100%"
+    #fig.dim = c(3.5, 3.5)  # (width, height)
+)
+```
+

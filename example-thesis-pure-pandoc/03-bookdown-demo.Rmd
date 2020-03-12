@@ -1,0 +1,163 @@
+# 語法 Cheatsheet {#cheatsheet}
+
+下文許多內容直接自 [Bookdown](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html) 擷取。想完整了解者，請閱讀 Bookdown 中的內容。
+
+## 章節連結 {#chapter-cross-ref}
+
+### 錨點定義 {#define-anchor}
+
+在內文中，可以使用特殊語法建立前往其它章節的連結，但首先每個章節需要有**錨點**。若章節標題由英數組成，例如 `## Experimental Design`， 則錨點會自動被定義成 `experimental-design`。若**標題含有中文**，例如 `## 實驗設計` 則需**自行定義錨點**：`## 實驗設計 {#exp-design}`。
+
+### 內文連結
+
+要在內文建立連至其它章節的連結，需使用 `\@ref(anchor)` 的語法，例如，
+
+- 連結至 `## Experimental Design`
+    - `\@ref(experimental-design)`
+- 連結至 `## 實驗設計 {#exp-design}`
+    - `\@ref(exp-design)`
+
+
+## 數學 {#math}
+
+### Unnumbered Equations
+
+```latex
+\begin{equation*} 
+\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
+\end{equation*} 
+```
+
+\begin{equation*} 
+\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
+\end{equation*} 
+
+
+### Numbered Equations
+```latex
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  (\#eq:bino)
+\end{equation} 
+
+式 \@ref(eq:bino)
+```
+
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  (\#eq:binom)
+\end{equation} 
+
+式 \@ref(eq:binom)
+
+
+### Multi-line Aligned Equations
+
+```latex
+\begin{equation} 
+\begin{split}
+\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y)\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')'\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1}\\
+ & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}\\
+ & =(X'X)^{-1}\sigma^{2}
+\end{split}
+(\#eq:var-beta)
+\end{equation}
+
+詳見公式 \@ref(eq:var-beta)
+```
+
+\begin{equation} 
+\begin{split}
+\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y)\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')'\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1}\\
+ & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}\\
+ & =(X'X)^{-1}\sigma^{2}
+\end{split}
+(\#eq:var-bet)
+\end{equation} 
+
+詳見公式 \@ref(eq:var-bet)
+
+### 定理與證明 {#theorem-proof}
+
+````markdown
+`r ''````{theorem, thm-label, name="Pythagorean theorem"}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+
+$$a^2 + b^2 = c^2$$
+```
+
+詳見定理 \@ref(thm:thm-label)
+````
+
+```{theorem, pyth, name="Pythagorean theorem"}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+$$a^2 + b^2 = c^2$$
+```
+
+詳見定理 \@ref(thm:pyth)
+
+
+### 環境 {#environment}
+
+除了 `theorem` 之外，還可以使用其它 bookdown 提供的環境。例如，將 code chunk 中 `theorem` 換成 `proof`, `remark`, `solution`[^env-crossref]。
+
+[^env-crossref]: `theorem`、`proof`、`remark` 這三者無法被 cross-reference。
+
+表 \@ref(tab:theorem-envs) 呈現 bookdown 中的[引用環境](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#tab:theorem-envs)。
+
+(ref:theorem-env) Theorem environments in **bookdown**.
+
+```{r theorem-envs, echo=FALSE}
+knitr::kable(data.frame(
+  Environment = names(bookdown:::theorem_abbr),
+  `Printed Name` = unname(unlist(bookdown:::label_names_math)),
+  `Label Prefix` = unname(bookdown:::theorem_abbr),
+  stringsAsFactors = FALSE, check.names = FALSE
+), caption = '(ref:theorem-env)', booktabs = TRUE)
+```
+
+
+## Figure Referencing
+
+````markdown
+![Test figure caption](img/watermark.png){#fig-with-pandoc width=50% }
+````
+
+![Test figure caption](img/watermark.png){#fig-with-pandoc width=50% }
+
+
+`見圖 \@ref(fig:fig-with-pandoc)`產生：見圖 \@ref(fig:fig-with-pandoc)
+
+### Figure Caption
+
+對於比較複雜的 caption，可以使用 Text reference 的方式：
+
+```markdown
+對於比較複雜的 caption，可以使用 Text reference 的方式：
+
+(ref:dia) 插入**引用資料** [@kassin2017] 的 Figure Caption.
+
+![(ref:dia)](img/watermark.png){#fig-with-pandoc2 width=50% }
+```
+
+
+## Table Referencing
+
+
+(ref:mtcars) This is table caption.
+
+  Right     Left     Center     Default
+-------     ------ ----------   -------
+     12     12        12            12
+    123     123       123          123
+      1     1          1             1
+
+Table: (ref:mtcars)
+
+

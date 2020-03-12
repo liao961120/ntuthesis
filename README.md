@@ -59,7 +59,7 @@ ntuthesis::download_fonts()
 
 ## 使用
 
-關於詳細的使用說明，見[套件網頁](https://liao961120.github.io/ntuthesis/doc)。
+關於詳細的使用說明，見[套件網頁](https://doc-ntuthesis.netlify.com)。
 
 
 ## 問題

@@ -1,0 +1,706 @@
+  \documentclass[oneside]{book}
+%\documentclass[]{book}
+
+\usepackage{lmodern}
+\usepackage{setspace}
+\setstretch{1.5}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+
+
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[a4paper, left=1.18in, right=1.18in, top=1.18in, bottom=0.787in]{geometry}
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdftitle={臺大論文模板},
+            pdfauthor={廖永賦},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\let\oldhref=\href
+% Make links footnotes instead of hotlinks:
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{pdfpages}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{booktabs}
+\usepackage{apptools}
+\usepackage{float}
+\usepackage[section]{placeins}
+
+\usepackage[heading, fontset = none]{ctex}
+\ctexset{appendix/name={\appendixname\space}}
+
+\usepackage[fontsize=12pt]{scrextend}
+
+% Eng font-family
+\setmainfont[
+  Path=latex/,
+  BoldFont={TimesNewRomanBold},
+  ItalicFont={TimesNewRomanItalic},
+  BoldItalicFont={TimesNewRomanBoldItalic}
+]{TimesNewRoman}
+
+% Trad Ch font-family
+\setCJKmainfont[Path=latex/,AutoFakeBold=2.5,AutoFakeSlant=.3]{kaiti}
+\setCJKmonofont[Path=latex/]{NotoSansMonoCJKtc}
+
+% Special font: IPA
+\newfontfamily{\ipa}[Path=latex/,AutoFakeBold=2.5,AutoFakeSlant=.3]{IPAfont} % Font for IPA symbols
+\DeclareTextFontCommand{\ipatext}{\ipa}
+
+
+%中文自動換行
+\XeTeXlinebreaklocale "zh"
+%文字的彈性間距
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+
+
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+\renewcommand{\contentsname}{目錄}
+\renewcommand{\listfigurename}{圖目錄}
+\renewcommand{\listtablename}{表目錄}
+\renewcommand{\appendixname}{附錄}
+%\renewcommand{\bibname}{參考資料}
+
+% deal with nuts floating figures
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\floatpagefraction}{0.75}
+
+\title{臺大論文模板}
+\author{廖永賦}
+\date{May 24, 2019}
+
+
+\usepackage{fontspec}
+%使用xeCJK，其他的還有CJK或是xCJK
+\usepackage{xeCJK}
+\usepackage{bm}
+
+% Set the default fonts
+% See https://tug.org/pipermail/xetex/2011-March/020226.html for fontspec
+% % \setmainfont[
+%   Path=latex/,
+%   BoldFont={TimesNewRomanBold.ttf},
+%   ItalicFont={TimesNewRomanItalic.ttf},
+%   BoldItalicFont={TimesNewRomanBoldItalic.ttf}
+% ]{TimesNewRoman.ttf}
+% 
+% %     \setCJKmainfont[Path=latex/,AutoFakeBold=2.5,AutoFakeSlant=.3]{kaiti}
+%     \setCJKmonofont[Path=latex/]{NotoSansMonoCJKtc}
+% 
+
+
+% IPA support (Works with linguisticsdown)
+% 
+
+\usepackage{xcolor}
+\usepackage{transparent}
+
+\usepackage{tikz}
+\usepackage[printwatermark]{xwatermark}
+\newsavebox\mybox
+\savebox\mybox{\tikz[]\node[opacity=0.2]{\includegraphics{watermark.png}};}
+\newwatermark*[
+  allpages,
+  %angle=45,
+  scale=0.18,
+  xpos=6.3725cm,
+  ypos=10.8225cm
+]{\usebox\mybox}
+
+
+
+
+
+
+\begin{document}
+
+
+\includepdf[pages={1}, scale=1]{front_matter/front_matter.pdf}
+
+\clearpage
+\pagenumbering{roman}
+
+\phantomsection
+\addcontentsline{toc}{chapter}{口試委員會審定書}
+\includepdf[pages={1}, scale=1]{certification-scan.pdf}
+
+
+\phantomsection
+\chapter*{誌謝}
+非常感謝網路上各個默默耕耘開發 open source 專案的大大們。
+非常感謝網路上各個默默耕耘開發 open source 專案的大大們。
+非常感謝網路上各個默默耕耘開發 open source 專案的大大們。
+
+沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。沒有這些既存的資源，這份模板是不可能出現的。
+\addcontentsline{toc}{chapter}{誌謝}
+
+
+\phantomsection
+\chapter*{摘要}
+摘要\textbf{第 5 行}開始而且不能是空行。摘要\textbf{第 5 行}開始而且不能是空行。摘要\textbf{第 5 行}開始而且不能是空行。摘要\textbf{第 5 行}開始而且不能是空行。
+
+新段落要在前面空一行。新段落要在前面空一行。新段落要在前面空一行。新段落要在前面空一行。新段落要在前面空一行。
+\bigbreak
+
+\noindent
+\textbf{關鍵字：} 第二行開始、R Markdown、Bookdown、可重製研究
+\addcontentsline{toc}{chapter}{中文摘要}
+
+\phantomsection
+\chapter*{Abstract}
+The first line of the abstract starts on \textbf{line 5} and must not be blank. The first line of the abstract starts on \textbf{line 5} and must not be blank. The first line of the abstract starts on \textbf{line 5} and must not be blank.
+
+A new paragraph of the abstract. A new paragraph of the abstract. A new paragraph of the abstract. A new paragraph of the abstract. A new paragraph of the abstract. A new paragraph of the abstract.
+\bigbreak
+
+\noindent
+\textbf{Keywords:} Line 2, R Markdown, Bookdown, Reproducible Research
+\addcontentsline{toc}{chapter}{英文摘要}
+
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+%\phantomsection
+%\addcontentsline{toc}{chapter}{\contentsname}
+}
+
+\newpage
+
+\listoftables
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
+\newpage
+
+\listoffigures
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+\newpage
+
+% Set independent linestretch for code chunks
+% Doesn't work in pure pandoc
+%\let\oldShaded=\Shaded
+%\let\endoldShaded=\endShaded
+%\renewenvironment{Shaded}{
+%  %    \begin{spacing}{1}\begin{oldShaded}
+%  %  }
+%  {
+%  \end{oldShaded}
+%  \end{spacing}
+%  }
+
+\clearpage
+\pagenumbering{arabic}
+
+\hypertarget{write-thesis}{%
+\chapter{論文撰寫}\label{write-thesis}}
+
+\hypertarget{dir-structure}{%
+\section{檔案結構}\label{dir-structure}}
+
+執行以下指令後（詳見 \ref{import-template}）
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ntuthesis}\OperatorTok{::}\KeywordTok{import_template}\NormalTok{(}\StringTok{"project_name"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+即會匯入論文模板。以下是論文模板的檔案結構（已簡化）：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{├── project_name.Rmd     }\CommentTok{# Useless, please delete it}
+\NormalTok{|}
+\NormalTok{├── R/                   }\CommentTok{# code chunk root dir, put R scripts and data here}
+\NormalTok{├── figs/                }\CommentTok{# Put figures to include in the thesis here}
+\NormalTok{|}
+\NormalTok{├── index.Rmd            }\CommentTok{# Book Layout (font, watermark, biblio, ...)}
+\NormalTok{├── _acknowledge.Rmd     }\CommentTok{# acknowledgement}
+\NormalTok{├── _abstract-en.Rmd     }\CommentTok{# abstract}
+\NormalTok{├── _abstract-zh.Rmd     }\CommentTok{# Same as above, but in Chinese}
+\NormalTok{|}
+\NormalTok{├── 01-intro.Rmd         }\CommentTok{# Chapter 1 content}
+\NormalTok{├── 02-literature.Rmd    }\CommentTok{# Chapter 2 content}
+\NormalTok{├── 03-method.Rmd        }\CommentTok{# Chapter 3 content}
+\NormalTok{├── 80-appx-help.Rmd     }\CommentTok{# Appendix Content}
+\NormalTok{├── 99-references.Rmd    }\CommentTok{# Edit "References" Title}
+\NormalTok{├── ref.bib              }\CommentTok{# References}
+\NormalTok{├── cite-style.csl       }\CommentTok{# Citation style}
+\NormalTok{|}
+\NormalTok{├── _bookdown.yml        }\CommentTok{# label names in gitbook; Rmd files order}
+\NormalTok{├── _output.yml          }\CommentTok{# preamble, pandoc args, cite-pkg}
+\NormalTok{|}
+\NormalTok{├── watermark.pdf        }\CommentTok{# 臺大浮水印 (PDF 右上角)}
+\NormalTok{├── _person-info.yml      }\CommentTok{# Info to generate front matter}
+\NormalTok{├── certification-scan.pdf  }\CommentTok{# 已簽名'口試委員審查書'}
+\NormalTok{└── front_matter}
+\NormalTok{    └── certification.pdf   }\CommentTok{# 空白'口試委員審查書'}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{index-rmd}{%
+\section{\texorpdfstring{\texttt{index.Rmd}}{index.Rmd}}\label{index-rmd}}
+
+\texttt{index.Rmd} 是設定論文內文格式的地方，包含 yaml 以及 R setup code chunk。此模板將 code chunk 預設的 working directory 改成 \texttt{R/}\footnote{預設是 Rmd 檔所在的位置。}，如此較符合一般寫 Rscript 的邏輯\footnote{例如，使用相對路徑匯入資料時，一般會以 Rscript 所在的位置作為基準。}。若要更改此設定，至 setup code chunk 更改 \texttt{knitr::opts\_knit\$set(root.dir=\textquotesingle{}R\textquotesingle{})}。
+
+\hypertarget{write-lang}{%
+\section{撰寫語言}\label{write-lang}}
+
+若使用\textbf{英文}撰寫論文，需修改 \texttt{\_output.yml}、\texttt{\_bookdown.yml} 這兩個檔案的內容。
+
+\hypertarget{output.yml}{%
+\subsection{\texorpdfstring{\texttt{\_output.yml}}{\_output.yml}}\label{output.yml}}
+
+將 \texttt{in\_header:\ latex/preamble-zh.tex} 改為 \texttt{in\_header:\ latex/preamble-en.tex}：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{bookdown:}\AttributeTok{:pdf_book:}
+  \FunctionTok{includes:}
+    \FunctionTok{in_header:}\AttributeTok{ latex/preamble-en.tex}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{bookdown.yml}{%
+\subsection{\texorpdfstring{\texttt{\_bookdown.yml}}{\_bookdown.yml}}\label{bookdown.yml}}
+
+\texttt{\_bookdown.yml} 中，可以對標籤的名稱進行定義。這裡的設定與 PDF 輸出無關，只與 gitbook 輸出格式有關。因此，若無需使用 gitbook 輸出，可忽略此段。
+
+此外，\texttt{\_bookdown.yml} 亦可設定 Rmd 檔在輸出文件中的順序。若無設定，就會依序檔名排序\footnote{此模板即未進行設定，因此第一章的內容寫在 \texttt{01-xxx.Rmd} 就會自動排在第一。而若檔名以底線開頭（\texttt{\_}）則會被忽略。更多內容詳見 \href{https://bookdown.org/yihui/bookdown/usage.html}{bookdown}。}。
+
+在以下設定中，可使 gitbook 輸出的章節（順序）與 PDF 不同。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rmd_files:}
+  \FunctionTok{html:}\AttributeTok{ }\KeywordTok{[}\StringTok{"index.Rmd"}\KeywordTok{,} \StringTok{"abstract.Rmd"}\KeywordTok{,} \StringTok{"intro.Rmd"}\KeywordTok{]}
+  \FunctionTok{latex:}\AttributeTok{ }\KeywordTok{[}\StringTok{"abstract.Rmd"}\KeywordTok{,} \StringTok{"intro.Rmd"}\KeywordTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{bib-cite}{%
+\section{文獻引用}\label{bib-cite}}
+
+R Markdown 在文章中插入引用文獻的功能承繼 Pandoc。完整的使用見 \href{https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html}{R Markdown 官方說明} 。
+
+此模板目前產生文獻格式的方法是依靠 \href{https://github.com/jgm/pandoc-citeproc}{Pandoc citeproc}，因此，文獻格式是依據 \texttt{cite-style.csl}\footnote{此模板提供的 \texttt{cite-style.csl} 是 APA 英文第六版。此外，\url{http://blog.pulipuli.info/2011/05/zoteroapa.html} 亦有提供 APA 中文版的引用格式。需注意的是 Pandoc \textbf{不支援雙語 csl} (\url{http://blog.pulipuli.info/2014/08/zoteroapa-zotero-citation-style-apa.html})。} 產生的。使用者可至 \href{https://www.zotero.org/styles}{Zotero Style Repository} 下載所需的 csl 檔並覆蓋專案資料夾中的 \texttt{cite-style.csl}。
+
+\hypertarget{ref-bib}{%
+\subsection{\texorpdfstring{\texttt{ref.bib}}{ref.bib}}\label{ref-bib}}
+
+\texttt{.bib} 檔的產生方式可以由 Endnote, Zotero, JabRef 等書目管理軟體匯出。匯出後，將檔名命名為 \texttt{ref.bib} 放在專案資料夾\footnote{或是可以自訂檔名，並到 \texttt{index.Rmd} yaml 中的 \texttt{bibliography:\ ref.bib} 更改 \texttt{ref.bib} 檔名。此外，亦可使用多個 \texttt{.bib} 檔：\texttt{bibliography:\ {[}ref1.bib,\ ref2.bib,\ ref3.bib{]}}。}。
+
+\texttt{.bib} 內的一篇引用資料會類似：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{@article}\NormalTok{\{}\OtherTok{leung2008}\NormalTok{,}
+  \DataTypeTok{title}\NormalTok{ = \{Multicultural Experience Enhances Creativity: \{\{The\}\} When and How.\},}
+  \DataTypeTok{volume}\NormalTok{ = \{63\},}
+  \DataTypeTok{issn}\NormalTok{ = \{1935-990X(Electronic),0003-066X(Print)\},}
+  \DataTypeTok{doi}\NormalTok{ = \{10.1037/0003-066X.63.3.169\},}
+  \DataTypeTok{number}\NormalTok{ = \{3\},}
+  \DataTypeTok{journaltitle}\NormalTok{ = \{American Psychologist\},}
+  \DataTypeTok{date}\NormalTok{ = \{2008\},}
+  \DataTypeTok{pages}\NormalTok{ = \{169-181\},}
+  \DataTypeTok{keywords}\NormalTok{ = \{*Cognition,*Creativity,}
+\NormalTok{    *Culture (Anthropological),}
+\NormalTok{    *Experiences (Events),Multiculturalism\},}
+  \DataTypeTok{author}\NormalTok{ = \{Leung, Angela Ka-yee and }
+\NormalTok{    Maddux, William W. and }
+\NormalTok{    Galinsky, Adam D. and Chiu, Chi-yue\}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+其中第一行的 \texttt{leung2008} 即為 citation key。透過 \texttt{@citekey}(\texttt{@leung2008})即可在文獻中插入 citation。匯出論文時，文末會自動產生引用的文獻。
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Some\ text\ {[}@citekey{]}.}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Some text (Leung, Maddux, Galinsky, \& Chiu, \protect\hyperlink{ref-leung2008}{2008}).
+  \end{itemize}
+\item
+  \texttt{@citekey\ Some\ text}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Leung et al. (\protect\hyperlink{ref-leung2008}{2008}) Some text
+  \end{itemize}
+\item
+  \texttt{@citekey\ {[}p.\ 20{]}\ Some\ text.}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Leung et al. (\protect\hyperlink{ref-leung2008}{2008}, p. 20) Some text.
+  \end{itemize}
+\item
+  \texttt{Some\ text\ {[}-@citekey{]}.}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Some text (\protect\hyperlink{ref-leung2008}{2008})
+  \end{itemize}
+\item
+  \texttt{Some\ text\ {[}@citekey1;\ @citekey2{]}.}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Some text (Leung et al., \protect\hyperlink{ref-leung2008}{2008}; 黃宣範, \protect\hyperlink{ref-huangxuanfan1993}{1993}).
+  \end{itemize}
+\item
+  Prefix \& Suffix
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{Text\ {[}see\ @citekey1\ pp.45;\ also,\ @citekey2\ ch.\ 2{]}.}
+  \item
+    Text (see Leung et al., \protect\hyperlink{ref-leung2008}{2008}, p. 45; also, 黃宣範, \protect\hyperlink{ref-huangxuanfan1993}{1993} ch.~2).
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ref-manager}{%
+\subsection{書目管理軟體}\label{ref-manager}}
+
+這裡建議使用 Zotero 加上 \href{https://retorque.re/zotero-better-bibtex/}{Better BibTeX} 擴充功能。\texttt{citr} 對 Zotero 有額外的支持，且 \textbf{Zotero 能夠控制 citation key 的格式}（例如，last name + year），但其它書目管理軟體如 Endnote 產生的 citation key 難以讀懂且無法更改格式。
+
+\hypertarget{multi-lang-cite}{%
+\subsection{多語言文獻引用}\label{multi-lang-cite}}
+
+透過 csl 排版引用格式，只能支援單一語言。例如，若將英文格式套用到中文文獻，中文文獻就會出現英文的半形逗點和句點。
+
+\hypertarget{cheatsheet}{%
+\chapter{語法 Cheatsheet}\label{cheatsheet}}
+
+下文許多內容直接自 \href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html}{Bookdown} 擷取。想完整了解者，請閱讀 Bookdown 中的內容。
+
+\hypertarget{chapter-cross-ref}{%
+\section{章節連結}\label{chapter-cross-ref}}
+
+\hypertarget{define-anchor}{%
+\subsection{錨點定義}\label{define-anchor}}
+
+在內文中，可以使用特殊語法建立前往其它章節的連結，但首先每個章節需要有\textbf{錨點}。若章節標題由英數組成，例如 \texttt{\#\#\ Experimental\ Design}， 則錨點會自動被定義成 \texttt{experimental-design}。若\textbf{標題含有中文}，例如 \texttt{\#\#\ 實驗設計} 則需\textbf{自行定義錨點}：\texttt{\#\#\ 實驗設計\ \{\#exp-design\}}。
+
+\subsection{內文連結}
+
+要在內文建立連至其它章節的連結，需使用 \texttt{\textbackslash{}@ref(anchor)} 的語法，例如，
+
+\begin{itemize}
+\tightlist
+\item
+  連結至 \texttt{\#\#\ Experimental\ Design}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{\textbackslash{}@ref(experimental-design)}
+  \end{itemize}
+\item
+  連結至 \texttt{\#\#\ 實驗設計\ \{\#exp-design\}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{\textbackslash{}@ref(exp-design)}
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{math}{%
+\section{數學}\label{math}}
+
+\hypertarget{unnumbered-equations}{%
+\subsection{Unnumbered Equations}\label{unnumbered-equations}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{equation*}\NormalTok{\}}\SpecialStringTok{ }
+\SpecialCharTok{\textbackslash{}frac}\SpecialStringTok{\{d\}\{dx\}}\SpecialCharTok{\textbackslash{}left}\SpecialStringTok{( }\SpecialCharTok{\textbackslash{}int}\SpecialStringTok{_\{a\}^\{x\} f(u)}\SpecialCharTok{\textbackslash{},}\SpecialStringTok{du}\SpecialCharTok{\textbackslash{}right}\SpecialStringTok{)=f(x)}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{equation*}\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{equation*} 
+\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
+\end{equation*}
+
+\hypertarget{numbered-equations}{%
+\subsection{Numbered Equations}\label{numbered-equations}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\}}\SpecialStringTok{ }
+\SpecialStringTok{  f}\SpecialCharTok{\textbackslash{}left}\SpecialStringTok{(k}\SpecialCharTok{\textbackslash{}right}\SpecialStringTok{) = }\SpecialCharTok{\textbackslash{}binom}\SpecialStringTok{\{n\}\{k\} p^k}\SpecialCharTok{\textbackslash{}left}\SpecialStringTok{(1-p}\SpecialCharTok{\textbackslash{}right}\SpecialStringTok{)^\{n-k\}}
+\SpecialStringTok{  (}\SpecialCharTok{\textbackslash{}#}\SpecialStringTok{eq:bino)}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\} }
+
+\NormalTok{式 }\FunctionTok{\textbackslash{}@ref}\NormalTok{(eq:bino)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  \label{eq:binom}
+\end{equation}
+
+式 \eqref{eq:binom}
+
+\hypertarget{multi-line-aligned-equations}{%
+\subsection{Multi-line Aligned Equations}\label{multi-line-aligned-equations}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\}}\SpecialStringTok{ }
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{split}\NormalTok{\}}
+\SpecialCharTok{\textbackslash{}mathrm}\SpecialStringTok{\{Var\}(}\SpecialCharTok{\textbackslash{}hat}\SpecialStringTok{\{}\SpecialCharTok{\textbackslash{}beta}\SpecialStringTok{\}) & =}\SpecialCharTok{\textbackslash{}mathrm}\SpecialStringTok{\{Var\}((X'X)^\{-1\}X'y)}\SpecialCharTok{\textbackslash{}\textbackslash{}}
+\SpecialStringTok{ & =(X'X)^\{-1\}X'}\SpecialCharTok{\textbackslash{}mathrm}\SpecialStringTok{\{Var\}(y)((X'X)^\{-1\}X')'}\SpecialCharTok{\textbackslash{}\textbackslash{}}
+\SpecialStringTok{ & =(X'X)^\{-1\}X'}\SpecialCharTok{\textbackslash{}mathrm}\SpecialStringTok{\{Var\}(y)X(X'X)^\{-1\}}\SpecialCharTok{\textbackslash{}\textbackslash{}}
+\SpecialStringTok{ & =(X'X)^\{-1\}X'}\SpecialCharTok{\textbackslash{}sigma}\SpecialStringTok{^\{2\}IX(X'X)^\{-1\}}\SpecialCharTok{\textbackslash{}\textbackslash{}}
+\SpecialStringTok{ & =(X'X)^\{-1\}}\SpecialCharTok{\textbackslash{}sigma}\SpecialStringTok{^\{2\}}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\SpecialStringTok{split\}}
+\SpecialStringTok{(}\SpecialCharTok{\textbackslash{}#}\SpecialStringTok{eq:var-beta)}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\}}
+
+\NormalTok{詳見公式 }\FunctionTok{\textbackslash{}@ref}\NormalTok{(eq:var-beta)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{equation} 
+\begin{split}
+\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y)\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')'\\
+ & =(X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1}\\
+ & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}\\
+ & =(X'X)^{-1}\sigma^{2}
+\end{split}
+\label{eq:var-bet}
+\end{equation}
+
+詳見公式 \eqref{eq:var-bet}
+
+\hypertarget{theorem-proof}{%
+\subsection{定理與證明}\label{theorem-proof}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BaseNTok{```\{theorem, thm-label, name="Pythagorean theorem"\}}
+\BaseNTok{For a right triangle, if $c$ denotes the length of the hypotenuse}
+\BaseNTok{and $a$ and $b$ denote the lengths of the other two sides, we have}
+
+\BaseNTok{$$a^2 + b^2 = c^2$$}
+\BaseNTok{```}
+
+\NormalTok{詳見定理 \textbackslash{}@ref(thm:thm-label)}
+\end{Highlighting}
+\end{Shaded}
+
+詳見定理 \ref{thm:pyth}
+
+\hypertarget{environment}{%
+\subsection{環境}\label{environment}}
+
+除了 \texttt{theorem} 之外，還可以使用其它 bookdown 提供的環境。例如，將 code chunk 中 \texttt{theorem} 換成 \texttt{proof}, \texttt{remark}, \texttt{solution}\footnote{\texttt{theorem}、\texttt{proof}、\texttt{remark} 這三者無法被 cross-reference。}。
+
+表 \ref{tab:theorem-envs} 呈現 bookdown 中的\href{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html\#tab:theorem-envs}{引用環境}。
+
+
+
+\begin{table}[t]
+
+\caption{\label{tab:theorem-envs}Theorem environments in \textbf{bookdown}.}
+\centering
+\begin{tabular}{lll}
+\toprule
+Environment & Printed Name & Label Prefix\\
+\midrule
+theorem & Theorem & thm\\
+lemma & Lemma & lem\\
+corollary & Corollary & cor\\
+proposition & Proposition & prp\\
+conjecture & Conjecture & cnj\\
+\addlinespace
+definition & Definition & def\\
+example & Example & exm\\
+exercise & Exercise & exr\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{figure-referencing}{%
+\section{Figure Referencing}\label{figure-referencing}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AlertTok{![Test figure caption](img/watermark.png)}\NormalTok{\{#fig-with-pandoc width=50% \}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\hypertarget{fig-with-pandoc}{%
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{img/watermark.png}
+\caption{Test figure caption}\label{fig-with-pandoc}
+}
+\end{figure}
+
+\texttt{見圖\ \textbackslash{}@ref(fig:fig-with-pandoc)}產生：見圖 \ref{fig:fig-with-pandoc}
+
+\hypertarget{figure-caption}{%
+\subsection{Figure Caption}\label{figure-caption}}
+
+對於比較複雜的 caption，可以使用 Text reference 的方式：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{對於比較複雜的 caption，可以使用 Text reference 的方式：}
+
+\NormalTok{(ref:dia) 插入**引用資料** [@kassin2017] 的 Figure Caption.}
+
+\AlertTok{![(ref:dia)](img/watermark.png)}\NormalTok{\{#fig-with-pandoc2 width=50% \}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{table-referencing}{%
+\section{Table Referencing}\label{table-referencing}}
+
+
+
+\begin{longtable}[]{@{}rlcl@{}}
+\caption{This is table caption.}\tabularnewline
+\toprule
+Right & Left & Center & Default\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Right & Left & Center & Default\tabularnewline
+\midrule
+\endhead
+12 & 12 & 12 & 12\tabularnewline
+123 & 123 & 123 & 123\tabularnewline
+1 & 1 & 1 & 1\tabularnewline
+\bottomrule
+\end{longtable}
+
+\renewcommand{\href}{\oldhref}
+
+\hypertarget{references}{%
+\chapter*{參考資料}\label{references}}
+\addcontentsline{toc}{chapter}{參考資料}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-leung2008}{}%
+Leung, A. K.-y., Maddux, W. W., Galinsky, A. D., \& Chiu, C.-y. (2008). Multicultural experience enhances creativity: The when and how. \emph{American Psychologist}, \emph{63}(3), 169--181. \url{https://doi.org/10.1037/0003-066X.63.3.169}
+
+\leavevmode\hypertarget{ref-huangxuanfan1993}{}%
+黃宣範. (1993). \emph{語言、社會與族群意識: 臺灣語言社會學的研究}. 臺北市: 文鶴. Retrieved from \url{http://tulips.ntu.edu.tw:1081/record=b1285025*cht}
+
+
+
+
+
+
+
+\end{document}

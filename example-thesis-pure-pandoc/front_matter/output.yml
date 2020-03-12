@@ -1,0 +1,13 @@
+site: bookdown::bookdown_site
+output:
+  bookdown::pdf_document2:
+    latex_engine: xelatex
+    number_sections: FALSE
+    toc: false
+    template: template-rewrite.tex
+    keep_tex: true
+  ntuthesis::tex_document:
+    number_sections: no
+    toc: false
+    template: template-rewrite.tex
+    keep_tex: true

@@ -1,0 +1,46 @@
+\usepackage{pdfpages}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage[section]{placeins}
+\usepackage{xeCJK}
+
+% Centering all titles
+% https://tex.stackexchange.com/questions/310205/is-there-a-way-to-center-align-chapter-titles
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+    {\bfseries\centering}
+    {\huge Chapter \thechapter}{1em}
+    {\Huge}
+
+% Eng font-family
+\setmainfont[
+  Path=latex/,
+  BoldFont={TimesNewRomanBold},
+  ItalicFont={TimesNewRomanItalic},
+  BoldItalicFont={TimesNewRomanBoldItalic}
+]{TimesNewRoman}
+
+% Trad Ch font-family
+\setCJKmainfont[Path=latex/,AutoFakeBold=2.5,AutoFakeSlant=.3]{kaiti}
+\setCJKmonofont[Path=latex/]{NotoSansMonoCJKtc}
+
+% Special font: IPA
+\newfontfamily{\ipa}[Path=latex/,AutoFakeBold=2.5,AutoFakeSlant=.3]{IPAfont} % Font for IPA symbols
+\DeclareTextFontCommand{\ipatext}{\ipa}
+
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+\renewcommand{\contentsname}{Table of Contents}
+%\renewcommand{\listfigurename}{}
+%\renewcommand{\listtablename}{}
+%\renewcommand{\bibname}{}
+
+% deal with nuts floating figures
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\floatpagefraction}{0.75}
+
+\usepackage[fontsize=12pt]{scrextend}

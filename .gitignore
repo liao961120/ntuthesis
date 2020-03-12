@@ -7,11 +7,6 @@ inst/doc
 *.xwm
 *.ttf
 *.otf
-/docs
+docs/
 /skel-files.txt
 /renew-skel.sh
-/example-thesis/_book/*.html
-/example-thesis/_book/*.css
-/example-thesis/_book/*.json
-/example-thesis/_book/**/*
-/example-thesis/_book/ntu-bookdown.tex
