@@ -5,10 +5,11 @@ script:
   - Rscript -e 'remotes::install_github("RLesur/klippy")'
   - bash render-book.sh
   - rm DESCRIPTION
+  - rm .gitignore
   - mv DESCRIPTION-pkgdown DESCRIPTION
   - Rscript -e 'pkgdown::build_site()'
   - cp -r _book/ docs/doc
-  - cp -rf example-thesis/_book/*.pdf docs/doc/
+  - cp -rf example-thesis/_book/* docs/doc/
   
 cache:
   packages: yes
