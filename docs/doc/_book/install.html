@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 安裝 | 臺大論文模板</title>
+  <meta name="description" content="1 安裝 | 臺大論文模板" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 安裝 | 臺大論文模板" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="liao961120/ntuthesis" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 安裝 | 臺大論文模板" />
+  
+  
+  
+
+<meta name="author" content="廖永賦" />
+
+
+<meta name="date" content="2020-03-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="export-thesis.html">
+<script src="libs/header-attrs-2.1.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
+<script>
+// Add target_blank to external link
+// See article-header.html for auto adding ID to h1,h2,h3
+$(document).ready(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">NTU Thesis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>關於</a></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> 安裝</a>
+<ul>
+<li><a href="install.html#v1.0.0"><code>v1.0.0</code></a></li>
+<li class="chapter" data-level="" data-path="install.html"><a href="install.html#最新版"><i class="fa fa-check"></i>最新版</a></li>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#ide"><i class="fa fa-check"></i><b>1.1</b> IDE</a></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#latex"><i class="fa fa-check"></i><b>1.2</b> LaTeX</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="install.html"><a href="install.html#tinytex-套件"><i class="fa fa-check"></i><b>1.2.1</b> tinytex 套件</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="export-thesis.html"><a href="export-thesis.html"><i class="fa fa-check"></i><b>2</b> 輸出論文</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="export-thesis.html"><a href="export-thesis.html#import-template"><i class="fa fa-check"></i><b>2.1</b> 匯入論文模板</a></li>
+<li class="chapter" data-level="2.2" data-path="export-thesis.html"><a href="export-thesis.html#edit-front-matter"><i class="fa fa-check"></i><b>2.2</b> 編輯封面</a></li>
+<li class="chapter" data-level="2.3" data-path="export-thesis.html"><a href="export-thesis.html#compile-thesis"><i class="fa fa-check"></i><b>2.3</b> Compile 論文</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="write-thesis.html"><a href="write-thesis.html"><i class="fa fa-check"></i><b>3</b> 論文撰寫</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="write-thesis.html"><a href="write-thesis.html#dir-structure"><i class="fa fa-check"></i><b>3.1</b> 檔案結構</a></li>
+<li class="chapter" data-level="3.2" data-path="write-thesis.html"><a href="write-thesis.html#index-rmd"><i class="fa fa-check"></i><b>3.2</b> <code>index.Rmd</code></a></li>
+<li class="chapter" data-level="3.3" data-path="write-thesis.html"><a href="write-thesis.html#write-lang"><i class="fa fa-check"></i><b>3.3</b> 撰寫語言</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="write-thesis.html"><a href="write-thesis.html#output.yml"><i class="fa fa-check"></i><b>3.3.1</b> <code>_output.yml</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="write-thesis.html"><a href="write-thesis.html#bookdown.yml"><i class="fa fa-check"></i><b>3.3.2</b> <code>_bookdown.yml</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="write-thesis.html"><a href="write-thesis.html#bib-cite"><i class="fa fa-check"></i><b>3.4</b> 文獻引用</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="write-thesis.html"><a href="write-thesis.html#ref-bib"><i class="fa fa-check"></i><b>3.4.1</b> <code>ref.bib</code></a></li>
+<li class="chapter" data-level="3.4.2" data-path="write-thesis.html"><a href="write-thesis.html#cite-syntax"><i class="fa fa-check"></i><b>3.4.2</b> 引用語法</a></li>
+<li class="chapter" data-level="3.4.3" data-path="write-thesis.html"><a href="write-thesis.html#ref-manager"><i class="fa fa-check"></i><b>3.4.3</b> 書目管理軟體</a></li>
+<li class="chapter" data-level="3.4.4" data-path="write-thesis.html"><a href="write-thesis.html#multi-lang-cite"><i class="fa fa-check"></i><b>3.4.4</b> 多語言文獻引用</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="cheatsheet.html"><a href="cheatsheet.html"><i class="fa fa-check"></i><b>4</b> 語法 Cheatsheet</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="cheatsheet.html"><a href="cheatsheet.html#chapter-cross-ref"><i class="fa fa-check"></i><b>4.1</b> 章節連結</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="cheatsheet.html"><a href="cheatsheet.html#define-anchor"><i class="fa fa-check"></i><b>4.1.1</b> 錨點定義</a></li>
+<li class="chapter" data-level="4.1.2" data-path="cheatsheet.html"><a href="cheatsheet.html#內文連結"><i class="fa fa-check"></i><b>4.1.2</b> 內文連結</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="cheatsheet.html"><a href="cheatsheet.html#math"><i class="fa fa-check"></i><b>4.2</b> 數學</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="cheatsheet.html"><a href="cheatsheet.html#unnumbered-equations"><i class="fa fa-check"></i><b>4.2.1</b> Unnumbered Equations</a></li>
+<li class="chapter" data-level="4.2.2" data-path="cheatsheet.html"><a href="cheatsheet.html#numbered-equations"><i class="fa fa-check"></i><b>4.2.2</b> Numbered Equations</a></li>
+<li class="chapter" data-level="4.2.3" data-path="cheatsheet.html"><a href="cheatsheet.html#multi-line-aligned-equations"><i class="fa fa-check"></i><b>4.2.3</b> Multi-line Aligned Equations</a></li>
+<li class="chapter" data-level="4.2.4" data-path="cheatsheet.html"><a href="cheatsheet.html#theorem-proof"><i class="fa fa-check"></i><b>4.2.4</b> 定理與證明</a></li>
+<li class="chapter" data-level="4.2.5" data-path="cheatsheet.html"><a href="cheatsheet.html#environment"><i class="fa fa-check"></i><b>4.2.5</b> 環境</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="cheatsheet.html"><a href="cheatsheet.html#figure-referencing"><i class="fa fa-check"></i><b>4.3</b> Figure Referencing</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="cheatsheet.html"><a href="cheatsheet.html#figure-caption"><i class="fa fa-check"></i><b>4.3.1</b> Figure Caption</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="cheatsheet.html"><a href="cheatsheet.html#table-referencing"><i class="fa fa-check"></i><b>4.4</b> Table Referencing</a>
+<ul>
+<li class="chapter" data-level="" data-path="cheatsheet.html"><a href="cheatsheet.html#link-table-in-later-sections"><i class="fa fa-check"></i>Link Table in Later Sections</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="cheatsheet.html"><a href="cheatsheet.html#總整理"><i class="fa fa-check"></i><b>4.5</b> 總整理</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="add-on.html"><a href="add-on.html"><i class="fa fa-check"></i><b>5</b> 進階功能擴充</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="add-on.html"><a href="add-on.html#ling"><i class="fa fa-check"></i><b>5.1</b> 語言學</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="feed-back.html"><a href="feed-back.html"><i class="fa fa-check"></i>問題協助</a>
+<ul>
+<li class="chapter" data-level="" data-path="feed-back.html"><a href="feed-back.html#issue"><i class="fa fa-check"></i>提出問題</a></li>
+<li class="chapter" data-level="" data-path="feed-back.html"><a href="feed-back.html#rmd-resources"><i class="fa fa-check"></i>R Markdown 相關資源</a></li>
+<li class="chapter" data-level="" data-path="feed-back.html"><a href="feed-back.html#improve-the-project"><i class="fa fa-check"></i>Improve the Project</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix-附錄.html"><a href="appendix-附錄.html"><i class="fa fa-check"></i>(APPENDIX) 附錄</a></li>
+<li class="chapter" data-level="6" data-path="latex-cite-pkg.html"><a href="latex-cite-pkg.html"><i class="fa fa-check"></i><b>6</b> 尋找 LaTeX 高手</a></li>
+<li class="chapter" data-level="7" data-path="epilogue.html"><a href="epilogue.html"><i class="fa fa-check"></i><b>7</b> 後記</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>參考資料</a></li>
+<li class="divider"></li>
+<li><a href="https://liao961120.github.io/ntuthesis" target="blank"><i class="fas fa-home"></i> &nbsp;套件網站</a></li>
+<li><a href="https://github.com/liao961120/ntuthesis" target="blank"><i class="fab fa-github"></i> &nbsp; GitHub</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">臺大論文模板</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="install" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> 安裝</h1>
+<div id="v1.0.0" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number=""><code>v1.0.0</code></h3>
+<p>2019-02-10 之前已使用 <code>ntuthesis</code> 撰寫論文者，請下載 <code>v1.0.0</code>：</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="install.html#cb1-1"></a><span class="co">#install.packages(&#39;remotes&#39;)</span></span>
+<span id="cb1-2"><a href="install.html#cb1-2"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;liao961120/ntuthesis@v1.0.0&quot;</span>)</span></code></pre></div>
+<p>並請閱讀<a href="https://liao961120.github.io/ntuthesis/doc-v1">第一版的說明文件</a>。</p>
+</div>
+<div id="最新版" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">最新版</h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="install.html#cb2-1"></a><span class="co">#install.packages(&#39;remotes&#39;)</span></span>
+<span id="cb2-2"><a href="install.html#cb2-2"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;liao961120/ntuthesis&quot;</span>)</span></code></pre></div>
+<p>安裝完成後，執行下方指令，下載套件所需的字體檔：</p>
+<pre><code>ntuthesis::download_fonts()</code></pre>
+<p>新版的 <code>ntuthesis</code> 較易加入其它學校模板，目前正在開發中，API 與舊版兼容，但舊的 <code>ntu_bookdown</code> 模板已更新為 <code>ntu</code>，並且不容於新版。已使用 <code>ntu_bookdown</code> 模板者，請下載 <code>v1.0.0</code>。</p>
+</div>
+<div id="ide" class="section level2" number="1.1">
+<h2 number="1.1"><span class="header-section-number">1.1</span> IDE</h2>
+<p>建議使用 Rstudio，因為安裝 Rstudio 時，同時會安裝 Pandoc。若使用者使用 Rstudio 以外的 IDE，需要自行安裝並設定 Pandoc PATH，對使用者較為麻煩。</p>
+</div>
+<div id="latex" class="section level2" number="1.2">
+<h2 number="1.2"><span class="header-section-number">1.2</span> LaTeX</h2>
+<p>若已有管理、安裝 LaTeX 套件經驗者，可忽略。</p>
+<div id="tinytex-套件" class="section level3" number="1.2.1">
+<h3 number="1.2.1"><span class="header-section-number">1.2.1</span> tinytex 套件</h3>
+<p>若電腦尚未安裝 LaTeX，可安裝 R 的 tinytex 套件 (Mac 使用者可能會安裝失敗，見下文)：</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="install.html#cb4-1"></a><span class="kw">install.packages</span>(<span class="st">&#39;tinytex&#39;</span>)</span></code></pre></div>
+<p>接著，選擇<strong>與電腦相同作業系統</strong>的連結下載 TinyTeX Library<a href="references.html#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>：</p>
+<ul>
+<li><a href="http://bit.ly/TinyTex-linux">Linux x86_64</a></li>
+<li><a href="http://bit.ly/TinyTeX-win">Windows 7/10 64bit</a></li>
+<li>Mac 使用者在安裝 TinyTeX Library 時<strong>很可能會遇到問題</strong>。請跳過下方內容，直接從 <a href="install.html#mac"><strong>??</strong></a> 節開始閱讀，幸運的話可以直接安裝成功。若失敗的話，可參考此二連結中的對話串：<a href="https://github.com/yihui/tinytex/issues/92">tinytex installation pain on Mac</a> 與 <a href="https://github.com/yihui/tinytex/issues/24">/usr/local/bin not writable</a>。</li>
+</ul>
+<p>下載檔案後，</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>將檔案解壓縮<a href="references.html#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p></li>
+<li><p>將解壓後資料夾中的 <code>.TinyTeX/</code><a href="references.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> 放至喜歡的路徑（e.g. <code>C:\Users\&lt;username&gt;\.TinyTeX</code>, 路徑儘量簡單且<strong>不能包含中文字</strong>）</p></li>
+<li><p>接著在 R 中執行：</p></li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="install.html#cb5-1"></a>tinytex<span class="op">::</span><span class="kw">use_tinytex</span>()</span></code></pre></div>
+<p>即會跳出一個視窗。請選擇剛剛存放 <code>.TinyTeX/</code> 的路徑。</p>
+<p>若失敗詳見<a href="https://yihui.name/en/2018/08/tinytex-flash-drive">此篇文章</a>。</p>
+<div id="tinytex-manage" class="section level4" number="1.2.1.1">
+<h4 number="1.2.1.1"><span class="header-section-number">1.2.1.1</span> LaTeX 套件管理</h4>
+<p>在輸出 R Markdown 時，tinytex 會自動安裝缺少的 LaTeX 套件。因此，使用 TinyTeX 可以減輕管理 LaTeX 套件的麻煩。然而，下載 LaTeX 套件需要許多時間，因此這裡提供預先下載好之 TinyTeX（Windows 和 Linux）。</p>
+<div id="mac" class="section level5" number="1.2.1.1.1">
+<h5 number="1.2.1.1.1"><span class="header-section-number">1.2.1.1.1</span> Mac</h5>
+<p>由於作者沒有 Mac 電腦，無法提供 Mac 版本的 TinyTeX，Mac 使用者需使用</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="install.html#cb6-1"></a>tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</span></code></pre></div>
+<p>安裝 TinyTeX，之後電腦在<a href="export-thesis.html#export-thesis">輸出論文</a>時，會自動安裝所需的套件。</p>
+<p>(若安裝失敗，請看看是否錯誤訊息與此二討論串中類似：<a href="https://github.com/yihui/tinytex/issues/92">tinytex installation pain on Mac</a>、<a href="https://github.com/yihui/tinytex/issues/24">/usr/local/bin not writable</a>)</p>
+<p>這會使得第一次輸出論文時會花費較多時間，然而，若願意的話，您可以將下載到您電腦上的 TinyTeX 提供給其他 Mac 使用者：</p>
+<p>成功輸出論文 PDF 後，執行</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="install.html#cb7-1"></a>tinytex<span class="op">::</span><span class="kw">copy_tinytex</span>()</span></code></pre></div>
+<p>即會跳出一個新視窗。選擇資料夾後，即會將電腦上的 TinyTeX 複製到此資料夾。如此，下一位使用者只須將此資料夾複製到電腦上，並用 <code>tinytex::use_tinytex()</code> 設定 TinyTeX 的路徑至該資料夾，即可節省輸出論文時安裝 LaTeX 套件所耗費的時間。
+希望使用 Mac 成功輸出論文的使用者能將 TinyTeX 的壓縮檔或連結提供給我，讓其他的使用者受益。</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<br><br>
+<div id="disqus_thread"></div>
+<script>
+
+//var disqus_config = function () { 
+//  this.language = "zh-Hant";
+//};
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://ntuthesis.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="export-thesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/liao961120/ntuthesis/edit/master/example-thesis/01-1-install.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["ntu-bookdown.pdf"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
