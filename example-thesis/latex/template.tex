@@ -1,3 +1,14 @@
+%fix pandoc 2.8 update
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}%
+  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
+  {\par}
+$endif$
+
+
 $if(two-side)$
   \documentclass[]{book}
 $else$
@@ -305,6 +316,7 @@ $endfor$
 
 \phantomsection
 \addcontentsline{toc}{chapter}{口試委員會審定書}
+%\pagenumbering{gobble}  % TEST REMOVE PAGENUM ==================================
 \includepdf[pages={1}, scale=1]{certification-scan.pdf}
 
 

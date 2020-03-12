@@ -1,0 +1,43 @@
+@import url('https://use.fontawesome.com/releases/v5.4.2/css/all.css');
+
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+
+/*pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+*/
+
+pre code, pre, code {
+  white-space: pre ;
+  overflow-x: auto !important;
+  word-break: keep-all ;
+  word-wrap: initial ;
+}
+
+
+p.flushright {
+  text-align: right;
+}
+blockquote > p:last-child {
+  text-align: right;
+}
+blockquote > p:first-child {
+  text-align: inherit;
+}
+
+
+img{
+  border-radius: 13px;
+  box-shadow: 3px 5px 7px rgba(0, 0, 0, .5);
+  margin-bottom: 1.2em;
+}
