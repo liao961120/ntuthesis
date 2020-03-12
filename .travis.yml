@@ -8,6 +8,7 @@ script:
   - rm .gitignore
   - mv DESCRIPTION-pkgdown DESCRIPTION
   - Rscript -e 'pkgdown::build_site()'
+  - mkdir docs/doc
   - cp -rf example-thesis/_book/* docs/doc/
   
 cache:
