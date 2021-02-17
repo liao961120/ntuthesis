@@ -1,0 +1,6 @@
+pandoc: 2.10.1
+pkgdown: 1.4.1
+pkgdown_sha: ~
+articles:
+  extend_template: extend_template.html
+

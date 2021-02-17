@@ -1,0 +1,1 @@
+[["index.html", "臺大論文模板 關於", " 臺大論文模板 廖永賦 February 17, 2021 DEPRECATED: Use ntuthesis2 instead 關於 這是 ntuthesis 的說明文件。這份說明文件是以臺大論文格式所寫成，並且可以輸出成 HTML（GitBook），亦即您目前所見的文件，或是 PDF，亦即完整的臺大論文（可透過 navbar 上的 查看）。 使用此論文模板應至少對 R Markdown 有初步的了解，例如知道 Markdown 的基本語法並且曾透過 R Markdown 輸出 html_document。 "]]
