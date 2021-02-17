@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/liao961120/ntuthesis.svg?branch=master)](https://travis-ci.org/liao961120/ntuthesis) [![Support R Version](https://img.shields.io/badge/R-≥%203.4.0-blue.svg)](https://cran.r-project.org/) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
+**DEPRECATED**: Use [**ntuthesis2**](https://github.com/liao961120/ntuthesis2) instead
+
 # ntuthesis
 
 這是國立臺灣大學的論文模板，基於 [bookdown](https://github.com/rstudio/bookdown) 的架構。為了方便使用，將此模板打包成 R Package，方便使用者下載及使用內建函數。
